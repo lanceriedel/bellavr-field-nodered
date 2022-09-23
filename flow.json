@@ -1,0 +1,255 @@
+[
+    {
+        "id": "3d42d3194c2552f8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3a14620e1b5f351e",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9f6951d1.47eee",
+        "type": "tab",
+        "label": "Test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f4e089737d4af4d2",
+        "type": "tab",
+        "label": "Test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cc62dc9501704753",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5999f1d09afe1039",
+        "type": "mqtt-broker",
+        "name": "mqtt-node-main",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a1e6cd272693b010",
+        "type": "mqtt in",
+        "z": "3d42d3194c2552f8",
+        "name": "node-red-mqtt",
+        "topic": "avr-building",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "5999f1d09afe1039",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "f1bb23938817cf22",
+                "c8b1c42f14afa240"
+            ]
+        ]
+    },
+    {
+        "id": "f1bb23938817cf22",
+        "type": "debug",
+        "z": "3d42d3194c2552f8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c8b1c42f14afa240",
+        "type": "mqtt out",
+        "z": "3d42d3194c2552f8",
+        "name": "nodeout",
+        "topic": "avrnode-out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 620,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "675e506f8cc3e3c6",
+        "type": "mqtt out",
+        "z": "3d42d3194c2552f8",
+        "name": "window-off-mqtt",
+        "topic": "windowoff",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "c11317ac5ddaf481",
+        "type": "switch",
+        "z": "3d42d3194c2552f8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "4f1f03d9ace5b214",
+                "456171329783d919"
+            ],
+            [
+                "675e506f8cc3e3c6",
+                "456171329783d919"
+            ]
+        ]
+    },
+    {
+        "id": "4f1f03d9ace5b214",
+        "type": "mqtt out",
+        "z": "3d42d3194c2552f8",
+        "name": "window-on-mqtt",
+        "topic": "windowon",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 650,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "456171329783d919",
+        "type": "debug",
+        "z": "3d42d3194c2552f8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6a3261bd5d1634ff",
+        "type": "inject",
+        "z": "3d42d3194c2552f8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "7956c7f15c937519"
+            ]
+        ]
+    },
+    {
+        "id": "7956c7f15c937519",
+        "type": "function",
+        "z": "3d42d3194c2552f8",
+        "name": "Create flip/flop",
+        "func": "var count = context.get(\"counter\") || 0;\ncount = (count + 1) % 2;\ncontext.set(\"counter\", count);\nmsg.payload = count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "if (context.get(\"counter\") === undefined) {\n    context.set(\"counter\", 0)\n}",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "c11317ac5ddaf481"
+            ]
+        ]
+    }
+]
