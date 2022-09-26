@@ -199,10 +199,37 @@
         ]
     },
     {
+        "id": "fb8b1d8482061269",
+        "type": "inject",
+        "z": "3d42d3194c2552f8",
+        "name": "Inject +1 Fire",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "6cddfd33ec05b6b7",
         "type": "mqtt in",
         "z": "8d38dc412a73d987",
-        "name": "node-red-mqtt",
+        "name": "node-red-mqtt-edge",
         "topic": "avr-building/#",
         "qos": "2",
         "datatype": "auto-detect",
@@ -211,7 +238,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 100,
+        "x": 110,
         "y": 140,
         "wires": [
             [
@@ -225,7 +252,7 @@
         "id": "ead81eadfddf78f2",
         "type": "mqtt out",
         "z": "8d38dc412a73d987",
-        "name": "nodeout",
+        "name": "nodeout-test",
         "topic": "avrnode-out",
         "qos": "",
         "retain": "",
@@ -235,7 +262,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 580,
+        "x": 590,
         "y": 140,
         "wires": []
     },
