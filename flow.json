@@ -86,7 +86,7 @@
         "y": 400,
         "wires": [
             [
-                "4f1f03d9ace5b214"
+                "2e5f3a887f317523"
             ],
             [
                 "675e506f8cc3e3c6"
@@ -107,8 +107,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 630,
-        "y": 360,
+        "x": 770,
+        "y": 260,
         "wires": []
     },
     {
@@ -172,11 +172,38 @@
         ]
     },
     {
+        "id": "2e5f3a887f317523",
+        "type": "change",
+        "z": "3d42d3194c2552f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ONMORETIME",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "4f1f03d9ace5b214"
+            ]
+        ]
+    },
+    {
         "id": "6cddfd33ec05b6b7",
         "type": "mqtt in",
         "z": "8d38dc412a73d987",
         "name": "node-red-mqtt",
-        "topic": "avr-building",
+        "topic": "avr-building/#",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "5999f1d09afe1039",
