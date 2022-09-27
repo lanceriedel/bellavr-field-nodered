@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "8b4b6895c0ec29ec",
+        "type": "tab",
+        "label": "Storage",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5999f1d09afe1039",
         "type": "mqtt-broker",
         "name": "mqtt-node-main",
@@ -41,6 +49,12 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "6f6f2d0bf9d4b5e3",
+        "type": "sqlitedb",
+        "db": "/home/pi/sqlite-storage/sqlite",
+        "mode": "RWC"
     },
     {
         "id": "675e506f8cc3e3c6",
@@ -244,7 +258,8 @@
             [
                 "ead81eadfddf78f2",
                 "150214bc5b9ca200",
-                "9b5082c4eb041501"
+                "9b5082c4eb041501",
+                "e217c30a266866bb"
             ]
         ]
     },
@@ -293,6 +308,627 @@
         "statusType": "auto",
         "x": 800,
         "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e217c30a266866bb",
+        "type": "sqlite",
+        "z": "8d38dc412a73d987",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "FieldStateSqlLite",
+        "x": 470,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "890050b7a3592bf1",
+        "type": "inject",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Create Game Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "6b73945a30a3b156"
+            ]
+        ]
+    },
+    {
+        "id": "6b73945a30a3b156",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  ",
+        "name": "Create Game Table - SqlLiteGameStorage",
+        "x": 620,
+        "y": 140,
+        "wires": [
+            [
+                "544ae34808a17523"
+            ]
+        ]
+    },
+    {
+        "id": "323e92765149313d",
+        "type": "inject",
+        "z": "8b4b6895c0ec29ec",
+        "name": "INSERT New Match  with Random Game Event",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 320,
+        "wires": [
+            [
+                "deb6a8cb5bd78b0e"
+            ]
+        ]
+    },
+    {
+        "id": "d7e91528f5c8f1d6",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1090,
+        "y": 100,
+        "wires": [
+            [
+                "f406a76e56b92d05"
+            ]
+        ]
+    },
+    {
+        "id": "deb6a8cb5bd78b0e",
+        "type": "function",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Create Sql Random Game Event",
+        "func": "//CREATE TABLE GAMETEST(TIMESTAMP INT PRIMARY KEY NOT NULL, MATCH_NUM INT NOT NULL, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL);  )\n\nvar fireScore = Math.round(Math.random() * 10);\nvar numTrees = Math.round(Math.random() * 10);\nvar buildingId = \"LM1\";\n//could read last match num and send to this? or enter\nvar timestamp = msg.payload;\nvar newMsg = {\n    \"topic\": \"INSERT INTO GAMETEST (BUILDING_ID,FIRE_SCORE,NUM_TREES, TIMEOFMATCH) VALUES ( '\" + buildingId + \"', \" + fireScore + \", \" + numTrees + \", \" + timestamp + \")\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "f17cfb3701f218bb"
+            ]
+        ]
+    },
+    {
+        "id": "f406a76e56b92d05",
+        "type": "debug",
+        "z": "8b4b6895c0ec29ec",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "43ddc5a441c4fd3f",
+        "type": "link in",
+        "z": "8b4b6895c0ec29ec",
+        "name": "genericSql",
+        "links": [
+            "cdb9035ee521bb85",
+            "3e88982af6e3f40a",
+            "b495418c6c4b995b"
+        ],
+        "x": 925,
+        "y": 100,
+        "wires": [
+            [
+                "d7e91528f5c8f1d6"
+            ]
+        ]
+    },
+    {
+        "id": "c438603eb5bdfb0f",
+        "type": "inject",
+        "z": "8b4b6895c0ec29ec",
+        "name": "MatchNum DB to Global.matchnum",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 480,
+        "wires": [
+            [
+                "0eeb08f608cda30d"
+            ]
+        ]
+    },
+    {
+        "id": "0eeb08f608cda30d",
+        "type": "function",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Select All Game Table",
+        "func": "var newMsg = {\n    \"topic\": \"select * from GAMETEST ORDER BY TIMEOFMATCH DESC;\"\n}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "3795e6645db18f3d"
+            ]
+        ]
+    },
+    {
+        "id": "205cfd1b6882a75f",
+        "type": "inject",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Drop Game Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 60,
+        "wires": [
+            [
+                "3472ec7018175754"
+            ]
+        ]
+    },
+    {
+        "id": "3472ec7018175754",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "DROP TABLE IF EXISTS GAMETEST;",
+        "name": "Drop Game Table",
+        "x": 550,
+        "y": 60,
+        "wires": [
+            [
+                "544ae34808a17523"
+            ]
+        ]
+    },
+    {
+        "id": "544ae34808a17523",
+        "type": "debug",
+        "z": "8b4b6895c0ec29ec",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "cd48c9f801565d50",
+        "type": "inject",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Increment Fire Score ",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "matchnum",
+        "payloadType": "global",
+        "x": 170,
+        "y": 700,
+        "wires": [
+            [
+                "7fbe0d92b45b670a"
+            ]
+        ]
+    },
+    {
+        "id": "7fbe0d92b45b670a",
+        "type": "function",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Create Sql Random Game Event",
+        "func": "\n//UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + 1 WHERE id = {matchid}\n//could read last match num and send to this? or enter\nvar matchid = msg.payload;\nvar newMsg = {\n    \"topic\": \"UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + 1 WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 700,
+        "wires": [
+            [
+                "b495418c6c4b995b",
+                "6250f382d3803772"
+            ]
+        ]
+    },
+    {
+        "id": "3795e6645db18f3d",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "47d9280953d49f68",
+                "6250f382d3803772"
+            ]
+        ]
+    },
+    {
+        "id": "47d9280953d49f68",
+        "type": "function",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Result match_num",
+        "func": "var matchid = msg.payload[0].MATCH_NUM;\nmsg.payload = matchid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 480,
+        "wires": [
+            [
+                "6250f382d3803772",
+                "5b239da32b7dcc26"
+            ]
+        ]
+    },
+    {
+        "id": "6250f382d3803772",
+        "type": "debug",
+        "z": "8b4b6895c0ec29ec",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5b239da32b7dcc26",
+        "type": "change",
+        "z": "8b4b6895c0ec29ec",
+        "name": "set global",
+        "rules": [
+            {
+                "t": "set",
+                "p": "matchnum",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b495418c6c4b995b",
+        "type": "link out",
+        "z": "8b4b6895c0ec29ec",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "43ddc5a441c4fd3f"
+        ],
+        "x": 805,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "9c1f98fc59e18e7f",
+        "type": "inject",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Current Global.Matchnum",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "matchnum",
+        "payloadType": "global",
+        "x": 190,
+        "y": 600,
+        "wires": [
+            [
+                "6250f382d3803772"
+            ]
+        ]
+    },
+    {
+        "id": "cdba90949a391fbc",
+        "type": "inject",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Dump Latest MAtch",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "matchnum",
+        "payloadType": "global",
+        "x": 170,
+        "y": 760,
+        "wires": [
+            [
+                "4c090382b69959e9"
+            ]
+        ]
+    },
+    {
+        "id": "4c090382b69959e9",
+        "type": "function",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Latest Match Table Dump",
+        "func": "\n//UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + 1 WHERE id = {matchid}\n//could read last match num and send to this? or enter\nvar matchid = msg.payload;\nvar newMsg = {\n    \"topic\": \"SELECT * FROM GAMETEST WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 760,
+        "wires": [
+            [
+                "a653d6cc6823cc38"
+            ]
+        ]
+    },
+    {
+        "id": "c8ceee438277a08d",
+        "type": "function",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Result match_num",
+        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\nvar matchid = msg.payload[0].MATCH_NUM;\n\nvar str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE;\nmsg.payload = str;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 760,
+        "wires": [
+            [
+                "6250f382d3803772"
+            ]
+        ]
+    },
+    {
+        "id": "a653d6cc6823cc38",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 670,
+        "y": 760,
+        "wires": [
+            [
+                "c8ceee438277a08d"
+            ]
+        ]
+    },
+    {
+        "id": "d68e0db08f5b39fe",
+        "type": "comment",
+        "z": "8b4b6895c0ec29ec",
+        "name": "SQL-Lite installation notes",
+        "info": "We could distribute an image with the sqlite node alreaduy installed -- but this is the instructions to install it:\n\nTo install:\n cd ~/.node-red/\n npm i --unsafe-perm node-red-node-sqlite\n\n\n Then just run the following injections to create the table:\n \"Create Game Table\"\n\n if you want to drop the table and start over:\n \"Drop Game Table\"\n\n There are \n",
+        "x": 190,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "f17cfb3701f218bb",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 890,
+        "y": 320,
+        "wires": [
+            [
+                "d8a5d35c8d38a3d3",
+                "bb20e976f6f77ed1"
+            ]
+        ]
+    },
+    {
+        "id": "d8a5d35c8d38a3d3",
+        "type": "debug",
+        "z": "8b4b6895c0ec29ec",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "bb20e976f6f77ed1",
+        "type": "link out",
+        "z": "8b4b6895c0ec29ec",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "6864183a6d7d2b25"
+        ],
+        "x": 1105,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6864183a6d7d2b25",
+        "type": "link in",
+        "z": "8b4b6895c0ec29ec",
+        "name": "SetMatchNumToGlobal",
+        "links": [
+            "bb20e976f6f77ed1"
+        ],
+        "x": 355,
+        "y": 420,
+        "wires": [
+            [
+                "0eeb08f608cda30d"
+            ]
+        ]
+    },
+    {
+        "id": "c940c00eb130609a",
+        "type": "comment",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Insert New Match - TEST MATCH",
+        "info": "",
+        "x": 190,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7ec741b1e6d36ef6",
+        "type": "comment",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Extract DB Match Num to Global.matchnum",
+        "info": "",
+        "x": 230,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1202b23be2b845f6",
+        "type": "comment",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Increment Fire Score for latest match",
+        "info": "",
+        "x": 210,
+        "y": 660,
         "wires": []
     }
 ]
