@@ -834,7 +834,7 @@
         "type": "comment",
         "z": "8b4b6895c0ec29ec",
         "name": "SQL-Lite installation notes",
-        "info": "We could distribute an image with the sqlite node alreaduy installed -- but this is the instructions to install it:\n\nTo install:\n cd ~/.node-red/\n npm i --unsafe-perm node-red-node-sqlite\n\n\n Then just run the following injections to create the table:\n \"Create Game Table\"\n\n if you want to drop the table and start over:\n \"Drop Game Table\"\n\n There are \n",
+        "info": "We could distribute an image with the sqlite node alreaduy installed -- but this is the instructions to install it:\n\nTo install:\n cd ~/.node-red/\n npm i --unsafe-perm node-red-node-sqlite\n\nCreate this directory (to store the database):\nmkdir /home/pi/sqlite-storage\n\nThe database is configured in node red with the file:\n/home/pi/sqlite-storage/sqlite\n\nNote that the first time you create a table, it will automatically create the file in the directory and start writing to it.\n\n Then just run the following injections to create the table:\n \"Create Game Table\"\n\n if you want to drop the table and start over:\n \"Drop Game Table\"\n\n There are several other injections that allow to test everything out.\n",
         "x": 190,
         "y": 20,
         "wires": []
