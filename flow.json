@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "f3ec5d556e86f8d0",
+        "type": "tab",
+        "label": "Field Config",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5999f1d09afe1039",
         "type": "mqtt-broker",
         "name": "mqtt-node-main",
@@ -298,12 +306,14 @@
         "id": "9b5082c4eb041501",
         "type": "debug",
         "z": "8d38dc412a73d987",
+        "d": true,
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 800,
@@ -314,6 +324,7 @@
         "id": "e217c30a266866bb",
         "type": "sqlite",
         "z": "8d38dc412a73d987",
+        "d": true,
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
@@ -929,6 +940,393 @@
         "info": "",
         "x": 210,
         "y": 660,
+        "wires": []
+    },
+    {
+        "id": "f4b7c4c243db620d",
+        "type": "sqlite",
+        "z": "f3ec5d556e86f8d0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Read Config Node ID",
+        "x": 780,
+        "y": 360,
+        "wires": [
+            [
+                "2bcc56e6d241c3d9",
+                "495420fab0112b70"
+            ]
+        ]
+    },
+    {
+        "id": "837b88b53ec5549a",
+        "type": "mqtt in",
+        "z": "f3ec5d556e86f8d0",
+        "name": "edgenode/initialization",
+        "topic": "edgenode/initialization",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "5999f1d09afe1039",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "fb66747dcaf63281",
+                "0faf666bf00276e9"
+            ]
+        ]
+    },
+    {
+        "id": "5bdc6b89364fd15a",
+        "type": "comment",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Config Setup Instructions",
+        "info": "Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)\n\n1. Write a text file in the following format:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n...\n\n2. Place on the raspberry pi in this location:\n/home/pi/field-config.csv\n\n3. Create and/or drop then create the \"Create Config Table and import\"\n\n",
+        "x": 370,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9bca7655eb1d89cf",
+        "type": "sqlite",
+        "z": "f3ec5d556e86f8d0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE FIELD_CONFIG (\n  EDGE_UUID TEXT PRIMARY KEY,\n  EDGE_NODE_ID TEXT\n)",
+        "name": "Create Config Table",
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "cf58eb77138066b2"
+            ]
+        ]
+    },
+    {
+        "id": "c7fe99b0e0506601",
+        "type": "inject",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Load Config File into Config Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "8c0e6a2a0a04fcd7"
+            ]
+        ],
+        "info": "See instructions on top -- but file is:\n/home/pi/field-config.csv"
+    },
+    {
+        "id": "8c0e6a2a0a04fcd7",
+        "type": "file in",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Read Field Config",
+        "filename": "/home/pi/field-config.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "340a8ade18808c45"
+            ]
+        ]
+    },
+    {
+        "id": "340a8ade18808c45",
+        "type": "csv",
+        "z": "f3ec5d556e86f8d0",
+        "name": "CSV Parse Field Config",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "c58252a4cb097661"
+            ]
+        ]
+    },
+    {
+        "id": "cf58eb77138066b2",
+        "type": "debug",
+        "z": "f3ec5d556e86f8d0",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9dd0a2d0ffb6a743",
+        "type": "inject",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Create Config Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "9bca7655eb1d89cf"
+            ]
+        ]
+    },
+    {
+        "id": "4215a3196c228639",
+        "type": "sqlite",
+        "z": "f3ec5d556e86f8d0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SqlLite Commands",
+        "x": 970,
+        "y": 260,
+        "wires": [
+            [
+                "cf58eb77138066b2"
+            ]
+        ]
+    },
+    {
+        "id": "c58252a4cb097661",
+        "type": "function",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Construct SQL",
+        "func": "var o = msg.payload;\nvar sql = \"INSERT INTO \\\"FIELD_CONFIG\\\"(EDGE_UUID, EDGE_NODE_ID) VALUES(\\\"\"+o.EDGE_UUID+\"\\\", \\\"\"+o.EDGE_NODE_ID+\"\\\") ON CONFLICT(EDGE_UUID) DO UPDATE SET EDGE_NODE_ID = excluded.EDGE_NODE_ID;\";\nmsg.topic = sql;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 260,
+        "wires": [
+            [
+                "4215a3196c228639"
+            ]
+        ]
+    },
+    {
+        "id": "579c8c19ccab0937",
+        "type": "inject",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Drop Config Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "a74d42b7ae961652"
+            ]
+        ]
+    },
+    {
+        "id": "a74d42b7ae961652",
+        "type": "sqlite",
+        "z": "f3ec5d556e86f8d0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "DROP TABLE IF EXISTS FIELD_CONFIG;",
+        "name": "Drop Field Config Table",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "cf58eb77138066b2"
+            ]
+        ]
+    },
+    {
+        "id": "ac6ab4bb77d73dc4",
+        "type": "function",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Construct SQL",
+        "func": "var o = msg.payload;\nvar sql = \"SELECT EDGE_NODE_ID, EDGE_UUID FROM FIELD_CONFIG WHERE EDGE_UUID='\" + o.uuid+ \"'\" ;\nmsg.topic = sql;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "f4b7c4c243db620d",
+                "cf58eb77138066b2"
+            ]
+        ]
+    },
+    {
+        "id": "fb66747dcaf63281",
+        "type": "debug",
+        "z": "f3ec5d556e86f8d0",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "0faf666bf00276e9",
+        "type": "json",
+        "z": "f3ec5d556e86f8d0",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "ac6ab4bb77d73dc4"
+            ]
+        ]
+    },
+    {
+        "id": "a3176cef58e51260",
+        "type": "debug",
+        "z": "f3ec5d556e86f8d0",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "2bcc56e6d241c3d9",
+        "type": "function",
+        "z": "f3ec5d556e86f8d0",
+        "name": "extract nodeid",
+        "func": "\nvar nodeid = msg.payload[0].EDGE_NODE_ID;\nvar nodeuuid = msg.payload[0].EDGE_UUID;\nmsg.payload = nodeid;\nmsg.topic = \"nodered/initialization/\" + nodeuuid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 360,
+        "wires": [
+            [
+                "feddd1768611c551",
+                "a3176cef58e51260",
+                "495420fab0112b70"
+            ]
+        ]
+    },
+    {
+        "id": "feddd1768611c551",
+        "type": "mqtt out",
+        "z": "f3ec5d556e86f8d0",
+        "name": "return node id",
+        "topic": "nodered/initialization",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1220,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "495420fab0112b70",
+        "type": "debug",
+        "z": "f3ec5d556e86f8d0",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 540,
         "wires": []
     }
 ]
