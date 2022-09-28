@@ -344,6 +344,16 @@
         "wires": []
     },
     {
+        "id": "dc294b3548567c18",
+        "type": "comment",
+        "z": "8d38dc412a73d987",
+        "name": "NOTE: Config input from Field is handled in Field Config flows tab",
+        "info": "",
+        "x": 260,
+        "y": 540,
+        "wires": []
+    },
+    {
         "id": "f4c1c11a188f5c23",
         "type": "inject",
         "z": "dc5996c16196eba2",
