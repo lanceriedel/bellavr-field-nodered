@@ -1506,7 +1506,7 @@
         "sql": "",
         "name": "Read Config Node ID",
         "x": 780,
-        "y": 420,
+        "y": 620,
         "wires": [
             [
                 "2bcc56e6d241c3d9",
@@ -1528,7 +1528,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 200,
-        "y": 420,
+        "y": 620,
         "wires": [
             [
                 "0faf666bf00276e9"
@@ -1540,7 +1540,7 @@
         "type": "comment",
         "z": "f3ec5d556e86f8d0",
         "name": "Config Setup Instructions",
-        "info": "Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)\n\n1. Write a text file in the following format:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n...\n\n2. Place on the raspberry pi in this location:\n/home/pi/field-config.csv\n\n3. Create and/or drop then create the \"Create Config Table and import\"\n\n",
+        "info": "Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)\n\n1. Write a text file in the following format:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n...\n\n2. Place on the raspberry pi in this location:\n/home/pi/field-config.csv\n    2.a -- emergency option, you can force a config down in the \"Write config to file\"  flow below -- see instructions there\n\n3. Create and/or drop then create the \"Create Config Table and import\"\n\n",
         "x": 210,
         "y": 40,
         "wires": []
@@ -1771,7 +1771,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 420,
+        "y": 620,
         "wires": [
             [
                 "f4b7c4c243db620d"
@@ -1787,7 +1787,7 @@
         "action": "",
         "pretty": false,
         "x": 390,
-        "y": 420,
+        "y": 620,
         "wires": [
             [
                 "ac6ab4bb77d73dc4"
@@ -1807,7 +1807,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1180,
-        "y": 540,
+        "y": 740,
         "wires": []
     },
     {
@@ -1822,7 +1822,7 @@
         "finalize": "",
         "libs": [],
         "x": 1000,
-        "y": 420,
+        "y": 620,
         "wires": [
             [
                 "feddd1768611c551",
@@ -1846,7 +1846,7 @@
         "expiry": "",
         "broker": "5999f1d09afe1039",
         "x": 1220,
-        "y": 420,
+        "y": 620,
         "wires": []
     },
     {
@@ -1863,7 +1863,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1180,
-        "y": 600,
+        "y": 800,
         "wires": []
     },
     {
@@ -1873,7 +1873,60 @@
         "name": "Initialize Edge Nodes ",
         "info": "Edge nodes report in when they come online with a UUID\nUUID is accessed from the DB, and returned as a Node ID (as defined by our field layout/diagram)\n\nSee Load Config File into Config Table flow for how to edit this\n\nEach Arduino needs a unique id written into eeprom using -> https://github.com/lanceriedel/burn-uuid-eeprom\n",
         "x": 200,
-        "y": 360,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "97e2f252303bfcf3",
+        "type": "inject",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Write config to file",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[69,68,71,69,95,85,85,73,68,44,69,68,71,69,95,78,79,68,69,95,73,68,10,55,52,53,50,67,52,52,49,44,76,66,79,10,55,52,53,50,67,52,52,50,44,76,66,77,10,55,66,68,56,51,65,49,51,44,82,66,77,10,55,48,57,67,68,66,70,70,44,82,66,79]",
+        "payloadType": "bin",
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [
+                "a1e6f1282aa6e63a"
+            ]
+        ],
+        "info": "If you can't access the raspberry pi file system -- you can put the config here and force write it\nBUT -- you have to send as binary so that it retains the newlines\n\nFor example:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n7BD83A13,RBM\n709CDBFF,RBO\n\n\nBe sure to hit the elipses ...  so that you can see what you are typing.  \nAlso note that it will change to binary as soon as you send -- but it will work fine"
+    },
+    {
+        "id": "a1e6f1282aa6e63a",
+        "type": "file",
+        "z": "f3ec5d556e86f8d0",
+        "name": "",
+        "filename": "/home/pi/field-config.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 430,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b70ae83c222fa7da",
+        "type": "comment",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Emergency Use! Write config",
+        "info": "If you can't access the raspberry pi file system -- you can put the config here and force write it\nBUT -- you have to send as binary so that it retains the newlines\nFor example:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n7BD83A13,RBM\n709CDBFF,RBO\n\n\n\n\nBe sure to hit the elipses ...  so that you can see what you are typing.  \nAlso note that it will change to binary as soon as you send -- but it will work fine",
+        "x": 180,
+        "y": 340,
         "wires": []
     }
 ]
