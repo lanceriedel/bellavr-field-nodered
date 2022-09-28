@@ -2,7 +2,7 @@
     {
         "id": "3d42d3194c2552f8",
         "type": "tab",
-        "label": "flipflop-output-flow",
+        "label": "MQTT Output to Field",
         "disabled": false,
         "info": "",
         "env": []
@@ -10,7 +10,23 @@
     {
         "id": "8d38dc412a73d987",
         "type": "tab",
-        "label": "edge-input-flow",
+        "label": "MQTT Input From Field Game Flows",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dc5996c16196eba2",
+        "type": "tab",
+        "label": "Manual Game Flows",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f74b301e4f22310f",
+        "type": "tab",
+        "label": "Game Storage",
         "disabled": false,
         "info": "",
         "env": []
@@ -18,7 +34,7 @@
     {
         "id": "8b4b6895c0ec29ec",
         "type": "tab",
-        "label": "Storage",
+        "label": "Storage Management",
         "disabled": false,
         "info": "",
         "env": []
@@ -78,8 +94,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 630,
-        "y": 440,
+        "x": 790,
+        "y": 160,
         "wires": []
     },
     {
@@ -104,8 +120,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 450,
-        "y": 400,
+        "x": 410,
+        "y": 140,
         "wires": [
             [
                 "2e5f3a887f317523"
@@ -129,8 +145,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 770,
-        "y": 260,
+        "x": 790,
+        "y": 100,
         "wires": []
     },
     {
@@ -145,7 +161,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
+        "x": 720,
         "y": 400,
         "wires": []
     },
@@ -153,6 +169,7 @@
         "id": "6a3261bd5d1634ff",
         "type": "inject",
         "z": "3d42d3194c2552f8",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -166,8 +183,8 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 150,
-        "y": 400,
+        "x": 110,
+        "y": 140,
         "wires": [
             [
                 "7956c7f15c937519"
@@ -185,8 +202,8 @@
         "initialize": "if (context.get(\"counter\") === undefined) {\n    context.set(\"counter\", 0)\n}",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 400,
+        "x": 260,
+        "y": 140,
         "wires": [
             [
                 "c11317ac5ddaf481"
@@ -213,7 +230,7 @@
         "to": "",
         "reg": false,
         "x": 580,
-        "y": 320,
+        "y": 100,
         "wires": [
             [
                 "4f1f03d9ace5b214"
@@ -221,10 +238,160 @@
         ]
     },
     {
-        "id": "fb8b1d8482061269",
-        "type": "inject",
+        "id": "a983e99d613458db",
+        "type": "comment",
         "z": "3d42d3194c2552f8",
-        "name": "Inject +1 Fire",
+        "name": "Heartbeat - sending 1/0 flip flop",
+        "info": "",
+        "x": 170,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1d8b42fd0952e51b",
+        "type": "link in",
+        "z": "3d42d3194c2552f8",
+        "name": "Game Reset Message - MQTT Out",
+        "links": [
+            "3f00803b0fe3404d"
+        ],
+        "x": 95,
+        "y": 400,
+        "wires": [
+            [
+                "2c24dc53b6049b78"
+            ]
+        ]
+    },
+    {
+        "id": "2c24dc53b6049b78",
+        "type": "mqtt out",
+        "z": "3d42d3194c2552f8",
+        "name": "edgenode/gamereset",
+        "topic": "edgenode/gamereset",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 320,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6cddfd33ec05b6b7",
+        "type": "mqtt in",
+        "z": "8d38dc412a73d987",
+        "name": "edgenode/laserhit/#",
+        "topic": "edgenode/laserhit/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "5999f1d09afe1039",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "515a805e2750f3bd",
+                "372b9594ce982517"
+            ]
+        ]
+    },
+    {
+        "id": "515a805e2750f3bd",
+        "type": "link out",
+        "z": "8d38dc412a73d987",
+        "name": "link out 12",
+        "mode": "link",
+        "links": [
+            "af55cd6eb001ec61"
+        ],
+        "x": 415,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "372b9594ce982517",
+        "type": "debug",
+        "z": "8d38dc412a73d987",
+        "name": "MQTT Input From Field Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "bfe3c6c9b8f1ea94",
+        "type": "comment",
+        "z": "8d38dc412a73d987",
+        "name": "Game Field input messages over mqtt",
+        "info": "",
+        "x": 170,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f4c1c11a188f5c23",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Increment Fire Score +1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"firescore\":1,\"timestamp\":1000000}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "5eca71e17e525b35"
+            ]
+        ]
+    },
+    {
+        "id": "5eca71e17e525b35",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "21d3a1c330d6a65e",
+            "b49a77ff09745d6d",
+            "af55cd6eb001ec61"
+        ],
+        "x": 375,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "bcef7098b2bcab87",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "New Match",
         "props": [
             {
                 "p": "payload"
@@ -242,72 +409,91 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6cddfd33ec05b6b7",
-        "type": "mqtt in",
-        "z": "8d38dc412a73d987",
-        "name": "node-red-mqtt-edge",
-        "topic": "avr-building/#",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "5999f1d09afe1039",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
-                "ead81eadfddf78f2",
-                "150214bc5b9ca200",
-                "9b5082c4eb041501",
-                "e217c30a266866bb"
+                "4eb277af36ef1fe2"
             ]
         ]
     },
     {
-        "id": "ead81eadfddf78f2",
-        "type": "mqtt out",
-        "z": "8d38dc412a73d987",
-        "name": "nodeout-test",
-        "topic": "avrnode-out",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 590,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "150214bc5b9ca200",
+        "id": "4eb277af36ef1fe2",
         "type": "link out",
-        "z": "8d38dc412a73d987",
-        "name": "linkout-2",
+        "z": "dc5996c16196eba2",
+        "name": "link out 7",
         "mode": "link",
         "links": [
-            "1685b1b2f09c7f74"
+            "a5a1bd31c468f86b"
         ],
-        "x": 345,
-        "y": 240,
+        "x": 395,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "9b5082c4eb041501",
+        "id": "d97b7e51b6cddaef",
+        "type": "complete",
+        "z": "dc5996c16196eba2",
+        "name": "When New Match Complete, update global matchnum",
+        "scope": [
+            "bcef7098b2bcab87"
+        ],
+        "uncaught": false,
+        "x": 640,
+        "y": 100,
+        "wires": [
+            [
+                "e68d02821b10c9fd",
+                "e7fdc24bcd360c08"
+            ]
+        ]
+    },
+    {
+        "id": "e68d02821b10c9fd",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "48af91ab4809047a"
+        ],
+        "x": 925,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c2285509eb863856",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Current Global.Matchnum",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "matchnum",
+        "payloadType": "global",
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "e7fdc24bcd360c08"
+            ]
+        ]
+    },
+    {
+        "id": "e7fdc24bcd360c08",
         "type": "debug",
-        "z": "8d38dc412a73d987",
-        "d": true,
-        "name": "debug 3",
+        "z": "dc5996c16196eba2",
+        "name": "Debug Manual Game Flows",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -316,24 +502,612 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
-        "y": 320,
+        "x": 1040,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "e217c30a266866bb",
+        "id": "372c7a6bec7d1005",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Game Control Flows that can be triggered manually",
+        "info": "",
+        "x": 250,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "58e0133d504974b2",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Start a new match ",
+        "info": "Creates a new match in the Game table\nSets the global matchnum for all flows to use",
+        "x": 150,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5eef5dc3824c88f6",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Dump to Debug the Current match num",
+        "info": "",
+        "x": 210,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "63b6bb6097222b63",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Dump to Debug Latest Match",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "c30231dee65db09d"
+            ]
+        ]
+    },
+    {
+        "id": "c30231dee65db09d",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 9",
+        "mode": "link",
+        "links": [
+            "18a554bcaa2360e7"
+        ],
+        "x": 425,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1f2c1fa133c6065f",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Dump to Debug the Current match num",
+        "info": "",
+        "x": 210,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ed83cb16654dd159",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Increment Scores for latest Match ",
+        "info": "",
+        "x": 200,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5017a08295e5843b",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Increment Lase Hit Score +1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"hits\":1,\"timestamp\":1000000}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 660,
+        "wires": [
+            [
+                "64800c16d9ae1ca4"
+            ]
+        ]
+    },
+    {
+        "id": "64800c16d9ae1ca4",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 11",
+        "mode": "link",
+        "links": [
+            "af55cd6eb001ec61"
+        ],
+        "x": 375,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "dc90b018852f05c7",
+        "type": "complete",
+        "z": "dc5996c16196eba2",
+        "name": "When Global Matchnum set - notify the field",
+        "scope": [
+            "d97b7e51b6cddaef"
+        ],
+        "uncaught": false,
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "3f00803b0fe3404d"
+            ]
+        ]
+    },
+    {
+        "id": "3f00803b0fe3404d",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 13",
+        "mode": "link",
+        "links": [
+            "1d8b42fd0952e51b"
+        ],
+        "x": 925,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0143496e1011b5b9",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update Fire Score (ADD)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar fs = o.firescore;\nvar newMsg = {\n    \"topic\": \"UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + \" + fs + \" WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 160,
+        "wires": [
+            [
+                "3a4b12e5b9609b0d",
+                "54b2cad8c9c66ea5"
+            ]
+        ]
+    },
+    {
+        "id": "3a4b12e5b9609b0d",
+        "type": "link out",
+        "z": "f74b301e4f22310f",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "43ddc5a441c4fd3f"
+        ],
+        "x": 915,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "07b0e9426f57711a",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Increment Fire Score for latest match",
+        "info": "",
+        "x": 210,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a4fbec13a30337cd",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "0143496e1011b5b9"
+            ]
+        ]
+    },
+    {
+        "id": "b49a77ff09745d6d",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Input Firescore",
+        "links": [
+            "5eca71e17e525b35"
+        ],
+        "x": 205,
+        "y": 160,
+        "wires": [
+            [
+                "a4fbec13a30337cd"
+            ]
+        ]
+    },
+    {
+        "id": "be446f7474a7a970",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - New Match",
+        "func": "//CREATE TABLE GAMETEST(TIMESTAMP INT PRIMARY KEY NOT NULL, MATCH_NUM INT NOT NULL, FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL);  )\n\nvar timestamp = msg.payload;\nvar newMsg = {\n    \"topic\": \"INSERT INTO GAMETEST (FIRE_SCORE,NUM_TREES, NUM_HITS, TIMEOFMATCH) VALUES ( \"  + 0 + \", \" + 0 + \", \" + 0 + \", \"+ timestamp + \")\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 600,
+        "wires": [
+            [
+                "36875745f8a09dcd",
+                "54b2cad8c9c66ea5"
+            ]
+        ]
+    },
+    {
+        "id": "54b2cad8c9c66ea5",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "Game Storage Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a5a1bd31c468f86b",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "New Match Creation",
+        "links": [
+            "4eb277af36ef1fe2"
+        ],
+        "x": 185,
+        "y": 600,
+        "wires": [
+            [
+                "be446f7474a7a970"
+            ]
+        ]
+    },
+    {
+        "id": "36875745f8a09dcd",
+        "type": "link out",
+        "z": "f74b301e4f22310f",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "43ddc5a441c4fd3f"
+        ],
+        "x": 895,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "2a673ebfd70ddc64",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Create a new empty match (set global.matchnum to new matchnum)",
+        "info": "",
+        "x": 280,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "540954cda7540f43",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Select All Game Table",
+        "func": "var newMsg = {\n    \"topic\": \"select * from GAMETEST ORDER BY TIMEOFMATCH DESC;\"\n}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 680,
+        "wires": [
+            [
+                "27094e97daa3234a"
+            ]
+        ]
+    },
+    {
+        "id": "27094e97daa3234a",
         "type": "sqlite",
-        "z": "8d38dc412a73d987",
-        "d": true,
+        "z": "f74b301e4f22310f",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "FieldStateSqlLite",
-        "x": 470,
-        "y": 360,
+        "name": "SQLLiteGenericAccess",
+        "x": 530,
+        "y": 680,
+        "wires": [
+            [
+                "786da311f9d1e2af"
+            ]
+        ]
+    },
+    {
+        "id": "786da311f9d1e2af",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Result match_num",
+        "func": "var matchid = msg.payload[0].MATCH_NUM;\nmsg.payload = matchid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 680,
+        "wires": [
+            [
+                "a4cca78582b0aa97"
+            ]
+        ]
+    },
+    {
+        "id": "a4cca78582b0aa97",
+        "type": "change",
+        "z": "f74b301e4f22310f",
+        "name": "set global",
+        "rules": [
+            {
+                "t": "set",
+                "p": "matchnum",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 680,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "48af91ab4809047a",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Set Latest Matchnum to Global",
+        "links": [
+            "e68d02821b10c9fd"
+        ],
+        "x": 105,
+        "y": 680,
+        "wires": [
+            [
+                "540954cda7540f43"
+            ]
+        ]
+    },
+    {
+        "id": "553a13c0223b7873",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Sets Global.matchnum to latest match in DB",
+        "info": "",
+        "x": 210,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4bfad19cc46d0966",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Latest Match Table Dump",
+        "func": "\n\nvar matchid = global.get(\"matchnum\");\nvar newMsg = {\n    \"topic\": \"SELECT * FROM GAMETEST WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 840,
+        "wires": [
+            [
+                "397f10dd3ab3a997"
+            ]
+        ]
+    },
+    {
+        "id": "5954b430a79f7b3e",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Result Dump",
+        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\nvar str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\nmsg.payload = str;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 840,
+        "wires": [
+            [
+                "54b2cad8c9c66ea5"
+            ]
+        ]
+    },
+    {
+        "id": "397f10dd3ab3a997",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 570,
+        "y": 840,
+        "wires": [
+            [
+                "5954b430a79f7b3e"
+            ]
+        ]
+    },
+    {
+        "id": "953a1664303952cf",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Data Access Flows for the Game Storage",
+        "info": "Flows that access the DB and upddate and or read various game states\nThese can be accessed via Manual Game Flows and/or nodered flows which are triggered via mqtt",
+        "x": 240,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "18a554bcaa2360e7",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Dump to Debug Latest Match",
+        "links": [
+            "c30231dee65db09d"
+        ],
+        "x": 105,
+        "y": 840,
+        "wires": [
+            [
+                "4bfad19cc46d0966"
+            ]
+        ]
+    },
+    {
+        "id": "761720674f178020",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Dump to Debug the latest match data",
+        "info": "",
+        "x": 190,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d1689404d7efa6f4",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "ee723854cfa1c6f1",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update Laser Hit (ADD)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.hits;\nvar newMsg = {\n    \"topic\": \"UPDATE GAMETEST SET NUM_HITS = NUM_HITS + \" + hits + \" WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 260,
+        "wires": [
+            [
+                "d527904ed8723b40"
+            ]
+        ]
+    },
+    {
+        "id": "ad8d8a3973c7761a",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Increment Laser Hit for latest match",
+        "info": "",
+        "x": 200,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "473384a40d04fd99",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 420,
+        "y": 260,
+        "wires": [
+            [
+                "ee723854cfa1c6f1"
+            ]
+        ]
+    },
+    {
+        "id": "af55cd6eb001ec61",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Input Laser Hit",
+        "links": [
+            "5eca71e17e525b35",
+            "64800c16d9ae1ca4",
+            "515a805e2750f3bd"
+        ],
+        "x": 205,
+        "y": 260,
+        "wires": [
+            [
+                "473384a40d04fd99"
+            ]
+        ]
+    },
+    {
+        "id": "d527904ed8723b40",
+        "type": "link out",
+        "z": "f74b301e4f22310f",
+        "name": "link out 10",
+        "mode": "link",
+        "links": [
+            "43ddc5a441c4fd3f"
+        ],
+        "x": 915,
+        "y": 260,
+        "wires": []
     },
     {
         "id": "890050b7a3592bf1",
@@ -370,7 +1144,7 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  ",
+        "sql": "CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, NUM_HITS INT NOT NULL, TIMEOFMATCH INT NOT NULL);  ",
         "name": "Create Game Table - SqlLiteGameStorage",
         "x": 620,
         "y": 140,
@@ -402,7 +1176,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 260,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "deb6a8cb5bd78b0e"
@@ -417,8 +1191,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 1090,
-        "y": 100,
+        "x": 330,
+        "y": 540,
         "wires": [
             [
                 "f406a76e56b92d05"
@@ -430,14 +1204,14 @@
         "type": "function",
         "z": "8b4b6895c0ec29ec",
         "name": "Create Sql Random Game Event",
-        "func": "//CREATE TABLE GAMETEST(TIMESTAMP INT PRIMARY KEY NOT NULL, MATCH_NUM INT NOT NULL, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL);  )\n\nvar fireScore = Math.round(Math.random() * 10);\nvar numTrees = Math.round(Math.random() * 10);\nvar buildingId = \"LM1\";\n//could read last match num and send to this? or enter\nvar timestamp = msg.payload;\nvar newMsg = {\n    \"topic\": \"INSERT INTO GAMETEST (BUILDING_ID,FIRE_SCORE,NUM_TREES, TIMEOFMATCH) VALUES ( '\" + buildingId + \"', \" + fireScore + \", \" + numTrees + \", \" + timestamp + \")\"\n}\n\nreturn newMsg;\n",
+        "func": "//CREATE TABLE GAMETEST(TIMESTAMP INT PRIMARY KEY NOT NULL, MATCH_NUM INT NOT NULL, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL);  )\n\nvar fireScore = Math.round(Math.random() * 10);\nvar numTrees = Math.round(Math.random() * 10);\nvar numHits = Math.round(Math.random() * 10);\n\nvar buildingId = \"LM1\";\n//could read last match num and send to this? or enter\nvar timestamp = msg.payload;\nvar newMsg = {\n    \"topic\": \"INSERT INTO GAMETEST (FIRE_SCORE,NUM_TREES, NUM_HITS, TIMEOFMATCH) VALUES ( \" + fireScore + \", \" + numTrees + \", \" + numHits + \", \"+ timestamp + \")\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 600,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "f17cfb3701f218bb"
@@ -456,8 +1230,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 140,
+        "x": 580,
+        "y": 540,
         "wires": []
     },
     {
@@ -468,61 +1242,16 @@
         "links": [
             "cdb9035ee521bb85",
             "3e88982af6e3f40a",
-            "b495418c6c4b995b"
+            "b495418c6c4b995b",
+            "3a4b12e5b9609b0d",
+            "36875745f8a09dcd",
+            "d527904ed8723b40"
         ],
-        "x": 925,
-        "y": 100,
+        "x": 175,
+        "y": 540,
         "wires": [
             [
                 "d7e91528f5c8f1d6"
-            ]
-        ]
-    },
-    {
-        "id": "c438603eb5bdfb0f",
-        "type": "inject",
-        "z": "8b4b6895c0ec29ec",
-        "name": "MatchNum DB to Global.matchnum",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 220,
-        "y": 480,
-        "wires": [
-            [
-                "0eeb08f608cda30d"
-            ]
-        ]
-    },
-    {
-        "id": "0eeb08f608cda30d",
-        "type": "function",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Select All Game Table",
-        "func": "var newMsg = {\n    \"topic\": \"select * from GAMETEST ORDER BY TIMEOFMATCH DESC;\"\n}\nreturn newMsg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 480,
-        "wires": [
-            [
-                "3795e6645db18f3d"
             ]
         ]
     },
@@ -588,259 +1317,6 @@
         "wires": []
     },
     {
-        "id": "cd48c9f801565d50",
-        "type": "inject",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Increment Fire Score ",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "matchnum",
-        "payloadType": "global",
-        "x": 170,
-        "y": 700,
-        "wires": [
-            [
-                "7fbe0d92b45b670a"
-            ]
-        ]
-    },
-    {
-        "id": "7fbe0d92b45b670a",
-        "type": "function",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Create Sql Random Game Event",
-        "func": "\n//UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + 1 WHERE id = {matchid}\n//could read last match num and send to this? or enter\nvar matchid = msg.payload;\nvar newMsg = {\n    \"topic\": \"UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + 1 WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 460,
-        "y": 700,
-        "wires": [
-            [
-                "b495418c6c4b995b",
-                "6250f382d3803772"
-            ]
-        ]
-    },
-    {
-        "id": "3795e6645db18f3d",
-        "type": "sqlite",
-        "z": "8b4b6895c0ec29ec",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQLLiteGenericAccess",
-        "x": 710,
-        "y": 480,
-        "wires": [
-            [
-                "47d9280953d49f68",
-                "6250f382d3803772"
-            ]
-        ]
-    },
-    {
-        "id": "47d9280953d49f68",
-        "type": "function",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Result match_num",
-        "func": "var matchid = msg.payload[0].MATCH_NUM;\nmsg.payload = matchid;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 480,
-        "wires": [
-            [
-                "6250f382d3803772",
-                "5b239da32b7dcc26"
-            ]
-        ]
-    },
-    {
-        "id": "6250f382d3803772",
-        "type": "debug",
-        "z": "8b4b6895c0ec29ec",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1100,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "5b239da32b7dcc26",
-        "type": "change",
-        "z": "8b4b6895c0ec29ec",
-        "name": "set global",
-        "rules": [
-            {
-                "t": "set",
-                "p": "matchnum",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1100,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b495418c6c4b995b",
-        "type": "link out",
-        "z": "8b4b6895c0ec29ec",
-        "name": "link out 2",
-        "mode": "link",
-        "links": [
-            "43ddc5a441c4fd3f"
-        ],
-        "x": 805,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "9c1f98fc59e18e7f",
-        "type": "inject",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Current Global.Matchnum",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "matchnum",
-        "payloadType": "global",
-        "x": 190,
-        "y": 600,
-        "wires": [
-            [
-                "6250f382d3803772"
-            ]
-        ]
-    },
-    {
-        "id": "cdba90949a391fbc",
-        "type": "inject",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Dump Latest MAtch",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "matchnum",
-        "payloadType": "global",
-        "x": 170,
-        "y": 760,
-        "wires": [
-            [
-                "4c090382b69959e9"
-            ]
-        ]
-    },
-    {
-        "id": "4c090382b69959e9",
-        "type": "function",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Latest Match Table Dump",
-        "func": "\n//UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + 1 WHERE id = {matchid}\n//could read last match num and send to this? or enter\nvar matchid = msg.payload;\nvar newMsg = {\n    \"topic\": \"SELECT * FROM GAMETEST WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 760,
-        "wires": [
-            [
-                "a653d6cc6823cc38"
-            ]
-        ]
-    },
-    {
-        "id": "c8ceee438277a08d",
-        "type": "function",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Result match_num",
-        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\nvar matchid = msg.payload[0].MATCH_NUM;\n\nvar str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE;\nmsg.payload = str;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 890,
-        "y": 760,
-        "wires": [
-            [
-                "6250f382d3803772"
-            ]
-        ]
-    },
-    {
-        "id": "a653d6cc6823cc38",
-        "type": "sqlite",
-        "z": "8b4b6895c0ec29ec",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQLLiteGenericAccess",
-        "x": 670,
-        "y": 760,
-        "wires": [
-            [
-                "c8ceee438277a08d"
-            ]
-        ]
-    },
-    {
         "id": "d68e0db08f5b39fe",
         "type": "comment",
         "z": "8b4b6895c0ec29ec",
@@ -859,7 +1335,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 890,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "d8a5d35c8d38a3d3",
@@ -880,7 +1356,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1100,
-        "y": 320,
+        "y": 380,
         "wires": []
     },
     {
@@ -897,49 +1373,23 @@
         "wires": []
     },
     {
-        "id": "6864183a6d7d2b25",
-        "type": "link in",
-        "z": "8b4b6895c0ec29ec",
-        "name": "SetMatchNumToGlobal",
-        "links": [
-            "bb20e976f6f77ed1"
-        ],
-        "x": 355,
-        "y": 420,
-        "wires": [
-            [
-                "0eeb08f608cda30d"
-            ]
-        ]
-    },
-    {
         "id": "c940c00eb130609a",
         "type": "comment",
         "z": "8b4b6895c0ec29ec",
-        "name": "Insert New Match - TEST MATCH",
+        "name": "Insert New Match - TEST MATCH (For Testing only)",
+        "info": "",
+        "x": 250,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "92a4b7e1ddc01aaf",
+        "type": "comment",
+        "z": "8b4b6895c0ec29ec",
+        "name": "Generic SQL Access for Writes",
         "info": "",
         "x": 190,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "7ec741b1e6d36ef6",
-        "type": "comment",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Extract DB Match Num to Global.matchnum",
-        "info": "",
-        "x": 230,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "1202b23be2b845f6",
-        "type": "comment",
-        "z": "8b4b6895c0ec29ec",
-        "name": "Increment Fire Score for latest match",
-        "info": "",
-        "x": 210,
-        "y": 660,
+        "y": 480,
         "wires": []
     },
     {
@@ -951,7 +1401,7 @@
         "sql": "",
         "name": "Read Config Node ID",
         "x": 780,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "2bcc56e6d241c3d9",
@@ -973,10 +1423,9 @@
         "rh": 0,
         "inputs": 0,
         "x": 200,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
-                "fb66747dcaf63281",
                 "0faf666bf00276e9"
             ]
         ]
@@ -987,7 +1436,7 @@
         "z": "f3ec5d556e86f8d0",
         "name": "Config Setup Instructions",
         "info": "Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)\n\n1. Write a text file in the following format:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n...\n\n2. Place on the raspberry pi in this location:\n/home/pi/field-config.csv\n\n3. Create and/or drop then create the \"Create Config Table and import\"\n\n",
-        "x": 370,
+        "x": 210,
         "y": 40,
         "wires": []
     },
@@ -1217,29 +1666,12 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
-                "f4b7c4c243db620d",
-                "cf58eb77138066b2"
+                "f4b7c4c243db620d"
             ]
         ]
-    },
-    {
-        "id": "fb66747dcaf63281",
-        "type": "debug",
-        "z": "f3ec5d556e86f8d0",
-        "name": "debug 9",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 320,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "0faf666bf00276e9",
@@ -1250,7 +1682,7 @@
         "action": "",
         "pretty": false,
         "x": 390,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "ac6ab4bb77d73dc4"
@@ -1270,7 +1702,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1180,
-        "y": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -1285,7 +1717,7 @@
         "finalize": "",
         "libs": [],
         "x": 1000,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "feddd1768611c551",
@@ -1309,7 +1741,7 @@
         "expiry": "",
         "broker": "5999f1d09afe1039",
         "x": 1220,
-        "y": 360,
+        "y": 420,
         "wires": []
     },
     {
@@ -1326,7 +1758,17 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1180,
-        "y": 540,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b111193564f5a7a0",
+        "type": "comment",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Initialize Edge Nodes ",
+        "info": "Edge nodes report in when they come online with a UUID\nUUID is accessed from the DB, and returned as a Node ID (as defined by our field layout/diagram)\n\nSee Load Config File into Config Table flow for how to edit this\n\nEach Arduino needs a unique id written into eeprom using -> https://github.com/lanceriedel/burn-uuid-eeprom\n",
+        "x": 200,
+        "y": 360,
         "wires": []
     }
 ]
