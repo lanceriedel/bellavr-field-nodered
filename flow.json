@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "7ebbc29c647c58ec",
+        "type": "tab",
+        "label": "Dashboard - Manual Game Flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f74b301e4f22310f",
         "type": "tab",
         "label": "Game Data Access Flows",
@@ -79,6 +87,143 @@
         "type": "sqlitedb",
         "db": "/home/pi/sqlite-storage/sqlite",
         "mode": "RWC"
+    },
+    {
+        "id": "24769b923875c2f1",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ffee29fff6f243e7",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "df6f4c796677e729",
+        "type": "ui_group",
+        "name": "Manual Game Controls",
+        "tab": "24769b923875c2f1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "efa02099cf2bc4a1",
+        "type": "ui_group",
+        "name": "Debug Screen",
+        "tab": "24769b923875c2f1",
+        "order": 2,
+        "disp": true,
+        "width": "17",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "abd82126ad566563",
+        "type": "ui_spacer",
+        "z": "7ebbc29c647c58ec",
+        "name": "spacer",
+        "group": "efa02099cf2bc4a1",
+        "order": 2,
+        "width": 1,
+        "height": 1
     },
     {
         "id": "675e506f8cc3e3c6",
@@ -161,8 +306,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
-        "y": 400,
+        "x": 780,
+        "y": 560,
         "wires": []
     },
     {
@@ -255,8 +400,8 @@
         "links": [
             "3f00803b0fe3404d"
         ],
-        "x": 95,
-        "y": 400,
+        "x": 155,
+        "y": 560,
         "wires": [
             [
                 "2c24dc53b6049b78"
@@ -277,9 +422,76 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 320,
-        "y": 400,
+        "x": 380,
+        "y": 560,
         "wires": []
+    },
+    {
+        "id": "3a4f65d2f43899bf",
+        "type": "link in",
+        "z": "3d42d3194c2552f8",
+        "name": "Send FireScore to EdgeNode",
+        "links": [],
+        "x": 85,
+        "y": 420,
+        "wires": [
+            [
+                "5cacabc8f9cd5606"
+            ]
+        ]
+    },
+    {
+        "id": "1e0fd409ba1a6b71",
+        "type": "mqtt out",
+        "z": "3d42d3194c2552f8",
+        "name": "Publish To Edgenodes",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 620,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c0c0e97e359ebe03",
+        "type": "function",
+        "z": "3d42d3194c2552f8",
+        "name": "Firescore message",
+        "func": "\nvar nodeid = msg.payload[0].nodeid;\nmsg.topic = \"nodered/firescore/\"+nodeid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "1e0fd409ba1a6b71"
+            ]
+        ]
+    },
+    {
+        "id": "5cacabc8f9cd5606",
+        "type": "json",
+        "z": "3d42d3194c2552f8",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "c0c0e97e359ebe03"
+            ]
+        ]
     },
     {
         "id": "6cddfd33ec05b6b7",
@@ -310,7 +522,8 @@
         "name": "link out 12",
         "mode": "link",
         "links": [
-            "af55cd6eb001ec61"
+            "af55cd6eb001ec61",
+            "63f807f3f36abd11"
         ],
         "x": 415,
         "y": 140,
@@ -372,7 +585,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"firescore\":1,\"timestamp\":1000000}",
+        "payload": "{\"nodeid\":\"LTO\",\"firescore\":1,\"timestamp\":1000000}",
         "payloadType": "json",
         "x": 180,
         "y": 600,
@@ -391,7 +604,8 @@
         "links": [
             "21d3a1c330d6a65e",
             "b49a77ff09745d6d",
-            "af55cd6eb001ec61"
+            "af55cd6eb001ec61",
+            "63f807f3f36abd11"
         ],
         "x": 375,
         "y": 600,
@@ -494,8 +708,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
-        "y": 340,
+        "x": 960,
+        "y": 520,
         "wires": []
     },
     {
@@ -609,7 +823,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"hits\":1,\"timestamp\":1000000}",
+        "payload": "{\"nodeid\":\"LTO\",\"hits\":1,\"timestamp\":1000000}",
         "payloadType": "json",
         "x": 200,
         "y": 660,
@@ -626,7 +840,8 @@
         "name": "link out 11",
         "mode": "link",
         "links": [
-            "af55cd6eb001ec61"
+            "af55cd6eb001ec61",
+            "63f807f3f36abd11"
         ],
         "x": 375,
         "y": 660,
@@ -642,7 +857,7 @@
             "1d8b42fd0952e51b"
         ],
         "x": 915,
-        "y": 220,
+        "y": 240,
         "wires": []
     },
     {
@@ -708,7 +923,7 @@
             "50a7d4620d30956a"
         ],
         "x": 465,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "32cd111d9a2a3113"
@@ -735,26 +950,480 @@
         "to": "",
         "reg": false,
         "x": 660,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "3f00803b0fe3404d",
-                "e7fdc24bcd360c08"
+                "e7fdc24bcd360c08",
+                "21363eb3f939b961"
             ]
         ]
+    },
+    {
+        "id": "21363eb3f939b961",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 17",
+        "mode": "link",
+        "links": [
+            "4c16c39c21c351b0"
+        ],
+        "x": 915,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b199686f052fe77f",
+        "type": "comment",
+        "z": "7ebbc29c647c58ec",
+        "name": "Publish Firescore To Specific Node -- this is on the Dashboard ",
+        "info": "",
+        "x": 280,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f1896d48a659a2cb",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "UpdateFireScore",
+        "label": "Update Firescore to Node (Node ID = RBO, LBO, etc)",
+        "group": "df6f4c796677e729",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Fire Score",
+                "value": "fire_score",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": "",
+            "fire_score": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "a29505e70d7b9ece"
+            ]
+        ]
+    },
+    {
+        "id": "c870ec8282153101",
+        "type": "ui_text",
+        "z": "7ebbc29c647c58ec",
+        "group": "efa02099cf2bc4a1",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "name": "FullRecordGame",
+        "label": "Debug ",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 870,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a29505e70d7b9ece",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 22",
+        "mode": "link",
+        "links": [
+            "c5098de218c47d8f"
+        ],
+        "x": 385,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "70c33d06c1d6b167",
+        "type": "ui_button",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "group": "df6f4c796677e729",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "View Latest Match",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "277d12403d6f9f63"
+            ]
+        ]
+    },
+    {
+        "id": "28eb2bc55dcddb70",
+        "type": "link in",
+        "z": "7ebbc29c647c58ec",
+        "name": "Dashboard Full Dump",
+        "links": [
+            "fa60c2b1c4bd6432"
+        ],
+        "x": 695,
+        "y": 200,
+        "wires": [
+            [
+                "c870ec8282153101"
+            ]
+        ]
+    },
+    {
+        "id": "277d12403d6f9f63",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 23",
+        "mode": "link",
+        "links": [
+            "18a554bcaa2360e7"
+        ],
+        "x": 335,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8c392ecc9a35c3eb",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "Increment Laser Hit",
+        "label": "Increment Laser Hit",
+        "group": "df6f4c796677e729",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "628745f67dade8c1"
+            ]
+        ]
+    },
+    {
+        "id": "a9c50f46b67e9896",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 24",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11",
+            "af55cd6eb001ec61"
+        ],
+        "x": 675,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "628745f67dade8c1",
+        "type": "json",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "a17a899f16b9d084"
+            ]
+        ]
+    },
+    {
+        "id": "a17a899f16b9d084",
+        "type": "function",
+        "z": "7ebbc29c647c58ec",
+        "name": "add numhits 1",
+        "func": "var o = msg.payload;\no['num_hits'] = 1;\nmsg.payload = o;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "a9c50f46b67e9896"
+            ]
+        ]
+    },
+    {
+        "id": "d12eb5d4f1efff54",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "Increment Ball Drop",
+        "label": "Increment Ball Drop Hit",
+        "group": "df6f4c796677e729",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "04f926d3d2ee0cd5"
+            ]
+        ]
+    },
+    {
+        "id": "75c5f224f591b111",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 25",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11"
+        ],
+        "x": 675,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "04f926d3d2ee0cd5",
+        "type": "json",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 500,
+        "wires": [
+            [
+                "ec3ec501f79d3d62"
+            ]
+        ]
+    },
+    {
+        "id": "ec3ec501f79d3d62",
+        "type": "function",
+        "z": "7ebbc29c647c58ec",
+        "name": "add drops 1",
+        "func": "var o = msg.payload;\no['drops'] = 1;\nmsg.payload = o;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "75c5f224f591b111"
+            ]
+        ]
+    },
+    {
+        "id": "11e4b52900aedf18",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "Increment Fire Score",
+        "label": "Increment Fire Score",
+        "group": "df6f4c796677e729",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "e2b1eeb7b8ba3724"
+            ]
+        ]
+    },
+    {
+        "id": "37c9658f21fde304",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 26",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11",
+            "b49a77ff09745d6d"
+        ],
+        "x": 675,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e2b1eeb7b8ba3724",
+        "type": "json",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 340,
+        "wires": [
+            [
+                "445fcf6390a71317"
+            ]
+        ]
+    },
+    {
+        "id": "445fcf6390a71317",
+        "type": "function",
+        "z": "7ebbc29c647c58ec",
+        "name": "add firescore 1",
+        "func": "var o = msg.payload;\no['fire_score'] = 1;\nmsg.payload = o;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "37c9658f21fde304"
+            ]
+        ]
+    },
+    {
+        "id": "2cf306418f5ec1a7",
+        "type": "ui_button",
+        "z": "7ebbc29c647c58ec",
+        "name": "StartNewMatch",
+        "group": "df6f4c796677e729",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start New Match",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "6243bfa8703f32ca"
+            ]
+        ]
+    },
+    {
+        "id": "6243bfa8703f32ca",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 27",
+        "mode": "link",
+        "links": [
+            "a5a1bd31c468f86b"
+        ],
+        "x": 335,
+        "y": 140,
+        "wires": []
     },
     {
         "id": "0143496e1011b5b9",
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Fire Score (ADD)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar fs = o.firescore;\nvar newMsg = {\n    \"topic\": \"UPDATE GAMETEST SET FIRE_SCORE = FIRE_SCORE + \" + fs + \" WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar fs = o.fire_score;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET FIRE_SCORE = FIRE_SCORE + \" + fs + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid+ \"';\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 710,
         "y": 160,
         "wires": [
             [
@@ -780,9 +1449,9 @@
         "id": "07b0e9426f57711a",
         "type": "comment",
         "z": "f74b301e4f22310f",
-        "name": "Increment Fire Score for latest match",
+        "name": "Increment/Set Fire Score for latest match",
         "info": "",
-        "x": 210,
+        "x": 200,
         "y": 120,
         "wires": []
     },
@@ -806,9 +1475,11 @@
         "id": "b49a77ff09745d6d",
         "type": "link in",
         "z": "f74b301e4f22310f",
-        "name": "Input Firescore",
+        "name": "Increment Firescore",
         "links": [
-            "5eca71e17e525b35"
+            "5eca71e17e525b35",
+            "6c398839cd14285d",
+            "37c9658f21fde304"
         ],
         "x": 205,
         "y": 160,
@@ -823,18 +1494,18 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - New Match",
-        "func": "//CREATE TABLE GAMETEST(TIMESTAMP INT PRIMARY KEY NOT NULL, MATCH_NUM INT NOT NULL, FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL);  )\n\nvar timestamp = msg.payload;\nvar newMsg = {\n    \"topic\": \"INSERT INTO GAMETEST (FIRE_SCORE,NUM_TREES, NUM_HITS, TIMEOFMATCH) VALUES ( \"  + 0 + \", \" + 0 + \", \" + 0 + \", \"+ timestamp + \")\"\n}\n\nreturn newMsg;\n",
+        "func": "\nvar timestamp = msg.payload;\nvar newMsg = {\n    \"topic\": \"INSERT INTO MATCH_STATE (TIMEOFMATCH) VALUES (  \"+ timestamp + \");\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
+        "x": 510,
         "y": 600,
         "wires": [
             [
                 "54b2cad8c9c66ea5",
-                "1b1e8fd5cb5d35c6"
+                "2df386bd76ec52e3"
             ]
         ]
     },
@@ -861,13 +1532,14 @@
         "z": "f74b301e4f22310f",
         "name": "New Match Creation",
         "links": [
-            "4eb277af36ef1fe2"
+            "4eb277af36ef1fe2",
+            "6243bfa8703f32ca"
         ],
         "x": 185,
         "y": 600,
         "wires": [
             [
-                "be446f7474a7a970"
+                "72bcba239803d115"
             ]
         ]
     },
@@ -886,14 +1558,14 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Select All Game Table",
-        "func": "var newMsg = {\n    \"topic\": \"select * from GAMETEST ORDER BY TIMEOFMATCH DESC;\"\n}\nreturn newMsg;",
+        "func": "var newMsg = {\n    \"topic\": \"select * from MATCH_STATE ORDER BY TIMEOFMATCH DESC;\"\n}\nreturn newMsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "27094e97daa3234a"
@@ -909,7 +1581,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 530,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "786da311f9d1e2af"
@@ -928,7 +1600,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "a4cca78582b0aa97"
@@ -956,7 +1628,7 @@
         "to": "",
         "reg": false,
         "x": 920,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "50a7d4620d30956a"
@@ -972,7 +1644,7 @@
             "e68d02821b10c9fd"
         ],
         "x": 105,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "540954cda7540f43"
@@ -986,7 +1658,7 @@
         "name": "Sets Global.matchnum to latest match in DB",
         "info": "",
         "x": 210,
-        "y": 640,
+        "y": 700,
         "wires": []
     },
     {
@@ -994,14 +1666,14 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Latest Match Table Dump",
-        "func": "\n\nvar matchid = global.get(\"matchnum\");\nvar newMsg = {\n    \"topic\": \"SELECT * FROM GAMETEST WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "func": "\n\nvar matchid = global.get(\"matchnum\");\nvar newMsg = {\n    \"topic\": \"SELECT * FROM GAME_SCORES WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 840,
+        "y": 980,
         "wires": [
             [
                 "397f10dd3ab3a997"
@@ -1013,17 +1685,18 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Result Dump",
-        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\nvar str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\nmsg.payload = str;\n\nreturn msg;",
+        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\n//var str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\n//msg.payload = str;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 840,
+        "y": 980,
         "wires": [
             [
-                "54b2cad8c9c66ea5"
+                "54b2cad8c9c66ea5",
+                "fa60c2b1c4bd6432"
             ]
         ]
     },
@@ -1036,10 +1709,11 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 570,
-        "y": 840,
+        "y": 980,
         "wires": [
             [
-                "5954b430a79f7b3e"
+                "5954b430a79f7b3e",
+                "4d6a7eeb34e791e7"
             ]
         ]
     },
@@ -1059,10 +1733,12 @@
         "z": "f74b301e4f22310f",
         "name": "Dump to Debug Latest Match",
         "links": [
-            "c30231dee65db09d"
+            "c30231dee65db09d",
+            "d9bb129180d8b9cf",
+            "277d12403d6f9f63"
         ],
         "x": 105,
-        "y": 840,
+        "y": 980,
         "wires": [
             [
                 "4bfad19cc46d0966"
@@ -1076,23 +1752,7 @@
         "name": "Dump to Debug the latest match data",
         "info": "",
         "x": 190,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "d1689404d7efa6f4",
-        "type": "debug",
-        "z": "f74b301e4f22310f",
-        "name": "debug 13",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1140,
-        "y": 960,
+        "y": 920,
         "wires": []
     },
     {
@@ -1100,17 +1760,18 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Laser Hit (ADD)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.hits;\nvar newMsg = {\n    \"topic\": \"UPDATE GAMETEST SET NUM_HITS = NUM_HITS + \" + hits + \" WHERE MATCH_NUM = \" + matchid + \";\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_HITS = NUM_HITS + \" + hits + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 260,
+        "x": 710,
+        "y": 300,
         "wires": [
             [
-                "d527904ed8723b40"
+                "d527904ed8723b40",
+                "54b2cad8c9c66ea5"
             ]
         ]
     },
@@ -1118,10 +1779,10 @@
         "id": "ad8d8a3973c7761a",
         "type": "comment",
         "z": "f74b301e4f22310f",
-        "name": "Increment Laser Hit for latest match",
+        "name": "Increment/Set Laser Hit for latest match",
         "info": "",
-        "x": 200,
-        "y": 220,
+        "x": 190,
+        "y": 260,
         "wires": []
     },
     {
@@ -1133,10 +1794,11 @@
         "action": "obj",
         "pretty": false,
         "x": 420,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
-                "ee723854cfa1c6f1"
+                "ee723854cfa1c6f1",
+                "54b2cad8c9c66ea5"
             ]
         ]
     },
@@ -1144,14 +1806,16 @@
         "id": "af55cd6eb001ec61",
         "type": "link in",
         "z": "f74b301e4f22310f",
-        "name": "Input Laser Hit",
+        "name": "Increment Laser Hit",
         "links": [
+            "515a805e2750f3bd",
             "5eca71e17e525b35",
             "64800c16d9ae1ca4",
-            "515a805e2750f3bd"
+            "dd142b5915f31846",
+            "a9c50f46b67e9896"
         ],
         "x": 205,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "473384a40d04fd99"
@@ -1168,25 +1832,8 @@
             "43ddc5a441c4fd3f"
         ],
         "x": 915,
-        "y": 260,
+        "y": 300,
         "wires": []
-    },
-    {
-        "id": "1b1e8fd5cb5d35c6",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "New Match Create",
-        "x": 750,
-        "y": 600,
-        "wires": [
-            [
-                "54b2cad8c9c66ea5",
-                "7d1c946cf1d71468"
-            ]
-        ]
     },
     {
         "id": "7d1c946cf1d71468",
@@ -1211,8 +1858,358 @@
             "9d2b1fca46f9be8c"
         ],
         "x": 1025,
-        "y": 680,
+        "y": 760,
         "wires": []
+    },
+    {
+        "id": "594538fb122fa8a1",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update Laser Hit (SET)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_HITS = \" + hits + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 340,
+        "wires": [
+            [
+                "d527904ed8723b40",
+                "54b2cad8c9c66ea5"
+            ]
+        ]
+    },
+    {
+        "id": "2e8cd63f45daf40d",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Set Laser Hit",
+        "links": [],
+        "x": 205,
+        "y": 340,
+        "wires": [
+            [
+                "221e289248744137"
+            ]
+        ]
+    },
+    {
+        "id": "221e289248744137",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 420,
+        "y": 340,
+        "wires": [
+            [
+                "594538fb122fa8a1"
+            ]
+        ]
+    },
+    {
+        "id": "9a98401250929d20",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update Fire Score (SET)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar fs = o.fire_score;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET FIRE_SCORE = \" + fs + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "3a4b12e5b9609b0d",
+                "54b2cad8c9c66ea5"
+            ]
+        ]
+    },
+    {
+        "id": "7046ccf0cab73df5",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "9a98401250929d20",
+                "54b2cad8c9c66ea5"
+            ]
+        ]
+    },
+    {
+        "id": "c5098de218c47d8f",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Set Firescore",
+        "links": [
+            "a2bcb79fedaca272",
+            "a29505e70d7b9ece"
+        ],
+        "x": 205,
+        "y": 200,
+        "wires": [
+            [
+                "7046ccf0cab73df5"
+            ]
+        ]
+    },
+    {
+        "id": "fa60c2b1c4bd6432",
+        "type": "link out",
+        "z": "f74b301e4f22310f",
+        "name": "link out 15",
+        "mode": "link",
+        "links": [
+            "c5b51aa2f4863b48",
+            "28eb2bc55dcddb70"
+        ],
+        "x": 945,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "4d6a7eeb34e791e7",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "2df386bd76ec52e3",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Match Create",
+        "x": 740,
+        "y": 600,
+        "wires": [
+            [
+                "7d1c946cf1d71468"
+            ]
+        ]
+    },
+    {
+        "id": "4c16c39c21c351b0",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Create Empty Game Records",
+        "links": [
+            "21363eb3f939b961"
+        ],
+        "x": 105,
+        "y": 840,
+        "wires": [
+            [
+                "fc55610d6c9105b3"
+            ]
+        ]
+    },
+    {
+        "id": "fc55610d6c9105b3",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - New Game_score entries for new Match",
+        "func": "\nvar timestamp = 100000;\nvar matchnum = global.get(\"matchnum\");\n/*\n MATCH_NUM INT NOT NULL,\n  NODE_ID VARCHAR[32],\n  BALLS_DROPPED INT NOT NULL,\n  FIRE_SCORE INT NOT NULL,\n  NUM_TREES INT NOT NULL,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY (MATCH_NUM, NODE_ID)\n  */\nvar newMsg = {\n    \"topic\": \"\\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+matchnum+\",'LTO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0, \"+ timestamp + \"); \\\n\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 840,
+        "wires": [
+            [
+                "12b7849527a8f3d3",
+                "4d6a7eeb34e791e7"
+            ]
+        ]
+    },
+    {
+        "id": "12b7849527a8f3d3",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "batch",
+        "sql": "",
+        "name": "Game Node Records for Match Create",
+        "x": 770,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ce44170d41d852c",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update Laser Hit (ADD)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = NUM_DROPS + \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "91eeec4cfa6d85ca"
+            ]
+        ]
+    },
+    {
+        "id": "9e904570325a5f04",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Increment/Set Ball Drop for latest match",
+        "info": "",
+        "x": 200,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "0cb41cd8c25bd380",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 420,
+        "y": 420,
+        "wires": [
+            [
+                "2ce44170d41d852c"
+            ]
+        ]
+    },
+    {
+        "id": "63f807f3f36abd11",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Increment Ball Drop",
+        "links": [
+            "2e9480f054445e4b",
+            "515a805e2750f3bd",
+            "5eca71e17e525b35",
+            "64800c16d9ae1ca4",
+            "6c398839cd14285d",
+            "dd142b5915f31846",
+            "a9c50f46b67e9896",
+            "75c5f224f591b111",
+            "37c9658f21fde304"
+        ],
+        "x": 205,
+        "y": 420,
+        "wires": [
+            [
+                "0cb41cd8c25bd380"
+            ]
+        ]
+    },
+    {
+        "id": "91eeec4cfa6d85ca",
+        "type": "link out",
+        "z": "f74b301e4f22310f",
+        "name": "link out 20",
+        "mode": "link",
+        "links": [
+            "43ddc5a441c4fd3f"
+        ],
+        "x": 915,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4d52cd46f08add7f",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update Laser Hit (SET)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "91eeec4cfa6d85ca"
+            ]
+        ]
+    },
+    {
+        "id": "1fe8b5ccb6bce22f",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Set Ball Drop Count",
+        "links": [],
+        "x": 205,
+        "y": 460,
+        "wires": [
+            [
+                "2f1658364fc5719b"
+            ]
+        ]
+    },
+    {
+        "id": "2f1658364fc5719b",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 420,
+        "y": 460,
+        "wires": [
+            [
+                "4d52cd46f08add7f"
+            ]
+        ]
+    },
+    {
+        "id": "72bcba239803d115",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "function 1",
+        "func": "var d = new Date();\nvar time1 = d.getTime();\nmsg.payload = time1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 600,
+        "wires": [
+            [
+                "be446f7474a7a970"
+            ]
+        ]
     },
     {
         "id": "890050b7a3592bf1",
@@ -1249,13 +2246,14 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, NUM_HITS INT NOT NULL, TIMEOFMATCH INT NOT NULL);  ",
-        "name": "Create Game Table - SqlLiteGameStorage",
-        "x": 620,
+        "sql": "CREATE TABLE MATCH_STATE(\nMATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT,\nTIMEOFMATCH INT NOT NULL);  \n",
+        "name": "Create Match Table",
+        "x": 550,
         "y": 140,
         "wires": [
             [
-                "544ae34808a17523"
+                "544ae34808a17523",
+                "1c0c1219794c876a"
             ]
         ]
     },
@@ -1327,15 +2325,16 @@
         "id": "f406a76e56b92d05",
         "type": "debug",
         "z": "8b4b6895c0ec29ec",
-        "name": "debug 4",
+        "name": "SQL Write Debug",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
+        "x": 610,
         "y": 540,
         "wires": []
     },
@@ -1350,7 +2349,8 @@
             "b495418c6c4b995b",
             "3a4b12e5b9609b0d",
             "36875745f8a09dcd",
-            "d527904ed8723b40"
+            "d527904ed8723b40",
+            "91eeec4cfa6d85ca"
         ],
         "x": 175,
         "y": 540,
@@ -1395,13 +2395,13 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "DROP TABLE IF EXISTS GAMETEST;",
-        "name": "Drop Game Table",
+        "sql": "DROP TABLE IF EXISTS MATCH_STATE;",
+        "name": "Drop MATCH table",
         "x": 550,
         "y": 60,
         "wires": [
             [
-                "544ae34808a17523"
+                "82f12a1e14f33b59"
             ]
         ]
     },
@@ -1496,6 +2496,38 @@
         "x": 190,
         "y": 480,
         "wires": []
+    },
+    {
+        "id": "1c0c1219794c876a",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE GAME_SCORES (\nMATCH_NUM INT NOT NULL,\nNODE_ID VARCHAR[32],\nFIRE_SCORE INT NOT NULL,\nNUM_TREES INT NOT NULL, \nNUM_HITS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, NODE_ID));",
+        "name": "Create Game Score table",
+        "x": 950,
+        "y": 140,
+        "wires": [
+            [
+                "544ae34808a17523"
+            ]
+        ]
+    },
+    {
+        "id": "82f12a1e14f33b59",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "DROP TABLE IF EXISTS GAME_SCORES;",
+        "name": "Drop Game Table",
+        "x": 770,
+        "y": 60,
+        "wires": [
+            [
+                "544ae34808a17523"
+            ]
+        ]
     },
     {
         "id": "f4b7c4c243db620d",
@@ -1835,8 +2867,8 @@
         "id": "feddd1768611c551",
         "type": "mqtt out",
         "z": "f3ec5d556e86f8d0",
-        "name": "return node id",
-        "topic": "nodered/initialization",
+        "name": "Publish Node ID to edge Node",
+        "topic": "",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1845,7 +2877,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1220,
+        "x": 1270,
         "y": 620,
         "wires": []
     },
