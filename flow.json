@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "0661e4588e011b72",
+        "type": "tab",
+        "label": "Game Logic Flows",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "dc5996c16196eba2",
         "type": "tab",
         "label": "Manual Game Flows",
@@ -51,6 +59,14 @@
         "id": "f3ec5d556e86f8d0",
         "type": "tab",
         "label": "Field Config",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "829ad5255d8cf01f",
+        "type": "tab",
+        "label": "Dashboard - Field Config",
         "disabled": false,
         "info": "",
         "env": []
@@ -178,7 +194,7 @@
             "name": "Node-RED Dashboard",
             "hideToolbar": "false",
             "allowSwipe": "false",
-            "lockMenu": "false",
+            "lockMenu": "true",
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
@@ -224,6 +240,25 @@
         "order": 2,
         "width": 1,
         "height": 1
+    },
+    {
+        "id": "8cc3fd17a6d665c5",
+        "type": "ui_tab",
+        "name": "Field Config",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a5991f3b10b51e7c",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "8cc3fd17a6d665c5",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "675e506f8cc3e3c6",
@@ -306,8 +341,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 560,
+        "x": 760,
+        "y": 420,
         "wires": []
     },
     {
@@ -397,11 +432,9 @@
         "type": "link in",
         "z": "3d42d3194c2552f8",
         "name": "Game Reset Message - MQTT Out",
-        "links": [
-            "3f00803b0fe3404d"
-        ],
-        "x": 155,
-        "y": 560,
+        "links": [],
+        "x": 65,
+        "y": 420,
         "wires": [
             [
                 "2c24dc53b6049b78"
@@ -412,8 +445,8 @@
         "id": "2c24dc53b6049b78",
         "type": "mqtt out",
         "z": "3d42d3194c2552f8",
-        "name": "edgenode/gamereset",
-        "topic": "edgenode/gamereset",
+        "name": "nodered/reset/match",
+        "topic": "nodered/reset/match",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -422,18 +455,22 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 380,
-        "y": 560,
+        "x": 290,
+        "y": 420,
         "wires": []
     },
     {
         "id": "3a4f65d2f43899bf",
         "type": "link in",
         "z": "3d42d3194c2552f8",
-        "name": "Send FireScore to EdgeNode",
-        "links": [],
-        "x": 85,
-        "y": 420,
+        "name": "MQTT Send Firescore to Node",
+        "links": [
+            "3f00803b0fe3404d",
+            "9225979b748b64fa",
+            "530bf25ea8a65ce6"
+        ],
+        "x": 65,
+        "y": 280,
         "wires": [
             [
                 "5cacabc8f9cd5606"
@@ -444,7 +481,7 @@
         "id": "1e0fd409ba1a6b71",
         "type": "mqtt out",
         "z": "3d42d3194c2552f8",
-        "name": "Publish To Edgenodes",
+        "name": "msg.topic = \"nodered/firescore/\"+nodeid;",
         "topic": "",
         "qos": "",
         "retain": "",
@@ -454,28 +491,9 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 620,
-        "y": 420,
+        "x": 660,
+        "y": 280,
         "wires": []
-    },
-    {
-        "id": "c0c0e97e359ebe03",
-        "type": "function",
-        "z": "3d42d3194c2552f8",
-        "name": "Firescore message",
-        "func": "\nvar nodeid = msg.payload[0].nodeid;\nmsg.topic = \"nodered/firescore/\"+nodeid;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 420,
-        "wires": [
-            [
-                "1e0fd409ba1a6b71"
-            ]
-        ]
     },
     {
         "id": "5cacabc8f9cd5606",
@@ -485,13 +503,33 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 210,
-        "y": 420,
+        "x": 190,
+        "y": 280,
         "wires": [
             [
-                "c0c0e97e359ebe03"
+                "1e0fd409ba1a6b71"
             ]
         ]
+    },
+    {
+        "id": "31536652b0e65c1c",
+        "type": "comment",
+        "z": "3d42d3194c2552f8",
+        "name": "Publish Fire score to a Node",
+        "info": "",
+        "x": 160,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3327ecc679f21bed",
+        "type": "comment",
+        "z": "3d42d3194c2552f8",
+        "name": "Publish New Match to All",
+        "info": "",
+        "x": 150,
+        "y": 360,
+        "wires": []
     },
     {
         "id": "6cddfd33ec05b6b7",
@@ -564,6 +602,123 @@
         "info": "",
         "x": 260,
         "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5329a59e7e76c7c0",
+        "type": "link in",
+        "z": "0661e4588e011b72",
+        "name": "Publish Latest Fire Score to Node",
+        "links": [
+            "9225979b748b64fa"
+        ],
+        "x": 125,
+        "y": 120,
+        "wires": [
+            [
+                "ed62e9e4477e7eed"
+            ]
+        ]
+    },
+    {
+        "id": "ddad0b88779e31bf",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "Latest Match Table Dump",
+        "func": "\nvar o = msg.payload;\nvar matchid = global.get(\"matchnum\");\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"SELECT FIRE_SCORE FROM GAME_SCORES WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid+\"';\",\n    \"nodeid\":nodeid\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "3bf9e0f865abb5b8"
+            ]
+        ]
+    },
+    {
+        "id": "3bf9e0f865abb5b8",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 730,
+        "y": 120,
+        "wires": [
+            [
+                "e84e140d4b501f18"
+            ]
+        ]
+    },
+    {
+        "id": "ed62e9e4477e7eed",
+        "type": "json",
+        "z": "0661e4588e011b72",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "ddad0b88779e31bf"
+            ]
+        ]
+    },
+    {
+        "id": "d150d876ca04a688",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e84e140d4b501f18",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "function 2",
+        "func": "var o = msg.payload\nvar firescore = o[0].FIRE_SCORE;\nvar nodeid = msg.nodeid;\nvar t = \"{ \\\"nodeid\\\": \\\"\" + nodeid + \"\\\", \\\"firescore\\\": \" + firescore + \", \\\"timestamp\\\": \" + 1000 + \"}\";\nmsg.payload = t;\n//nodered/firescore/[node id]\nmsg.topic = \"nodered/firescore/\" + nodeid;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 120,
+        "wires": [
+            [
+                "d150d876ca04a688",
+                "530bf25ea8a65ce6"
+            ]
+        ]
+    },
+    {
+        "id": "530bf25ea8a65ce6",
+        "type": "link out",
+        "z": "0661e4588e011b72",
+        "name": "link out 35",
+        "mode": "link",
+        "links": [
+            "3a4f65d2f43899bf"
+        ],
+        "x": 1045,
+        "y": 180,
         "wires": []
     },
     {
@@ -854,7 +1009,7 @@
         "name": "link out 13",
         "mode": "link",
         "links": [
-            "1d8b42fd0952e51b"
+            "3a4f65d2f43899bf"
         ],
         "x": 915,
         "y": 240,
@@ -934,22 +1089,14 @@
         "id": "32cd111d9a2a3113",
         "type": "change",
         "z": "dc5996c16196eba2",
-        "name": "Set Debug Notify Field",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Call Back Complete for Notify field",
-                "tot": "str"
-            }
-        ],
+        "name": "Set Notify Field",
+        "rules": [],
         "action": "",
         "property": "",
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
+        "x": 640,
         "y": 240,
         "wires": [
             [
@@ -1041,7 +1188,7 @@
         "layout": "col-center",
         "className": "",
         "x": 870,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -1094,7 +1241,7 @@
             "fa60c2b1c4bd6432"
         ],
         "x": 695,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "c870ec8282153101"
@@ -1196,7 +1343,8 @@
         "y": 420,
         "wires": [
             [
-                "a9c50f46b67e9896"
+                "a9c50f46b67e9896",
+                "84a25c5ebff798fb"
             ]
         ]
     },
@@ -1281,7 +1429,8 @@
         "y": 500,
         "wires": [
             [
-                "75c5f224f591b111"
+                "75c5f224f591b111",
+                "84a25c5ebff798fb"
             ]
         ]
     },
@@ -1367,7 +1516,9 @@
         "y": 340,
         "wires": [
             [
-                "37c9658f21fde304"
+                "37c9658f21fde304",
+                "84a25c5ebff798fb",
+                "cc9c7da6d3ec6e77"
             ]
         ]
     },
@@ -1410,6 +1561,165 @@
         ],
         "x": 335,
         "y": 140,
+        "wires": []
+    },
+    {
+        "id": "8f1d410dda1e4f81",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 32",
+        "mode": "link",
+        "links": [
+            "18a554bcaa2360e7"
+        ],
+        "x": 935,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "84a25c5ebff798fb",
+        "type": "delay",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 400,
+        "wires": [
+            [
+                "8f1d410dda1e4f81",
+                "1fba5de08a2e1d6f"
+            ]
+        ]
+    },
+    {
+        "id": "71a84d7f0e04039b",
+        "type": "ui_ui_control",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "events": "change",
+        "x": 1040,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fba5de08a2e1d6f",
+        "type": "delay",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "28b06e0ed349f7f2"
+            ]
+        ]
+    },
+    {
+        "id": "28b06e0ed349f7f2",
+        "type": "change",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 520,
+        "wires": [
+            [
+                "71a84d7f0e04039b"
+            ]
+        ]
+    },
+    {
+        "id": "cc9c7da6d3ec6e77",
+        "type": "delay",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "9225979b748b64fa",
+                "25c048ee2a191abb"
+            ]
+        ]
+    },
+    {
+        "id": "9225979b748b64fa",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 34",
+        "mode": "link",
+        "links": [
+            "3a4f65d2f43899bf",
+            "5329a59e7e76c7c0"
+        ],
+        "x": 945,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "25c048ee2a191abb",
+        "type": "debug",
+        "z": "7ebbc29c647c58ec",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 340,
         "wires": []
     },
     {
@@ -1735,7 +2045,8 @@
         "links": [
             "c30231dee65db09d",
             "d9bb129180d8b9cf",
-            "277d12403d6f9f63"
+            "277d12403d6f9f63",
+            "8f1d410dda1e4f81"
         ],
         "x": 105,
         "y": 980,
@@ -2537,12 +2848,11 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Read Config Node ID",
-        "x": 780,
-        "y": 620,
+        "x": 360,
+        "y": 700,
         "wires": [
             [
-                "2bcc56e6d241c3d9",
-                "495420fab0112b70"
+                "2bcc56e6d241c3d9"
             ]
         ]
     },
@@ -2827,22 +3137,6 @@
         ]
     },
     {
-        "id": "a3176cef58e51260",
-        "type": "debug",
-        "z": "f3ec5d556e86f8d0",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 740,
-        "wires": []
-    },
-    {
         "id": "2bcc56e6d241c3d9",
         "type": "function",
         "z": "f3ec5d556e86f8d0",
@@ -2853,13 +3147,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1000,
-        "y": 620,
+        "x": 600,
+        "y": 700,
         "wires": [
             [
-                "feddd1768611c551",
-                "a3176cef58e51260",
-                "495420fab0112b70"
+                "feddd1768611c551"
             ]
         ]
     },
@@ -2877,25 +3169,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1270,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "495420fab0112b70",
-        "type": "debug",
-        "z": "f3ec5d556e86f8d0",
-        "name": "debug 11",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "topic",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 800,
+        "x": 850,
+        "y": 700,
         "wires": []
     },
     {
@@ -2925,8 +3200,8 @@
         "topic": "",
         "payload": "[69,68,71,69,95,85,85,73,68,44,69,68,71,69,95,78,79,68,69,95,73,68,10,55,52,53,50,67,52,52,49,44,76,66,79,10,55,52,53,50,67,52,52,50,44,76,66,77,10,55,66,68,56,51,65,49,51,44,82,66,77,10,55,48,57,67,68,66,70,70,44,82,66,79]",
         "payloadType": "bin",
-        "x": 170,
-        "y": 380,
+        "x": 150,
+        "y": 840,
         "wires": [
             [
                 "a1e6f1282aa6e63a"
@@ -2945,8 +3220,8 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 430,
-        "y": 380,
+        "x": 410,
+        "y": 840,
         "wires": [
             []
         ]
@@ -2955,10 +3230,407 @@
         "id": "b70ae83c222fa7da",
         "type": "comment",
         "z": "f3ec5d556e86f8d0",
-        "name": "Emergency Use! Write config",
+        "name": "Emergency Use! Write config -  (you need to load it after)",
         "info": "If you can't access the raspberry pi file system -- you can put the config here and force write it\nBUT -- you have to send as binary so that it retains the newlines\nFor example:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n7BD83A13,RBM\n709CDBFF,RBO\n\n\n\n\nBe sure to hit the elipses ...  so that you can see what you are typing.  \nAlso note that it will change to binary as soon as you send -- but it will work fine",
+        "x": 240,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "3dd25f169354ef22",
+        "type": "sqlite",
+        "z": "f3ec5d556e86f8d0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "Select * from FIELD_CONFIG;",
+        "name": "Read Config",
+        "x": 270,
+        "y": 380,
+        "wires": [
+            [
+                "ad34ea44766153db"
+            ]
+        ]
+    },
+    {
+        "id": "6f32fc52a4d53df8",
+        "type": "link in",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Read Config",
+        "links": [
+            "5870cb8ac8846724",
+            "f03d05829f9254f9"
+        ],
+        "x": 85,
+        "y": 380,
+        "wires": [
+            [
+                "3dd25f169354ef22"
+            ]
+        ]
+    },
+    {
+        "id": "ad34ea44766153db",
+        "type": "link out",
+        "z": "f3ec5d556e86f8d0",
+        "name": "link out 29",
+        "mode": "link",
+        "links": [
+            "4369b98b6d58fe86"
+        ],
+        "x": 435,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "161f3cee4bd60724",
+        "type": "link in",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Insert UUI Entry",
+        "links": [
+            "99f3e6c97f2c0d2b"
+        ],
+        "x": 95,
+        "y": 480,
+        "wires": [
+            [
+                "b1e8ab6feba986c9"
+            ]
+        ]
+    },
+    {
+        "id": "b1e8ab6feba986c9",
+        "type": "function",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Construct SQL",
+        "func": "var o = msg.payload;\nvar sql = \"INSERT INTO \\\"FIELD_CONFIG\\\"(EDGE_UUID, EDGE_NODE_ID) VALUES(\\\"\"+o.EDGE_UUID+\"\\\", \\\"\"+o.EDGE_NODE_ID+\"\\\") ON CONFLICT(EDGE_UUID) DO UPDATE SET EDGE_NODE_ID = excluded.EDGE_NODE_ID;\";\nmsg.topic = sql;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 480,
+        "wires": [
+            [
+                "4b72a159e1e82517"
+            ]
+        ]
+    },
+    {
+        "id": "4b72a159e1e82517",
+        "type": "sqlite",
+        "z": "f3ec5d556e86f8d0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SqlLite Commands",
+        "x": 430,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c79cb601a8c0ab17",
+        "type": "comment",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Add Single Edge Node",
+        "info": "Update single node entry",
         "x": 180,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9f34def0af02efeb",
+        "type": "function",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Construct SQL",
+        "func": "var o = msg.payload;\nvar sql = \"DELETE FROM \\\"FIELD_CONFIG\\\" WHERE EDGE_UUID=\\\"\"+o.EDGE_UUID+\"\\\";\";\nmsg.topic = sql;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 480,
+        "wires": [
+            [
+                "80e1d2d095f19693"
+            ]
+        ]
+    },
+    {
+        "id": "80e1d2d095f19693",
+        "type": "sqlite",
+        "z": "f3ec5d556e86f8d0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SqlLite Commands",
+        "x": 990,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac5d35d999fc40b9",
+        "type": "comment",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Remove Single Edge Node",
+        "info": "Update single node entry",
+        "x": 730,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "cd811a5da6dea1c9",
+        "type": "link in",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Delete UUI Entry",
+        "links": [
+            "9e93acca6dde891c"
+        ],
+        "x": 635,
+        "y": 480,
+        "wires": [
+            [
+                "9f34def0af02efeb"
+            ]
+        ]
+    },
+    {
+        "id": "f8aa15da571b3aae",
+        "type": "ui_text",
+        "z": "829ad5255d8cf01f",
+        "group": "a5991f3b10b51e7c",
+        "order": 6,
+        "width": "6",
+        "height": "4",
+        "name": "Loaded Values",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "dfeaa41a75adbf51",
+        "type": "ui_button",
+        "z": "829ad5255d8cf01f",
+        "name": "Submit",
+        "group": "a5991f3b10b51e7c",
+        "order": 7,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Current Config Dump",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "5870cb8ac8846724",
+                "a11c3ee5796d07f2"
+            ]
+        ]
+    },
+    {
+        "id": "f4c6348e4bde4c20",
+        "type": "ui_form",
+        "z": "829ad5255d8cf01f",
+        "name": "",
+        "label": "Add UUID Mapping",
+        "group": "a5991f3b10b51e7c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Arduino UUID",
+                "value": "EDGE_UUID",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Node ID",
+                "value": "EDGE_NODE_ID",
+                "type": "text",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "EDGE_UUID": "",
+            "EDGE_NODE_ID": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "99f3e6c97f2c0d2b",
+                "a11c3ee5796d07f2"
+            ]
+        ]
+    },
+    {
+        "id": "5870cb8ac8846724",
+        "type": "link out",
+        "z": "829ad5255d8cf01f",
+        "name": "link out 28",
+        "mode": "link",
+        "links": [
+            "6f32fc52a4d53df8"
+        ],
+        "x": 305,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4369b98b6d58fe86",
+        "type": "link in",
+        "z": "829ad5255d8cf01f",
+        "name": "Config Display",
+        "links": [
+            "ad34ea44766153db"
+        ],
+        "x": 435,
+        "y": 160,
+        "wires": [
+            [
+                "f8aa15da571b3aae"
+            ]
+        ]
+    },
+    {
+        "id": "99f3e6c97f2c0d2b",
+        "type": "link out",
+        "z": "829ad5255d8cf01f",
+        "name": "link out 30",
+        "mode": "link",
+        "links": [
+            "161f3cee4bd60724"
+        ],
+        "x": 385,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "02673478ac90323a",
+        "type": "comment",
+        "z": "829ad5255d8cf01f",
+        "name": "Dump Current Config",
+        "info": "",
+        "x": 200,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1dfa349788a1a948",
+        "type": "ui_form",
+        "z": "829ad5255d8cf01f",
+        "name": "",
+        "label": "Remove UUID Mapping",
+        "group": "a5991f3b10b51e7c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Arduino UUID",
+                "value": "EDGE_UUID",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "EDGE_UUID": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 210,
         "y": 340,
+        "wires": [
+            [
+                "9e93acca6dde891c",
+                "a11c3ee5796d07f2"
+            ]
+        ]
+    },
+    {
+        "id": "9e93acca6dde891c",
+        "type": "link out",
+        "z": "829ad5255d8cf01f",
+        "name": "link out 31",
+        "mode": "link",
+        "links": [
+            "cd811a5da6dea1c9"
+        ],
+        "x": 415,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a11c3ee5796d07f2",
+        "type": "delay",
+        "z": "829ad5255d8cf01f",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 220,
+        "wires": [
+            [
+                "f03d05829f9254f9"
+            ]
+        ]
+    },
+    {
+        "id": "f03d05829f9254f9",
+        "type": "link out",
+        "z": "829ad5255d8cf01f",
+        "name": "link out 33",
+        "mode": "link",
+        "links": [
+            "6f32fc52a4d53df8"
+        ],
+        "x": 635,
+        "y": 220,
         "wires": []
     }
 ]
