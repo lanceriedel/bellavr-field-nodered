@@ -195,7 +195,7 @@
             "hideToolbar": "false",
             "allowSwipe": "false",
             "lockMenu": "true",
-            "allowTempTheme": "true",
+            "allowTempTheme": "none",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
                 "sx": 48,
@@ -226,20 +226,10 @@
         "name": "Debug Screen",
         "tab": "24769b923875c2f1",
         "order": 2,
-        "disp": true,
+        "disp": false,
         "width": "17",
-        "collapse": true,
-        "className": ""
-    },
-    {
-        "id": "abd82126ad566563",
-        "type": "ui_spacer",
-        "z": "7ebbc29c647c58ec",
-        "name": "spacer",
-        "group": "efa02099cf2bc4a1",
-        "order": 2,
-        "width": 1,
-        "height": 1
+        "collapse": false,
+        "className": "gamedata"
     },
     {
         "id": "8cc3fd17a6d665c5",
@@ -274,8 +264,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 790,
-        "y": 160,
+        "x": 850,
+        "y": 580,
         "wires": []
     },
     {
@@ -300,8 +290,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 410,
-        "y": 140,
+        "x": 470,
+        "y": 560,
         "wires": [
             [
                 "2e5f3a887f317523"
@@ -325,24 +315,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 790,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "456171329783d919",
-        "type": "debug",
-        "z": "3d42d3194c2552f8",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 420,
+        "x": 850,
+        "y": 520,
         "wires": []
     },
     {
@@ -363,8 +337,8 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 110,
-        "y": 140,
+        "x": 170,
+        "y": 560,
         "wires": [
             [
                 "7956c7f15c937519"
@@ -382,8 +356,8 @@
         "initialize": "if (context.get(\"counter\") === undefined) {\n    context.set(\"counter\", 0)\n}",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 140,
+        "x": 320,
+        "y": 560,
         "wires": [
             [
                 "c11317ac5ddaf481"
@@ -409,8 +383,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
-        "y": 100,
+        "x": 640,
+        "y": 520,
         "wires": [
             [
                 "4f1f03d9ace5b214"
@@ -423,8 +397,8 @@
         "z": "3d42d3194c2552f8",
         "name": "Heartbeat - sending 1/0 flip flop",
         "info": "",
-        "x": 170,
-        "y": 60,
+        "x": 230,
+        "y": 480,
         "wires": []
     },
     {
@@ -432,12 +406,15 @@
         "type": "link in",
         "z": "3d42d3194c2552f8",
         "name": "Game Reset Message - MQTT Out",
-        "links": [],
-        "x": 65,
-        "y": 420,
+        "links": [
+            "7d1c946cf1d71468"
+        ],
+        "x": 145,
+        "y": 260,
         "wires": [
             [
-                "2c24dc53b6049b78"
+                "2c24dc53b6049b78",
+                "bd516590c06a9cdd"
             ]
         ]
     },
@@ -455,8 +432,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 290,
-        "y": 420,
+        "x": 880,
+        "y": 260,
         "wires": []
     },
     {
@@ -467,10 +444,11 @@
         "links": [
             "3f00803b0fe3404d",
             "9225979b748b64fa",
-            "530bf25ea8a65ce6"
+            "530bf25ea8a65ce6",
+            "456155bf98b91e2c"
         ],
-        "x": 65,
-        "y": 280,
+        "x": 145,
+        "y": 120,
         "wires": [
             [
                 "5cacabc8f9cd5606"
@@ -491,8 +469,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 660,
-        "y": 280,
+        "x": 940,
+        "y": 120,
         "wires": []
     },
     {
@@ -503,8 +481,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 190,
-        "y": 280,
+        "x": 270,
+        "y": 120,
         "wires": [
             [
                 "1e0fd409ba1a6b71"
@@ -517,8 +495,8 @@
         "z": "3d42d3194c2552f8",
         "name": "Publish Fire score to a Node",
         "info": "",
-        "x": 160,
-        "y": 220,
+        "x": 240,
+        "y": 60,
         "wires": []
     },
     {
@@ -527,8 +505,24 @@
         "z": "3d42d3194c2552f8",
         "name": "Publish New Match to All",
         "info": "",
-        "x": 150,
-        "y": 360,
+        "x": 230,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "bd516590c06a9cdd",
+        "type": "debug",
+        "z": "3d42d3194c2552f8",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 320,
         "wires": []
     },
     {
@@ -580,8 +574,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
-        "y": 280,
+        "x": 770,
+        "y": 220,
         "wires": []
     },
     {
@@ -591,7 +585,7 @@
         "name": "Game Field input messages over mqtt",
         "info": "",
         "x": 170,
-        "y": 60,
+        "y": 40,
         "wires": []
     },
     {
@@ -602,6 +596,16 @@
         "info": "",
         "x": 260,
         "y": 540,
+        "wires": []
+    },
+    {
+        "id": "17d454ff68066317",
+        "type": "comment",
+        "z": "8d38dc412a73d987",
+        "name": "Incoming Laser Hit from Edge Node",
+        "info": "",
+        "x": 160,
+        "y": 100,
         "wires": []
     },
     {
@@ -624,14 +628,14 @@
         "id": "ddad0b88779e31bf",
         "type": "function",
         "z": "0661e4588e011b72",
-        "name": "Latest Match Table Dump",
+        "name": "Retrieve Latest Fire Score for NodeId",
         "func": "\nvar o = msg.payload;\nvar matchid = global.get(\"matchnum\");\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"SELECT FIRE_SCORE FROM GAME_SCORES WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid+\"';\",\n    \"nodeid\":nodeid\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
+        "x": 470,
         "y": 120,
         "wires": [
             [
@@ -647,7 +651,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 730,
+        "x": 750,
         "y": 120,
         "wires": [
             [
@@ -672,38 +676,20 @@
         ]
     },
     {
-        "id": "d150d876ca04a688",
-        "type": "debug",
-        "z": "0661e4588e011b72",
-        "name": "debug 14",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1120,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "e84e140d4b501f18",
         "type": "function",
         "z": "0661e4588e011b72",
-        "name": "function 2",
+        "name": "Assemble message",
         "func": "var o = msg.payload\nvar firescore = o[0].FIRE_SCORE;\nvar nodeid = msg.nodeid;\nvar t = \"{ \\\"nodeid\\\": \\\"\" + nodeid + \"\\\", \\\"firescore\\\": \" + firescore + \", \\\"timestamp\\\": \" + 1000 + \"}\";\nmsg.payload = t;\n//nodered/firescore/[node id]\nmsg.topic = \"nodered/firescore/\" + nodeid;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
+        "x": 970,
         "y": 120,
         "wires": [
             [
-                "d150d876ca04a688",
                 "530bf25ea8a65ce6"
             ]
         ]
@@ -717,53 +703,146 @@
         "links": [
             "3a4f65d2f43899bf"
         ],
-        "x": 1045,
-        "y": 180,
+        "x": 1115,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "f4c1c11a188f5c23",
-        "type": "inject",
-        "z": "dc5996c16196eba2",
-        "name": "Increment Fire Score +1",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
+        "id": "cc89dbf72d1f6006",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "Retrieve then call to publish Latest Firescore to edge nodes",
+        "info": "",
+        "x": 340,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "165f13f0f929f16e",
+        "type": "link out",
+        "z": "0661e4588e011b72",
+        "name": "link out 36",
+        "mode": "link",
+        "links": [
+            "48af91ab4809047a"
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"nodeid\":\"LTO\",\"firescore\":1,\"timestamp\":1000000}",
-        "payloadType": "json",
-        "x": 180,
-        "y": 600,
+        "x": 575,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "456155bf98b91e2c",
+        "type": "link out",
+        "z": "0661e4588e011b72",
+        "name": "link out 37",
+        "mode": "link",
+        "links": [
+            "3a4f65d2f43899bf"
+        ],
+        "x": 575,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "dd55547c4747b6b1",
+        "type": "link in",
+        "z": "0661e4588e011b72",
+        "name": "Callback Finished New Match DB",
+        "links": [
+            "7d1c946cf1d71468"
+        ],
+        "x": 125,
+        "y": 280,
         "wires": [
             [
-                "5eca71e17e525b35"
+                "e65f24f080169b20"
             ]
         ]
     },
     {
-        "id": "5eca71e17e525b35",
+        "id": "e65f24f080169b20",
+        "type": "change",
+        "z": "0661e4588e011b72",
+        "name": "Set Debug Complete New Match",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Call Back Complete for New Match",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "165f13f0f929f16e"
+            ]
+        ]
+    },
+    {
+        "id": "754ef2450038c273",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "New Match Call backs to set global.matchnum and notify field",
+        "info": "Creates a new match in the Game table\nSets the global matchnum for all flows to use",
+        "x": 320,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a67d3036cd8b2a23",
+        "type": "link in",
+        "z": "0661e4588e011b72",
+        "name": "Callback Finished Set global.matchnum",
+        "links": [
+            "50a7d4620d30956a"
+        ],
+        "x": 125,
+        "y": 360,
+        "wires": [
+            [
+                "821e9e89a9ce075d"
+            ]
+        ]
+    },
+    {
+        "id": "821e9e89a9ce075d",
+        "type": "change",
+        "z": "0661e4588e011b72",
+        "name": "Set Notify Field",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "456155bf98b91e2c",
+                "3719854fdfed232d"
+            ]
+        ]
+    },
+    {
+        "id": "3719854fdfed232d",
         "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 4",
+        "z": "0661e4588e011b72",
+        "name": "link out 38",
         "mode": "link",
         "links": [
-            "21d3a1c330d6a65e",
-            "b49a77ff09745d6d",
-            "af55cd6eb001ec61",
-            "63f807f3f36abd11"
+            "4c16c39c21c351b0"
         ],
-        "x": 375,
-        "y": 600,
+        "x": 575,
+        "y": 400,
         "wires": []
     },
     {
@@ -805,19 +884,6 @@
             "a5a1bd31c468f86b"
         ],
         "x": 285,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "e68d02821b10c9fd",
-        "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 8",
-        "mode": "link",
-        "links": [
-            "48af91ab4809047a"
-        ],
-        "x": 915,
         "y": 160,
         "wires": []
     },
@@ -950,176 +1016,6 @@
         "wires": []
     },
     {
-        "id": "ed83cb16654dd159",
-        "type": "comment",
-        "z": "dc5996c16196eba2",
-        "name": "Increment Scores for latest Match ",
-        "info": "",
-        "x": 200,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "5017a08295e5843b",
-        "type": "inject",
-        "z": "dc5996c16196eba2",
-        "name": "Increment Lase Hit Score +1",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"nodeid\":\"LTO\",\"hits\":1,\"timestamp\":1000000}",
-        "payloadType": "json",
-        "x": 200,
-        "y": 660,
-        "wires": [
-            [
-                "64800c16d9ae1ca4"
-            ]
-        ]
-    },
-    {
-        "id": "64800c16d9ae1ca4",
-        "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 11",
-        "mode": "link",
-        "links": [
-            "af55cd6eb001ec61",
-            "63f807f3f36abd11"
-        ],
-        "x": 375,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "3f00803b0fe3404d",
-        "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 13",
-        "mode": "link",
-        "links": [
-            "3a4f65d2f43899bf"
-        ],
-        "x": 915,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "5a0caa59c0804229",
-        "type": "link in",
-        "z": "dc5996c16196eba2",
-        "name": "Callback Finished New Match DB",
-        "links": [
-            "7d1c946cf1d71468"
-        ],
-        "x": 465,
-        "y": 160,
-        "wires": [
-            [
-                "cf8c03fdd1d44ae3"
-            ]
-        ]
-    },
-    {
-        "id": "cf8c03fdd1d44ae3",
-        "type": "change",
-        "z": "dc5996c16196eba2",
-        "name": "Set Debug Complete New Match",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Call Back Complete for New Match",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 700,
-        "y": 160,
-        "wires": [
-            [
-                "e68d02821b10c9fd",
-                "e7fdc24bcd360c08"
-            ]
-        ]
-    },
-    {
-        "id": "5f48dcd9ce58c49a",
-        "type": "comment",
-        "z": "dc5996c16196eba2",
-        "name": "New Match Call backs to set global.matchnum and notify field",
-        "info": "Creates a new match in the Game table\nSets the global matchnum for all flows to use",
-        "x": 660,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "9d2b1fca46f9be8c",
-        "type": "link in",
-        "z": "dc5996c16196eba2",
-        "name": "Callback Finished Set global.matchnum",
-        "links": [
-            "50a7d4620d30956a"
-        ],
-        "x": 465,
-        "y": 240,
-        "wires": [
-            [
-                "32cd111d9a2a3113"
-            ]
-        ]
-    },
-    {
-        "id": "32cd111d9a2a3113",
-        "type": "change",
-        "z": "dc5996c16196eba2",
-        "name": "Set Notify Field",
-        "rules": [],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 240,
-        "wires": [
-            [
-                "3f00803b0fe3404d",
-                "e7fdc24bcd360c08",
-                "21363eb3f939b961"
-            ]
-        ]
-    },
-    {
-        "id": "21363eb3f939b961",
-        "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 17",
-        "mode": "link",
-        "links": [
-            "4c16c39c21c351b0"
-        ],
-        "x": 915,
-        "y": 280,
-        "wires": []
-    },
-    {
         "id": "b199686f052fe77f",
         "type": "comment",
         "z": "7ebbc29c647c58ec",
@@ -1187,8 +1083,8 @@
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "className": "",
-        "x": 870,
-        "y": 240,
+        "x": 950,
+        "y": 100,
         "wires": []
     },
     {
@@ -1240,8 +1136,8 @@
         "links": [
             "fa60c2b1c4bd6432"
         ],
-        "x": 695,
-        "y": 240,
+        "x": 775,
+        "y": 100,
         "wires": [
             [
                 "c870ec8282153101"
@@ -1687,8 +1583,7 @@
         "y": 300,
         "wires": [
             [
-                "9225979b748b64fa",
-                "25c048ee2a191abb"
+                "9225979b748b64fa"
             ]
         ]
     },
@@ -1707,19 +1602,33 @@
         "wires": []
     },
     {
-        "id": "25c048ee2a191abb",
-        "type": "debug",
+        "id": "7bfb5dc8f61f8b2e",
+        "type": "comment",
         "z": "7ebbc29c647c58ec",
-        "name": "debug 13",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1040,
-        "y": 340,
+        "name": "Wait then publish to MQTT",
+        "info": "",
+        "x": 990,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "3f61a9a29423178a",
+        "type": "comment",
+        "z": "7ebbc29c647c58ec",
+        "name": "Wait then publish to Update and Refresh Game Dump",
+        "info": "",
+        "x": 1080,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7777761941ca1618",
+        "type": "comment",
+        "z": "7ebbc29c647c58ec",
+        "name": "Text Box containing full Game Details",
+        "info": "",
+        "x": 890,
+        "y": 60,
         "wires": []
     },
     {
@@ -1951,7 +1860,8 @@
         "z": "f74b301e4f22310f",
         "name": "Set Latest Matchnum to Global",
         "links": [
-            "e68d02821b10c9fd"
+            "e68d02821b10c9fd",
+            "165f13f0f929f16e"
         ],
         "x": 105,
         "y": 760,
@@ -2022,8 +1932,7 @@
         "y": 980,
         "wires": [
             [
-                "5954b430a79f7b3e",
-                "4d6a7eeb34e791e7"
+                "5954b430a79f7b3e"
             ]
         ]
     },
@@ -2153,7 +2062,8 @@
         "name": "New Match DB Entry Complete",
         "mode": "link",
         "links": [
-            "5a0caa59c0804229"
+            "1d8b42fd0952e51b",
+            "dd55547c4747b6b1"
         ],
         "x": 945,
         "y": 600,
@@ -2166,7 +2076,7 @@
         "name": "New Match DB Entry Complete",
         "mode": "link",
         "links": [
-            "9d2b1fca46f9be8c"
+            "a67d3036cd8b2a23"
         ],
         "x": 1025,
         "y": 760,
@@ -2291,22 +2201,6 @@
         "wires": []
     },
     {
-        "id": "4d6a7eeb34e791e7",
-        "type": "debug",
-        "z": "f74b301e4f22310f",
-        "name": "debug 12",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 920,
-        "wires": []
-    },
-    {
         "id": "2df386bd76ec52e3",
         "type": "sqlite",
         "z": "f74b301e4f22310f",
@@ -2328,7 +2222,8 @@
         "z": "f74b301e4f22310f",
         "name": "Create Empty Game Records",
         "links": [
-            "21363eb3f939b961"
+            "21363eb3f939b961",
+            "3719854fdfed232d"
         ],
         "x": 105,
         "y": 840,
@@ -2353,8 +2248,7 @@
         "y": 840,
         "wires": [
             [
-                "12b7849527a8f3d3",
-                "4d6a7eeb34e791e7"
+                "12b7849527a8f3d3"
             ]
         ]
     },
