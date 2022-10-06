@@ -5,7 +5,8 @@ field control
 
 ### Install Node Red
 Install node red:
-```bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+```
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 node-red admin init
 sudo shutdown -r now
 ```
