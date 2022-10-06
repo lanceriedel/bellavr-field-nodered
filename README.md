@@ -19,15 +19,18 @@ https://flows.nodered.org/node/node-red-node-sqlite
 But this is what you need to do:
 
 To install:
- ```cd ~/.node-red/
+ ```
+ cd ~/.node-red/
  npm i --unsafe-perm node-red-node-sqlite
  ```
 
 Create this directory (to store the database):
-```mkdir /home/pi/sqlite-storage
+```
+mkdir /home/pi/sqlite-storage
 ```
 The database is configured in node red with the file:
-```/home/pi/sqlite-storage/sqlite
+```
+/home/pi/sqlite-storage/sqlite
 ```
 Note that the first time you create a table, it will automatically create the file in the directory and start writing to it.
 
@@ -45,7 +48,8 @@ Then the following instructions:
 Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)
 
 1. Write a text file in the following format:
-```EDGE_UUID,EDGE_NODE_ID
+```
+EDGE_UUID,EDGE_NODE_ID
 7452C441,LBO
 7452C442,LBM
 ...
