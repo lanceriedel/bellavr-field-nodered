@@ -554,8 +554,7 @@
         "name": "link out 12",
         "mode": "link",
         "links": [
-            "af55cd6eb001ec61",
-            "63f807f3f36abd11"
+            "af55cd6eb001ec61"
         ],
         "x": 415,
         "y": 140,
@@ -1658,7 +1657,8 @@
         "name": "link out 5",
         "mode": "link",
         "links": [
-            "43ddc5a441c4fd3f"
+            "43ddc5a441c4fd3f",
+            "f6566f17a1e9b78e"
         ],
         "x": 915,
         "y": 160,
@@ -1980,7 +1980,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Laser Hit (ADD)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_HITS = NUM_HITS + \" + hits + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_HITS = NUM_HITS + \" \n    + hits + \" WHERE MATCH_NUM = \" \n    + matchid + \" AND NODE_ID='\" + nodeid \n    + \"' AND SIDE_ID=\" + sideid \n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2049,7 +2049,7 @@
         "name": "link out 10",
         "mode": "link",
         "links": [
-            "43ddc5a441c4fd3f"
+            "f6566f17a1e9b78e"
         ],
         "x": 915,
         "y": 300,
@@ -2087,7 +2087,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Laser Hit (SET)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_HITS = \" + hits + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_HITS = \" + hits + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"' AND SIDE_ID=\" + sideid + \";\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2238,7 +2238,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - New Game_score entries for new Match",
-        "func": "\nvar timestamp = 100000;\nvar matchnum = global.get(\"matchnum\");\n/*\n MATCH_NUM INT NOT NULL,\n  NODE_ID VARCHAR[32],\n  BALLS_DROPPED INT NOT NULL,\n  FIRE_SCORE INT NOT NULL,\n  NUM_TREES INT NOT NULL,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY (MATCH_NUM, NODE_ID)\n  */\nvar newMsg = {\n    \"topic\": \"\\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+matchnum+\",'LTO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0, \"+ timestamp + \"); \\\n\"\n}\n\nreturn newMsg;\n",
+        "func": "\nvar timestamp = 100000;\nvar matchnum = global.get(\"matchnum\");\n/*\n MATCH_NUM INT NOT NULL,\n  NODE_ID VARCHAR[32],\n  BALLS_DROPPED INT NOT NULL,\n  FIRE_SCORE INT NOT NULL,\n  NUM_TREES INT NOT NULL,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY (MATCH_NUM, NODE_ID)\n  */\n\n  //NOTE - Do this programatically nest time!\nvar newMsg = {\n    \"topic\": \"\\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+matchnum+\",'LTO', 0,0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,1, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,2, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,4, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,3, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,3, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,4, \" + timestamp + \"); \\\n      INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,4, \"+ timestamp + \"); \\\n\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2270,8 +2270,8 @@
         "id": "2ce44170d41d852c",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - Update Laser Hit (ADD)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = NUM_DROPS + \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "name": "SQL - Update Ball Drop (ADD)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar sideid = 0;\n\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = NUM_DROPS + \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid+ \"' AND SIDE_ID=\" + sideid + \";\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2318,7 +2318,6 @@
         "name": "Increment Ball Drop",
         "links": [
             "2e9480f054445e4b",
-            "515a805e2750f3bd",
             "5eca71e17e525b35",
             "64800c16d9ae1ca4",
             "6c398839cd14285d",
@@ -2342,7 +2341,8 @@
         "name": "link out 20",
         "mode": "link",
         "links": [
-            "43ddc5a441c4fd3f"
+            "43ddc5a441c4fd3f",
+            "f6566f17a1e9b78e"
         ],
         "x": 915,
         "y": 420,
@@ -2352,8 +2352,8 @@
         "id": "4d52cd46f08add7f",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - Update Laser Hit (SET)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "name": "SQL - Update Ball Drop (SET)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"' AND SIDE_ID=\" + sideid +\";\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2554,7 +2554,6 @@
             "b495418c6c4b995b",
             "3a4b12e5b9609b0d",
             "36875745f8a09dcd",
-            "d527904ed8723b40",
             "91eeec4cfa6d85ca"
         ],
         "x": 175,
@@ -2686,9 +2685,9 @@
         "id": "c940c00eb130609a",
         "type": "comment",
         "z": "8b4b6895c0ec29ec",
-        "name": "Insert New Match - TEST MATCH (For Testing only)",
+        "name": "BROKEN Insert New Match - TEST MATCH (For Testing only)",
         "info": "",
-        "x": 250,
+        "x": 280,
         "y": 320,
         "wires": []
     },
@@ -2708,7 +2707,7 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE GAME_SCORES (\nMATCH_NUM INT NOT NULL,\nNODE_ID VARCHAR[32],\nFIRE_SCORE INT NOT NULL,\nNUM_TREES INT NOT NULL, \nNUM_HITS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, NODE_ID));",
+        "sql": "CREATE TABLE GAME_SCORES (\nMATCH_NUM INT NOT NULL,\nNODE_ID VARCHAR[32],\nSIDE_ID INT NOT NULL,\nFIRE_SCORE INT NOT NULL,\nNUM_TREES INT NOT NULL, \nNUM_HITS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, NODE_ID, SIDE_ID));",
         "name": "Create Game Score table",
         "x": 950,
         "y": 140,
@@ -2731,6 +2730,58 @@
         "wires": [
             [
                 "544ae34808a17523"
+            ]
+        ]
+    },
+    {
+        "id": "cbc94139020ca0b7",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 330,
+        "y": 620,
+        "wires": [
+            [
+                "27c12a21983f359e"
+            ]
+        ]
+    },
+    {
+        "id": "27c12a21983f359e",
+        "type": "debug",
+        "z": "8b4b6895c0ec29ec",
+        "name": "SQL Write Debug - Special",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "f6566f17a1e9b78e",
+        "type": "link in",
+        "z": "8b4b6895c0ec29ec",
+        "name": "genericSql-special",
+        "links": [
+            "3a4b12e5b9609b0d",
+            "91eeec4cfa6d85ca",
+            "d527904ed8723b40"
+        ],
+        "x": 175,
+        "y": 620,
+        "wires": [
+            [
+                "cbc94139020ca0b7",
+                "27c12a21983f359e"
             ]
         ]
     },
