@@ -20,7 +20,8 @@ But this is what you need to do:
 
 To install:
  ```cd ~/.node-red/
- npm i --unsafe-perm node-red-node-sqlite```
+ npm i --unsafe-perm node-red-node-sqlite
+ ```
 
 Create this directory (to store the database):
 mkdir /home/pi/sqlite-storage
