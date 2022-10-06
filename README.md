@@ -55,10 +55,8 @@ EDGE_UUID,EDGE_NODE_ID
 ...
 ```
 2. Place on the raspberry pi in this location:
-
 /home/pi/field-config.csv
-
-    2.a -- emergency option, you can force a config down in the "Write config to file"  on the Field Config Tab -- see instructions there
+2.a -- emergency option, you can force a config down in the "Write config to file"  on the Field Config Tab -- see instructions there
 
 3. Create and/or drop the table -  Create using the "Create Config Table"
 4. Run "Load Config File into Config Table"
