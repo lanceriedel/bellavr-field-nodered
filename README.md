@@ -5,10 +5,10 @@ field control
 
 ### Install Node Red
 Install node red:
-bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+```bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 node-red admin init
 sudo shutdown -r now
-
+```
 
 ### Install SQLite
 
@@ -24,11 +24,11 @@ To install:
  ```
 
 Create this directory (to store the database):
-mkdir /home/pi/sqlite-storage
-
+```mkdir /home/pi/sqlite-storage
+```
 The database is configured in node red with the file:
-/home/pi/sqlite-storage/sqlite
-
+```/home/pi/sqlite-storage/sqlite
+```
 Note that the first time you create a table, it will automatically create the file in the directory and start writing to it.
 
  Then just run the following injections to create the table ( found on the Storage Management tab ):
@@ -45,13 +45,13 @@ Then the following instructions:
 Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)
 
 1. Write a text file in the following format:
-EDGE_UUID,EDGE_NODE_ID
+```EDGE_UUID,EDGE_NODE_ID
 7452C441,LBO
 7452C442,LBM
 ...
-
+```
 2. Place on the raspberry pi in this location:
-/home/pi/field-config.csv
+```/home/pi/field-config.csv
     2.a -- emergency option, you can force a config down in the "Write config to file"  on the Field Config Tab -- see instructions there
 
 3. Create and/or drop the table -  Create using the "Create Config Table"
