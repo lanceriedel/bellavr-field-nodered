@@ -2776,7 +2776,7 @@
         "type": "comment",
         "z": "f3ec5d556e86f8d0",
         "name": "Config Setup Instructions",
-        "info": "Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)\n\n1. Write a text file in the following format:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n...\n\n2. Place on the raspberry pi in this location:\n/home/pi/field-config.csv\n    2.a -- emergency option, you can force a config down in the \"Write config to file\"  flow below -- see instructions there\n\n3. Create and/or drop then create the \"Create Config Table and import\"\n\n",
+        "info": "Config for the field contains the mapping of UUID (as written to each arduino board) and the node id as defined in the field diagram (containing LBO, RBO, etc)\n\n1. Write a text file in the following format:\nEDGE_UUID,EDGE_NODE_ID\n7452C441,LBO\n7452C442,LBM\n...\n\n2. Place on the raspberry pi in this location:\n/home/pi/field-config.csv\n    2.a -- emergency option, you can force a config down in the \"Write config to file\"  flow below -- see instructions there\n\n3. Create and/or drop then create the \"Create Config Table\"\n4. Run \"Load Config File into Config Table\"\n\n",
         "x": 210,
         "y": 40,
         "wires": []
