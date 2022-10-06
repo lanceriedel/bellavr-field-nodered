@@ -19,8 +19,8 @@ https://flows.nodered.org/node/node-red-node-sqlite
 But this is what you need to do:
 
 To install:
- cd ~/.node-red/
- npm i --unsafe-perm node-red-node-sqlite
+ ```cd ~/.node-red/
+ npm i --unsafe-perm node-red-node-sqlite```
 
 Create this directory (to store the database):
 mkdir /home/pi/sqlite-storage
