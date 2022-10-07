@@ -1,5 +1,21 @@
 [
     {
+        "id": "dc5996c16196eba2",
+        "type": "tab",
+        "label": "Manual Game Flows",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7ebbc29c647c58ec",
+        "type": "tab",
+        "label": "Dashboard - Manual Game Flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "3d42d3194c2552f8",
         "type": "tab",
         "label": "MQTT Output to Field",
@@ -19,22 +35,6 @@
         "id": "0661e4588e011b72",
         "type": "tab",
         "label": "Game Logic Flows",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "dc5996c16196eba2",
-        "type": "tab",
-        "label": "Manual Game Flows",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "7ebbc29c647c58ec",
-        "type": "tab",
-        "label": "Dashboard - Manual Game Flow",
         "disabled": false,
         "info": "",
         "env": []
@@ -249,6 +249,806 @@
         "width": "12",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "bcef7098b2bcab87",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "New Match",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "4eb277af36ef1fe2"
+            ]
+        ]
+    },
+    {
+        "id": "4eb277af36ef1fe2",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "a5a1bd31c468f86b"
+        ],
+        "x": 285,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c2285509eb863856",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Current Global.Matchnum",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "matchnum",
+        "payloadType": "global",
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "e7fdc24bcd360c08"
+            ]
+        ]
+    },
+    {
+        "id": "e7fdc24bcd360c08",
+        "type": "debug",
+        "z": "dc5996c16196eba2",
+        "name": "Debug Manual Game Flows",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "372c7a6bec7d1005",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Game Control Flows that can be triggered manually",
+        "info": "",
+        "x": 250,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "58e0133d504974b2",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Start a new match ",
+        "info": "Creates a new match in the Game table\nSets the global matchnum for all flows to use",
+        "x": 150,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5eef5dc3824c88f6",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Dump to Debug the Current match num",
+        "info": "",
+        "x": 210,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "63b6bb6097222b63",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Dump to Debug Latest Match",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "c30231dee65db09d"
+            ]
+        ]
+    },
+    {
+        "id": "c30231dee65db09d",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 9",
+        "mode": "link",
+        "links": [
+            "18a554bcaa2360e7"
+        ],
+        "x": 425,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1f2c1fa133c6065f",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Dump to Debug the Current match num",
+        "info": "",
+        "x": 210,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b199686f052fe77f",
+        "type": "comment",
+        "z": "7ebbc29c647c58ec",
+        "name": "Publish Firescore To Specific Node -- this is on the Dashboard ",
+        "info": "",
+        "x": 280,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f1896d48a659a2cb",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "UpdateFireScore",
+        "label": "Update Firescore to Node (Node ID = RBO, LBO, etc)",
+        "group": "df6f4c796677e729",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Fire Score",
+                "value": "fire_score",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": "",
+            "fire_score": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "a29505e70d7b9ece"
+            ]
+        ]
+    },
+    {
+        "id": "c870ec8282153101",
+        "type": "ui_text",
+        "z": "7ebbc29c647c58ec",
+        "group": "efa02099cf2bc4a1",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "name": "FullRecordGame",
+        "label": "Debug ",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 950,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a29505e70d7b9ece",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 22",
+        "mode": "link",
+        "links": [
+            "c5098de218c47d8f"
+        ],
+        "x": 385,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "70c33d06c1d6b167",
+        "type": "ui_button",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "group": "df6f4c796677e729",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "View Latest Match",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "277d12403d6f9f63"
+            ]
+        ]
+    },
+    {
+        "id": "28eb2bc55dcddb70",
+        "type": "link in",
+        "z": "7ebbc29c647c58ec",
+        "name": "Dashboard Full Dump",
+        "links": [
+            "fa60c2b1c4bd6432"
+        ],
+        "x": 775,
+        "y": 100,
+        "wires": [
+            [
+                "c870ec8282153101"
+            ]
+        ]
+    },
+    {
+        "id": "277d12403d6f9f63",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 23",
+        "mode": "link",
+        "links": [
+            "18a554bcaa2360e7"
+        ],
+        "x": 335,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8c392ecc9a35c3eb",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "Increment Laser Hit",
+        "label": "Increment Laser Hit",
+        "group": "df6f4c796677e729",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "628745f67dade8c1"
+            ]
+        ]
+    },
+    {
+        "id": "a9c50f46b67e9896",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 24",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11",
+            "af55cd6eb001ec61",
+            "6a99a43b23841ade",
+            "b46550ea0f878eaf"
+        ],
+        "x": 675,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "628745f67dade8c1",
+        "type": "json",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "a17a899f16b9d084"
+            ]
+        ]
+    },
+    {
+        "id": "a17a899f16b9d084",
+        "type": "function",
+        "z": "7ebbc29c647c58ec",
+        "name": "add numhits 1",
+        "func": "var o = msg.payload;\no['num_hits'] = 1;\nmsg.payload = o;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "a9c50f46b67e9896",
+                "84a25c5ebff798fb"
+            ]
+        ]
+    },
+    {
+        "id": "d12eb5d4f1efff54",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "Increment Ball Drop",
+        "label": "Increment Ball Drop Hit",
+        "group": "df6f4c796677e729",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "04f926d3d2ee0cd5"
+            ]
+        ]
+    },
+    {
+        "id": "75c5f224f591b111",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 25",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11",
+            "6a99a43b23841ade",
+            "b46550ea0f878eaf"
+        ],
+        "x": 675,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "04f926d3d2ee0cd5",
+        "type": "json",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 500,
+        "wires": [
+            [
+                "ec3ec501f79d3d62"
+            ]
+        ]
+    },
+    {
+        "id": "ec3ec501f79d3d62",
+        "type": "function",
+        "z": "7ebbc29c647c58ec",
+        "name": "add drops 1",
+        "func": "var o = msg.payload;\no['drops'] = 1;\nmsg.payload = o;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "75c5f224f591b111",
+                "84a25c5ebff798fb"
+            ]
+        ]
+    },
+    {
+        "id": "11e4b52900aedf18",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "Increment Fire Score",
+        "label": "Increment Fire Score",
+        "group": "df6f4c796677e729",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Node ID",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Side ID",
+                "value": "side_id",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": "",
+            "side_id": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "e2b1eeb7b8ba3724"
+            ]
+        ]
+    },
+    {
+        "id": "37c9658f21fde304",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 26",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11",
+            "b49a77ff09745d6d",
+            "6a99a43b23841ade",
+            "b46550ea0f878eaf"
+        ],
+        "x": 675,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e2b1eeb7b8ba3724",
+        "type": "json",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 340,
+        "wires": [
+            [
+                "445fcf6390a71317"
+            ]
+        ]
+    },
+    {
+        "id": "445fcf6390a71317",
+        "type": "function",
+        "z": "7ebbc29c647c58ec",
+        "name": "add firescore 1",
+        "func": "var o = msg.payload;\no['fire_score'] = 1;\nmsg.payload = o;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "37c9658f21fde304",
+                "84a25c5ebff798fb",
+                "cc9c7da6d3ec6e77"
+            ]
+        ]
+    },
+    {
+        "id": "2cf306418f5ec1a7",
+        "type": "ui_button",
+        "z": "7ebbc29c647c58ec",
+        "name": "StartNewMatch",
+        "group": "df6f4c796677e729",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start New Match",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "6243bfa8703f32ca"
+            ]
+        ]
+    },
+    {
+        "id": "6243bfa8703f32ca",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 27",
+        "mode": "link",
+        "links": [
+            "a5a1bd31c468f86b"
+        ],
+        "x": 335,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "8f1d410dda1e4f81",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 32",
+        "mode": "link",
+        "links": [
+            "18a554bcaa2360e7"
+        ],
+        "x": 935,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "84a25c5ebff798fb",
+        "type": "delay",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 400,
+        "wires": [
+            [
+                "8f1d410dda1e4f81",
+                "1fba5de08a2e1d6f"
+            ]
+        ]
+    },
+    {
+        "id": "71a84d7f0e04039b",
+        "type": "ui_ui_control",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "events": "change",
+        "x": 1040,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fba5de08a2e1d6f",
+        "type": "delay",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "28b06e0ed349f7f2"
+            ]
+        ]
+    },
+    {
+        "id": "28b06e0ed349f7f2",
+        "type": "change",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 520,
+        "wires": [
+            [
+                "71a84d7f0e04039b"
+            ]
+        ]
+    },
+    {
+        "id": "cc9c7da6d3ec6e77",
+        "type": "delay",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "9225979b748b64fa"
+            ]
+        ]
+    },
+    {
+        "id": "9225979b748b64fa",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 34",
+        "mode": "link",
+        "links": [
+            "3a4f65d2f43899bf",
+            "5329a59e7e76c7c0"
+        ],
+        "x": 945,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7bfb5dc8f61f8b2e",
+        "type": "comment",
+        "z": "7ebbc29c647c58ec",
+        "name": "Wait then publish to MQTT",
+        "info": "",
+        "x": 990,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "3f61a9a29423178a",
+        "type": "comment",
+        "z": "7ebbc29c647c58ec",
+        "name": "Wait then publish to Update and Refresh Game Dump",
+        "info": "",
+        "x": 1080,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7777761941ca1618",
+        "type": "comment",
+        "z": "7ebbc29c647c58ec",
+        "name": "Text Box containing full Game Details",
+        "info": "",
+        "x": 890,
+        "y": 60,
+        "wires": []
     },
     {
         "id": "675e506f8cc3e3c6",
@@ -636,10 +1436,47 @@
         "name": "link out 39",
         "mode": "link",
         "links": [
-            "63f807f3f36abd11"
+            "63f807f3f36abd11",
+            "6a99a43b23841ade",
+            "b46550ea0f878eaf"
         ],
         "x": 415,
         "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a24bdb4ce4be3d99",
+        "type": "mqtt in",
+        "z": "8d38dc412a73d987",
+        "name": "edgenode/troughbags/#",
+        "topic": "edgenode/troughbags/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "5999f1d09afe1039",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "372b9594ce982517",
+                "87e764dac83fb351"
+            ]
+        ]
+    },
+    {
+        "id": "87e764dac83fb351",
+        "type": "link out",
+        "z": "8d38dc412a73d987",
+        "name": "link out 40",
+        "mode": "link",
+        "links": [
+            "0d084e688f622348"
+        ],
+        "x": 415,
+        "y": 340,
         "wires": []
     },
     {
@@ -880,792 +1717,6 @@
         "wires": []
     },
     {
-        "id": "bcef7098b2bcab87",
-        "type": "inject",
-        "z": "dc5996c16196eba2",
-        "name": "New Match",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 160,
-        "wires": [
-            [
-                "4eb277af36ef1fe2"
-            ]
-        ]
-    },
-    {
-        "id": "4eb277af36ef1fe2",
-        "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 7",
-        "mode": "link",
-        "links": [
-            "a5a1bd31c468f86b"
-        ],
-        "x": 285,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "c2285509eb863856",
-        "type": "inject",
-        "z": "dc5996c16196eba2",
-        "name": "Current Global.Matchnum",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "matchnum",
-        "payloadType": "global",
-        "x": 190,
-        "y": 340,
-        "wires": [
-            [
-                "e7fdc24bcd360c08"
-            ]
-        ]
-    },
-    {
-        "id": "e7fdc24bcd360c08",
-        "type": "debug",
-        "z": "dc5996c16196eba2",
-        "name": "Debug Manual Game Flows",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 960,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "372c7a6bec7d1005",
-        "type": "comment",
-        "z": "dc5996c16196eba2",
-        "name": "Game Control Flows that can be triggered manually",
-        "info": "",
-        "x": 250,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "58e0133d504974b2",
-        "type": "comment",
-        "z": "dc5996c16196eba2",
-        "name": "Start a new match ",
-        "info": "Creates a new match in the Game table\nSets the global matchnum for all flows to use",
-        "x": 150,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "5eef5dc3824c88f6",
-        "type": "comment",
-        "z": "dc5996c16196eba2",
-        "name": "Dump to Debug the Current match num",
-        "info": "",
-        "x": 210,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "63b6bb6097222b63",
-        "type": "inject",
-        "z": "dc5996c16196eba2",
-        "name": "Dump to Debug Latest Match",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 440,
-        "wires": [
-            [
-                "c30231dee65db09d"
-            ]
-        ]
-    },
-    {
-        "id": "c30231dee65db09d",
-        "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 9",
-        "mode": "link",
-        "links": [
-            "18a554bcaa2360e7"
-        ],
-        "x": 425,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "1f2c1fa133c6065f",
-        "type": "comment",
-        "z": "dc5996c16196eba2",
-        "name": "Dump to Debug the Current match num",
-        "info": "",
-        "x": 210,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "b199686f052fe77f",
-        "type": "comment",
-        "z": "7ebbc29c647c58ec",
-        "name": "Publish Firescore To Specific Node -- this is on the Dashboard ",
-        "info": "",
-        "x": 280,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "f1896d48a659a2cb",
-        "type": "ui_form",
-        "z": "7ebbc29c647c58ec",
-        "name": "UpdateFireScore",
-        "label": "Update Firescore to Node (Node ID = RBO, LBO, etc)",
-        "group": "df6f4c796677e729",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "Node ID",
-                "value": "node_id",
-                "type": "text",
-                "required": true,
-                "rows": null
-            },
-            {
-                "label": "Fire Score",
-                "value": "fire_score",
-                "type": "text",
-                "required": true,
-                "rows": null
-            }
-        ],
-        "formValue": {
-            "node_id": "",
-            "fire_score": ""
-        },
-        "payload": "",
-        "submit": "submit",
-        "cancel": "cancel",
-        "topic": "payload",
-        "topicType": "msg",
-        "splitLayout": "",
-        "className": "",
-        "x": 150,
-        "y": 280,
-        "wires": [
-            [
-                "a29505e70d7b9ece"
-            ]
-        ]
-    },
-    {
-        "id": "c870ec8282153101",
-        "type": "ui_text",
-        "z": "7ebbc29c647c58ec",
-        "group": "efa02099cf2bc4a1",
-        "order": 1,
-        "width": "6",
-        "height": "5",
-        "name": "FullRecordGame",
-        "label": "Debug ",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "x": 950,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "a29505e70d7b9ece",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 22",
-        "mode": "link",
-        "links": [
-            "c5098de218c47d8f"
-        ],
-        "x": 385,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "70c33d06c1d6b167",
-        "type": "ui_button",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "group": "df6f4c796677e729",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "View Latest Match",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 150,
-        "y": 200,
-        "wires": [
-            [
-                "277d12403d6f9f63"
-            ]
-        ]
-    },
-    {
-        "id": "28eb2bc55dcddb70",
-        "type": "link in",
-        "z": "7ebbc29c647c58ec",
-        "name": "Dashboard Full Dump",
-        "links": [
-            "fa60c2b1c4bd6432"
-        ],
-        "x": 775,
-        "y": 100,
-        "wires": [
-            [
-                "c870ec8282153101"
-            ]
-        ]
-    },
-    {
-        "id": "277d12403d6f9f63",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 23",
-        "mode": "link",
-        "links": [
-            "18a554bcaa2360e7"
-        ],
-        "x": 335,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "8c392ecc9a35c3eb",
-        "type": "ui_form",
-        "z": "7ebbc29c647c58ec",
-        "name": "Increment Laser Hit",
-        "label": "Increment Laser Hit",
-        "group": "df6f4c796677e729",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "Node ID",
-                "value": "node_id",
-                "type": "text",
-                "required": true,
-                "rows": null
-            }
-        ],
-        "formValue": {
-            "node_id": ""
-        },
-        "payload": "",
-        "submit": "submit",
-        "cancel": "cancel",
-        "topic": "payload",
-        "topicType": "msg",
-        "splitLayout": "",
-        "className": "",
-        "x": 150,
-        "y": 420,
-        "wires": [
-            [
-                "628745f67dade8c1"
-            ]
-        ]
-    },
-    {
-        "id": "a9c50f46b67e9896",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 24",
-        "mode": "link",
-        "links": [
-            "63f807f3f36abd11",
-            "af55cd6eb001ec61"
-        ],
-        "x": 675,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "628745f67dade8c1",
-        "type": "json",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 350,
-        "y": 420,
-        "wires": [
-            [
-                "a17a899f16b9d084"
-            ]
-        ]
-    },
-    {
-        "id": "a17a899f16b9d084",
-        "type": "function",
-        "z": "7ebbc29c647c58ec",
-        "name": "add numhits 1",
-        "func": "var o = msg.payload;\no['num_hits'] = 1;\nmsg.payload = o;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 420,
-        "wires": [
-            [
-                "a9c50f46b67e9896",
-                "84a25c5ebff798fb"
-            ]
-        ]
-    },
-    {
-        "id": "d12eb5d4f1efff54",
-        "type": "ui_form",
-        "z": "7ebbc29c647c58ec",
-        "name": "Increment Ball Drop",
-        "label": "Increment Ball Drop Hit",
-        "group": "df6f4c796677e729",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "Node ID",
-                "value": "node_id",
-                "type": "text",
-                "required": true,
-                "rows": null
-            }
-        ],
-        "formValue": {
-            "node_id": ""
-        },
-        "payload": "",
-        "submit": "submit",
-        "cancel": "cancel",
-        "topic": "payload",
-        "topicType": "msg",
-        "splitLayout": "",
-        "className": "",
-        "x": 160,
-        "y": 500,
-        "wires": [
-            [
-                "04f926d3d2ee0cd5"
-            ]
-        ]
-    },
-    {
-        "id": "75c5f224f591b111",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 25",
-        "mode": "link",
-        "links": [
-            "63f807f3f36abd11"
-        ],
-        "x": 675,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "04f926d3d2ee0cd5",
-        "type": "json",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 350,
-        "y": 500,
-        "wires": [
-            [
-                "ec3ec501f79d3d62"
-            ]
-        ]
-    },
-    {
-        "id": "ec3ec501f79d3d62",
-        "type": "function",
-        "z": "7ebbc29c647c58ec",
-        "name": "add drops 1",
-        "func": "var o = msg.payload;\no['drops'] = 1;\nmsg.payload = o;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 500,
-        "wires": [
-            [
-                "75c5f224f591b111",
-                "84a25c5ebff798fb"
-            ]
-        ]
-    },
-    {
-        "id": "11e4b52900aedf18",
-        "type": "ui_form",
-        "z": "7ebbc29c647c58ec",
-        "name": "Increment Fire Score",
-        "label": "Increment Fire Score",
-        "group": "df6f4c796677e729",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "Node ID",
-                "value": "node_id",
-                "type": "text",
-                "required": true,
-                "rows": null
-            }
-        ],
-        "formValue": {
-            "node_id": ""
-        },
-        "payload": "",
-        "submit": "submit",
-        "cancel": "cancel",
-        "topic": "payload",
-        "topicType": "msg",
-        "splitLayout": "",
-        "className": "",
-        "x": 160,
-        "y": 340,
-        "wires": [
-            [
-                "e2b1eeb7b8ba3724"
-            ]
-        ]
-    },
-    {
-        "id": "37c9658f21fde304",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 26",
-        "mode": "link",
-        "links": [
-            "63f807f3f36abd11",
-            "b49a77ff09745d6d"
-        ],
-        "x": 675,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "e2b1eeb7b8ba3724",
-        "type": "json",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 350,
-        "y": 340,
-        "wires": [
-            [
-                "445fcf6390a71317"
-            ]
-        ]
-    },
-    {
-        "id": "445fcf6390a71317",
-        "type": "function",
-        "z": "7ebbc29c647c58ec",
-        "name": "add firescore 1",
-        "func": "var o = msg.payload;\no['fire_score'] = 1;\nmsg.payload = o;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 340,
-        "wires": [
-            [
-                "37c9658f21fde304",
-                "84a25c5ebff798fb",
-                "cc9c7da6d3ec6e77"
-            ]
-        ]
-    },
-    {
-        "id": "2cf306418f5ec1a7",
-        "type": "ui_button",
-        "z": "7ebbc29c647c58ec",
-        "name": "StartNewMatch",
-        "group": "df6f4c796677e729",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Start New Match",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 140,
-        "y": 140,
-        "wires": [
-            [
-                "6243bfa8703f32ca"
-            ]
-        ]
-    },
-    {
-        "id": "6243bfa8703f32ca",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 27",
-        "mode": "link",
-        "links": [
-            "a5a1bd31c468f86b"
-        ],
-        "x": 335,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "8f1d410dda1e4f81",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 32",
-        "mode": "link",
-        "links": [
-            "18a554bcaa2360e7"
-        ],
-        "x": 935,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "84a25c5ebff798fb",
-        "type": "delay",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 800,
-        "y": 400,
-        "wires": [
-            [
-                "8f1d410dda1e4f81",
-                "1fba5de08a2e1d6f"
-            ]
-        ]
-    },
-    {
-        "id": "71a84d7f0e04039b",
-        "type": "ui_ui_control",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "events": "change",
-        "x": 1040,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1fba5de08a2e1d6f",
-        "type": "delay",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 800,
-        "y": 460,
-        "wires": [
-            [
-                "28b06e0ed349f7f2"
-            ]
-        ]
-    },
-    {
-        "id": "28b06e0ed349f7f2",
-        "type": "change",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 820,
-        "y": 520,
-        "wires": [
-            [
-                "71a84d7f0e04039b"
-            ]
-        ]
-    },
-    {
-        "id": "cc9c7da6d3ec6e77",
-        "type": "delay",
-        "z": "7ebbc29c647c58ec",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 800,
-        "y": 300,
-        "wires": [
-            [
-                "9225979b748b64fa"
-            ]
-        ]
-    },
-    {
-        "id": "9225979b748b64fa",
-        "type": "link out",
-        "z": "7ebbc29c647c58ec",
-        "name": "link out 34",
-        "mode": "link",
-        "links": [
-            "3a4f65d2f43899bf",
-            "5329a59e7e76c7c0"
-        ],
-        "x": 945,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "7bfb5dc8f61f8b2e",
-        "type": "comment",
-        "z": "7ebbc29c647c58ec",
-        "name": "Wait then publish to MQTT",
-        "info": "",
-        "x": 990,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "3f61a9a29423178a",
-        "type": "comment",
-        "z": "7ebbc29c647c58ec",
-        "name": "Wait then publish to Update and Refresh Game Dump",
-        "info": "",
-        "x": 1080,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "7777761941ca1618",
-        "type": "comment",
-        "z": "7ebbc29c647c58ec",
-        "name": "Text Box containing full Game Details",
-        "info": "",
-        "x": 890,
-        "y": 60,
-        "wires": []
-    },
-    {
         "id": "0143496e1011b5b9",
         "type": "function",
         "z": "f74b301e4f22310f",
@@ -1755,7 +1806,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 600,
+        "y": 900,
         "wires": [
             [
                 "54b2cad8c9c66ea5",
@@ -1790,7 +1841,7 @@
             "6243bfa8703f32ca"
         ],
         "x": 185,
-        "y": 600,
+        "y": 900,
         "wires": [
             [
                 "72bcba239803d115"
@@ -1804,7 +1855,7 @@
         "name": "Create a new empty match (set global.matchnum to new matchnum)",
         "info": "",
         "x": 280,
-        "y": 540,
+        "y": 840,
         "wires": []
     },
     {
@@ -1819,7 +1870,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 760,
+        "y": 1060,
         "wires": [
             [
                 "27094e97daa3234a"
@@ -1835,7 +1886,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 530,
-        "y": 760,
+        "y": 1060,
         "wires": [
             [
                 "786da311f9d1e2af"
@@ -1854,7 +1905,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 760,
+        "y": 1060,
         "wires": [
             [
                 "a4cca78582b0aa97"
@@ -1882,7 +1933,7 @@
         "to": "",
         "reg": false,
         "x": 920,
-        "y": 760,
+        "y": 1060,
         "wires": [
             [
                 "50a7d4620d30956a"
@@ -1899,7 +1950,7 @@
             "165f13f0f929f16e"
         ],
         "x": 105,
-        "y": 760,
+        "y": 1060,
         "wires": [
             [
                 "540954cda7540f43"
@@ -1913,7 +1964,7 @@
         "name": "Sets Global.matchnum to latest match in DB",
         "info": "",
         "x": 210,
-        "y": 700,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1928,7 +1979,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 980,
+        "y": 1280,
         "wires": [
             [
                 "397f10dd3ab3a997"
@@ -1940,18 +1991,18 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Result Dump",
-        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\n//var str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\n//msg.payload = str;\n\nreturn msg;",
+        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\n//var str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\n//msg.payload = str;\nlet newrow = []\nlet title = [\"MATCH_NUM\",\"NODE_ID\",\t\"SIDE_ID\",\"FIRE_SCORE\",\"NUM_TREES\",\"NUM_HITS\",\"NUM_DROPS\",\"NUM_BAGS\",\"TIMEOFMATCH\"]\ntitle.push()\nfor (var i=0;i<msg.payload.length;i++) {\n    var row = msg.payload[i];\n    if (row.NUM_TREES != 0 || \n        row.FIRE_SCORE != 0 || \n        row.NUM_HITS != 0 ||\n        row.NUM_DROPS != 0 || \n        row.NUM_BAGS != 0) {\n        newrow.push(row);\n        } \n}\nmsg.payload = newrow;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 980,
+        "y": 1280,
         "wires": [
             [
-                "54b2cad8c9c66ea5",
-                "fa60c2b1c4bd6432"
+                "fa60c2b1c4bd6432",
+                "cd1bf88c1e97229e"
             ]
         ]
     },
@@ -1964,7 +2015,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 570,
-        "y": 980,
+        "y": 1280,
         "wires": [
             [
                 "5954b430a79f7b3e"
@@ -1993,7 +2044,7 @@
             "8f1d410dda1e4f81"
         ],
         "x": 105,
-        "y": 980,
+        "y": 1280,
         "wires": [
             [
                 "4bfad19cc46d0966"
@@ -2007,7 +2058,7 @@
         "name": "Dump to Debug the latest match data",
         "info": "",
         "x": 190,
-        "y": 920,
+        "y": 1220,
         "wires": []
     },
     {
@@ -2101,7 +2152,7 @@
             "dd55547c4747b6b1"
         ],
         "x": 945,
-        "y": 600,
+        "y": 900,
         "wires": []
     },
     {
@@ -2114,7 +2165,7 @@
             "a67d3036cd8b2a23"
         ],
         "x": 1025,
-        "y": 760,
+        "y": 1060,
         "wires": []
     },
     {
@@ -2232,7 +2283,7 @@
             "28eb2bc55dcddb70"
         ],
         "x": 945,
-        "y": 980,
+        "y": 1280,
         "wires": []
     },
     {
@@ -2244,7 +2295,7 @@
         "sql": "",
         "name": "Match Create",
         "x": 740,
-        "y": 600,
+        "y": 900,
         "wires": [
             [
                 "7d1c946cf1d71468"
@@ -2261,7 +2312,7 @@
             "3719854fdfed232d"
         ],
         "x": 105,
-        "y": 840,
+        "y": 1140,
         "wires": [
             [
                 "fc55610d6c9105b3"
@@ -2273,14 +2324,14 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - New Game_score entries for new Match",
-        "func": "\nvar timestamp = 100000;\nvar matchnum = global.get(\"matchnum\");\n/*\n MATCH_NUM INT NOT NULL,\n  NODE_ID VARCHAR[32],\n  BALLS_DROPPED INT NOT NULL,\n  FIRE_SCORE INT NOT NULL,\n  NUM_TREES INT NOT NULL,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY (MATCH_NUM, NODE_ID)\n  */\n\n  //NOTE - Do this programatically nest time!\nvar newMsg = {\n    \"topic\": \"\\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+matchnum+\",'LTO', 0,0,0,0,0, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,1, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,2, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM,\tNODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,4, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTM', 0,0,0,0,3, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LTI', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTO', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTM', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RTI', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBO', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBM', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'LBI', 0,0,0,0,3, \"+ timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBO', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,0, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBM', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,4, \" + timestamp + \"); \\\n      INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,1, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,2, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,3, \"+ timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum +\",'RBI', 0,0,0,0,4, \"+ timestamp + \"); \\\n\"\n}\n\nreturn newMsg;\n",
+        "func": "\nvar timestamp = 100000;\nvar matchnum = global.get(\"matchnum\");\n/*\n MATCH_NUM INT NOT NULL,\n  NODE_ID VARCHAR[32],\n  BALLS_DROPPED INT NOT NULL,\n  FIRE_SCORE INT NOT NULL,\n  NUM_TREES INT NOT NULL,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY (MATCH_NUM, NODE_ID)\n  */\n\n//NOTE - Do this programatically nest time!\nvar newMsg = {\n  \"topic\": \"\\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n      INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n\"\n}\n\nreturn newMsg;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 840,
+        "y": 1140,
         "wires": [
             [
                 "12b7849527a8f3d3"
@@ -2296,7 +2347,7 @@
         "sql": "",
         "name": "Game Node Records for Match Create",
         "x": 770,
-        "y": 840,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -2439,12 +2490,103 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 600,
+        "y": 900,
         "wires": [
             [
                 "be446f7474a7a970"
             ]
         ]
+    },
+    {
+        "id": "b91304bb2e2395c8",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Set Num Bags in trough for latest match",
+        "info": "",
+        "x": 200,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a37728c272928fcb",
+        "type": "link out",
+        "z": "f74b301e4f22310f",
+        "name": "link out 41",
+        "mode": "link",
+        "links": [
+            "43ddc5a441c4fd3f"
+        ],
+        "x": 915,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "23c2335c118ef4be",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update Trough Bags (SET)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_bags = o.num_bags;\nvar nodeid = o.node_id;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_BAGS = \" + num_bags + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"' AND SIDE_ID=\" + sideid +\";\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 600,
+        "wires": [
+            [
+                "a37728c272928fcb"
+            ]
+        ]
+    },
+    {
+        "id": "0d084e688f622348",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Set Bag Count",
+        "links": [
+            "87e764dac83fb351"
+        ],
+        "x": 205,
+        "y": 600,
+        "wires": [
+            [
+                "4244695d7f15d3fd"
+            ]
+        ]
+    },
+    {
+        "id": "4244695d7f15d3fd",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 420,
+        "y": 600,
+        "wires": [
+            [
+                "23c2335c118ef4be"
+            ]
+        ]
+    },
+    {
+        "id": "cd1bf88c1e97229e",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "Current Game Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1360,
+        "wires": []
     },
     {
         "id": "890050b7a3592bf1",
@@ -2584,7 +2726,8 @@
             "b495418c6c4b995b",
             "3a4b12e5b9609b0d",
             "36875745f8a09dcd",
-            "91eeec4cfa6d85ca"
+            "91eeec4cfa6d85ca",
+            "a37728c272928fcb"
         ],
         "x": 175,
         "y": 540,
@@ -2737,7 +2880,7 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE GAME_SCORES (\nMATCH_NUM INT NOT NULL,\nNODE_ID VARCHAR[32],\nSIDE_ID INT NOT NULL,\nFIRE_SCORE INT NOT NULL,\nNUM_TREES INT NOT NULL, \nNUM_HITS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, NODE_ID, SIDE_ID));",
+        "sql": "CREATE TABLE GAME_SCORES (\nMATCH_NUM INT NOT NULL,\nNODE_ID VARCHAR[32],\nSIDE_ID INT NOT NULL,\nFIRE_SCORE INT NOT NULL,\nNUM_TREES INT NOT NULL, \nNUM_HITS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nNUM_BAGS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, NODE_ID, SIDE_ID));",
         "name": "Create Game Score table",
         "x": 950,
         "y": 140,
