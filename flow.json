@@ -608,6 +608,41 @@
         "wires": []
     },
     {
+        "id": "c371b220cd83bc24",
+        "type": "mqtt in",
+        "z": "8d38dc412a73d987",
+        "name": "edgenode/balldrop/#",
+        "topic": "edgenode/balldrop/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "5999f1d09afe1039",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "f1340eb46d54b7e1",
+                "372b9594ce982517"
+            ]
+        ]
+    },
+    {
+        "id": "f1340eb46d54b7e1",
+        "type": "link out",
+        "z": "8d38dc412a73d987",
+        "name": "link out 39",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11"
+        ],
+        "x": 415,
+        "y": 260,
+        "wires": []
+    },
+    {
         "id": "5329a59e7e76c7c0",
         "type": "link in",
         "z": "0661e4588e011b72",
@@ -2271,7 +2306,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Ball Drop (ADD)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar sideid = 0;\n\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = NUM_DROPS + \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid+ \"' AND SIDE_ID=\" + sideid + \";\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.num_drops;\nvar nodeid = o.node_id;\nvar sideid = 0;\n\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = NUM_DROPS + \"\n        + num_drops + \" WHERE MATCH_NUM = \"\n        + matchid + \" AND NODE_ID='\" + nodeid\n        + \"' AND SIDE_ID=\" + sideid \n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2317,14 +2352,10 @@
         "z": "f74b301e4f22310f",
         "name": "Increment Ball Drop",
         "links": [
-            "2e9480f054445e4b",
-            "5eca71e17e525b35",
-            "64800c16d9ae1ca4",
-            "6c398839cd14285d",
-            "dd142b5915f31846",
-            "a9c50f46b67e9896",
+            "37c9658f21fde304",
             "75c5f224f591b111",
-            "37c9658f21fde304"
+            "a9c50f46b67e9896",
+            "f1340eb46d54b7e1"
         ],
         "x": 205,
         "y": 420,
@@ -2341,8 +2372,7 @@
         "name": "link out 20",
         "mode": "link",
         "links": [
-            "43ddc5a441c4fd3f",
-            "f6566f17a1e9b78e"
+            "43ddc5a441c4fd3f"
         ],
         "x": 915,
         "y": 420,
@@ -2353,7 +2383,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Ball Drop (SET)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.drops;\nvar nodeid = o.node_id;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"' AND SIDE_ID=\" + sideid +\";\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.num_drops;\nvar nodeid = o.node_id;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET NUM_DROPS = \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"' AND SIDE_ID=\" + sideid +\";\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2773,7 +2803,6 @@
         "name": "genericSql-special",
         "links": [
             "3a4b12e5b9609b0d",
-            "91eeec4cfa6d85ca",
             "d527904ed8723b40"
         ],
         "x": 175,
