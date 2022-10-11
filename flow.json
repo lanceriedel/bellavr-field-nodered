@@ -72,6 +72,14 @@
         "env": []
     },
     {
+        "id": "7affb7628479addf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5999f1d09afe1039",
         "type": "mqtt-broker",
         "name": "mqtt-node-main",
@@ -1816,7 +1824,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - New Match",
-        "func": "\nvar timestamp = msg.payload;\nvar newMsg = {\n    \"topic\": \"INSERT INTO MATCH_STATE (TIMEOFMATCH) VALUES (  \"+ timestamp + \");\"\n}\n\nreturn newMsg;\n",
+        "func": "\nvar timestamp = msg.payload;\n//Choose a random side to start match -\n\nvar matchnum = global.get(\"matchnum\");\n\n\n//Choose a random side\nvar active = \"LEFT\";\n;\nif (Math.floor(Math.random() * 2)==0) {\n    active = \"RIGHT\"\n}\nglobal.set(\"startside\", active);\n\nvar newMsg = {\n    \"topic\": \"INSERT INTO MATCH_STATE (TIMEOFMATCH, ACTIVE_COMMUNITY) VALUES (  \"+ timestamp + \", '\" + active + \"');\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1995,8 +2003,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 1380,
+        "x": 290,
+        "y": 1740,
         "wires": [
             [
                 "397f10dd3ab3a997"
@@ -2014,12 +2022,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 1380,
+        "x": 790,
+        "y": 1740,
         "wires": [
             [
-                "fa60c2b1c4bd6432",
-                "cd1bf88c1e97229e"
+                "fa60c2b1c4bd6432"
             ]
         ]
     },
@@ -2031,8 +2038,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 570,
-        "y": 1380,
+        "x": 550,
+        "y": 1740,
         "wires": [
             [
                 "5954b430a79f7b3e"
@@ -2060,8 +2067,8 @@
             "277d12403d6f9f63",
             "8f1d410dda1e4f81"
         ],
-        "x": 105,
-        "y": 1380,
+        "x": 85,
+        "y": 1740,
         "wires": [
             [
                 "4bfad19cc46d0966"
@@ -2074,8 +2081,8 @@
         "z": "f74b301e4f22310f",
         "name": "Dump to Debug the latest match data",
         "info": "",
-        "x": 190,
-        "y": 1320,
+        "x": 170,
+        "y": 1680,
         "wires": []
     },
     {
@@ -2299,8 +2306,8 @@
             "c5b51aa2f4863b48",
             "28eb2bc55dcddb70"
         ],
-        "x": 945,
-        "y": 1380,
+        "x": 925,
+        "y": 1740,
         "wires": []
     },
     {
@@ -2325,7 +2332,6 @@
         "z": "f74b301e4f22310f",
         "name": "Create Empty Game Records",
         "links": [
-            "21363eb3f939b961",
             "3719854fdfed232d"
         ],
         "x": 105,
@@ -2340,18 +2346,19 @@
         "id": "fc55610d6c9105b3",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - New Game_score entries for new Match",
-        "func": "\nvar timestamp = 100000;\nvar matchnum = global.get(\"matchnum\");\n/*\n MATCH_NUM INT NOT NULL,\n  NODE_ID VARCHAR[32],\n  BALLS_DROPPED INT NOT NULL,\n  FIRE_SCORE INT NOT NULL,\n  NUM_TREES INT NOT NULL,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY (MATCH_NUM, NODE_ID)\n  */\n\n//NOTE - Do this programatically nest time!\nvar newMsg = {\n  \"topic\": \"\\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LTI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RTI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'LBI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBO', 0,0,0,0,0,4, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,0, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBM', 0,0,0,0,0,4, \" + timestamp + \"); \\\n      INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,0, \" + timestamp + \"); \\\n    INSERT INTO GAME_SCORES (MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,1, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,2, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,3, \" + timestamp + \"); \\\n  INSERT INTO GAME_SCORES(MATCH_NUM, NODE_ID, FIRE_SCORE, NUM_TREES, NUM_HITS, NUM_BAGS, NUM_DROPS, SIDE_ID, TIMEOFMATCH) VALUES(\"+ matchnum + \",'RBI', 0,0,0,0,0,4, \" + timestamp + \"); \\\n\"\n}\n\nreturn newMsg;\n\n",
+        "name": "SQL - Initialize Match - TABLE Buildings ",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft);\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight);\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n};\n\nconst BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n};\n\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"',1,0, 0,0, 0, 0, 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n      + \"',1,0, 0,0,0, 0,0,0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
+        "x": 360,
         "y": 1200,
         "wires": [
             [
-                "12b7849527a8f3d3"
+                "12b7849527a8f3d3",
+                "cd1bf88c1e97229e"
             ]
         ]
     },
@@ -2362,11 +2369,13 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "batch",
         "sql": "",
-        "name": "Game Node Records for Match Create",
-        "x": 770,
+        "name": "InitializeBuildings For Match",
+        "x": 680,
         "y": 1200,
         "wires": [
-            []
+            [
+                "5aaea6a334032def"
+            ]
         ]
     },
     {
@@ -2601,8 +2610,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 1460,
+        "x": 1280,
+        "y": 1180,
         "wires": []
     },
     {
@@ -2614,6 +2623,146 @@
         "x": 140,
         "y": 1140,
         "wires": []
+    },
+    {
+        "id": "e354ec1a31284c79",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
+        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1400,
+        "wires": [
+            [
+                "c1f1b1372fb990e6",
+                "cd1bf88c1e97229e"
+            ]
+        ]
+    },
+    {
+        "id": "c1f1b1372fb990e6",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "batch",
+        "sql": "",
+        "name": "InitializeBuildingsWindows For Match",
+        "x": 790,
+        "y": 1400,
+        "wires": [
+            [
+                "6b1897b0ddc816e3"
+            ]
+        ]
+    },
+    {
+        "id": "5aaea6a334032def",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Calculate and UPDATE TABLE Buildings ",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft);\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight);\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n};\n\nconst BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n};\n\n\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    if (BuildingSensorsForLeftMap[node] != tallSensor) {\n      i++;\n    }\n    if ((i - 1) == shortBuildingBurning) {\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsRight) {\n    if (BuildingSensorsForRightMap[node] != tallSensor) {\n      i++;\n    }\n    if ((i - 1) == shortBuildingBurning) {\n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nglobal.set(\"burning1\",BurningNodes[0]);\nglobal.set(\"burning2\", BurningNodes[1]);\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1300,
+        "wires": [
+            [
+                "0aa61745968b6ee5",
+                "cd1bf88c1e97229e"
+            ]
+        ]
+    },
+    {
+        "id": "9bd9bd9e2fa74b8a",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "ORIGINAL SQL - Initialize Match - TABLE Buildings ",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft);\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight);\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n};\n\nconst BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n};\n\n\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    if (BuildingSensorsForLeftMap[node] != tallSensor) {\n      i++;\n    }\n    if ((i - 1) == shortBuildingBurning) {\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsRight) {\n    if (BuildingSensorsForRightMap[node] != tallSensor) {\n      i++;\n    }\n    if ((i - 1) == shortBuildingBurning) {\n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar i = 0;\nfor (const node of BurningNodes) {\n    DPS[node] = 1;\n    FCS[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nglobal.set(\"burning1\",BurningNodes[0]);\nglobal.set(\"burning2\", BurningNodes[1]);\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"',1,\" +\n      Hotspots[leftNodeName] +\n      \", 0,\" \n      + BuildingBlockedForLeftMap[leftNodeName]\n      + \", \" + FCS[leftNodeName] \n      + \", \" + DPS[leftNodeName] \n      +\", 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n      + \"',1,\" \n      +Hotspots[rightNodeName] \n      +\", 0,\" \n      + BuildingBlockedForRightMap[rightNodeName]\n      + \", \" + FCS[rightNodeName] \n      + \", \" + DPS[rightNodeName] \n      + \",0, 0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1450,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0aa61745968b6ee5",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "batch",
+        "sql": "",
+        "name": "InitializeBuildings For Match",
+        "x": 720,
+        "y": 1300,
+        "wires": [
+            [
+                "e354ec1a31284c79"
+            ]
+        ]
+    },
+    {
+        "id": "18fb71a97e22a4a8",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "Current Game Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "6b1897b0ddc816e3",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Calculate and Update - Initialize Match - TABLE BuildingWindowStatus",
+        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i;\n      WindowsActive[nodepluswin] = 0 ;\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 0;\n    WindowsActive[node + \"3\"] = 1;\n    WindowsActive[node + \"4\"] = 0;\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 1;\n    WindowsActive[node + \"3\"] = 0;\n    WindowsActive[node + \"4\"] = 0;\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i;\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1480,
+        "wires": [
+            [
+                "806da0dcb41029ca",
+                "cd1bf88c1e97229e"
+            ]
+        ]
+    },
+    {
+        "id": "806da0dcb41029ca",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "batch",
+        "sql": "",
+        "name": "InitializeBuildingsWindows For Match",
+        "x": 970,
+        "y": 1480,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "890050b7a3592bf1",
@@ -2650,7 +2799,7 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE MATCH_STATE(\nMATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT,\nACTIVE_COMMUNITY INT,\nTIMEOFMATCH INT NOT NULL);  \n",
+        "sql": "CREATE TABLE MATCH_STATE(\nMATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT,\nACTIVE_COMMUNITY VARCHAR(8),\nTIMEOFMATCH INT NOT NULL);  \n",
         "name": "Create Match Table",
         "x": 550,
         "y": 140,
@@ -2790,7 +2939,9 @@
         "y": 60,
         "wires": [
             [
-                "3472ec7018175754"
+                "3472ec7018175754",
+                "82f12a1e14f33b59",
+                "85525cb2f906b575"
             ]
         ]
     },
@@ -2822,8 +2973,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 20,
+        "x": 1360,
+        "y": 40,
         "wires": []
     },
     {
@@ -2908,9 +3059,9 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY INT NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOWS_ACTIVE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
-        "name": "Create Game Score table",
-        "x": 950,
+        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY VARCHAR[12] NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOWS_ACTIVE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
+        "name": "Create BuildingWindowStatus",
+        "x": 970,
         "y": 140,
         "wires": [
             [
@@ -2924,10 +3075,10 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "DROP TABLE IF EXISTS GAME_SCORES;",
-        "name": "Drop Game Table",
-        "x": 770,
-        "y": 60,
+        "sql": "DROP TABLE IF EXISTS Buildings;\n",
+        "name": "Drop BuildingsTable",
+        "x": 780,
+        "y": 40,
         "wires": [
             [
                 "544ae34808a17523"
@@ -2991,10 +3142,26 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, NODE_ID, SIDE_ID));",
+        "sql": "CREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY VARCHAR[12] NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));",
         "name": "Create Buildings table",
         "x": 940,
         "y": 200,
+        "wires": [
+            [
+                "544ae34808a17523"
+            ]
+        ]
+    },
+    {
+        "id": "85525cb2f906b575",
+        "type": "sqlite",
+        "z": "8b4b6895c0ec29ec",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "fixed",
+        "sql": "DROP TABLE IF EXISTS BuildingWindowStatus ;",
+        "name": "Drop BuildingWindowStatusTable",
+        "x": 1040,
+        "y": 60,
         "wires": [
             [
                 "544ae34808a17523"
