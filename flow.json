@@ -436,7 +436,7 @@
         "name": "Publish Firescore To Specific Node -- this is on the Dashboard ",
         "info": "",
         "x": 280,
-        "y": 540,
+        "y": 380,
         "wires": []
     },
     {
@@ -477,7 +477,7 @@
         "splitLayout": "",
         "className": "",
         "x": 150,
-        "y": 580,
+        "y": 420,
         "wires": [
             [
                 "a29505e70d7b9ece"
@@ -511,7 +511,7 @@
             "c5098de218c47d8f"
         ],
         "x": 385,
-        "y": 580,
+        "y": 420,
         "wires": []
     },
     {
@@ -584,15 +584,23 @@
         "height": 0,
         "options": [
             {
-                "label": "Node ID",
+                "label": "Building Name",
                 "value": "node_id",
                 "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Building Side",
+                "value": "side_id",
+                "type": "number",
                 "required": true,
                 "rows": null
             }
         ],
         "formValue": {
-            "node_id": ""
+            "node_id": "",
+            "side_id": ""
         },
         "payload": "",
         "submit": "submit",
@@ -602,7 +610,7 @@
         "splitLayout": "",
         "className": "",
         "x": 150,
-        "y": 720,
+        "y": 560,
         "wires": [
             [
                 "628745f67dade8c1"
@@ -616,13 +624,10 @@
         "name": "link out 24",
         "mode": "link",
         "links": [
-            "63f807f3f36abd11",
-            "af55cd6eb001ec61",
-            "6a99a43b23841ade",
-            "b46550ea0f878eaf"
+            "af55cd6eb001ec61"
         ],
         "x": 675,
-        "y": 720,
+        "y": 560,
         "wires": []
     },
     {
@@ -634,7 +639,7 @@
         "action": "obj",
         "pretty": false,
         "x": 350,
-        "y": 720,
+        "y": 560,
         "wires": [
             [
                 "a17a899f16b9d084"
@@ -653,7 +658,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 720,
+        "y": 560,
         "wires": [
             [
                 "a9c50f46b67e9896",
@@ -674,7 +679,7 @@
         "height": 0,
         "options": [
             {
-                "label": "Node ID",
+                "label": "Building Name",
                 "value": "node_id",
                 "type": "text",
                 "required": true,
@@ -692,7 +697,7 @@
         "splitLayout": "",
         "className": "",
         "x": 160,
-        "y": 800,
+        "y": 640,
         "wires": [
             [
                 "04f926d3d2ee0cd5"
@@ -711,7 +716,7 @@
             "b46550ea0f878eaf"
         ],
         "x": 675,
-        "y": 800,
+        "y": 640,
         "wires": []
     },
     {
@@ -723,7 +728,7 @@
         "action": "obj",
         "pretty": false,
         "x": 350,
-        "y": 800,
+        "y": 640,
         "wires": [
             [
                 "ec3ec501f79d3d62"
@@ -742,7 +747,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 800,
+        "y": 640,
         "wires": [
             [
                 "75c5f224f591b111",
@@ -788,7 +793,7 @@
         "splitLayout": "",
         "className": "",
         "x": 160,
-        "y": 640,
+        "y": 480,
         "wires": [
             [
                 "e2b1eeb7b8ba3724"
@@ -808,7 +813,7 @@
             "b46550ea0f878eaf"
         ],
         "x": 675,
-        "y": 640,
+        "y": 480,
         "wires": []
     },
     {
@@ -820,7 +825,7 @@
         "action": "obj",
         "pretty": false,
         "x": 350,
-        "y": 640,
+        "y": 480,
         "wires": [
             [
                 "445fcf6390a71317"
@@ -839,7 +844,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 640,
+        "y": 480,
         "wires": [
             [
                 "37c9658f21fde304",
@@ -899,7 +904,7 @@
             "18a554bcaa2360e7"
         ],
         "x": 935,
-        "y": 700,
+        "y": 540,
         "wires": []
     },
     {
@@ -920,7 +925,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 800,
-        "y": 700,
+        "y": 540,
         "wires": [
             [
                 "8f1d410dda1e4f81",
@@ -935,7 +940,7 @@
         "name": "",
         "events": "change",
         "x": 1040,
-        "y": 820,
+        "y": 660,
         "wires": [
             []
         ]
@@ -958,7 +963,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 800,
-        "y": 760,
+        "y": 600,
         "wires": [
             [
                 "28b06e0ed349f7f2"
@@ -985,7 +990,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 820,
+        "y": 660,
         "wires": [
             [
                 "71a84d7f0e04039b"
@@ -1010,7 +1015,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 800,
-        "y": 600,
+        "y": 440,
         "wires": [
             [
                 "9225979b748b64fa"
@@ -1028,7 +1033,7 @@
             "5329a59e7e76c7c0"
         ],
         "x": 945,
-        "y": 600,
+        "y": 440,
         "wires": []
     },
     {
@@ -1038,7 +1043,7 @@
         "name": "Wait then publish to MQTT",
         "info": "",
         "x": 990,
-        "y": 560,
+        "y": 400,
         "wires": []
     },
     {
@@ -1048,7 +1053,7 @@
         "name": "Wait then publish to Update and Refresh Game Dump",
         "info": "",
         "x": 1080,
-        "y": 660,
+        "y": 500,
         "wires": []
     },
     {
@@ -1074,7 +1079,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 660,
-        "y": 840,
+        "y": 680,
         "wires": []
     },
     {
@@ -1117,6 +1122,99 @@
         "x": 385,
         "y": 260,
         "wires": []
+    },
+    {
+        "id": "35c2141922736ecd",
+        "type": "ui_form",
+        "z": "7ebbc29c647c58ec",
+        "name": "Set Bag Count",
+        "label": "Set Bags",
+        "group": "df6f4c796677e729",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Building Name",
+                "value": "node_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Total Bags",
+                "value": "num_bags",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "node_id": "",
+            "num_bags": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 140,
+        "y": 760,
+        "wires": [
+            [
+                "43f3e3127047706d"
+            ]
+        ]
+    },
+    {
+        "id": "a0893a9b1c6e7557",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 44",
+        "mode": "link",
+        "links": [
+            "0d084e688f622348"
+        ],
+        "x": 675,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "43f3e3127047706d",
+        "type": "json",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 760,
+        "wires": [
+            [
+                "cf29e65e98345a3c"
+            ]
+        ]
+    },
+    {
+        "id": "cf29e65e98345a3c",
+        "type": "function",
+        "z": "7ebbc29c647c58ec",
+        "name": "add bags 1",
+        "func": "var o = msg.payload;\nmsg.payload = o;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 760,
+        "wires": [
+            [
+                "a0893a9b1c6e7557"
+            ]
+        ]
     },
     {
         "id": "675e506f8cc3e3c6",
@@ -2475,7 +2573,6 @@
         "links": [
             "37c9658f21fde304",
             "75c5f224f591b111",
-            "a9c50f46b67e9896",
             "f1340eb46d54b7e1"
         ],
         "x": 205,
@@ -2615,7 +2712,8 @@
         "z": "f74b301e4f22310f",
         "name": "Set Bag Count",
         "links": [
-            "87e764dac83fb351"
+            "87e764dac83fb351",
+            "a0893a9b1c6e7557"
         ],
         "x": 205,
         "y": 600,
