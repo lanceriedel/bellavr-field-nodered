@@ -412,7 +412,8 @@
         "name": "link out 9",
         "mode": "link",
         "links": [
-            "18a554bcaa2360e7"
+            "18a554bcaa2360e7",
+            "ca18ad730b62784e"
         ],
         "x": 425,
         "y": 440,
@@ -435,7 +436,7 @@
         "name": "Publish Firescore To Specific Node -- this is on the Dashboard ",
         "info": "",
         "x": 280,
-        "y": 240,
+        "y": 540,
         "wires": []
     },
     {
@@ -476,7 +477,7 @@
         "splitLayout": "",
         "className": "",
         "x": 150,
-        "y": 280,
+        "y": 580,
         "wires": [
             [
                 "a29505e70d7b9ece"
@@ -510,7 +511,7 @@
             "c5098de218c47d8f"
         ],
         "x": 385,
-        "y": 280,
+        "y": 580,
         "wires": []
     },
     {
@@ -547,7 +548,8 @@
         "z": "7ebbc29c647c58ec",
         "name": "Dashboard Full Dump",
         "links": [
-            "fa60c2b1c4bd6432"
+            "fa60c2b1c4bd6432",
+            "ad3020e3fc7099e8"
         ],
         "x": 775,
         "y": 100,
@@ -600,7 +602,7 @@
         "splitLayout": "",
         "className": "",
         "x": 150,
-        "y": 420,
+        "y": 720,
         "wires": [
             [
                 "628745f67dade8c1"
@@ -620,7 +622,7 @@
             "b46550ea0f878eaf"
         ],
         "x": 675,
-        "y": 420,
+        "y": 720,
         "wires": []
     },
     {
@@ -632,7 +634,7 @@
         "action": "obj",
         "pretty": false,
         "x": 350,
-        "y": 420,
+        "y": 720,
         "wires": [
             [
                 "a17a899f16b9d084"
@@ -651,7 +653,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 420,
+        "y": 720,
         "wires": [
             [
                 "a9c50f46b67e9896",
@@ -690,7 +692,7 @@
         "splitLayout": "",
         "className": "",
         "x": 160,
-        "y": 500,
+        "y": 800,
         "wires": [
             [
                 "04f926d3d2ee0cd5"
@@ -709,7 +711,7 @@
             "b46550ea0f878eaf"
         ],
         "x": 675,
-        "y": 500,
+        "y": 800,
         "wires": []
     },
     {
@@ -721,7 +723,7 @@
         "action": "obj",
         "pretty": false,
         "x": 350,
-        "y": 500,
+        "y": 800,
         "wires": [
             [
                 "ec3ec501f79d3d62"
@@ -740,7 +742,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 500,
+        "y": 800,
         "wires": [
             [
                 "75c5f224f591b111",
@@ -786,7 +788,7 @@
         "splitLayout": "",
         "className": "",
         "x": 160,
-        "y": 340,
+        "y": 640,
         "wires": [
             [
                 "e2b1eeb7b8ba3724"
@@ -806,7 +808,7 @@
             "b46550ea0f878eaf"
         ],
         "x": 675,
-        "y": 340,
+        "y": 640,
         "wires": []
     },
     {
@@ -818,7 +820,7 @@
         "action": "obj",
         "pretty": false,
         "x": 350,
-        "y": 340,
+        "y": 640,
         "wires": [
             [
                 "445fcf6390a71317"
@@ -837,7 +839,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 340,
+        "y": 640,
         "wires": [
             [
                 "37c9658f21fde304",
@@ -897,7 +899,7 @@
             "18a554bcaa2360e7"
         ],
         "x": 935,
-        "y": 400,
+        "y": 700,
         "wires": []
     },
     {
@@ -918,7 +920,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 800,
-        "y": 400,
+        "y": 700,
         "wires": [
             [
                 "8f1d410dda1e4f81",
@@ -933,7 +935,7 @@
         "name": "",
         "events": "change",
         "x": 1040,
-        "y": 520,
+        "y": 820,
         "wires": [
             []
         ]
@@ -956,7 +958,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 800,
-        "y": 460,
+        "y": 760,
         "wires": [
             [
                 "28b06e0ed349f7f2"
@@ -983,7 +985,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 520,
+        "y": 820,
         "wires": [
             [
                 "71a84d7f0e04039b"
@@ -1008,7 +1010,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 800,
-        "y": 300,
+        "y": 600,
         "wires": [
             [
                 "9225979b748b64fa"
@@ -1026,7 +1028,7 @@
             "5329a59e7e76c7c0"
         ],
         "x": 945,
-        "y": 300,
+        "y": 600,
         "wires": []
     },
     {
@@ -1036,7 +1038,7 @@
         "name": "Wait then publish to MQTT",
         "info": "",
         "x": 990,
-        "y": 260,
+        "y": 560,
         "wires": []
     },
     {
@@ -1046,7 +1048,7 @@
         "name": "Wait then publish to Update and Refresh Game Dump",
         "info": "",
         "x": 1080,
-        "y": 360,
+        "y": 660,
         "wires": []
     },
     {
@@ -1072,7 +1074,48 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 660,
-        "y": 540,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "12d960ab4b6ae7fc",
+        "type": "ui_button",
+        "z": "7ebbc29c647c58ec",
+        "name": "",
+        "group": "df6f4c796677e729",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "View Latest Match Hits, Drops, etc",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "b988ed62abb07361"
+            ]
+        ]
+    },
+    {
+        "id": "b988ed62abb07361",
+        "type": "link out",
+        "z": "7ebbc29c647c58ec",
+        "name": "link out 42",
+        "mode": "link",
+        "links": [
+            "ca18ad730b62784e"
+        ],
+        "x": 385,
+        "y": 260,
         "wires": []
     },
     {
@@ -2017,7 +2060,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Result Dump",
-        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\n//var str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\n//msg.payload = str;\nlet newrow = []\nlet title = [\"MATCH_NUM\",\"NODE_ID\",\t\"SIDE_ID\",\"FIRE_SCORE\",\"NUM_TREES\",\"NUM_HITS\",\"NUM_DROPS\",\"NUM_BAGS\",\"TIMEOFMATCH\"]\ntitle.push()\nfor (var i=0;i<msg.payload.length;i++) {\n    var row = msg.payload[i];\n    if (row.NUM_TREES != 0 || \n        row.FIRE_SCORE != 0 || \n        row.NUM_HITS != 0 ||\n        row.NUM_DROPS != 0 || \n        row.NUM_BAGS != 0) {\n        newrow.push(row);\n        } \n}\nmsg.payload = newrow;\nreturn msg;",
+        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\n//var str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\n//msg.payload = str;\nlet newrow = []\nlet title = [\"MATCH_NUM\",\"NODE_ID\",\t\"SIDE_ID\",\"FIRE_SCORE\",\"NUM_TREES\",\"NUM_HITS\",\"NUM_DROPS\",\"NUM_BAGS\",\"TIMEOFMATCH\"]\ntitle.push()\nfor (var i=0;i<msg.payload.length;i++) {\n    var row = msg.payload[i];\n    if ( \n        row.NUM_HITS != 0 ||\n        row.NUM_DROPS != 0 || \n        row.NUM_BAGS != 0) {\n        newrow.push(row);\n        } \n}\nmsg.payload = newrow;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2736,7 +2779,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Calculate and Update - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0 ;\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 0;\n    WindowsActive[node + \"3\"] = 1;\n    WindowsActive[node + \"4\"] = 0;\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 1;\n    WindowsActive[node + \"3\"] = 0;\n    WindowsActive[node + \"4\"] = 0;\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
+        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\n\n//This is how we pass in the burning buildings from the intialation of the building\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0 ;\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 0;\n    WindowsActive[node + \"3\"] = 1;\n    WindowsActive[node + \"4\"] = 0;\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 1;\n    WindowsActive[node + \"3\"] = 0;\n    WindowsActive[node + \"4\"] = 0;\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2781,6 +2824,111 @@
         "statusType": "auto",
         "x": 840,
         "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "dd2bda159bd6865c",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Latest Match Hits Table Dump",
+        "func": "\n\nvar matchid = global.get(\"matchnum\");\nvar newMsg = {\n    \"topic\": \"SELECT B.MATCH_NUM, B.BUILDING_NAME, BWS.BUILDING_SIDE, B.NUM_BAGS, B.NUM_DROPS, BWS.NUM_HITS FROM Buildings B INNER JOIN BuildingWindowStatus BWS \" \n        + \"on B.MATCH_NUM = BWS.MATCH_NUM AND B.BUILDING_NAME=BWS.BUILDING_NAME \"\n         +  \"WHERE B.MATCH_NUM = \" + matchid + \";\" \n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1980,
+        "wires": [
+            [
+                "9ba69fd69ae011c7",
+                "abf14147cd05c8bd"
+            ]
+        ]
+    },
+    {
+        "id": "8d86d9b8f1326f1b",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Result Dump",
+        "func": "//CREATE TABLE GAMETEST(MATCH_NUM INTEGER PRIMARY KEY AUTOINCREMENT, BUILDING_ID VARCHAR(32), FIRE_SCORE INT NOT NULL, NUM_TREES INT NOT NULL, TIMEOFMATCH INT NOT NULL);  \n\n\n//var str = \"match: \" + msg.payload[0].MATCH_NUM + \" trees:\" + msg.payload[0].NUM_TREES + \" FIRE:\" + msg.payload[0].FIRE_SCORE + \" LASER HITS:\" + msg.payload[0].NUM_HITS;\n//msg.payload = str;\nlet newrow = []\nlet title = [\"MATCH_NUM\",\"NODE_ID\",\t\"SIDE_ID\",\"FIRE_SCORE\",\"NUM_TREES\",\"NUM_HITS\",\"NUM_DROPS\",\"NUM_BAGS\",\"TIMEOFMATCH\"]\ntitle.push()\nfor (var i=0;i<msg.payload.length;i++) {\n    var row = msg.payload[i];\n    if (\n        row.NUM_HITS != 0 ||\n        row.NUM_DROPS != 0 || \n        row.NUM_BAGS != 0) {\n        newrow.push(row);\n        } \n}\nmsg.payload = newrow;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1980,
+        "wires": [
+            [
+                "ad3020e3fc7099e8",
+                "abf14147cd05c8bd"
+            ]
+        ]
+    },
+    {
+        "id": "9ba69fd69ae011c7",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 570,
+        "y": 1980,
+        "wires": [
+            [
+                "8d86d9b8f1326f1b",
+                "abf14147cd05c8bd"
+            ]
+        ]
+    },
+    {
+        "id": "ca18ad730b62784e",
+        "type": "link in",
+        "z": "f74b301e4f22310f",
+        "name": "Dump to Debug Latest Hits Match",
+        "links": [
+            "c30231dee65db09d",
+            "b988ed62abb07361"
+        ],
+        "x": 85,
+        "y": 1980,
+        "wires": [
+            [
+                "dd2bda159bd6865c"
+            ]
+        ]
+    },
+    {
+        "id": "ad3020e3fc7099e8",
+        "type": "link out",
+        "z": "f74b301e4f22310f",
+        "name": "link out 43",
+        "mode": "link",
+        "links": [
+            "c5b51aa2f4863b48",
+            "28eb2bc55dcddb70"
+        ],
+        "x": 925,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "abf14147cd05c8bd",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "Current Game Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 2140,
         "wires": []
     },
     {
