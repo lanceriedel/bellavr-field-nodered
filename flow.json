@@ -837,7 +837,7 @@
         "type": "function",
         "z": "7ebbc29c647c58ec",
         "name": "add firescore 1",
-        "func": "var o = msg.payload;\no['fire_score'] = 1;\nmsg.payload = o;\nreturn msg;",
+        "func": "var o = msg.payload;\no['FS'] = 1;\no['BUILDING_NAME'] = o['node_id'];\nmsg.topic = \"nodered/firescore/\" + o['node_id'];\nmsg.payload = o;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1527,16 +1527,17 @@
         "z": "3d42d3194c2552f8",
         "name": "MQTT Send Firescore to Node",
         "links": [
-            "3f00803b0fe3404d",
-            "9225979b748b64fa",
+            "456155bf98b91e2c",
             "530bf25ea8a65ce6",
-            "456155bf98b91e2c"
+            "9225979b748b64fa",
+            "a4f26d2999f4172e"
         ],
         "x": 145,
         "y": 120,
         "wires": [
             [
-                "5cacabc8f9cd5606"
+                "1e0fd409ba1a6b71",
+                "2309213c36dd8fd8"
             ]
         ]
     },
@@ -1557,22 +1558,6 @@
         "x": 940,
         "y": 120,
         "wires": []
-    },
-    {
-        "id": "5cacabc8f9cd5606",
-        "type": "json",
-        "z": "3d42d3194c2552f8",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 270,
-        "y": 120,
-        "wires": [
-            [
-                "1e0fd409ba1a6b71"
-            ]
-        ]
     },
     {
         "id": "31536652b0e65c1c",
@@ -1608,6 +1593,22 @@
         "statusType": "auto",
         "x": 420,
         "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2309213c36dd8fd8",
+        "type": "debug",
+        "z": "3d42d3194c2552f8",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 200,
         "wires": []
     },
     {
@@ -2219,7 +2220,7 @@
             [
                 "0143496e1011b5b9",
                 "36cc246e4c6ddac8",
-                "211352cdccb01d45"
+                "a90ba086792e3e58"
             ]
         ]
     },
@@ -2323,23 +2324,6 @@
         "wires": []
     },
     {
-        "id": "211352cdccb01d45",
-        "type": "debug",
-        "z": "0661e4588e011b72",
-        "name": "debug 12",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "lancedebug",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 960,
-        "wires": []
-    },
-    {
         "id": "213fcbb6e5838d79",
         "type": "debug",
         "z": "0661e4588e011b72",
@@ -2354,6 +2338,84 @@
         "statusType": "auto",
         "x": 1170,
         "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a90ba086792e3e58",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "Update Message per",
+        "func": "\nvar o = msg.payload;\n\n\n\nvar msgs = new Array();\n\no.forEach((element, index, array) => {\n    var name = element.get(\"BUILDING_NAME\");\n    var fs = element.get(\"FS\");\n    var topicname = \"nodered/firescore/\" + name;\n    var newmsg = { payload : element, topic : topicname};\n    msgs.push(newmsg);\n});\n\nreturn msgs;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 820,
+        "wires": [
+            [
+                "a4f26d2999f4172e",
+                "c77061c7713ecee8",
+                "13d2c54d8da6fc77"
+            ]
+        ]
+    },
+    {
+        "id": "a4f26d2999f4172e",
+        "type": "link out",
+        "z": "0661e4588e011b72",
+        "name": "link out 47",
+        "mode": "link",
+        "links": [
+            "3a4f65d2f43899bf"
+        ],
+        "x": 865,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "c77061c7713ecee8",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "Update message Topic",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "13d2c54d8da6fc77",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "Update message payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "a26c69d85115ea29",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "Global timer every 15 seconds, kicks of scoring updates to DB and MQTT",
+        "info": "",
+        "x": 360,
+        "y": 520,
         "wires": []
     },
     {
