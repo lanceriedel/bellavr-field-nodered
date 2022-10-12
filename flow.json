@@ -2215,8 +2215,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 860,
+        "x": 310,
+        "y": 920,
         "wires": [
             [
                 "0143496e1011b5b9",
@@ -2233,8 +2233,8 @@
         "links": [
             "16c9d84b48e02137"
         ],
-        "x": 105,
-        "y": 860,
+        "x": 125,
+        "y": 920,
         "wires": [
             [
                 "e8fcbe1eaf3b0d0b"
@@ -2267,8 +2267,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 960,
+        "x": 780,
+        "y": 1020,
         "wires": []
     },
     {
@@ -2282,8 +2282,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 860,
+        "x": 650,
+        "y": 920,
         "wires": [
             [
                 "84a54223a84f044a"
@@ -2298,8 +2298,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 930,
-        "y": 860,
+        "x": 950,
+        "y": 920,
         "wires": [
             []
         ]
@@ -2317,8 +2317,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1140,
-        "y": 960,
+        "x": 1160,
+        "y": 1020,
         "wires": []
     },
     {
@@ -2349,8 +2349,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 800,
+        "x": 670,
+        "y": 860,
         "wires": [
             [
                 "a758f9ceac41ea87"
@@ -2366,8 +2366,8 @@
         "links": [
             "3a4f65d2f43899bf"
         ],
-        "x": 1325,
-        "y": 800,
+        "x": 1345,
+        "y": 860,
         "wires": []
     },
     {
@@ -2391,8 +2391,8 @@
         "arraySpltType": "len",
         "stream": true,
         "addname": "",
-        "x": 870,
-        "y": 800,
+        "x": 890,
+        "y": 860,
         "wires": [
             [
                 "520da49c1ff95703"
@@ -2410,8 +2410,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
-        "y": 800,
+        "x": 1200,
+        "y": 860,
         "wires": [
             [
                 "a4f26d2999f4172e"
@@ -2426,8 +2426,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 1010,
-        "y": 800,
+        "x": 1030,
+        "y": 860,
         "wires": [
             [
                 "4d4ec8f260d5ebe5"
@@ -2440,8 +2440,18 @@
         "z": "0661e4588e011b72",
         "name": "Preps to send one FCS update per node",
         "info": "",
-        "x": 700,
-        "y": 760,
+        "x": 760,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "5dc6bd11da1ac853",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "Calculates Scores  and updated DB and sends to Nodes -- kicked off by the global timer",
+        "info": "",
+        "x": 400,
+        "y": 780,
         "wires": []
     },
     {
