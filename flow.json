@@ -72,14 +72,6 @@
         "env": []
     },
     {
-        "id": "7affb7628479addf",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "5999f1d09afe1039",
         "type": "mqtt-broker",
         "name": "mqtt-node-main",
@@ -435,8 +427,8 @@
         "z": "7ebbc29c647c58ec",
         "name": "Publish Firescore To Specific Node -- this is on the Dashboard ",
         "info": "",
-        "x": 280,
-        "y": 380,
+        "x": 260,
+        "y": 400,
         "wires": []
     },
     {
@@ -451,23 +443,23 @@
         "height": 0,
         "options": [
             {
-                "label": "Node ID",
-                "value": "node_id",
+                "label": "Building Name",
+                "value": "BUILDING_NAME",
                 "type": "text",
                 "required": true,
                 "rows": null
             },
             {
                 "label": "Fire Score",
-                "value": "fire_score",
+                "value": "FCS",
                 "type": "text",
                 "required": true,
                 "rows": null
             }
         ],
         "formValue": {
-            "node_id": "",
-            "fire_score": ""
+            "BUILDING_NAME": "",
+            "FCS": ""
         },
         "payload": "",
         "submit": "submit",
@@ -476,11 +468,13 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 150,
-        "y": 420,
+        "x": 130,
+        "y": 520,
         "wires": [
             [
-                "a29505e70d7b9ece"
+                "a29505e70d7b9ece",
+                "84a25c5ebff798fb",
+                "cc9c7da6d3ec6e77"
             ]
         ]
     },
@@ -510,8 +504,8 @@
         "links": [
             "c5098de218c47d8f"
         ],
-        "x": 385,
-        "y": 420,
+        "x": 665,
+        "y": 500,
         "wires": []
     },
     {
@@ -609,8 +603,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 150,
-        "y": 560,
+        "x": 130,
+        "y": 660,
         "wires": [
             [
                 "628745f67dade8c1"
@@ -626,8 +620,8 @@
         "links": [
             "af55cd6eb001ec61"
         ],
-        "x": 675,
-        "y": 560,
+        "x": 655,
+        "y": 660,
         "wires": []
     },
     {
@@ -638,8 +632,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 350,
-        "y": 560,
+        "x": 330,
+        "y": 660,
         "wires": [
             [
                 "a17a899f16b9d084"
@@ -657,8 +651,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 560,
+        "x": 480,
+        "y": 660,
         "wires": [
             [
                 "a9c50f46b67e9896",
@@ -696,8 +690,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 160,
-        "y": 640,
+        "x": 140,
+        "y": 740,
         "wires": [
             [
                 "04f926d3d2ee0cd5"
@@ -711,12 +705,10 @@
         "name": "link out 25",
         "mode": "link",
         "links": [
-            "63f807f3f36abd11",
-            "6a99a43b23841ade",
-            "b46550ea0f878eaf"
+            "63f807f3f36abd11"
         ],
-        "x": 675,
-        "y": 640,
+        "x": 655,
+        "y": 740,
         "wires": []
     },
     {
@@ -727,8 +719,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 350,
-        "y": 640,
+        "x": 330,
+        "y": 740,
         "wires": [
             [
                 "ec3ec501f79d3d62"
@@ -746,8 +738,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 640,
+        "x": 470,
+        "y": 740,
         "wires": [
             [
                 "75c5f224f591b111",
@@ -767,23 +759,15 @@
         "height": 0,
         "options": [
             {
-                "label": "Node ID",
-                "value": "node_id",
+                "label": "Building Name",
+                "value": "BUILDING_NAME",
                 "type": "text",
-                "required": true,
-                "rows": null
-            },
-            {
-                "label": "Side ID",
-                "value": "side_id",
-                "type": "number",
                 "required": true,
                 "rows": null
             }
         ],
         "formValue": {
-            "node_id": "",
-            "side_id": ""
+            "BUILDING_NAME": ""
         },
         "payload": "",
         "submit": "submit",
@@ -792,8 +776,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 160,
-        "y": 480,
+        "x": 140,
+        "y": 580,
         "wires": [
             [
                 "e2b1eeb7b8ba3724"
@@ -807,13 +791,10 @@
         "name": "link out 26",
         "mode": "link",
         "links": [
-            "63f807f3f36abd11",
-            "b49a77ff09745d6d",
-            "6a99a43b23841ade",
-            "b46550ea0f878eaf"
+            "b49a77ff09745d6d"
         ],
-        "x": 675,
-        "y": 480,
+        "x": 655,
+        "y": 580,
         "wires": []
     },
     {
@@ -824,8 +805,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 350,
-        "y": 480,
+        "x": 330,
+        "y": 580,
         "wires": [
             [
                 "445fcf6390a71317"
@@ -837,14 +818,14 @@
         "type": "function",
         "z": "7ebbc29c647c58ec",
         "name": "add firescore 1",
-        "func": "var o = msg.payload;\no['FS'] = 1;\no['BUILDING_NAME'] = o['node_id'];\nmsg.topic = \"nodered/firescore/\" + o['node_id'];\nmsg.payload = o;\nreturn msg;",
+        "func": "var o = msg.payload;\no['FCS'] = 1;\n//o['BUILDING_NAME'] = o['BUILDING_NAME'];\nmsg.topic = \"nodered/firescore/\" + o['BUILDING_NAME'];\nmsg.payload = o;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 480,
+        "x": 480,
+        "y": 580,
         "wires": [
             [
                 "37c9658f21fde304",
@@ -904,8 +885,8 @@
         "links": [
             "18a554bcaa2360e7"
         ],
-        "x": 935,
-        "y": 540,
+        "x": 1315,
+        "y": 580,
         "wires": []
     },
     {
@@ -925,8 +906,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 800,
-        "y": 540,
+        "x": 1180,
+        "y": 580,
         "wires": [
             [
                 "8f1d410dda1e4f81",
@@ -940,8 +921,8 @@
         "z": "7ebbc29c647c58ec",
         "name": "",
         "events": "change",
-        "x": 1040,
-        "y": 660,
+        "x": 1420,
+        "y": 700,
         "wires": [
             []
         ]
@@ -963,8 +944,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 800,
-        "y": 600,
+        "x": 1180,
+        "y": 640,
         "wires": [
             [
                 "28b06e0ed349f7f2"
@@ -990,8 +971,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 820,
-        "y": 660,
+        "x": 1200,
+        "y": 700,
         "wires": [
             [
                 "71a84d7f0e04039b"
@@ -1015,8 +996,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 800,
-        "y": 440,
+        "x": 780,
+        "y": 540,
         "wires": [
             [
                 "9225979b748b64fa"
@@ -1030,11 +1011,10 @@
         "name": "link out 34",
         "mode": "link",
         "links": [
-            "3a4f65d2f43899bf",
             "5329a59e7e76c7c0"
         ],
-        "x": 945,
-        "y": 440,
+        "x": 925,
+        "y": 540,
         "wires": []
     },
     {
@@ -1043,8 +1023,8 @@
         "z": "7ebbc29c647c58ec",
         "name": "Wait then publish to MQTT",
         "info": "",
-        "x": 990,
-        "y": 400,
+        "x": 830,
+        "y": 500,
         "wires": []
     },
     {
@@ -1053,8 +1033,8 @@
         "z": "7ebbc29c647c58ec",
         "name": "Wait then publish to Update and Refresh Game Dump",
         "info": "",
-        "x": 1080,
-        "y": 500,
+        "x": 1320,
+        "y": 520,
         "wires": []
     },
     {
@@ -1079,8 +1059,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 680,
+        "x": 640,
+        "y": 780,
         "wires": []
     },
     {
@@ -1161,8 +1141,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 140,
-        "y": 760,
+        "x": 120,
+        "y": 860,
         "wires": [
             [
                 "43f3e3127047706d"
@@ -1178,8 +1158,8 @@
         "links": [
             "0d084e688f622348"
         ],
-        "x": 675,
-        "y": 760,
+        "x": 655,
+        "y": 860,
         "wires": []
     },
     {
@@ -1190,8 +1170,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 350,
-        "y": 760,
+        "x": 330,
+        "y": 860,
         "wires": [
             [
                 "cf29e65e98345a3c"
@@ -1209,8 +1189,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 760,
+        "x": 470,
+        "y": 860,
         "wires": [
             [
                 "a0893a9b1c6e7557"
@@ -1529,7 +1509,6 @@
         "links": [
             "456155bf98b91e2c",
             "530bf25ea8a65ce6",
-            "9225979b748b64fa",
             "a4f26d2999f4172e"
         ],
         "x": 145,
@@ -1772,7 +1751,8 @@
         "z": "0661e4588e011b72",
         "name": "Publish Latest Fire Score to Node",
         "links": [
-            "9225979b748b64fa"
+            "9225979b748b64fa",
+            "6f7cb6f71184bd2b"
         ],
         "x": 125,
         "y": 120,
@@ -1787,7 +1767,7 @@
         "type": "function",
         "z": "0661e4588e011b72",
         "name": "Retrieve Latest Fire Score for NodeId",
-        "func": "\nvar o = msg.payload;\nvar matchid = global.get(\"matchnum\");\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"SELECT FCS FROM Buildings WHERE MATCH_NUM = \" + matchid + \" AND BUILDING_NAME='\" + nodeid+\"';\",\n    \"nodeid\":nodeid\n}\n\nreturn newMsg;\n",
+        "func": "\nvar o = msg.payload;\nvar matchid = global.get(\"matchnum\");\nvar nodeid = o.BUILDING_NAME;\nvar newMsg = {\n    \"topic\": \"SELECT FCS FROM Buildings WHERE MATCH_NUM = \" + matchid + \" AND BUILDING_NAME='\" + nodeid+\"';\",\n    \"nodeid\":nodeid\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1838,7 +1818,7 @@
         "type": "function",
         "z": "0661e4588e011b72",
         "name": "Assemble message",
-        "func": "var o = msg.payload\nvar firescore = o[0].FCS;\nvar nodeid = msg.nodeid;\nvar t = \"{ \\\"nodeid\\\": \\\"\" + nodeid + \"\\\", \\\"firescore\\\": \" + firescore + \", \\\"timestamp\\\": \" + 1000 + \"}\";\nmsg.payload = t;\n//nodered/firescore/[node id]\nmsg.topic = \"nodered/firescore/\" + nodeid;\n\nreturn msg;",
+        "func": "var o = msg.payload\nvar firescore = o[0].FCS;\nvar nodeid = msg.nodeid;\nvar t = \"{ \\\"BUILDING_NAME\\\": \\\"\" + nodeid + \"\\\", \\\"FCS\\\": \" + firescore + \", \\\"timestamp\\\": \" + 1000 + \"}\";\nmsg.payload = t;\n//nodered/firescore/[node id]\nmsg.topic = \"nodered/firescore/\" + nodeid;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1848,8 +1828,7 @@
         "y": 120,
         "wires": [
             [
-                "530bf25ea8a65ce6",
-                "213fcbb6e5838d79"
+                "530bf25ea8a65ce6"
             ]
         ]
     },
@@ -2322,23 +2301,6 @@
         "wires": []
     },
     {
-        "id": "213fcbb6e5838d79",
-        "type": "debug",
-        "z": "0661e4588e011b72",
-        "name": "Push Firescore Message",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1170,
-        "y": 200,
-        "wires": []
-    },
-    {
         "id": "a90ba086792e3e58",
         "type": "function",
         "z": "0661e4588e011b72",
@@ -2461,8 +2423,7 @@
         "name": "link out 5",
         "mode": "link",
         "links": [
-            "43ddc5a441c4fd3f",
-            "f6566f17a1e9b78e"
+            "43ddc5a441c4fd3f"
         ],
         "x": 915,
         "y": 160,
@@ -2489,7 +2450,9 @@
         "x": 420,
         "y": 160,
         "wires": [
-            []
+            [
+                "d88db86de710b8e9"
+            ]
         ]
     },
     {
@@ -2534,6 +2497,7 @@
         "id": "54b2cad8c9c66ea5",
         "type": "debug",
         "z": "f74b301e4f22310f",
+        "d": true,
         "name": "Game Storage Debug",
         "active": true,
         "tosidebar": true,
@@ -2940,7 +2904,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Fire Score (SET)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar fs = o.fire_score;\nvar nodeid = o.node_id;\nvar newMsg = {\n    \"topic\": \"UPDATE GAME_SCORES SET FIRE_SCORE = \" + fs + \" WHERE MATCH_NUM = \" + matchid + \" AND NODE_ID='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar fs = o['FCS'];\nvar nodeid = o['BUILDING_NAME'];\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET FCS = \" + fs + \" WHERE MATCH_NUM = \" + matchid + \" AND BUILDING_NAME='\" + nodeid + \"';\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3121,7 +3085,6 @@
         "z": "f74b301e4f22310f",
         "name": "Increment Ball Drop",
         "links": [
-            "37c9658f21fde304",
             "75c5f224f591b111",
             "f1340eb46d54b7e1"
         ],
@@ -3580,6 +3543,25 @@
         "wires": []
     },
     {
+        "id": "d88db86de710b8e9",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Update FSHit (ADD)",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar fs = o['FCS'];\nvar nodeid = o['BUILDING_NAME'];\n\n/*\no['FS'] = 1;\no['BUILDING_NAME'] = o['node_id'];\nmsg.topic = \"nodered/firescore/\" + o['node_id'];\n*/\n\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET FCS = FCS + \" \n    + fs + \" WHERE MATCH_NUM = \" \n    + matchid + \" AND BUILDING_NAME='\" + nodeid +\"'\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "3a4b12e5b9609b0d"
+            ]
+        ]
+    },
+    {
         "id": "890050b7a3592bf1",
         "type": "inject",
         "z": "8b4b6895c0ec29ec",
@@ -3939,7 +3921,6 @@
         "z": "8b4b6895c0ec29ec",
         "name": "genericSql-special",
         "links": [
-            "3a4b12e5b9609b0d",
             "d527904ed8723b40"
         ],
         "x": 175,
