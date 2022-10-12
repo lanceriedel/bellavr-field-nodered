@@ -2072,7 +2072,8 @@
             [
                 "d87a3df5ff53208e"
             ]
-        ]
+        ],
+        "info": "Active match is set when the match is created and set to 1, there is a stop button to stop the active match"
     },
     {
         "id": "ffb549e9c8fb8991",
@@ -2341,14 +2342,14 @@
         "id": "a90ba086792e3e58",
         "type": "function",
         "z": "0661e4588e011b72",
-        "name": "Update Message per",
+        "name": "Update Message per Building",
         "func": "\nvar o = msg.payload;\n\n\n\nvar msgs = \"\";\nvar debug = \"\" + o.length + \" |\";\nvar i = 0;\no.forEach((element, index, array) => {\n    var name = element.get(\"BUILDING_NAME\");\n    var fs = element.get(\"FS\");\n    var payload = \"{\\\"BUILDING_NAME\\\" :\\\"\" + name + \"\\\", \\\"FCS\\\" :\" + fs + \"}\";\n    var topicname = \"nodered/firescore/\" + name;\n    var newmsg = \"{\\\"payload\\\" :\" + payload + \",\\\"topic\\\" : \\\"\" + topicname + \"\\\"}\\n\";\n    msgs = msgs +  newmsg;\n    debug = debug + \"|i:\" + i +\" | \" + name + \":\" + topicname + \" : \"+ fs +\"|\";\n    newmsg.lancedebug = debug;\n\n});\nvar nmsgs = {};\nnmsgs.payload = msgs;\nreturn nmsgs;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 650,
         "y": 800,
         "wires": [
             [
@@ -2365,7 +2366,7 @@
         "links": [
             "3a4f65d2f43899bf"
         ],
-        "x": 1245,
+        "x": 1325,
         "y": 800,
         "wires": []
     },
@@ -2390,7 +2391,7 @@
         "arraySpltType": "len",
         "stream": true,
         "addname": "",
-        "x": 810,
+        "x": 870,
         "y": 800,
         "wires": [
             [
@@ -2409,7 +2410,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1100,
+        "x": 1180,
         "y": 800,
         "wires": [
             [
@@ -2425,7 +2426,7 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 930,
+        "x": 1010,
         "y": 800,
         "wires": [
             [
