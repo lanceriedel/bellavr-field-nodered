@@ -314,7 +314,7 @@
         "payload": "matchnum",
         "payloadType": "global",
         "x": 190,
-        "y": 340,
+        "y": 720,
         "wires": [
             [
                 "e7fdc24bcd360c08"
@@ -335,7 +335,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 960,
-        "y": 520,
+        "y": 740,
         "wires": []
     },
     {
@@ -365,7 +365,7 @@
         "name": "Dump to Debug the Current match num",
         "info": "",
         "x": 210,
-        "y": 300,
+        "y": 680,
         "wires": []
     },
     {
@@ -390,7 +390,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 200,
-        "y": 440,
+        "y": 820,
         "wires": [
             [
                 "c30231dee65db09d"
@@ -408,7 +408,7 @@
             "ca18ad730b62784e"
         ],
         "x": 425,
-        "y": 440,
+        "y": 820,
         "wires": []
     },
     {
@@ -418,7 +418,291 @@
         "name": "Dump to Debug the Current match num",
         "info": "",
         "x": 210,
-        "y": 400,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "baf9c9e56c55af9c",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Increment Hit (RBO, Side 1)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "803409c672685edb"
+            ]
+        ]
+    },
+    {
+        "id": "803409c672685edb",
+        "type": "function",
+        "z": "dc5996c16196eba2",
+        "name": "Set Values ",
+        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "02b8a461b8de262a"
+            ]
+        ]
+    },
+    {
+        "id": "02b8a461b8de262a",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 48",
+        "mode": "link",
+        "links": [
+            "af55cd6eb001ec61"
+        ],
+        "x": 605,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4d99b7cae64f909e",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Increment Hit (Building RBO, Side 1)",
+        "info": "Creates a new match in the Game table\nSets the global matchnum for all flows to use",
+        "x": 200,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "37b9350256bf1cc0",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Drop Ball (Building RBO)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "a079891af81acf69"
+            ]
+        ]
+    },
+    {
+        "id": "a079891af81acf69",
+        "type": "function",
+        "z": "dc5996c16196eba2",
+        "name": "Set Values ",
+        "func": "var o = new Map();\n\no.num_drops = 1;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "c854b1ceacdd7cbd"
+            ]
+        ]
+    },
+    {
+        "id": "c854b1ceacdd7cbd",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 49",
+        "mode": "link",
+        "links": [
+            "63f807f3f36abd11"
+        ],
+        "x": 605,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3f886858a14bf1f8",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Drop Ball (Building RBO)",
+        "info": "",
+        "x": 170,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "eb9f4d74e26f9854",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Set Trench Bags",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "95d8b751de777e8d"
+            ]
+        ]
+    },
+    {
+        "id": "95d8b751de777e8d",
+        "type": "function",
+        "z": "dc5996c16196eba2",
+        "name": "Set Values ",
+        "func": "var o = new Map();\n\no.num_bags = 3;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 420,
+        "wires": [
+            [
+                "a2c40ebd42a054a9"
+            ]
+        ]
+    },
+    {
+        "id": "a2c40ebd42a054a9",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 50",
+        "mode": "link",
+        "links": [
+            "0d084e688f622348"
+        ],
+        "x": 605,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "8430477f261fe058",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Set Trench Bags (RBO, bags=3)",
+        "info": "",
+        "x": 190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "cfa55283398d5d96",
+        "type": "inject",
+        "z": "dc5996c16196eba2",
+        "name": "Set Fire Score",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "6c96858cd3695db2"
+            ]
+        ]
+    },
+    {
+        "id": "6c96858cd3695db2",
+        "type": "function",
+        "z": "dc5996c16196eba2",
+        "name": "Set Values ",
+        "func": "var o = new Map();\n\no.FCS = 3;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 560,
+        "wires": [
+            [
+                "711e25dc20dbd9af"
+            ]
+        ]
+    },
+    {
+        "id": "711e25dc20dbd9af",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 51",
+        "mode": "link",
+        "links": [
+            "c5098de218c47d8f"
+        ],
+        "x": 605,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6b33a4946c072763",
+        "type": "comment",
+        "z": "dc5996c16196eba2",
+        "name": "Set Fire Score (RBO, FCS=3)",
+        "info": "",
+        "x": 180,
+        "y": 520,
         "wires": []
     },
     {
@@ -579,7 +863,7 @@
         "options": [
             {
                 "label": "Building Name",
-                "value": "node_id",
+                "value": "BUILDING_NAME",
                 "type": "text",
                 "required": true,
                 "rows": null
@@ -593,7 +877,7 @@
             }
         ],
         "formValue": {
-            "node_id": "",
+            "BUILDING_NAME": "",
             "side_id": ""
         },
         "payload": "",
@@ -674,14 +958,14 @@
         "options": [
             {
                 "label": "Building Name",
-                "value": "node_id",
+                "value": "BUILDING_NAME",
                 "type": "text",
                 "required": true,
                 "rows": null
             }
         ],
         "formValue": {
-            "node_id": ""
+            "BUILDING_NAME": ""
         },
         "payload": "",
         "submit": "submit",
@@ -1117,7 +1401,7 @@
         "options": [
             {
                 "label": "Building Name",
-                "value": "node_id",
+                "value": "BUILDING_NAME",
                 "type": "text",
                 "required": true,
                 "rows": null
@@ -1131,7 +1415,7 @@
             }
         ],
         "formValue": {
-            "node_id": "",
+            "BUILDING_NAME": "",
             "num_bags": ""
         },
         "payload": "",
@@ -2497,7 +2781,6 @@
         "id": "54b2cad8c9c66ea5",
         "type": "debug",
         "z": "f74b301e4f22310f",
-        "d": true,
         "name": "Game Storage Debug",
         "active": true,
         "tosidebar": true,
@@ -2748,7 +3031,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Laser Hit (ADD)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"UPDATE BuildingWindowStatus SET NUM_HITS = NUM_HITS + \" \n    + hits + \" WHERE MATCH_NUM = \" \n    + matchid + \" AND BUILDING_NAME='\" + nodeid \n        + \"' AND BUILDING_SIDE=\" + sideid \n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"UPDATE BuildingWindowStatus SET NUM_HITS = NUM_HITS + \" \n    + hits + \" WHERE MATCH_NUM = \" \n    + matchid + \" AND BUILDING_NAME='\" + nodeid \n        + \"' AND BUILDING_SIDE=\" + sideid \n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2785,7 +3068,8 @@
         "y": 300,
         "wires": [
             [
-                "ee723854cfa1c6f1"
+                "ee723854cfa1c6f1",
+                "54b2cad8c9c66ea5"
             ]
         ]
     },
@@ -2799,7 +3083,8 @@
             "5eca71e17e525b35",
             "64800c16d9ae1ca4",
             "dd142b5915f31846",
-            "a9c50f46b67e9896"
+            "a9c50f46b67e9896",
+            "02b8a461b8de262a"
         ],
         "x": 205,
         "y": 300,
@@ -2854,7 +3139,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Laser Hit (SET)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.node_id;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"UPDATE BuildingWindowStatus SET NUM_HITS = \" + hits \n    + \" WHERE MATCH_NUM = \" + matchid \n    + \" AND BUILDING_NAME='\" + nodeid \n    + \"' AND BUILDING_SIDE=\" + sideid + \";\"\n}\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"UPDATE BuildingWindowStatus SET NUM_HITS = \" + hits \n    + \" WHERE MATCH_NUM = \" + matchid \n    + \" AND BUILDING_NAME='\" + nodeid \n    + \"' AND BUILDING_SIDE=\" + sideid + \";\"\n}\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2942,7 +3227,8 @@
         "name": "Set Firescore",
         "links": [
             "a2bcb79fedaca272",
-            "a29505e70d7b9ece"
+            "a29505e70d7b9ece",
+            "711e25dc20dbd9af"
         ],
         "x": 205,
         "y": 200,
@@ -3039,7 +3325,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Ball Drop (ADD)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.num_drops;\nvar nodeid = o.node_id;\n\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET NUM_DROPS = NUM_DROPS + \"\n        + num_drops + \" WHERE MATCH_NUM = \"\n        + matchid + \" AND BUILDING_NAME='\" + nodeid + \"'\" \n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.num_drops;\nvar nodeid = o.BUILDING_NAME;\n\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET NUM_DROPS = NUM_DROPS + \"\n        + num_drops + \" WHERE MATCH_NUM = \"\n        + matchid + \" AND BUILDING_NAME='\" + nodeid + \"'\" \n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3086,7 +3372,8 @@
         "name": "Increment Ball Drop",
         "links": [
             "75c5f224f591b111",
-            "f1340eb46d54b7e1"
+            "f1340eb46d54b7e1",
+            "c854b1ceacdd7cbd"
         ],
         "x": 205,
         "y": 420,
@@ -3114,7 +3401,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Ball Drop (SET)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.num_drops;\nvar nodeid = o.node_id;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE Building SET NUM_DROPS = \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND BUILDING_NAME='\" + nodeid + \"' ;\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_drops = o.num_drops;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE Building SET NUM_DROPS = \" + num_drops + \" WHERE MATCH_NUM = \" + matchid + \" AND BUILDING_NAME='\" + nodeid + \"' ;\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3205,7 +3492,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Update Trough Bags (SET)",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_bags = o.num_bags;\nvar nodeid = o.node_id;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET NUM_BAGS = \" + num_bags + \" WHERE MATCH_NUM = \" + matchid + \" AND BUILDING_NAME='\" + nodeid + \"' ;\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar num_bags = o.num_bags;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = 0;\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET NUM_BAGS = \" + num_bags + \" WHERE MATCH_NUM = \" + matchid + \" AND BUILDING_NAME='\" + nodeid + \"' ;\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3226,7 +3513,8 @@
         "name": "Set Bag Count",
         "links": [
             "87e764dac83fb351",
-            "a0893a9b1c6e7557"
+            "a0893a9b1c6e7557",
+            "a2c40ebd42a054a9"
         ],
         "x": 205,
         "y": 600,
@@ -3500,7 +3788,6 @@
         "z": "f74b301e4f22310f",
         "name": "Dump to Debug Latest Hits Match",
         "links": [
-            "c30231dee65db09d",
             "b988ed62abb07361"
         ],
         "x": 85,
