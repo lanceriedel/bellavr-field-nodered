@@ -4,72 +4,63 @@
         "type": "tab",
         "label": "Manual Game Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "7ebbc29c647c58ec",
         "type": "tab",
         "label": "Dashboard - Manual Game Flow",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "3d42d3194c2552f8",
         "type": "tab",
         "label": "MQTT Output to Field",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "8d38dc412a73d987",
         "type": "tab",
         "label": "MQTT Input From Field Game Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "0661e4588e011b72",
         "type": "tab",
         "label": "Game Logic Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "f74b301e4f22310f",
         "type": "tab",
         "label": "Game Data Access Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "8b4b6895c0ec29ec",
         "type": "tab",
         "label": "Storage Management",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "f3ec5d556e86f8d0",
         "type": "tab",
         "label": "Field Config",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "829ad5255d8cf01f",
         "type": "tab",
         "label": "Dashboard - Field Config",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "5999f1d09afe1039",
@@ -78,7 +69,6 @@
         "broker": "127.0.0.1",
         "port": "1883",
         "clientid": "",
-        "autoConnect": true,
         "usetls": false,
         "protocolVersion": "4",
         "keepalive": "60",
@@ -95,7 +85,6 @@
         "willQos": "0",
         "willPayload": "",
         "willMsg": {},
-        "userProps": "",
         "sessionExpiry": ""
     },
     {
@@ -217,8 +206,7 @@
         "order": 1,
         "disp": true,
         "width": "6",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "efa02099cf2bc4a1",
@@ -228,8 +216,7 @@
         "order": 2,
         "disp": false,
         "width": "17",
-        "collapse": false,
-        "className": "gamedata"
+        "collapse": false
     },
     {
         "id": "8cc3fd17a6d665c5",
@@ -247,8 +234,7 @@
         "order": 1,
         "disp": true,
         "width": "12",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "bcef7098b2bcab87",
@@ -284,7 +270,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 7",
-        "mode": "link",
         "links": [
             "a5a1bd31c468f86b"
         ],
@@ -402,7 +387,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 9",
-        "mode": "link",
         "links": [
             "18a554bcaa2360e7",
             "ca18ad730b62784e"
@@ -474,7 +458,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 48",
-        "mode": "link",
         "links": [
             "af55cd6eb001ec61"
         ],
@@ -545,7 +528,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 49",
-        "mode": "link",
         "links": [
             "63f807f3f36abd11"
         ],
@@ -616,7 +598,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 50",
-        "mode": "link",
         "links": [
             "0d084e688f622348"
         ],
@@ -687,7 +668,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 51",
-        "mode": "link",
         "links": [
             "c5098de218c47d8f"
         ],
@@ -751,7 +731,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 130,
         "y": 520,
         "wires": [
@@ -774,7 +753,6 @@
         "label": "Debug ",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "className": "",
         "x": 950,
         "y": 100,
         "wires": []
@@ -784,7 +762,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 22",
-        "mode": "link",
         "links": [
             "c5098de218c47d8f"
         ],
@@ -806,7 +783,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -842,7 +818,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 23",
-        "mode": "link",
         "links": [
             "18a554bcaa2360e7"
         ],
@@ -886,7 +861,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 130,
         "y": 660,
         "wires": [
@@ -900,7 +874,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 24",
-        "mode": "link",
         "links": [
             "af55cd6eb001ec61"
         ],
@@ -973,7 +946,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 140,
         "y": 740,
         "wires": [
@@ -987,7 +959,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 25",
-        "mode": "link",
         "links": [
             "63f807f3f36abd11"
         ],
@@ -1059,7 +1030,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 140,
         "y": 580,
         "wires": [
@@ -1073,7 +1043,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 26",
-        "mode": "link",
         "links": [
             "b49a77ff09745d6d"
         ],
@@ -1132,7 +1101,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -1152,7 +1120,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 27",
-        "mode": "link",
         "links": [
             "a5a1bd31c468f86b"
         ],
@@ -1165,7 +1132,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 32",
-        "mode": "link",
         "links": [
             "18a554bcaa2360e7"
         ],
@@ -1189,7 +1155,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 1180,
         "y": 580,
         "wires": [
@@ -1227,7 +1192,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 1180,
         "y": 640,
         "wires": [
@@ -1279,7 +1243,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 780,
         "y": 540,
         "wires": [
@@ -1293,7 +1256,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 34",
-        "mode": "link",
         "links": [
             "5329a59e7e76c7c0"
         ],
@@ -1361,7 +1323,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -1380,7 +1341,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 42",
-        "mode": "link",
         "links": [
             "ca18ad730b62784e"
         ],
@@ -1424,7 +1384,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 120,
         "y": 860,
         "wires": [
@@ -1438,7 +1397,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 44",
-        "mode": "link",
         "links": [
             "0d084e688f622348"
         ],
@@ -1486,7 +1444,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 45",
-        "mode": "link",
         "links": [
             "54f48d7af3ce8a94"
         ],
@@ -1510,7 +1467,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 380,
         "y": 80,
         "wires": [
@@ -1560,7 +1516,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -1887,7 +1842,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 110,
         "y": 140,
         "wires": [
@@ -1902,7 +1856,6 @@
         "type": "link out",
         "z": "8d38dc412a73d987",
         "name": "link out 12",
-        "mode": "link",
         "links": [
             "af55cd6eb001ec61"
         ],
@@ -1969,7 +1922,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 120,
         "y": 260,
         "wires": [
@@ -1984,7 +1936,6 @@
         "type": "link out",
         "z": "8d38dc412a73d987",
         "name": "link out 39",
-        "mode": "link",
         "links": [
             "63f807f3f36abd11",
             "6a99a43b23841ade",
@@ -2006,7 +1957,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 130,
         "y": 340,
         "wires": [
@@ -2021,7 +1971,6 @@
         "type": "link out",
         "z": "8d38dc412a73d987",
         "name": "link out 40",
-        "mode": "link",
         "links": [
             "0d084e688f622348"
         ],
@@ -2121,7 +2070,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 35",
-        "mode": "link",
         "links": [
             "3a4f65d2f43899bf"
         ],
@@ -2144,7 +2092,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 36",
-        "mode": "link",
         "links": [
             "48af91ab4809047a"
         ],
@@ -2157,7 +2104,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 37",
-        "mode": "link",
         "links": [
             "3a4f65d2f43899bf"
         ],
@@ -2259,7 +2205,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 38",
-        "mode": "link",
         "links": [
             "4c16c39c21c351b0"
         ],
@@ -2509,7 +2454,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 46",
-        "mode": "link",
         "links": [
             "2c6de25e908b1996"
         ],
@@ -2608,7 +2552,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 47",
-        "mode": "link",
         "links": [
             "3a4f65d2f43899bf"
         ],
@@ -2705,7 +2648,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 5",
-        "mode": "link",
         "links": [
             "43ddc5a441c4fd3f"
         ],
@@ -3099,7 +3041,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 10",
-        "mode": "link",
         "links": [
             "f6566f17a1e9b78e"
         ],
@@ -3112,7 +3053,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "New Match DB Entry Complete",
-        "mode": "link",
         "links": [
             "1d8b42fd0952e51b",
             "dd55547c4747b6b1"
@@ -3126,7 +3066,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "New Match DB Entry Complete",
-        "mode": "link",
         "links": [
             "a67d3036cd8b2a23"
         ],
@@ -3243,7 +3182,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 15",
-        "mode": "link",
         "links": [
             "c5b51aa2f4863b48",
             "28eb2bc55dcddb70"
@@ -3388,7 +3326,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 20",
-        "mode": "link",
         "links": [
             "43ddc5a441c4fd3f"
         ],
@@ -3479,7 +3416,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 41",
-        "mode": "link",
         "links": [
             "43ddc5a441c4fd3f"
         ],
@@ -3678,7 +3614,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Calculate and Update - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\n\n//This is how we pass in the burning buildings from the intialation of the building\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0 ;\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 0;\n    WindowsActive[node + \"3\"] = 1;\n    WindowsActive[node + \"4\"] = 0;\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 1;\n    WindowsActive[node + \"3\"] = 0;\n    WindowsActive[node + \"4\"] = 0;\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
+        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\n\n//This is how we pass in the burning buildings from the intialation of the building\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\nvar WindowSequence = new Map();//Dom added\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0;\n      WindowSequence[nodepluswin] =0;//Dom added\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    WindowsActive[node + \"2\"] = 0;\n    WindowSequence[node + \"2\"] = 3;//Dom added\n    WindowsActive[node + \"3\"] = 2;\n    WindowSequence[node + \"3\"] = 1;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    WindowsActive[node + \"2\"] = 2;\n    WindowSequence[node + \"2\"] = 1;//Dom added\n    WindowsActive[node + \"3\"] = 0;\n    WindowSequence[node + \"3\"] = 3;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3803,7 +3739,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 43",
-        "mode": "link",
         "links": [
             "c5b51aa2f4863b48",
             "28eb2bc55dcddb70"
@@ -4109,7 +4044,6 @@
         "type": "link out",
         "z": "8b4b6895c0ec29ec",
         "name": "link out 3",
-        "mode": "link",
         "links": [
             "6864183a6d7d2b25"
         ],
@@ -4143,7 +4077,7 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY VARCHAR[12] NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOWS_ACTIVE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
+        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY VARCHAR[12] NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOW_SEQUENCE INT,\nWINDOWS_ACTIVE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
         "name": "Create BuildingWindowStatus",
         "x": 970,
         "y": 140,
@@ -4279,7 +4213,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 200,
         "y": 620,
         "wires": [
@@ -4350,7 +4283,6 @@
         "z": "f3ec5d556e86f8d0",
         "name": "Read Field Config",
         "filename": "/home/pi/field-config.csv",
-        "filenameType": "str",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
@@ -4626,7 +4558,6 @@
         "z": "f3ec5d556e86f8d0",
         "name": "",
         "filename": "/home/pi/field-config.csv",
-        "filenameType": "str",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "true",
@@ -4685,7 +4616,6 @@
         "type": "link out",
         "z": "f3ec5d556e86f8d0",
         "name": "link out 29",
-        "mode": "link",
         "links": [
             "4369b98b6d58fe86"
         ],
@@ -4823,7 +4753,6 @@
         "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "className": "",
         "x": 580,
         "y": 160,
         "wires": []
@@ -4842,7 +4771,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -4893,7 +4821,6 @@
         "topic": "topic",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 190,
         "y": 260,
         "wires": [
@@ -4908,7 +4835,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 28",
-        "mode": "link",
         "links": [
             "6f32fc52a4d53df8"
         ],
@@ -4937,7 +4863,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 30",
-        "mode": "link",
         "links": [
             "161f3cee4bd60724"
         ],
@@ -4983,7 +4908,6 @@
         "topic": "topic",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 210,
         "y": 340,
         "wires": [
@@ -4998,7 +4922,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 31",
-        "mode": "link",
         "links": [
             "cd811a5da6dea1c9"
         ],
@@ -5022,7 +4945,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 480,
         "y": 220,
         "wires": [
@@ -5036,7 +4958,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 33",
-        "mode": "link",
         "links": [
             "6f32fc52a4d53df8"
         ],
