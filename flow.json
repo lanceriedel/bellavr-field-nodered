@@ -5031,7 +5031,7 @@
         "finalize": "",
         "libs": [],
         "x": 1320,
-        "y": 240,
+        "y": 120,
         "wires": [
             [
                 "9181f0d7aee24e19"
@@ -5061,7 +5061,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1500,
-        "y": 240,
+        "y": 120,
         "wires": [
             [
                 "64b2bb143f44e316"
@@ -5079,8 +5079,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "(p)SQLLiteGenericAccess",
-        "x": 1070,
-        "y": 220,
+        "x": 1090,
+        "y": 160,
         "wires": [
             [
                 "0a9d122e34a6a6c5"
@@ -5107,8 +5107,8 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1670,
-        "y": 300,
+        "x": 1690,
+        "y": 200,
         "wires": [
             [
                 "5cbaebf0a2f17d77"
@@ -5128,7 +5128,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1830,
-        "y": 300,
+        "y": 240,
         "wires": []
     }
 ]
