@@ -439,7 +439,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "Set Values ",
-        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RTM';\no.side_id = 3;\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -461,7 +461,7 @@
         "links": [
             "af55cd6eb001ec61"
         ],
-        "x": 605,
+        "x": 615,
         "y": 240,
         "wires": []
     },
@@ -500,7 +500,8 @@
         "y": 320,
         "wires": [
             [
-                "a079891af81acf69"
+                "a079891af81acf69",
+                "779d72582a45aa82"
             ]
         ]
     },
@@ -531,7 +532,7 @@
         "links": [
             "63f807f3f36abd11"
         ],
-        "x": 605,
+        "x": 615,
         "y": 320,
         "wires": []
     },
@@ -2724,7 +2725,7 @@
         "type": "debug",
         "z": "f74b301e4f22310f",
         "name": "Game Storage Debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2994,8 +2995,8 @@
         "z": "f74b301e4f22310f",
         "name": "Increment/Set Laser Hit for latest match",
         "info": "",
-        "x": 190,
-        "y": 260,
+        "x": 270,
+        "y": 240,
         "wires": []
     },
     {
@@ -3011,7 +3012,8 @@
         "wires": [
             [
                 "ee723854cfa1c6f1",
-                "54b2cad8c9c66ea5"
+                "45e5f15a3f1e2630",
+                "64b2bb143f44e316"
             ]
         ]
     },
@@ -3026,7 +3028,8 @@
             "64800c16d9ae1ca4",
             "dd142b5915f31846",
             "a9c50f46b67e9896",
-            "02b8a461b8de262a"
+            "02b8a461b8de262a",
+            "7684f0009e5ef352"
         ],
         "x": 205,
         "y": 300,
@@ -3899,7 +3902,7 @@
         "type": "debug",
         "z": "8b4b6895c0ec29ec",
         "name": "SQL Write Debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4111,8 +4114,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 330,
-        "y": 620,
+        "x": 450,
+        "y": 640,
         "wires": [
             [
                 "27c12a21983f359e"
@@ -4124,7 +4127,7 @@
         "type": "debug",
         "z": "8b4b6895c0ec29ec",
         "name": "SQL Write Debug - Special",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4132,8 +4135,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
-        "y": 700,
+        "x": 780,
+        "y": 600,
         "wires": []
     },
     {
@@ -4142,7 +4145,8 @@
         "z": "8b4b6895c0ec29ec",
         "name": "genericSql-special",
         "links": [
-            "d527904ed8723b40"
+            "d527904ed8723b40",
+            "a87aaf575c427de3"
         ],
         "x": 175,
         "y": 620,
@@ -4963,6 +4967,168 @@
         ],
         "x": 635,
         "y": 220,
+        "wires": []
+    },
+    {
+        "id": "779d72582a45aa82",
+        "type": "function",
+        "z": "dc5996c16196eba2",
+        "name": "(p)Set Values ",
+        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "7684f0009e5ef352"
+            ]
+        ]
+    },
+    {
+        "id": "7684f0009e5ef352",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 48",
+        "links": [
+            "af55cd6eb001ec61"
+        ],
+        "x": 615,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "45e5f15a3f1e2630",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SQL - Determine Building Type",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"')\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 260,
+        "wires": [
+            [
+                "cc5f121dad7ab4f7"
+            ]
+        ]
+    },
+    {
+        "id": "0a9d122e34a6a6c5",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SensorType",
+        "func": "var nodeid = msg.payload[0].SENSOR_TYPE;\nmsg.payload = nodeid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 240,
+        "wires": [
+            [
+                "9181f0d7aee24e19"
+            ]
+        ]
+    },
+    {
+        "id": "9181f0d7aee24e19",
+        "type": "switch",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Ball or Laser",
+        "property": "parts",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Laser",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Ball",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1500,
+        "y": 240,
+        "wires": [
+            [
+                "64b2bb143f44e316"
+            ],
+            [
+                "64b2bb143f44e316"
+            ]
+        ]
+    },
+    {
+        "id": "cc5f121dad7ab4f7",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "(p)SQLLiteGenericAccess",
+        "x": 1070,
+        "y": 220,
+        "wires": [
+            [
+                "0a9d122e34a6a6c5"
+            ]
+        ]
+    },
+    {
+        "id": "64b2bb143f44e316",
+        "type": "join",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1670,
+        "y": 300,
+        "wires": [
+            [
+                "5cbaebf0a2f17d77"
+            ]
+        ]
+    },
+    {
+        "id": "5cbaebf0a2f17d77",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1830,
+        "y": 300,
         "wires": []
     }
 ]
