@@ -5009,7 +5009,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "(p)SQL - Determine Building Type",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nvar newMsg = {\n    \"topic\": \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"')\"\n}\n\nreturn newMsg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nmsg.topic =\"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"')\"\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5098,8 +5098,7 @@
         "y": 160,
         "wires": [
             [
-                "5cbaebf0a2f17d77",
-                "a6adba582a8a416b"
+                "5cbaebf0a2f17d77"
             ]
         ]
     },
@@ -5171,41 +5170,6 @@
         "wires": [
             [
                 "e39b9106a0588fee"
-            ]
-        ]
-    },
-    {
-        "id": "b4a12723fcdb0e02",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "(p)SQL - Determine Building Type",
-        "func": "var matchid = global.get(\"matchnum\");\n//var o = msg.payload[0];\n//var hits = o.num_hits;\nvar nodeid = msg.payload[0].BUILDING_NAME;\n//var sideid = o.side_id;\n//var sensorid = o.SENSOR_TYPE;\n\nvar newMsg = {\n    \"topic\": \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"')\"\n}\n\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1680,
-        "y": 280,
-        "wires": [
-            [
-                "5cbaebf0a2f17d77"
-            ]
-        ]
-    },
-    {
-        "id": "a6adba582a8a416b",
-        "type": "json",
-        "z": "f74b301e4f22310f",
-        "name": "Parse Incoming",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 1360,
-        "y": 300,
-        "wires": [
-            [
-                "b4a12723fcdb0e02"
             ]
         ]
     }
