@@ -439,7 +439,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "Set Values ",
-        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RTM';\no.side_id = 3;\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RTO';\no.side_id = 3;\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3012,8 +3012,7 @@
         "wires": [
             [
                 "ee723854cfa1c6f1",
-                "45e5f15a3f1e2630",
-                "64b2bb143f44e316"
+                "45e5f15a3f1e2630"
             ]
         ]
     },
@@ -3029,13 +3028,16 @@
             "dd142b5915f31846",
             "a9c50f46b67e9896",
             "02b8a461b8de262a",
-            "7684f0009e5ef352"
+            "7684f0009e5ef352",
+            "1030fd2ad1224f40",
+            "a3d3789242cf5cfe"
         ],
         "x": 205,
         "y": 300,
         "wires": [
             [
-                "473384a40d04fd99"
+                "473384a40d04fd99",
+                "e39b9106a0588fee"
             ]
         ]
     },
@@ -3314,7 +3316,9 @@
         "links": [
             "75c5f224f591b111",
             "f1340eb46d54b7e1",
-            "c854b1ceacdd7cbd"
+            "c854b1ceacdd7cbd",
+            "502f096a67482bb5",
+            "38e34dadb04371c8"
         ],
         "x": 205,
         "y": 420,
@@ -5030,44 +5034,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1320,
-        "y": 120,
+        "x": 1200,
+        "y": 80,
         "wires": [
             [
-                "9181f0d7aee24e19"
-            ]
-        ]
-    },
-    {
-        "id": "9181f0d7aee24e19",
-        "type": "switch",
-        "z": "f74b301e4f22310f",
-        "name": "(p)Ball or Laser",
-        "property": "parts",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Laser",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Ball",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1500,
-        "y": 120,
-        "wires": [
-            [
-                "64b2bb143f44e316"
-            ],
-            [
-                "64b2bb143f44e316"
+                "76b14b3ebfe7bc8f"
             ]
         ]
     },
@@ -5080,38 +5051,10 @@
         "sql": "",
         "name": "(p)SQLLiteGenericAccess",
         "x": 1090,
-        "y": 160,
+        "y": 40,
         "wires": [
             [
                 "0a9d122e34a6a6c5"
-            ]
-        ]
-    },
-    {
-        "id": "64b2bb143f44e316",
-        "type": "join",
-        "z": "f74b301e4f22310f",
-        "name": "",
-        "mode": "auto",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": true,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 1690,
-        "y": 200,
-        "wires": [
-            [
-                "5cbaebf0a2f17d77"
             ]
         ]
     },
@@ -5127,8 +5070,143 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1830,
-        "y": 240,
+        "x": 1990,
+        "y": 100,
         "wires": []
+    },
+    {
+        "id": "e39b9106a0588fee",
+        "type": "join",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1670,
+        "y": 160,
+        "wires": [
+            [
+                "5cbaebf0a2f17d77",
+                "a6adba582a8a416b"
+            ]
+        ]
+    },
+    {
+        "id": "76b14b3ebfe7bc8f",
+        "type": "switch",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SensorType",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Ball",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Laser",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1300,
+        "y": 120,
+        "wires": [
+            [
+                "058863beda570ced"
+            ],
+            [
+                "e2a24ff40fcbe940"
+            ]
+        ]
+    },
+    {
+        "id": "058863beda570ced",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Set Ball",
+        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Ball\";\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 100,
+        "wires": [
+            [
+                "e39b9106a0588fee"
+            ]
+        ]
+    },
+    {
+        "id": "e2a24ff40fcbe940",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Set Laser",
+        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Laser\";\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 140,
+        "wires": [
+            [
+                "e39b9106a0588fee"
+            ]
+        ]
+    },
+    {
+        "id": "b4a12723fcdb0e02",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SQL - Determine Building Type",
+        "func": "var matchid = global.get(\"matchnum\");\n//var o = msg.payload[0];\n//var hits = o.num_hits;\nvar nodeid = msg.payload[0].BUILDING_NAME;\n//var sideid = o.side_id;\n//var sensorid = o.SENSOR_TYPE;\n\nvar newMsg = {\n    \"topic\": \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"')\"\n}\n\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 280,
+        "wires": [
+            [
+                "5cbaebf0a2f17d77"
+            ]
+        ]
+    },
+    {
+        "id": "a6adba582a8a416b",
+        "type": "json",
+        "z": "f74b301e4f22310f",
+        "name": "Parse Incoming",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1360,
+        "y": 300,
+        "wires": [
+            [
+                "b4a12723fcdb0e02"
+            ]
+        ]
     }
 ]
