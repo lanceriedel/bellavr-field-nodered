@@ -5172,5 +5172,15 @@
                 "e39b9106a0588fee"
             ]
         ]
+    },
+    {
+        "id": "9cbdb10ad439f4e4",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Trying to pull out info from this node object",
+        "info": "",
+        "x": 1740,
+        "y": 200,
+        "wires": []
     }
 ]
