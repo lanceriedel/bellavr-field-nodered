@@ -500,8 +500,7 @@
         "y": 320,
         "wires": [
             [
-                "a079891af81acf69",
-                "779d72582a45aa82"
+                "a079891af81acf69"
             ]
         ]
     },
@@ -684,6 +683,37 @@
         "info": "",
         "x": 180,
         "y": 520,
+        "wires": []
+    },
+    {
+        "id": "779d72582a45aa82",
+        "type": "function",
+        "z": "dc5996c16196eba2",
+        "name": "(p)Set Values ",
+        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "7684f0009e5ef352"
+            ]
+        ]
+    },
+    {
+        "id": "7684f0009e5ef352",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 48",
+        "links": [
+            "af55cd6eb001ec61"
+        ],
+        "x": 615,
+        "y": 360,
         "wires": []
     },
     {
@@ -1156,6 +1186,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1180,
         "y": 580,
         "wires": [
@@ -1193,6 +1224,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1180,
         "y": 640,
         "wires": [
@@ -1244,6 +1276,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 780,
         "y": 540,
         "wires": [
@@ -1468,6 +1501,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 380,
         "y": 80,
         "wires": [
@@ -1843,6 +1877,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 110,
         "y": 140,
         "wires": [
@@ -1923,6 +1958,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 120,
         "y": 260,
         "wires": [
@@ -1958,6 +1994,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 130,
         "y": 340,
         "wires": [
@@ -2662,24 +2699,27 @@
         "id": "d510a7e9d5995265",
         "type": "function",
         "z": "0661e4588e011b72",
-        "name": "Multiple DB Calls Example",
-        "func": "var o = msg.payload;\nlet building_name = o.BUILDING_NAME;\n\nconst sqlite3 = require('sqlite3').verbose();\n\n// open a database connection\nlet db = new sqlite3.Database('/home/pi/sqlite-storage/sqlite');\n\n\n\nlet sqlsensor = \"SELECT Buildings.SENSOR_TYPE FROM Buildings WHERE (((Buildings.BUILDING_NAME)=\\\"\" +building_name + \"\\\")\";\nvar building_type = \"none\";\n\ndb.all(sqlsensor, [], (err, rows) => {\n    if (err) {\n        throw err;\n    }\n    rows.forEach((row) => {\n        building_type = row.SENSOR_TYPE;\n    });\n});\n\nif (building_type==\"Ball\") {\n    var totalActiveWindows = 0;\n    let sqltypeball = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE(((BuildingWindowStatus.BUILDING_NAME) =\\\"\"+building_name+\"\\\")) GROUP BY BuildingWindowStatus.BUILDING_NAME;\";\n    db.all(sqltypeball, [], (err, rows) => {\n        if (err) {\n            throw err;\n        }\n        rows.forEach((row) => {\n            totalActiveWindows = row.SumOfWindowsActive;\n        });\n    });\n\n    if  (totalActiveWindows = 0) { //this is where we set hits to zero if no active window\n        let data = [0]; // pendantic -- but the number of hits\n        let sqlnumhitsupdate = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.NUM_HITS = ? WHERE(((BuildingWindowStatus.BUILDING_NAME) = \\\"\" + building_name+ \"\\\") AND((BuildingWindowStatus.BUILDING_SIDE) = 1));\";\n        db.run(sqlnumhitsupdate, data, function (err) {\n            if (err) {\n                return console.error(err.message);\n            }\n        });\n    } else if (totalActiveWindows > 0) {  //building has at least one active window. Time to keep track of the hits, and when total hits four (4), then we can deactivate one window in “reverse order” Query to determine total number of hits\n\n        //Query to determine total number of hits\n\n        let sqlnumhits = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus GROUP BY BuildingWindowStatus.BUILDING_NAME HAVING(((BuildingWindowStatus.BUILDING_NAME) = \\\"\" + building_name + \"\\\"))\";\n        var sum = \"none\";\n        var SumOfNUM_HITS = 0;\n        db.all(sqlsensor, [], (err, rows) => {\n            if (err) {\n                throw err;\n            }\n            rows.forEach((row) => {\n                SumOfNUM_HITS = row.SumOfNUM_HITS;\n            });\n        });\n\n    }\n}\n\n// close the database connection\ndb.close();\n\n\nreturn msg;",
+        "name": "Get Sensor Type",
+        "func": "var o = msg.payload;\nvar matchnum = global.get(\"matchnum\");\n\nlet building_name = o.BUILDING_NAME;\n\nlet sqlsensor = \"SELECT Buildings.SENSOR_TYPE FROM Buildings WHERE ((Buildings.BUILDING_NAME=\\\"\" + building_name + \"\\\") AND  MATCH_NUM=\" + matchnum + \")\";\n\nmsg.topic = sqlsensor;\nmsg.BUILDING_NAME = building_name;\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
+        "x": 610,
         "y": 1260,
         "wires": [
-            []
+            [
+                "dd9895acbdbc4504",
+                "c2adec50e107a03e"
+            ]
         ]
     },
     {
         "id": "bf05d0d8b14ea7f2",
         "type": "inject",
         "z": "0661e4588e011b72",
-        "name": "",
+        "name": "Game Score Example",
         "props": [
             {
                 "p": "payload"
@@ -2696,7 +2736,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
+        "x": 120,
         "y": 1320,
         "wires": [
             [
@@ -2708,20 +2748,527 @@
         "id": "c09cabbfdec37b4d",
         "type": "function",
         "z": "0661e4588e011b72",
-        "name": "function 1",
-        "func": "var o = new Map();\no.BUILDING_NAME=\"RBI\";\nreturn msg.payload = o;",
+        "name": "Inject BUILDING_NAME='RBO'",
+        "func": "var o = new Map();\no.BUILDING_NAME=\"RBO\";\nmsg.payload = o;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
+        "x": 370,
         "y": 1320,
         "wires": [
             [
                 "d510a7e9d5995265"
             ]
         ]
+    },
+    {
+        "id": "dd9895acbdbc4504",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "afa42bbfacb3d333",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "c2adec50e107a03e",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 830,
+        "y": 1260,
+        "wires": [
+            [
+                "65527e82cde1cc35",
+                "afa42bbfacb3d333"
+            ]
+        ]
+    },
+    {
+        "id": "65527e82cde1cc35",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "On Sensor Type",
+        "func": "var o = msg.payload\nvar matchnum = global.get(\"matchnum\");\n\n\n//shows how you can iterate and access the data that is sent in\nvar debug1 = \"\";\nvar building_type = \"none\";\no.forEach((element, index, array) => {\n    building_type = element.SENSOR_TYPE;\n});\n\nmsg.building_type = building_type;\nreturn msg;\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1600,
+        "wires": [
+            [
+                "b998609c45c1c264",
+                "80c91c52e1b02553"
+            ]
+        ]
+    },
+    {
+        "id": "b998609c45c1c264",
+        "type": "switch",
+        "z": "0661e4588e011b72",
+        "name": "",
+        "property": "building_type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Ball",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Laser",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 1600,
+        "wires": [
+            [
+                "f247b7ce4323955f"
+            ],
+            [
+                "6339be531e52eb53"
+            ]
+        ]
+    },
+    {
+        "id": "f247b7ce4323955f",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "Ball Type Logic",
+        "func": "var o = msg.payload;\nvar matchnum = global.get(\"matchnum\");\n\nlet building_name = msg.BUILDING_NAME;\n\nvar totalActiveWindows = 0;\n\nlet sqltypeball = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE(((BuildingWindowStatus.BUILDING_NAME) =\\\"\" + building_name + \"\\\") AND MATCH_NUM=\" + matchnum + \") GROUP BY BuildingWindowStatus.BUILDING_NAME;\";\nmsg.topic = sqltypeball; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 1560,
+        "wires": [
+            [
+                "7b77eb317fb4a183",
+                "80c91c52e1b02553"
+            ]
+        ]
+    },
+    {
+        "id": "6339be531e52eb53",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "Laser Type Logic",
+        "func": "//Place holder for now\n\nvar o = msg.payload;\nvar matchnum = global.get(\"matchnum\");\n\nlet building_name = o.BUILDING_NAME;\n\nvar totalActiveWindows = 0;\n\nlet sqltypeball = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE(((BuildingWindowStatus.BUILDING_NAME) =\\\"\" + building_name + \"\\\") AND MATCH_NUM=\" + matchnum + \") GROUP BY BuildingWindowStatus.BUILDING_NAME;\";\nmsg.topic = sqltypeball; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7b77eb317fb4a183",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 870,
+        "y": 1560,
+        "wires": [
+            [
+                "e0bb725878bb46a2"
+            ]
+        ]
+    },
+    {
+        "id": "8fbcd0d6393e6bbd",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "Based on sensor type",
+        "info": "",
+        "x": 280,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "e0bb725878bb46a2",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "On Balls Active",
+        "func": "var o = msg.payload\nvar matchnum = global.get(\"matchnum\");\n\n\n//shows how you can iterate and access the data that is sent in\nvar debug1 = \"\";\nvar SumOfWindowsActive = 0;\no.forEach((element, index, array) => {\n    SumOfWindowsActive = element.SumOfWindowsActive;\n});\n\nmsg.SumOfWindowsActive = SumOfWindowsActive;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1800,
+        "wires": [
+            [
+                "3136d9675cee3488"
+            ]
+        ]
+    },
+    {
+        "id": "3136d9675cee3488",
+        "type": "switch",
+        "z": "0661e4588e011b72",
+        "name": "",
+        "property": "SumOfWindowsActive",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 1800,
+        "wires": [
+            [
+                "d9675f3673d9fc3e"
+            ],
+            [
+                "1910aa9db215bd80"
+            ]
+        ]
+    },
+    {
+        "id": "d9675f3673d9fc3e",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "0 Balls Active ",
+        "func": "var matchnum = global.get(\"matchnum\");\nvar o = msg.payload;\nvar building_name = msg.BUILDING_NAME;\n\nlet sqlnumhitsupdate = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE BUILDING_NAME = \\\"\" + building_name + \"\\\" AND BUILDING_SIDE = 1 AND  MATCH_NUM=\" + matchnum;\nmsg.topic = sqlnumhitsupdate;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 1740,
+        "wires": [
+            [
+                "6e9d47557350e0fc",
+                "072ee9243b49f717"
+            ]
+        ]
+    },
+    {
+        "id": "6e9d47557350e0fc",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1110,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1910aa9db215bd80",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": " Balls Active  >= 1",
+        "func": "var matchnum = global.get(\"matchnum\");\nvar o = msg.payload;\nvar building_name = msg.BUILDING_NAME;\n\nlet sqlnumhits = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus GROUP BY BuildingWindowStatus.BUILDING_NAME HAVING(((BuildingWindowStatus.BUILDING_NAME) = \\\"\" + building_name + \"\\\")) AND  MATCH_NUM=\" + matchnum;\n\nmsg.topic = sqlnumhits;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 1840,
+        "wires": [
+            [
+                "54dea4faa1a16ec6"
+            ]
+        ]
+    },
+    {
+        "id": "54dea4faa1a16ec6",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1110,
+        "y": 1840,
+        "wires": [
+            [
+                "3c3945db08bf0daf",
+                "9526f2bbc15c0586"
+            ]
+        ]
+    },
+    {
+        "id": "6632c8bca51718e3",
+        "type": "switch",
+        "z": "0661e4588e011b72",
+        "name": "",
+        "property": "hitsdiv4",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 730,
+        "y": 1980,
+        "wires": [
+            [
+                "b229b0ef8d890dbc"
+            ],
+            [
+                "6b1dc76758e0fe17"
+            ]
+        ]
+    },
+    {
+        "id": "3c3945db08bf0daf",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "On SumOfNUM_HITS",
+        "func": "var o = msg.payload\nvar matchnum = global.get(\"matchnum\");\n\n\n//shows how you can iterate and access the data that is sent in\nvar debug1 = \"\";\nvar SumOfNUM_HITS = 0;\no.forEach((element, index, array) => {\n    SumOfNUM_HITS = element.row.SumOfNUM_HITS;\n});\n\nmsg.SumOfNUM_HITS = SumOfNUM_HITS;\nif (SumOfNUM_HITS % 4 == 0) {\n    msg.hitsdiv4 = 1;\n} else\n    msg.hitsdiv4 = 0;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1980,
+        "wires": [
+            [
+                "6632c8bca51718e3"
+            ]
+        ]
+    },
+    {
+        "id": "b229b0ef8d890dbc",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "On Mod 4 Num Hits",
+        "func": "var matchnum = global.get(\"matchnum\");\nvar o = msg.payload;\nvar building_name = msg.BUILDING_NAME;\nlet sqlmaxofsideseq = \"SELECT Max(BuildingWindowStatus.WINDOW_SEQUENCE) AS MaxOfSideSequence FROM BuildingWindowStatus WHERE(((BuildingWindowStatus.BUILDING_NAME) = \\\"\" + building_name + \"\\\") AND((BuildingWindowStatus.WINDOWS_ACTIVE) > 0)) AND MATCH_NUM=\" + matchnum ;\nmsg.topic = sqlmaxofsideseq;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1940,
+        "wires": [
+            [
+                "e878374a4de9bc51"
+            ]
+        ]
+    },
+    {
+        "id": "e878374a4de9bc51",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1190,
+        "y": 1940,
+        "wires": [
+            [
+                "ea0e0c8b5ecfba73"
+            ]
+        ]
+    },
+    {
+        "id": "6b1dc76758e0fe17",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "ea0e0c8b5ecfba73",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "MaxOfSideSequence",
+        "func": "var o = msg.payload\nvar matchnum = global.get(\"matchnum\");\nvar building_name = msg.BUILDING_NAME;\n\n\n\n//shows how you can iterate and access the data that is sent in\nvar debug1 = \"\";\nvar MaxOfSideSequence = 0;\no.forEach((element, index, array) => {\n    MaxOfSideSequence = element.row.MaxOfSideSequence;\n});\n\nmsg.MaxOfSideSequence = MaxOfSideSequence;\n\nvar sqlNameAndSide = \"SELECT BuildingWindowStatus.BUILDING_NAME, BuildingWindowStatus.BUILDING_SIDE FROM BuildingWindowStatus WHERE(((BuildingWindowStatus.BUILDING_NAME) = \\\"\"  +building_name + \"\\\") AND((BuildingWindowStatus.WINDOW_SEQUENCE) = \" + MaxOfSideSequence + \"))\";\nmsg.topic = sqlNameAndSide;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 2080,
+        "wires": [
+            [
+                "69f5981daf5427f6"
+            ]
+        ]
+    },
+    {
+        "id": "69f5981daf5427f6",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 910,
+        "y": 2080,
+        "wires": [
+            [
+                "e95b9ac0106a15af"
+            ]
+        ]
+    },
+    {
+        "id": "e95b9ac0106a15af",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "Reduce",
+        "func": "var o = msg.payload\nvar matchnum = global.get(\"matchnum\");\n\n\n//shows how you can iterate and access the data that is sent in\nvar debug1 = \"\";\nvar building_name = \"\";\nvar building_side = 0;\no.forEach((element, index, array) => {\n    building_name = element.row.BuildingWindowStatus.BUILDING_NAME;\n    building_side = element.row.BuildingWindowStatus.BUILDING_SIDE;\n});\n\nvar sqludateactive = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = 1 WHERE(((BuildingWindowStatus.BUILDING_NAME) = \\\"\" + building_name + \"\\\") AND((BuildingWindowStatus.BUILDING_SIDE) = \" + building_side + \")) AND MATCH_NUM=\" + matchnum;\n\nmsg.topic = sqludateactive;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 2140,
+        "wires": [
+            [
+                "d140de1bce07b674"
+            ]
+        ]
+    },
+    {
+        "id": "d140de1bce07b674",
+        "type": "sqlite",
+        "z": "0661e4588e011b72",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 870,
+        "y": 2140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80c91c52e1b02553",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "072ee9243b49f717",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "9526f2bbc15c0586",
+        "type": "debug",
+        "z": "0661e4588e011b72",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1340,
+        "y": 1840,
+        "wires": []
     },
     {
         "id": "3a4b12e5b9609b0d",
@@ -3115,8 +3662,7 @@
         "y": 300,
         "wires": [
             [
-                "473384a40d04fd99",
-                "e39b9106a0588fee"
+                "473384a40d04fd99"
             ]
         ]
     },
@@ -3870,6 +4416,185 @@
         ]
     },
     {
+        "id": "45e5f15a3f1e2630",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SQL - Determine Building Type",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nmsg.topic =\"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND \"\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 260,
+        "wires": [
+            [
+                "cc5f121dad7ab4f7"
+            ]
+        ]
+    },
+    {
+        "id": "0a9d122e34a6a6c5",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SensorType",
+        "func": "var nodeid = msg.payload[0].SENSOR_TYPE;\nmsg.payload = nodeid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 80,
+        "wires": [
+            [
+                "76b14b3ebfe7bc8f"
+            ]
+        ]
+    },
+    {
+        "id": "cc5f121dad7ab4f7",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "(p)SQLLiteGenericAccess",
+        "x": 1090,
+        "y": 40,
+        "wires": [
+            [
+                "0a9d122e34a6a6c5"
+            ]
+        ]
+    },
+    {
+        "id": "5cbaebf0a2f17d77",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1990,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e39b9106a0588fee",
+        "type": "join",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1670,
+        "y": 160,
+        "wires": [
+            [
+                "5cbaebf0a2f17d77"
+            ]
+        ]
+    },
+    {
+        "id": "76b14b3ebfe7bc8f",
+        "type": "switch",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SensorType",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Ball",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Laser",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1300,
+        "y": 120,
+        "wires": [
+            [
+                "058863beda570ced"
+            ],
+            [
+                "e2a24ff40fcbe940"
+            ]
+        ]
+    },
+    {
+        "id": "058863beda570ced",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Set Ball",
+        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Ball\";\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 100,
+        "wires": [
+            [
+                "e39b9106a0588fee"
+            ]
+        ]
+    },
+    {
+        "id": "e2a24ff40fcbe940",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Set Laser",
+        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Laser\";\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 140,
+        "wires": [
+            [
+                "e39b9106a0588fee"
+            ]
+        ]
+    },
+    {
+        "id": "9cbdb10ad439f4e4",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Trying to pull out info from this node object",
+        "info": "",
+        "x": 1740,
+        "y": 200,
+        "wires": []
+    },
+    {
         "id": "890050b7a3592bf1",
         "type": "inject",
         "z": "8b4b6895c0ec29ec",
@@ -4300,6 +5025,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 200,
         "y": 620,
         "wires": [
@@ -5032,6 +5758,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 480,
         "y": 220,
         "wires": [
@@ -5050,216 +5777,6 @@
         ],
         "x": 635,
         "y": 220,
-        "wires": []
-    },
-    {
-        "id": "779d72582a45aa82",
-        "type": "function",
-        "z": "dc5996c16196eba2",
-        "name": "(p)Set Values ",
-        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 360,
-        "wires": [
-            [
-                "7684f0009e5ef352"
-            ]
-        ]
-    },
-    {
-        "id": "7684f0009e5ef352",
-        "type": "link out",
-        "z": "dc5996c16196eba2",
-        "name": "link out 48",
-        "links": [
-            "af55cd6eb001ec61"
-        ],
-        "x": 615,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "45e5f15a3f1e2630",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "(p)SQL - Determine Building Type",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nmsg.topic =\"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"')\"\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 720,
-        "y": 260,
-        "wires": [
-            [
-                "cc5f121dad7ab4f7"
-            ]
-        ]
-    },
-    {
-        "id": "0a9d122e34a6a6c5",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "(p)SensorType",
-        "func": "var nodeid = msg.payload[0].SENSOR_TYPE;\nmsg.payload = nodeid;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1200,
-        "y": 80,
-        "wires": [
-            [
-                "76b14b3ebfe7bc8f"
-            ]
-        ]
-    },
-    {
-        "id": "cc5f121dad7ab4f7",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "(p)SQLLiteGenericAccess",
-        "x": 1090,
-        "y": 40,
-        "wires": [
-            [
-                "0a9d122e34a6a6c5"
-            ]
-        ]
-    },
-    {
-        "id": "5cbaebf0a2f17d77",
-        "type": "debug",
-        "z": "f74b301e4f22310f",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1990,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "e39b9106a0588fee",
-        "type": "join",
-        "z": "f74b301e4f22310f",
-        "name": "",
-        "mode": "custom",
-        "build": "merged",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "4",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 1670,
-        "y": 160,
-        "wires": [
-            [
-                "5cbaebf0a2f17d77"
-            ]
-        ]
-    },
-    {
-        "id": "76b14b3ebfe7bc8f",
-        "type": "switch",
-        "z": "f74b301e4f22310f",
-        "name": "(p)SensorType",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Ball",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Laser",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1300,
-        "y": 120,
-        "wires": [
-            [
-                "058863beda570ced"
-            ],
-            [
-                "e2a24ff40fcbe940"
-            ]
-        ]
-    },
-    {
-        "id": "058863beda570ced",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "(p)Set Ball",
-        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Ball\";\n\nmsg.payload = o;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1470,
-        "y": 100,
-        "wires": [
-            [
-                "e39b9106a0588fee"
-            ]
-        ]
-    },
-    {
-        "id": "e2a24ff40fcbe940",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "(p)Set Laser",
-        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Laser\";\n\nmsg.payload = o;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1470,
-        "y": 140,
-        "wires": [
-            [
-                "e39b9106a0588fee"
-            ]
-        ]
-    },
-    {
-        "id": "9cbdb10ad439f4e4",
-        "type": "comment",
-        "z": "f74b301e4f22310f",
-        "name": "Trying to pull out info from this node object",
-        "info": "",
-        "x": 1740,
-        "y": 200,
         "wires": []
     }
 ]
