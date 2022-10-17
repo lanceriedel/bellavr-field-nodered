@@ -4,72 +4,63 @@
         "type": "tab",
         "label": "Manual Game Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "7ebbc29c647c58ec",
         "type": "tab",
         "label": "Dashboard - Manual Game Flow",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "3d42d3194c2552f8",
         "type": "tab",
         "label": "MQTT Output to Field",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "8d38dc412a73d987",
         "type": "tab",
         "label": "MQTT Input From Field Game Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "0661e4588e011b72",
         "type": "tab",
         "label": "Game Logic Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "f74b301e4f22310f",
         "type": "tab",
         "label": "Game Data Access Flows",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "8b4b6895c0ec29ec",
         "type": "tab",
         "label": "Storage Management",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "f3ec5d556e86f8d0",
         "type": "tab",
         "label": "Field Config",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "829ad5255d8cf01f",
         "type": "tab",
         "label": "Dashboard - Field Config",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
         "id": "5999f1d09afe1039",
@@ -78,7 +69,6 @@
         "broker": "127.0.0.1",
         "port": "1883",
         "clientid": "",
-        "autoConnect": true,
         "usetls": false,
         "protocolVersion": "4",
         "keepalive": "60",
@@ -95,7 +85,6 @@
         "willQos": "0",
         "willPayload": "",
         "willMsg": {},
-        "userProps": "",
         "sessionExpiry": ""
     },
     {
@@ -217,8 +206,7 @@
         "order": 1,
         "disp": true,
         "width": "6",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "efa02099cf2bc4a1",
@@ -228,8 +216,7 @@
         "order": 2,
         "disp": false,
         "width": "17",
-        "collapse": false,
-        "className": "gamedata"
+        "collapse": false
     },
     {
         "id": "8cc3fd17a6d665c5",
@@ -247,8 +234,7 @@
         "order": 1,
         "disp": true,
         "width": "12",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "bcef7098b2bcab87",
@@ -284,7 +270,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 7",
-        "mode": "link",
         "links": [
             "a5a1bd31c468f86b"
         ],
@@ -402,7 +387,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 9",
-        "mode": "link",
         "links": [
             "18a554bcaa2360e7",
             "ca18ad730b62784e"
@@ -455,7 +439,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "Set Values ",
-        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RTO';\no.side_id = 3;\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -474,11 +458,10 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 48",
-        "mode": "link",
         "links": [
             "af55cd6eb001ec61"
         ],
-        "x": 605,
+        "x": 615,
         "y": 240,
         "wires": []
     },
@@ -517,7 +500,8 @@
         "y": 320,
         "wires": [
             [
-                "a079891af81acf69"
+                "a079891af81acf69",
+                "779d72582a45aa82"
             ]
         ]
     },
@@ -545,11 +529,10 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 49",
-        "mode": "link",
         "links": [
             "63f807f3f36abd11"
         ],
-        "x": 605,
+        "x": 615,
         "y": 320,
         "wires": []
     },
@@ -616,7 +599,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 50",
-        "mode": "link",
         "links": [
             "0d084e688f622348"
         ],
@@ -687,7 +669,6 @@
         "type": "link out",
         "z": "dc5996c16196eba2",
         "name": "link out 51",
-        "mode": "link",
         "links": [
             "c5098de218c47d8f"
         ],
@@ -751,7 +732,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 130,
         "y": 520,
         "wires": [
@@ -774,7 +754,6 @@
         "label": "Debug ",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "className": "",
         "x": 950,
         "y": 100,
         "wires": []
@@ -784,7 +763,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 22",
-        "mode": "link",
         "links": [
             "c5098de218c47d8f"
         ],
@@ -806,7 +784,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -842,7 +819,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 23",
-        "mode": "link",
         "links": [
             "18a554bcaa2360e7"
         ],
@@ -886,7 +862,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 130,
         "y": 660,
         "wires": [
@@ -900,7 +875,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 24",
-        "mode": "link",
         "links": [
             "af55cd6eb001ec61"
         ],
@@ -973,7 +947,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 140,
         "y": 740,
         "wires": [
@@ -987,7 +960,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 25",
-        "mode": "link",
         "links": [
             "63f807f3f36abd11"
         ],
@@ -1059,7 +1031,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 140,
         "y": 580,
         "wires": [
@@ -1073,7 +1044,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 26",
-        "mode": "link",
         "links": [
             "b49a77ff09745d6d"
         ],
@@ -1132,7 +1102,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -1152,7 +1121,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 27",
-        "mode": "link",
         "links": [
             "a5a1bd31c468f86b"
         ],
@@ -1165,7 +1133,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 32",
-        "mode": "link",
         "links": [
             "18a554bcaa2360e7"
         ],
@@ -1189,7 +1156,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 1180,
         "y": 580,
         "wires": [
@@ -1227,7 +1193,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 1180,
         "y": 640,
         "wires": [
@@ -1279,7 +1244,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 780,
         "y": 540,
         "wires": [
@@ -1293,7 +1257,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 34",
-        "mode": "link",
         "links": [
             "5329a59e7e76c7c0"
         ],
@@ -1361,7 +1324,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -1380,7 +1342,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 42",
-        "mode": "link",
         "links": [
             "ca18ad730b62784e"
         ],
@@ -1424,7 +1385,6 @@
         "topic": "payload",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 120,
         "y": 860,
         "wires": [
@@ -1438,7 +1398,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 44",
-        "mode": "link",
         "links": [
             "0d084e688f622348"
         ],
@@ -1486,7 +1445,6 @@
         "type": "link out",
         "z": "7ebbc29c647c58ec",
         "name": "link out 45",
-        "mode": "link",
         "links": [
             "54f48d7af3ce8a94"
         ],
@@ -1510,7 +1468,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 380,
         "y": 80,
         "wires": [
@@ -1560,7 +1517,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -1887,7 +1843,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 110,
         "y": 140,
         "wires": [
@@ -1902,7 +1857,6 @@
         "type": "link out",
         "z": "8d38dc412a73d987",
         "name": "link out 12",
-        "mode": "link",
         "links": [
             "af55cd6eb001ec61"
         ],
@@ -1969,7 +1923,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 120,
         "y": 260,
         "wires": [
@@ -1984,7 +1937,6 @@
         "type": "link out",
         "z": "8d38dc412a73d987",
         "name": "link out 39",
-        "mode": "link",
         "links": [
             "63f807f3f36abd11",
             "6a99a43b23841ade",
@@ -2006,7 +1958,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 130,
         "y": 340,
         "wires": [
@@ -2021,7 +1972,6 @@
         "type": "link out",
         "z": "8d38dc412a73d987",
         "name": "link out 40",
-        "mode": "link",
         "links": [
             "0d084e688f622348"
         ],
@@ -2121,7 +2071,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 35",
-        "mode": "link",
         "links": [
             "3a4f65d2f43899bf"
         ],
@@ -2144,7 +2093,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 36",
-        "mode": "link",
         "links": [
             "48af91ab4809047a"
         ],
@@ -2157,7 +2105,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 37",
-        "mode": "link",
         "links": [
             "3a4f65d2f43899bf"
         ],
@@ -2259,7 +2206,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 38",
-        "mode": "link",
         "links": [
             "4c16c39c21c351b0"
         ],
@@ -2509,7 +2455,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 46",
-        "mode": "link",
         "links": [
             "2c6de25e908b1996"
         ],
@@ -2608,7 +2553,6 @@
         "type": "link out",
         "z": "0661e4588e011b72",
         "name": "link out 47",
-        "mode": "link",
         "links": [
             "3a4f65d2f43899bf"
         ],
@@ -2784,7 +2728,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 5",
-        "mode": "link",
         "links": [
             "43ddc5a441c4fd3f"
         ],
@@ -2861,7 +2804,7 @@
         "type": "debug",
         "z": "f74b301e4f22310f",
         "name": "Game Storage Debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3131,8 +3074,8 @@
         "z": "f74b301e4f22310f",
         "name": "Increment/Set Laser Hit for latest match",
         "info": "",
-        "x": 190,
-        "y": 260,
+        "x": 270,
+        "y": 240,
         "wires": []
     },
     {
@@ -3148,7 +3091,7 @@
         "wires": [
             [
                 "ee723854cfa1c6f1",
-                "54b2cad8c9c66ea5"
+                "45e5f15a3f1e2630"
             ]
         ]
     },
@@ -3163,13 +3106,17 @@
             "64800c16d9ae1ca4",
             "dd142b5915f31846",
             "a9c50f46b67e9896",
-            "02b8a461b8de262a"
+            "02b8a461b8de262a",
+            "7684f0009e5ef352",
+            "1030fd2ad1224f40",
+            "a3d3789242cf5cfe"
         ],
         "x": 205,
         "y": 300,
         "wires": [
             [
-                "473384a40d04fd99"
+                "473384a40d04fd99",
+                "e39b9106a0588fee"
             ]
         ]
     },
@@ -3178,7 +3125,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 10",
-        "mode": "link",
         "links": [
             "f6566f17a1e9b78e"
         ],
@@ -3191,7 +3137,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "New Match DB Entry Complete",
-        "mode": "link",
         "links": [
             "1d8b42fd0952e51b",
             "dd55547c4747b6b1"
@@ -3205,7 +3150,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "New Match DB Entry Complete",
-        "mode": "link",
         "links": [
             "a67d3036cd8b2a23"
         ],
@@ -3322,7 +3266,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 15",
-        "mode": "link",
         "links": [
             "c5b51aa2f4863b48",
             "28eb2bc55dcddb70"
@@ -3452,7 +3395,9 @@
         "links": [
             "75c5f224f591b111",
             "f1340eb46d54b7e1",
-            "c854b1ceacdd7cbd"
+            "c854b1ceacdd7cbd",
+            "502f096a67482bb5",
+            "38e34dadb04371c8"
         ],
         "x": 205,
         "y": 420,
@@ -3467,7 +3412,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 20",
-        "mode": "link",
         "links": [
             "43ddc5a441c4fd3f"
         ],
@@ -3558,7 +3502,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 41",
-        "mode": "link",
         "links": [
             "43ddc5a441c4fd3f"
         ],
@@ -3757,7 +3700,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Calculate and Update - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\n\n//This is how we pass in the burning buildings from the intialation of the building\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0 ;\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 0;\n    WindowsActive[node + \"3\"] = 1;\n    WindowsActive[node + \"4\"] = 0;\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 1;\n    WindowsActive[node + \"2\"] = 1;\n    WindowsActive[node + \"3\"] = 0;\n    WindowsActive[node + \"4\"] = 0;\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
+        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\n\n//This is how we pass in the burning buildings from the intialation of the building\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\nvar WindowSequence = new Map();//Dom added\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0;\n      WindowSequence[nodepluswin] =0;//Dom added\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    WindowsActive[node + \"2\"] = 0;\n    WindowSequence[node + \"2\"] = 3;//Dom added\n    WindowsActive[node + \"3\"] = 2;\n    WindowSequence[node + \"3\"] = 1;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    WindowsActive[node + \"2\"] = 2;\n    WindowSequence[node + \"2\"] = 1;//Dom added\n    WindowsActive[node + \"3\"] = 0;\n    WindowSequence[node + \"3\"] = 3;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3882,7 +3825,6 @@
         "type": "link out",
         "z": "f74b301e4f22310f",
         "name": "link out 43",
-        "mode": "link",
         "links": [
             "c5b51aa2f4863b48",
             "28eb2bc55dcddb70"
@@ -4043,7 +3985,7 @@
         "type": "debug",
         "z": "8b4b6895c0ec29ec",
         "name": "SQL Write Debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4188,7 +4130,6 @@
         "type": "link out",
         "z": "8b4b6895c0ec29ec",
         "name": "link out 3",
-        "mode": "link",
         "links": [
             "6864183a6d7d2b25"
         ],
@@ -4222,7 +4163,7 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY VARCHAR[12] NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOWS_ACTIVE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
+        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY VARCHAR[12] NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOW_SEQUENCE INT,\nWINDOWS_ACTIVE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
         "name": "Create BuildingWindowStatus",
         "x": 970,
         "y": 140,
@@ -4256,8 +4197,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 330,
-        "y": 620,
+        "x": 450,
+        "y": 640,
         "wires": [
             [
                 "27c12a21983f359e"
@@ -4269,7 +4210,7 @@
         "type": "debug",
         "z": "8b4b6895c0ec29ec",
         "name": "SQL Write Debug - Special",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4277,8 +4218,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
-        "y": 700,
+        "x": 780,
+        "y": 600,
         "wires": []
     },
     {
@@ -4287,7 +4228,8 @@
         "z": "8b4b6895c0ec29ec",
         "name": "genericSql-special",
         "links": [
-            "d527904ed8723b40"
+            "d527904ed8723b40",
+            "a87aaf575c427de3"
         ],
         "x": 175,
         "y": 620,
@@ -4358,7 +4300,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 200,
         "y": 620,
         "wires": [
@@ -4429,7 +4370,6 @@
         "z": "f3ec5d556e86f8d0",
         "name": "Read Field Config",
         "filename": "/home/pi/field-config.csv",
-        "filenameType": "str",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
@@ -4705,7 +4645,6 @@
         "z": "f3ec5d556e86f8d0",
         "name": "",
         "filename": "/home/pi/field-config.csv",
-        "filenameType": "str",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "true",
@@ -4764,7 +4703,6 @@
         "type": "link out",
         "z": "f3ec5d556e86f8d0",
         "name": "link out 29",
-        "mode": "link",
         "links": [
             "4369b98b6d58fe86"
         ],
@@ -4902,7 +4840,6 @@
         "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "className": "",
         "x": 580,
         "y": 160,
         "wires": []
@@ -4921,7 +4858,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -4972,7 +4908,6 @@
         "topic": "topic",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 190,
         "y": 260,
         "wires": [
@@ -4987,7 +4922,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 28",
-        "mode": "link",
         "links": [
             "6f32fc52a4d53df8"
         ],
@@ -5016,7 +4950,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 30",
-        "mode": "link",
         "links": [
             "161f3cee4bd60724"
         ],
@@ -5062,7 +4995,6 @@
         "topic": "topic",
         "topicType": "msg",
         "splitLayout": "",
-        "className": "",
         "x": 210,
         "y": 340,
         "wires": [
@@ -5077,7 +5009,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 31",
-        "mode": "link",
         "links": [
             "cd811a5da6dea1c9"
         ],
@@ -5101,7 +5032,6 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "outputs": 1,
         "x": 480,
         "y": 220,
         "wires": [
@@ -5115,12 +5045,221 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 33",
-        "mode": "link",
         "links": [
             "6f32fc52a4d53df8"
         ],
         "x": 635,
         "y": 220,
+        "wires": []
+    },
+    {
+        "id": "779d72582a45aa82",
+        "type": "function",
+        "z": "dc5996c16196eba2",
+        "name": "(p)Set Values ",
+        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "7684f0009e5ef352"
+            ]
+        ]
+    },
+    {
+        "id": "7684f0009e5ef352",
+        "type": "link out",
+        "z": "dc5996c16196eba2",
+        "name": "link out 48",
+        "links": [
+            "af55cd6eb001ec61"
+        ],
+        "x": 615,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "45e5f15a3f1e2630",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SQL - Determine Building Type",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nmsg.topic =\"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"')\"\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 260,
+        "wires": [
+            [
+                "cc5f121dad7ab4f7"
+            ]
+        ]
+    },
+    {
+        "id": "0a9d122e34a6a6c5",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SensorType",
+        "func": "var nodeid = msg.payload[0].SENSOR_TYPE;\nmsg.payload = nodeid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 80,
+        "wires": [
+            [
+                "76b14b3ebfe7bc8f"
+            ]
+        ]
+    },
+    {
+        "id": "cc5f121dad7ab4f7",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "(p)SQLLiteGenericAccess",
+        "x": 1090,
+        "y": 40,
+        "wires": [
+            [
+                "0a9d122e34a6a6c5"
+            ]
+        ]
+    },
+    {
+        "id": "5cbaebf0a2f17d77",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1990,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e39b9106a0588fee",
+        "type": "join",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1670,
+        "y": 160,
+        "wires": [
+            [
+                "5cbaebf0a2f17d77"
+            ]
+        ]
+    },
+    {
+        "id": "76b14b3ebfe7bc8f",
+        "type": "switch",
+        "z": "f74b301e4f22310f",
+        "name": "(p)SensorType",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Ball",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Laser",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1300,
+        "y": 120,
+        "wires": [
+            [
+                "058863beda570ced"
+            ],
+            [
+                "e2a24ff40fcbe940"
+            ]
+        ]
+    },
+    {
+        "id": "058863beda570ced",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Set Ball",
+        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Ball\";\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 100,
+        "wires": [
+            [
+                "e39b9106a0588fee"
+            ]
+        ]
+    },
+    {
+        "id": "e2a24ff40fcbe940",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Set Laser",
+        "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Laser\";\n\nmsg.payload = o;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 140,
+        "wires": [
+            [
+                "e39b9106a0588fee"
+            ]
+        ]
+    },
+    {
+        "id": "9cbdb10ad439f4e4",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Trying to pull out info from this node object",
+        "info": "",
+        "x": 1740,
+        "y": 200,
         "wires": []
     }
 ]
