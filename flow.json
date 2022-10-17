@@ -2701,6 +2701,85 @@
         "wires": []
     },
     {
+        "id": "58040edb208146fe",
+        "type": "link in",
+        "z": "0661e4588e011b72",
+        "name": "Test Game Update - Multiple DB Calls",
+        "links": [],
+        "x": 95,
+        "y": 1260,
+        "wires": [
+            [
+                "d510a7e9d5995265"
+            ]
+        ]
+    },
+    {
+        "id": "d510a7e9d5995265",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "Multiple DB Calls Example",
+        "func": "var o = msg.payload;\nlet building_name = o.BUILDING_NAME;\n\nconst sqlite3 = require('sqlite3').verbose();\n\n// open a database connection\nlet db = new sqlite3.Database('/home/pi/sqlite-storage/sqlite');\n\n\n\nlet sqlsensor = \"SELECT Buildings.SENSOR_TYPE FROM Buildings WHERE (((Buildings.BUILDING_NAME)=\\\"\" +building_name + \"\\\")\";\nvar building_type = \"none\";\n\ndb.all(sqlsensor, [], (err, rows) => {\n    if (err) {\n        throw err;\n    }\n    rows.forEach((row) => {\n        building_type = row.SENSOR_TYPE;\n    });\n});\n\nif (building_type==\"Ball\") {\n    var totalActiveWindows = 0;\n    let sqltypeball = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE(((BuildingWindowStatus.BUILDING_NAME) =\\\"\"+building_name+\"\\\")) GROUP BY BuildingWindowStatus.BUILDING_NAME;\";\n    db.all(sqltypeball, [], (err, rows) => {\n        if (err) {\n            throw err;\n        }\n        rows.forEach((row) => {\n            totalActiveWindows = row.SumOfWindowsActive;\n        });\n    });\n\n    if  (totalActiveWindows = 0) { //this is where we set hits to zero if no active window\n        let data = [0]; // pendantic -- but the number of hits\n        let sqlnumhitsupdate = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.NUM_HITS = ? WHERE(((BuildingWindowStatus.BUILDING_NAME) = \\\"\" + building_name+ \"\\\") AND((BuildingWindowStatus.BUILDING_SIDE) = 1));\";\n        db.run(sqlnumhitsupdate, data, function (err) {\n            if (err) {\n                return console.error(err.message);\n            }\n        });\n    } else if (totalActiveWindows > 0) {  //building has at least one active window. Time to keep track of the hits, and when total hits four (4), then we can deactivate one window in “reverse order” Query to determine total number of hits\n\n        //Query to determine total number of hits\n\n        let sqlnumhits = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus GROUP BY BuildingWindowStatus.BUILDING_NAME HAVING(((BuildingWindowStatus.BUILDING_NAME) = \\\"\" + building_name + \"\\\"))\";\n        var sum = \"none\";\n        var SumOfNUM_HITS = 0;\n        db.all(sqlsensor, [], (err, rows) => {\n            if (err) {\n                throw err;\n            }\n            rows.forEach((row) => {\n                SumOfNUM_HITS = row.SumOfNUM_HITS;\n            });\n        });\n\n    }\n}\n\n// close the database connection\ndb.close();\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf05d0d8b14ea7f2",
+        "type": "inject",
+        "z": "0661e4588e011b72",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 1320,
+        "wires": [
+            [
+                "c09cabbfdec37b4d"
+            ]
+        ]
+    },
+    {
+        "id": "c09cabbfdec37b4d",
+        "type": "function",
+        "z": "0661e4588e011b72",
+        "name": "function 1",
+        "func": "var o = new Map();\no.BUILDING_NAME=\"RBI\";\nreturn msg.payload = o;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1320,
+        "wires": [
+            [
+                "d510a7e9d5995265"
+            ]
+        ]
+    },
+    {
         "id": "3a4b12e5b9609b0d",
         "type": "link out",
         "z": "f74b301e4f22310f",
