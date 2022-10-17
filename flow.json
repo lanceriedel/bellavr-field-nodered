@@ -3311,6 +3311,16 @@
         "wires": []
     },
     {
+        "id": "3933515f9be6b47a",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "Example Below of Accessing Data, making decisions,  switching flows, and writing data",
+        "info": "",
+        "x": 300,
+        "y": 1200,
+        "wires": []
+    },
+    {
         "id": "3a4b12e5b9609b0d",
         "type": "link out",
         "z": "f74b301e4f22310f",
