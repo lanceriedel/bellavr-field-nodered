@@ -2775,7 +2775,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
+        "x": 1040,
         "y": 1320,
         "wires": []
     },
@@ -2791,8 +2791,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 1400,
+        "x": 1040,
+        "y": 1240,
         "wires": []
     },
     {
@@ -2824,7 +2824,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 1600,
+        "y": 1680,
         "wires": [
             [
                 "b998609c45c1c264",
@@ -2855,7 +2855,7 @@
         "repair": false,
         "outputs": 2,
         "x": 490,
-        "y": 1600,
+        "y": 1680,
         "wires": [
             [
                 "f247b7ce4323955f"
@@ -2877,7 +2877,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 1560,
+        "y": 1640,
         "wires": [
             [
                 "7b77eb317fb4a183",
@@ -2897,7 +2897,7 @@
         "finalize": "",
         "libs": [],
         "x": 670,
-        "y": 1640,
+        "y": 1720,
         "wires": [
             []
         ]
@@ -2911,7 +2911,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 1070,
-        "y": 1560,
+        "y": 1640,
         "wires": [
             [
                 "e0bb725878bb46a2"
@@ -2925,7 +2925,7 @@
         "name": "Based on sensor type",
         "info": "",
         "x": 280,
-        "y": 1540,
+        "y": 1620,
         "wires": []
     },
     {
@@ -2939,8 +2939,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 1800,
+        "x": 460,
+        "y": 2020,
         "wires": [
             [
                 "3136d9675cee3488"
@@ -2969,8 +2969,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 760,
-        "y": 1800,
+        "x": 740,
+        "y": 2020,
         "wires": [
             [
                 "d9675f3673d9fc3e"
@@ -2991,8 +2991,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
-        "y": 1740,
+        "x": 920,
+        "y": 1960,
         "wires": [
             [
                 "6e9d47557350e0fc",
@@ -3008,8 +3008,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 1230,
-        "y": 1740,
+        "x": 1210,
+        "y": 1960,
         "wires": [
             []
         ]
@@ -3025,8 +3025,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
-        "y": 1860,
+        "x": 880,
+        "y": 2080,
         "wires": [
             [
                 "54dea4faa1a16ec6"
@@ -3041,8 +3041,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQLLiteGenericAccess",
-        "x": 1130,
-        "y": 1860,
+        "x": 1110,
+        "y": 2080,
         "wires": [
             [
                 "3c3945db08bf0daf",
@@ -3073,7 +3073,7 @@
         "repair": false,
         "outputs": 2,
         "x": 750,
-        "y": 1980,
+        "y": 2320,
         "wires": [
             [
                 "b229b0ef8d890dbc"
@@ -3095,7 +3095,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 1980,
+        "y": 2320,
         "wires": [
             [
                 "6632c8bca51718e3"
@@ -3114,7 +3114,7 @@
         "finalize": "",
         "libs": [],
         "x": 1020,
-        "y": 1940,
+        "y": 2280,
         "wires": [
             [
                 "e878374a4de9bc51"
@@ -3130,7 +3130,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 1170,
-        "y": 1980,
+        "y": 2320,
         "wires": [
             [
                 "ea0e0c8b5ecfba73"
@@ -3150,7 +3150,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 920,
-        "y": 2000,
+        "y": 2340,
         "wires": []
     },
     {
@@ -3165,7 +3165,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 2080,
+        "y": 2420,
         "wires": [
             [
                 "69f5981daf5427f6"
@@ -3181,7 +3181,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 1010,
-        "y": 2080,
+        "y": 2420,
         "wires": [
             [
                 "e95b9ac0106a15af"
@@ -3200,7 +3200,7 @@
         "finalize": "",
         "libs": [],
         "x": 610,
-        "y": 2160,
+        "y": 2500,
         "wires": [
             [
                 "d140de1bce07b674"
@@ -3216,7 +3216,7 @@
         "sql": "",
         "name": "SQLLiteGenericAccess",
         "x": 870,
-        "y": 2160,
+        "y": 2500,
         "wires": [
             []
         ]
@@ -3233,8 +3233,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 1480,
+        "x": 1040,
+        "y": 1560,
         "wires": []
     },
     {
@@ -3250,8 +3250,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1220,
-        "y": 1680,
+        "x": 1320,
+        "y": 2020,
         "wires": []
     },
     {
@@ -3266,8 +3266,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1340,
-        "y": 1840,
+        "x": 1320,
+        "y": 2060,
         "wires": []
     },
     {
@@ -3276,8 +3276,8 @@
         "z": "0661e4588e011b72",
         "name": "Get SumOfWindowsActive",
         "info": "",
-        "x": 450,
-        "y": 1760,
+        "x": 430,
+        "y": 1980,
         "wires": []
     },
     {
@@ -3287,7 +3287,27 @@
         "name": "SumOfNumHits Logic",
         "info": "",
         "x": 420,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "846972f25d2812f0",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "Ball Sensor Logic",
+        "info": "",
+        "x": 300,
         "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "7767c67d6fb6833f",
+        "type": "comment",
+        "z": "0661e4588e011b72",
+        "name": "Laser Sensor Logic",
+        "info": "",
+        "x": 290,
+        "y": 2620,
         "wires": []
     },
     {
