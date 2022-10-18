@@ -4473,7 +4473,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "(p)SQL - Determine Building Type",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \") \";\n\nreturn msg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\nvar junkmessage = \"HERE IS SOME JUNK\"\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \") \";\n\nmsg.junkmessage = junkmessage;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4662,7 +4662,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "(p)Cant Figure This Out",
-        "func": "var o = msg.payload\n\n\nvar dbg = \"\";\nvar sensortype = o[0].SENSOR_TYPE; //this is the data needed via the SQL\nvar num_hits = msg.num_hits; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\n\n//NOTE: msg.BUILDING_NAME has never been set in the previous nodes that I can tell,\n//so nodeid will be undefined\n//now there was a payload that had an object with BUILDING_NASME in it -- but that was nested as an object\n//Map -- that had the key BUILDING_NAME.  That is different than having a variable msg.BUILDING_NAME\n\nvar nodeid = msg.BUILDING_NAME; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\nvar sideid = msg.side_id; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\n\nvar t = nodeid //this results in \"undefined\". however if I do sensortype, it works\nmsg.payload = t;\nmsg.sensortype = sensortype;\ndbg += \"sensortype:\" + sensortype + \", BUILDING_NAME:\" + msg.BUILDING_NAME;\nmsg.tempdebug = dbg;\nreturn msg;",
+        "func": "var o = msg.payload\n\n\nvar dbg = \"\";\nvar sensortype = o[0].SENSOR_TYPE; //this is the data needed via the SQL\nvar num_hits = msg.num_hits; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\n\n//NOTE: msg.BUILDING_NAME has never been set in the previous nodes that I can tell,\n//so nodeid will be undefined\n//now there was a payload that had an object with BUILDING_NASME in it -- but that was nested as an object\n//Map -- that had the key BUILDING_NAME.  That is different than having a variable msg.BUILDING_NAME\n\nvar nodeid = msg.BUILDING_NAME; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\nvar sideid = msg.side_id; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\n\nvar t = nodeid //this results in \"undefined\". however if I do sensortype, it works\nmsg.payload = t;\nmsg.sensortype = sensortype;\ndbg += \"sensortype:\" + sensortype + \", BUILDING_NAME:\" + msg.BUILDING_NAME;\n//This got set before the sql node\nvar dbg2 = msg.junkmessage;\nmsg.tempdebug = dbg;\n//Now i'm going to display it in a debug node\nmsg.dbg2 = dbg2;\n\n\n//as long as you keep passing the \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4673,7 +4673,8 @@
         "wires": [
             [
                 "5cbaebf0a2f17d77",
-                "08b6b82461a2efed"
+                "08b6b82461a2efed",
+                "def19a467ec5a514"
             ]
         ]
     },
@@ -4725,6 +4726,23 @@
         "statusType": "auto",
         "x": 1670,
         "y": 300,
+        "wires": []
+    },
+    {
+        "id": "def19a467ec5a514",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "dbg2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "dbg2",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1630,
+        "y": 360,
         "wires": []
     },
     {
