@@ -439,7 +439,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "Set Values ",
-        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o = {};\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -510,7 +510,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "Set Values ",
-        "func": "var o = new Map();\n\no.num_drops = 1;\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o ={};\n\no.num_drops = 1;\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -580,7 +580,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "Set Values ",
-        "func": "var o = new Map();\n\no.num_bags = 3;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o = {};\n\no.num_bags = 3;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -650,7 +650,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "Set Values ",
-        "func": "var o = new Map();\n\no.FCS = 3;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o = {};\n\no.FCS = 3;\no.BUILDING_NAME = 'RBO';\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -691,7 +691,7 @@
         "type": "function",
         "z": "dc5996c16196eba2",
         "name": "(p)Set Values ",
-        "func": "var o = new Map();\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\n\nreturn msg;",
+        "func": "var o = {};\n\no.num_hits = 1;\no.BUILDING_NAME = 'RBO';\no.side_id = 1;\n\nmsg.payload = o;\nmsg.test = o.BUILDING_NAME;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3715,7 +3715,8 @@
         "y": 300,
         "wires": [
             [
-                "473384a40d04fd99"
+                "473384a40d04fd99",
+                "f3c51ed239f45b86"
             ]
         ]
     },
@@ -4473,7 +4474,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "(p)SQL - Determine Building Type",
-        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\nvar junkmessage = \"HERE IS SOME JUNK\"\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \") \";\n\nmsg.junkmessage = junkmessage;\nreturn msg;\n",
+        "func": "var matchid = global.get(\"matchnum\");\nvar o = msg.payload;\nvar hits = o.num_hits;\nvar nodeid = o.BUILDING_NAME;\nvar sideid = o.side_id;\nvar junkmessage = \"HERE IS SOME JUNK\"\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \") \";\nmsg.savedvalues = o;\nmsg.junkmessage = junkmessage;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4523,7 +4524,9 @@
             [
                 "0a9d122e34a6a6c5",
                 "10ee4b4267e69c0f",
-                "fc75ecedc7054610"
+                "fc75ecedc7054610",
+                "0542271835c0c698",
+                "314cc68f1f2976f3"
             ]
         ]
     },
@@ -4536,8 +4539,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 1620,
@@ -4699,15 +4702,16 @@
         "id": "fc75ecedc7054610",
         "type": "debug",
         "z": "f74b301e4f22310f",
-        "name": "debug 19",
+        "name": "Debug from sql",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1260,
+        "x": 1280,
         "y": 200,
         "wires": []
     },
@@ -4743,6 +4747,40 @@
         "statusType": "auto",
         "x": 1630,
         "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0542271835c0c698",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "junkmessage",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "314cc68f1f2976f3",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "debug 21",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "placeforjunk",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 120,
         "wires": []
     },
     {
