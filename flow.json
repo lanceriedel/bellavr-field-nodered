@@ -5027,6 +5027,7 @@
         "id": "0a9d122e34a6a6c5",
         "type": "function",
         "z": "f74b301e4f22310f",
+        "d": true,
         "name": "(p)SensorType",
         "func": "var nodeid = msg.payload[0].SENSOR_TYPE;\nmsg.payload = nodeid;\nreturn msg;",
         "outputs": 1,
@@ -5038,7 +5039,8 @@
         "y": 80,
         "wires": [
             [
-                "76b14b3ebfe7bc8f"
+                "76b14b3ebfe7bc8f",
+                "10ee4b4267e69c0f"
             ]
         ]
     },
@@ -5050,11 +5052,12 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "(p)SQLLiteGenericAccess",
-        "x": 1090,
-        "y": 40,
+        "x": 1070,
+        "y": 260,
         "wires": [
             [
-                "0a9d122e34a6a6c5"
+                "0a9d122e34a6a6c5",
+                "10ee4b4267e69c0f"
             ]
         ]
     },
@@ -5070,14 +5073,15 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1990,
-        "y": 100,
+        "x": 1550,
+        "y": 260,
         "wires": []
     },
     {
         "id": "e39b9106a0588fee",
         "type": "join",
         "z": "f74b301e4f22310f",
+        "d": true,
         "name": "",
         "mode": "custom",
         "build": "merged",
@@ -5106,6 +5110,7 @@
         "id": "76b14b3ebfe7bc8f",
         "type": "switch",
         "z": "f74b301e4f22310f",
+        "d": true,
         "name": "(p)SensorType",
         "property": "payload",
         "propertyType": "msg",
@@ -5139,6 +5144,7 @@
         "id": "058863beda570ced",
         "type": "function",
         "z": "f74b301e4f22310f",
+        "d": true,
         "name": "(p)Set Ball",
         "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Ball\";\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
@@ -5158,6 +5164,7 @@
         "id": "e2a24ff40fcbe940",
         "type": "function",
         "z": "f74b301e4f22310f",
+        "d": true,
         "name": "(p)Set Laser",
         "func": "var o = new Map();\n\no.SENSOR_TYPE = \"Laser\";\n\nmsg.payload = o;\n\nreturn msg;",
         "outputs": 1,
@@ -5179,8 +5186,27 @@
         "z": "f74b301e4f22310f",
         "name": "Trying to pull out info from this node object",
         "info": "",
-        "x": 1740,
-        "y": 200,
+        "x": 1340,
+        "y": 300,
         "wires": []
+    },
+    {
+        "id": "10ee4b4267e69c0f",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "(p)Cant Figure This Out",
+        "func": "var o = msg.payload\nvar sensortype = o[0].SENSOR_TYPE; //this is the data needed via the SQL\nvar num_hits = msg.num_hits; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\nvar nodeid = msg.BUILDING_NAME; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\nvar sideid = msg.side_id; //this is a \"pass thru\" var that is needed to pass thru the previous SQL node\n\nvar t = nodeid //this results in \"undefined\". however if I do sensortype, it works\nmsg.payload = t;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 260,
+        "wires": [
+            [
+                "5cbaebf0a2f17d77"
+            ]
+        ]
     }
 ]
