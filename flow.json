@@ -2750,7 +2750,7 @@
         "type": "function",
         "z": "0661e4588e011b72",
         "name": "Inject BUILDING_NAME='RBO'",
-        "func": "var o = new Map();\no.BUILDING_NAME=\"RBO\";\nmsg.payload = o;\nreturn msg;",
+        "func": "var o = {};\no.BUILDING_NAME=\"RBO\";\nmsg.payload = o;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
