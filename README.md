@@ -3,6 +3,11 @@ bellavr-field-nodered
 
 field control
 
+### Install Mosquitto (MQTT)
+sudo apt install mosquitto mosquitto-clients
+
+(note this starts mosquitto as a service - and will automatically alwasys startup)
+
 ### Install Node Red
 Install node red:
 ```
@@ -61,7 +66,6 @@ EDGE_UUID,EDGE_NODE_ID
 
 3. Create and/or drop the table -  Create using the "Create Config Table"
 4. Run "Load Config File into Config Table"
-
 
 
 ### UI 
