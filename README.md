@@ -11,7 +11,7 @@ sudo apt install mosquitto mosquitto-clients
 You will need to bind to the external ip address - and to do this you need to edit:
 
 ```
-/etc/mosquitto/mosquitto.conf
+nano /etc/mosquitto/mosquitto.conf
 ```
 
 and add this line
