@@ -4,8 +4,9 @@ bellavr-field-nodered
 field control
 
 ### Install Mosquitto (MQTT)
+```
 sudo apt install mosquitto mosquitto-clients
-
+```
 (note this starts mosquitto as a service - and will automatically alwasys startup)
 
 ### Install Node Red
