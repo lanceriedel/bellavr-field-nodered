@@ -14,9 +14,10 @@ You will need to bind to the external ip address - and to do this you need to ed
 nano /etc/mosquitto/mosquitto.conf
 ```
 
-and add this line
+and add these lines
 ```
 listener 1883 0.0.0.0
+allow_anonymous true
 ```
 
 and then restart
