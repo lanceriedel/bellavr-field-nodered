@@ -8,6 +8,21 @@ field control
 sudo apt install mosquitto mosquitto-clients
 ```
 (note this starts mosquitto as a service - and will automatically alwasys startup)
+You will need to bind to the external ip address - and to do this you need to edit:
+
+```
+/etc/mosquitto/mosquitto.conf
+```
+
+and add this line
+```
+listener 1883 0.0.0.0
+```
+
+and then restart
+```
+sudo systemctl restart mosquitto.service
+```
 
 ### Install Node Red
 Install node red:
