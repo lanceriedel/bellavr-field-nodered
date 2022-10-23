@@ -4464,14 +4464,14 @@
         "id": "45e5f15a3f1e2630",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "(p)SQL - Determine Building Type",
-        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \") \";\n\nreturn msg;\n",
+        "name": "SQL - Building Sensor Type",
+        "func": "//SQL to select building sensor type (ball or laser)\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \") \";\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1140,
+        "x": 1160,
         "y": 80,
         "wires": [
             [
@@ -4486,7 +4486,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "(p)SQLLiteGenericAccess",
+        "name": "SQLLiteGenericAccess",
         "x": 1410,
         "y": 80,
         "wires": [
@@ -4499,7 +4499,7 @@
         "id": "76b14b3ebfe7bc8f",
         "type": "switch",
         "z": "f74b301e4f22310f",
-        "name": "(p)SensorType",
+        "name": "Sensor Type",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
@@ -4517,7 +4517,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1400,
+        "x": 1390,
         "y": 160,
         "wires": [
             [
@@ -4532,14 +4532,14 @@
         "id": "058863beda570ced",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "(p)SQL - Ball - Active Windows Total",
-        "func": "//Ball code\n//Load total number of active windows in this building into a var using query.\n// the goal here is if active windows = 0 this means balls were dumped on a non-burning building, so nothing to do.\n//For completeness, we set the number of hits to zero.\n//We use side 1 as the default so the table structure still handles both Ball and Laser buildings.\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
+        "name": "SQL - Ball - Active Windows Total",
+        "func": "//Building is of type Ball\n//SQL statement to determine number of currently active windows\n//in this building\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
+        "x": 1680,
         "y": 200,
         "wires": [
             [
@@ -4551,14 +4551,14 @@
         "id": "e2a24ff40fcbe940",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "(p)Set Laser",
-        "func": "//Laser code\n\nvar num_hits = msg.savedvalues.num_hits\nvar nodeid = msg.savedvalues.BUILDING_NAME;\nvar sideid = msg.savedvalues.side_id;\nmsg.payload = nodeid + \" is Laser\"\nreturn msg;",
+        "name": "SQL - Laser - Active Windows Total (tbd)",
+        "func": "//Laser code TBD\n\nvar num_hits = msg.savedvalues.num_hits\nvar nodeid = msg.savedvalues.BUILDING_NAME;\nvar sideid = msg.savedvalues.side_id;\nmsg.payload = nodeid + \" is Laser\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1610,
+        "x": 1700,
         "y": 160,
         "wires": [
             []
@@ -5752,7 +5752,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Retreive Sensor Type",
-        "func": "var sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
+        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5773,7 +5773,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "(p)SQLLiteGenericAccess",
+        "name": "SQLLiteGenericAccess",
         "x": 1430,
         "y": 240,
         "wires": [
@@ -5786,14 +5786,14 @@
         "id": "68962efa20da6498",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - Retrieve Num activeWindows",
-        "func": "//Ball code\n//Load total number of active windows in this building into a var using query.\n//the goal here is if active windows = 0 this means balls were dumped on a non-burning building, so nothing to do.\n//For completeness, we set the number of hits to zero.\n//We use side 1 as the default so the table structure still handles both Ball and Laser buildings.\n\nvar totalActiveWindows = msg.payload[0].SumOfWindowsActive;\n\nmsg.payload = totalActiveWindows\nreturn msg;",
+        "name": "Ball - Retrieve Active Windows Total",
+        "func": "//SQLite results; number of active windows in this building\n\nvar totalActiveWindows = msg.payload[0].SumOfWindowsActive;\n\nmsg.payload = totalActiveWindows\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1480,
+        "x": 1460,
         "y": 280,
         "wires": [
             [
@@ -5805,7 +5805,7 @@
         "id": "b14809cbdc1da795",
         "type": "inject",
         "z": "f74b301e4f22310f",
-        "name": "Drop Ball (Building RBO)",
+        "name": "Drop Ball",
         "props": [
             {
                 "p": "payload"
@@ -5821,7 +5821,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 1050,
+        "x": 1100,
         "y": 40,
         "wires": [
             [
@@ -5833,14 +5833,14 @@
         "id": "d0ee370dfba878d8",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "(p)Set Values ",
-        "func": "msg.building_name = 'LTI';\nmsg.inc_hits = 21;\nmsg.side_id = 1;\n\nreturn msg;",
+        "name": "Set Values (edit me to test)",
+        "func": "//edit this as needed for testing\n\nmsg.building_name = 'LTI';\nmsg.inc_hits = 12;\nmsg.side_id = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1260,
+        "x": 1300,
         "y": 40,
         "wires": [
             [
@@ -5852,9 +5852,9 @@
         "id": "4b92e8f36875dd6d",
         "type": "comment",
         "z": "f74b301e4f22310f",
-        "name": "Copied for convenience, and NOT record hit here",
+        "name": "Inject for testing",
         "info": "",
-        "x": 720,
+        "x": 920,
         "y": 40,
         "wires": []
     },
@@ -5896,7 +5896,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Ball - activeWindows = 0",
-        "func": "//Ball code\n//this is where we set hits to zero if no active window. Should already be zero but doing this for completeness\n//Load total number of active windows in this building into a var using query.\n//the goal here is if active windows = 0 this means balls were dumped on a non-burning building, so nothing to do.\n//For completeness, we set the number of hits to zero.\n//We use side 1 as the default so the table structure still handles both Ball and Laser buildings.\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.NUM_HITS = 0 WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=1) AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
+        "func": "//Number of active windows was already zero. Thus, for completeness,\n//we updated the number of hits to zero.\n//Since this is a ball building, we use side 1 as the default for hits\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.NUM_HITS = 0 WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=1) AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5917,7 +5917,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "(p)SQLLiteGenericAccess",
+        "name": "SQLLiteGenericAccess",
         "x": 1890,
         "y": 320,
         "wires": [
@@ -5929,7 +5929,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Ball - activeWindows > 0",
-        "func": "//Ball code\n//building has at least one active window.\n//Time to keep track of the hits, and when total hits four (4), then we can deactivate one window in “reverse order”\n//Query to determine total number of hits so far (not including the hits just received)\n\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nmsg.activewindows = msg.payload\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
+        "func": "//building has at least one active window.\n//Time to keep track of the hits\n//This SQL will retrieve the current number of hits from the database\n//This value will be used with the additional incoming hit value\n//to determine a totaly number of hits for later evaluation\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nmsg.activewindows = msg.payload\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5950,7 +5950,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "(p)SQLLiteGenericAccess",
+        "name": "SQLLiteGenericAccess",
         "x": 1890,
         "y": 360,
         "wires": [
@@ -5963,14 +5963,14 @@
         "id": "9e5a92b373541cee",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - Retrieve Num activeWindows",
-        "func": "//Ball code\n//Load total number of active windows in this building into a var using query.\n//the goal here is if active windows = 0 this means balls were dumped on a non-burning building, so nothing to do.\n//For completeness, we set the number of hits to zero.\n//We use side 1 as the default so the table structure still handles both Ball and Laser buildings.\n\nvar previous_hits = msg.payload[0].SumOfNUM_HITS; //from database\nvar inc_hits = msg.inc_hits; //from mqtt\nvar SumOfWindowsActive = msg.activewindows; //from database\nvar building_name = msg.building_name;\n\nvar SumTheTwo = previous_hits + inc_hits;\nvar DivideByFour = SumTheTwo/4;\nvar RoundDown = Math.floor(DivideByFour)\nvar MultByFour = RoundDown * 4\nvar UpdNumHits = SumTheTwo - MultByFour\nvar NewActiveWindows = SumOfWindowsActive - RoundDown\n\nif (NewActiveWindows >=1){\n    //SQL to update active windows and hits based on logic.. tbd\n}else{\n    //SQL to update all active windows to zero, and all hits to zero for side 1\n}\n\n\n\n\nmsg.payload = NewActiveWindows\n\nreturn msg;",
+        "name": "Ball - Retrieve Num activeWindows",
+        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n//(in work) Window deactivation needs to occur in reverse order\n//using the WINDOW_SEQUENCE field in table BuildingWindowStatus\n\nvar previous_hits = msg.payload[0].SumOfNUM_HITS; //from database\nvar inc_hits = msg.inc_hits; //from mqtt\nvar SumOfWindowsActive = msg.activewindows; //from database\nvar building_name = msg.building_name;\n\nvar SumTheTwo = previous_hits + inc_hits;\nvar DivideByFour = SumTheTwo/4;\nvar RoundDown = Math.floor(DivideByFour)\nvar MultByFour = RoundDown * 4\nvar UpdNumHits = SumTheTwo - MultByFour\nvar NewActiveWindows = SumOfWindowsActive - RoundDown\n\nif (NewActiveWindows >=1){\n    //SQL to update active windows and hits based on logic.. tbd\n}else{\n    //SQL to update all active windows to zero, and all hits to zero for side 1\n}\n\nmsg.payload = \"Active Windows from:\" + SumOfWindowsActive + \" to:\" + NewActiveWindows + \" with leftover hits:\" + UpdNumHits\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1460,
+        "x": 1440,
         "y": 400,
         "wires": [
             [
@@ -5991,7 +5991,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1710,
+        "x": 1690,
         "y": 400,
         "wires": []
     }
