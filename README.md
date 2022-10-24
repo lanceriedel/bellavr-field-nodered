@@ -92,6 +92,12 @@ EDGE_UUID,EDGE_NODE_ID
 
 ### UI 
 Depending on the IP address of the Raspbery Pi (here it is assumed 192.168.1.112 )
+
+Install SQLLite UI -
+```
+pip install sqlite-web
+```
+
 If you installed the UI for the SQLite (very useful) -- it is here:
 http://192.168.1.112:8080/
 
