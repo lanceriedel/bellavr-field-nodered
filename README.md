@@ -99,22 +99,21 @@ cd ~/sqlite-storage
 pip install sqlite-web
 ```
 Then to run (note not a service, so need to re-run this everytime you restart the Pi you need to do this):
+```
 nohup /home/pi/.local/bin/sqlite_web -H 0.0.0.0 ./sqlite-storage/sqlite > ~/sqllite_web.log &
 
 ```
 
-Or you can create a service -  note I needed to do 
+Or you can create a service -  note I needed to do the following as root ( sudo su - )
 ```
 pip install sqlite-web
 ```
-as root ( sudo su - )
 
-
-Save the following as:
+Save the following config file as:
 ```
 /etc/systemd/system/sql-web.service
 ```
-
+Here is what you put in the file:
 ```
 [Unit]
 Description=sql-web service
