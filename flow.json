@@ -1187,6 +1187,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1180,
         "y": 580,
         "wires": [
@@ -1224,6 +1225,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1180,
         "y": 640,
         "wires": [
@@ -1275,6 +1277,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 780,
         "y": 540,
         "wires": [
@@ -1499,6 +1502,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 380,
         "y": 80,
         "wires": [
@@ -1874,6 +1878,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 110,
         "y": 140,
         "wires": [
@@ -1954,6 +1959,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 120,
         "y": 260,
         "wires": [
@@ -1989,6 +1995,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 130,
         "y": 340,
         "wires": [
@@ -4565,6 +4572,254 @@
         ]
     },
     {
+        "id": "b58e46902153ba60",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Retreive Sensor Type",
+        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 120,
+        "wires": [
+            [
+                "76b14b3ebfe7bc8f"
+            ]
+        ]
+    },
+    {
+        "id": "dbf2758fe4bc8fac",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1430,
+        "y": 240,
+        "wires": [
+            [
+                "68962efa20da6498"
+            ]
+        ]
+    },
+    {
+        "id": "68962efa20da6498",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Ball - Retrieve Active Windows Total",
+        "func": "//SQLite results; number of active windows in this building\n\nvar totalActiveWindows = msg.payload[0].SumOfWindowsActive;\n\nmsg.payload = totalActiveWindows\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 280,
+        "wires": [
+            [
+                "1eb34cb9fde69552"
+            ]
+        ]
+    },
+    {
+        "id": "b14809cbdc1da795",
+        "type": "inject",
+        "z": "f74b301e4f22310f",
+        "name": "Drop Ball",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 1100,
+        "y": 40,
+        "wires": [
+            [
+                "d0ee370dfba878d8"
+            ]
+        ]
+    },
+    {
+        "id": "d0ee370dfba878d8",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Set Values (edit me to test)",
+        "func": "//edit this as needed for testing\n\nmsg.building_name = 'LTI';\nmsg.inc_hits = 12;\nmsg.side_id = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1300,
+        "y": 40,
+        "wires": [
+            [
+                "45e5f15a3f1e2630"
+            ]
+        ]
+    },
+    {
+        "id": "4b92e8f36875dd6d",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Inject for testing",
+        "info": "",
+        "x": 920,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1eb34cb9fde69552",
+        "type": "switch",
+        "z": "f74b301e4f22310f",
+        "name": "Active Windows",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1400,
+        "y": 320,
+        "wires": [
+            [
+                "7b63fcfb14e92d89"
+            ],
+            [
+                "535b2c421761f088"
+            ]
+        ]
+    },
+    {
+        "id": "7b63fcfb14e92d89",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - activeWindows = 0",
+        "func": "//Number of active windows was already zero. Thus, for completeness,\n//we updated the number of hits to zero.\n//Since this is a ball building, we use side 1 as the default for hits\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.NUM_HITS = 0 WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=1) AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1630,
+        "y": 320,
+        "wires": [
+            [
+                "1242210de0386fcb"
+            ]
+        ]
+    },
+    {
+        "id": "1242210de0386fcb",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1890,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "535b2c421761f088",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - activeWindows > 0",
+        "func": "//building has at least one active window.\n//Time to keep track of the hits\n//This SQL will retrieve the current number of hits from the database\n//This value will be used with the additional incoming hit value\n//to determine a totaly number of hits for later evaluation\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nmsg.activewindows = msg.payload\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1630,
+        "y": 360,
+        "wires": [
+            [
+                "6b7430e3760b9954"
+            ]
+        ]
+    },
+    {
+        "id": "6b7430e3760b9954",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1890,
+        "y": 360,
+        "wires": [
+            [
+                "9e5a92b373541cee"
+            ]
+        ]
+    },
+    {
+        "id": "9e5a92b373541cee",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Ball - Retrieve Num activeWindows",
+        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n//(in work) Window deactivation needs to occur in reverse order\n//using the WINDOW_SEQUENCE field in table BuildingWindowStatus\n\nvar previous_hits = msg.payload[0].SumOfNUM_HITS; //from database\nvar inc_hits = msg.inc_hits; //from mqtt\nvar SumOfWindowsActive = msg.activewindows; //from database\nvar building_name = msg.building_name;\n\nvar SumTheTwo = previous_hits + inc_hits;\nvar DivideByFour = SumTheTwo/4;\nvar RoundDown = Math.floor(DivideByFour)\nvar MultByFour = RoundDown * 4\nvar UpdNumHits = SumTheTwo - MultByFour\nvar NewActiveWindows = SumOfWindowsActive - RoundDown\n\nif (NewActiveWindows >=1){\n    //SQL to update active windows and hits based on logic.. tbd\n}else{\n    //SQL to update all active windows to zero, and all hits to zero for side 1\n}\n\nmsg.payload = \"Active Windows from:\" + SumOfWindowsActive + \" to:\" + NewActiveWindows + \" with leftover hits:\" + UpdNumHits\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 400,
+        "wires": [
+            [
+                "ee8049a1d610e89a"
+            ]
+        ]
+    },
+    {
+        "id": "ee8049a1d610e89a",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1690,
+        "y": 400,
+        "wires": []
+    },
+    {
         "id": "890050b7a3592bf1",
         "type": "inject",
         "z": "8b4b6895c0ec29ec",
@@ -4995,6 +5250,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 200,
         "y": 620,
         "wires": [
@@ -5524,11 +5780,72 @@
         ]
     },
     {
+        "id": "f86871afbc03993e",
+        "type": "mqtt out",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Broadcast Laser Diff",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 680,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "91b03956f65107e7",
+        "type": "function",
+        "z": "f3ec5d556e86f8d0",
+        "name": "assemble mqtt message",
+        "func": "var o = msg.payload;\n\nvar t = \"{ \\\"DETECTOR_DIFF\\\": \\\"\" + o.diff + \"\\\"}\";\nmsg.payload = t;\n//nodered/firescore/[node id]\nmsg.topic = \"nodered/laserdiff\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1020,
+        "wires": [
+            [
+                "f86871afbc03993e"
+            ]
+        ]
+    },
+    {
+        "id": "7a6d7007d9d5ec67",
+        "type": "link in",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Broadcast Laser Diff Change",
+        "links": [],
+        "x": 105,
+        "y": 1020,
+        "wires": [
+            [
+                "91b03956f65107e7"
+            ]
+        ]
+    },
+    {
+        "id": "ccf03d13258bb4e3",
+        "type": "comment",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Broadcast Laser Diff Change",
+        "info": "",
+        "x": 160,
+        "y": 960,
+        "wires": []
+    },
+    {
         "id": "f8aa15da571b3aae",
         "type": "ui_text",
         "z": "829ad5255d8cf01f",
         "group": "a5991f3b10b51e7c",
-        "order": 6,
+        "order": 3,
         "width": "6",
         "height": "4",
         "name": "Loaded Values",
@@ -5545,7 +5862,7 @@
         "z": "829ad5255d8cf01f",
         "name": "Submit",
         "group": "a5991f3b10b51e7c",
-        "order": 7,
+        "order": 4,
         "width": "0",
         "height": "0",
         "passthru": false,
@@ -5669,7 +5986,7 @@
         "name": "",
         "label": "Remove UUID Mapping",
         "group": "a5991f3b10b51e7c",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "options": [
@@ -5727,6 +6044,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 480,
         "y": 220,
         "wires": [
@@ -5748,251 +6066,51 @@
         "wires": []
     },
     {
-        "id": "b58e46902153ba60",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "Retreive Sensor Type",
-        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1420,
-        "y": 120,
-        "wires": [
-            [
-                "76b14b3ebfe7bc8f"
-            ]
-        ]
-    },
-    {
-        "id": "dbf2758fe4bc8fac",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQLLiteGenericAccess",
-        "x": 1430,
-        "y": 240,
-        "wires": [
-            [
-                "68962efa20da6498"
-            ]
-        ]
-    },
-    {
-        "id": "68962efa20da6498",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "Ball - Retrieve Active Windows Total",
-        "func": "//SQLite results; number of active windows in this building\n\nvar totalActiveWindows = msg.payload[0].SumOfWindowsActive;\n\nmsg.payload = totalActiveWindows\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1460,
-        "y": 280,
-        "wires": [
-            [
-                "1eb34cb9fde69552"
-            ]
-        ]
-    },
-    {
-        "id": "b14809cbdc1da795",
-        "type": "inject",
-        "z": "f74b301e4f22310f",
-        "name": "Drop Ball",
-        "props": [
+        "id": "a3534a12592a4f1e",
+        "type": "ui_form",
+        "z": "829ad5255d8cf01f",
+        "name": "Set Laser Detector Diff",
+        "label": "Set Laser Detector Differential (default 500)",
+        "group": "a5991f3b10b51e7c",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "options": [
             {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
+                "label": "Diff",
+                "value": "diff",
+                "type": "number",
+                "required": true,
+                "rows": null
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 1100,
-        "y": 40,
+        "formValue": {
+            "diff": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 220,
+        "y": 480,
         "wires": [
             [
-                "d0ee370dfba878d8"
+                "c1f7e764f490f914"
             ]
         ]
     },
     {
-        "id": "d0ee370dfba878d8",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "Set Values (edit me to test)",
-        "func": "//edit this as needed for testing\n\nmsg.building_name = 'LTI';\nmsg.inc_hits = 12;\nmsg.side_id = 1;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1300,
-        "y": 40,
-        "wires": [
-            [
-                "45e5f15a3f1e2630"
-            ]
-        ]
-    },
-    {
-        "id": "4b92e8f36875dd6d",
-        "type": "comment",
-        "z": "f74b301e4f22310f",
-        "name": "Inject for testing",
-        "info": "",
-        "x": 920,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "1eb34cb9fde69552",
-        "type": "switch",
-        "z": "f74b301e4f22310f",
-        "name": "Active Windows",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "gt",
-                "v": "0",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1400,
-        "y": 320,
-        "wires": [
-            [
-                "7b63fcfb14e92d89"
-            ],
-            [
-                "535b2c421761f088"
-            ]
-        ]
-    },
-    {
-        "id": "7b63fcfb14e92d89",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - activeWindows = 0",
-        "func": "//Number of active windows was already zero. Thus, for completeness,\n//we updated the number of hits to zero.\n//Since this is a ball building, we use side 1 as the default for hits\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.NUM_HITS = 0 WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=1) AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1630,
-        "y": 320,
-        "wires": [
-            [
-                "1242210de0386fcb"
-            ]
-        ]
-    },
-    {
-        "id": "1242210de0386fcb",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQLLiteGenericAccess",
-        "x": 1890,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "535b2c421761f088",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - activeWindows > 0",
-        "func": "//building has at least one active window.\n//Time to keep track of the hits\n//This SQL will retrieve the current number of hits from the database\n//This value will be used with the additional incoming hit value\n//to determine a totaly number of hits for later evaluation\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nmsg.activewindows = msg.payload\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1630,
-        "y": 360,
-        "wires": [
-            [
-                "6b7430e3760b9954"
-            ]
-        ]
-    },
-    {
-        "id": "6b7430e3760b9954",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQLLiteGenericAccess",
-        "x": 1890,
-        "y": 360,
-        "wires": [
-            [
-                "9e5a92b373541cee"
-            ]
-        ]
-    },
-    {
-        "id": "9e5a92b373541cee",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "Ball - Retrieve Num activeWindows",
-        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n//(in work) Window deactivation needs to occur in reverse order\n//using the WINDOW_SEQUENCE field in table BuildingWindowStatus\n\nvar previous_hits = msg.payload[0].SumOfNUM_HITS; //from database\nvar inc_hits = msg.inc_hits; //from mqtt\nvar SumOfWindowsActive = msg.activewindows; //from database\nvar building_name = msg.building_name;\n\nvar SumTheTwo = previous_hits + inc_hits;\nvar DivideByFour = SumTheTwo/4;\nvar RoundDown = Math.floor(DivideByFour)\nvar MultByFour = RoundDown * 4\nvar UpdNumHits = SumTheTwo - MultByFour\nvar NewActiveWindows = SumOfWindowsActive - RoundDown\n\nif (NewActiveWindows >=1){\n    //SQL to update active windows and hits based on logic.. tbd\n}else{\n    //SQL to update all active windows to zero, and all hits to zero for side 1\n}\n\nmsg.payload = \"Active Windows from:\" + SumOfWindowsActive + \" to:\" + NewActiveWindows + \" with leftover hits:\" + UpdNumHits\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1440,
-        "y": 400,
-        "wires": [
-            [
-                "ee8049a1d610e89a"
-            ]
-        ]
-    },
-    {
-        "id": "ee8049a1d610e89a",
-        "type": "debug",
-        "z": "f74b301e4f22310f",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1690,
-        "y": 400,
+        "id": "c1f7e764f490f914",
+        "type": "link out",
+        "z": "829ad5255d8cf01f",
+        "name": "link out 52",
+        "mode": "link",
+        "links": [],
+        "x": 445,
+        "y": 480,
         "wires": []
     }
 ]
