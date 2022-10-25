@@ -319,8 +319,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
-        "y": 740,
+        "x": 860,
+        "y": 720,
         "wires": []
     },
     {
@@ -4821,6 +4821,128 @@
         "wires": []
     },
     {
+        "id": "118fe373075a7843",
+        "type": "switch",
+        "z": "f74b301e4f22310f",
+        "name": "Updated Active Windows",
+        "property": "updated_active_windows",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 1410,
+        "y": 560,
+        "wires": [
+            [
+                "c89ce28430d01f6e"
+            ],
+            [
+                "c89ce28430d01f6e"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c89ce28430d01f6e",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - updActWin 6 or 7",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = mgs.updated_active_windows\nvar ActiveWindowsThisSide = 8 - UpdatedActiveWindows\n\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + match_num + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeID + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=4))\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1720,
+        "y": 520,
+        "wires": [
+            [
+                "258ffd1e51cbc4fc",
+                "8991db730b3e6525"
+            ]
+        ]
+    },
+    {
+        "id": "258ffd1e51cbc4fc",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1970,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8991db730b3e6525",
+        "type": "mqtt out",
+        "z": "f74b301e4f22310f",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1910,
+        "y": 540,
+        "wires": []
+    },
+    {
         "id": "890050b7a3592bf1",
         "type": "inject",
         "z": "8b4b6895c0ec29ec",
@@ -6116,128 +6238,6 @@
         ],
         "x": 445,
         "y": 480,
-        "wires": []
-    },
-    {
-        "id": "118fe373075a7843",
-        "type": "switch",
-        "z": "f74b301e4f22310f",
-        "name": "Updated Active Windows",
-        "property": "updated_active_windows",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "7",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "6",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "5",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "4",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "3",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "2",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 8,
-        "x": 1410,
-        "y": 560,
-        "wires": [
-            [
-                "c89ce28430d01f6e"
-            ],
-            [
-                "c89ce28430d01f6e"
-            ],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "c89ce28430d01f6e",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - updActWin 6 or 7",
-        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = mgs.updated_active_windows\nvar ActiveWindowsThisSide = 8 - UpdatedActiveWindows\n\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + match_num + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeID + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=4))\";\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1720,
-        "y": 520,
-        "wires": [
-            [
-                "258ffd1e51cbc4fc",
-                "8991db730b3e6525"
-            ]
-        ]
-    },
-    {
-        "id": "258ffd1e51cbc4fc",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQLLiteGenericAccess",
-        "x": 1970,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8991db730b3e6525",
-        "type": "mqtt out",
-        "z": "f74b301e4f22310f",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 1910,
-        "y": 540,
         "wires": []
     }
 ]
