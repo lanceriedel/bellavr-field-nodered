@@ -5821,7 +5821,9 @@
         "type": "link in",
         "z": "f3ec5d556e86f8d0",
         "name": "Broadcast Laser Diff Change",
-        "links": [],
+        "links": [
+            "c1f7e764f490f914"
+        ],
         "x": 105,
         "y": 1020,
         "wires": [
@@ -6108,7 +6110,9 @@
         "z": "829ad5255d8cf01f",
         "name": "link out 52",
         "mode": "link",
-        "links": [],
+        "links": [
+            "7a6d7007d9d5ec67"
+        ],
         "x": 445,
         "y": 480,
         "wires": []
