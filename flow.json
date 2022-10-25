@@ -4185,7 +4185,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
+        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4291,7 +4291,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "SQL - Calculate and Update - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\n\n//This is how we pass in the burning buildings from the intialation of the building\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\nvar WindowSequence = new Map();//Dom added\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0;\n      WindowSequence[nodepluswin] =0;//Dom added\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    WindowsActive[node + \"2\"] = 0;\n    WindowSequence[node + \"2\"] = 3;//Dom added\n    WindowsActive[node + \"3\"] = 2;\n    WindowSequence[node + \"3\"] = 1;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    WindowsActive[node + \"2\"] = 2;\n    WindowSequence[node + \"2\"] = 1;//Dom added\n    WindowsActive[node + \"3\"] = 0;\n    WindowSequence[node + \"3\"] = 3;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
+        "func": "\nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\n\n//This is how we pass in the burning buildings from the intialation of the building\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\nvar WindowsActive = new Map();\nvar WindowSequence = new Map();//Dom added\nvar DamagePreventionScore = new Map();//Dom added\n\nfor (const node of AllNodes) {\n  var whichSet = 10;\n  if (node == burningNode1 || node == burningNode2) {\n    whichSet=Math.floor(Math.random() * 2);\n  }\n  if (whichSet ==10) {\n    for (var i = 1; i <= 4; i++) {\n      var nodepluswin = node + i + '';\n      WindowsActive[nodepluswin] = 0;\n      WindowSequence[nodepluswin] = 0;//Dom added\n      DamagePreventionScore[nodepluswin] = 2;\n    }\n  } else if (whichSet == 0) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    DamagePreventionScore[node + \"1\"] = 0;//Dom added\n    WindowsActive[node + \"2\"] = 0;\n    WindowSequence[node + \"2\"] = 3;//Dom added\n    DamagePreventionScore[node + \"2\"] = 2;//Dom added\n    WindowsActive[node + \"3\"] = 2;\n    WindowSequence[node + \"3\"] = 1;//Dom added\n    DamagePreventionScore[node + \"3\"] = 0;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n    DamagePreventionScore[node + \"4\"] = 2;//Dom added\n  } else if (whichSet == 1) {\n    WindowsActive[node + \"1\"] = 2;\n    WindowSequence[node + \"1\"] = 2;//Dom added\n    DamagePreventionScore[node + \"1\"] = 0;//Dom added\n    WindowsActive[node + \"2\"] = 2;\n    WindowSequence[node + \"2\"] = 1;//Dom added\n    DamagePreventionScore[node + \"2\"] = 0;//Dom added\n    WindowsActive[node + \"3\"] = 0;\n    WindowSequence[node + \"3\"] = 3;//Dom added\n    DamagePreventionScore[node + \"3\"] = 2;//Dom added\n    WindowsActive[node + \"4\"] = 0;\n    WindowSequence[node + \"4\"] = 4;//Dom added\n    DamagePreventionScore[node + \"4\"] = 2;//Dom added\n  }\n}\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = leftNodeName + i + '';\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"   \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", DAMAGE_PREVENTION_SCORE = \" + DamagePreventionScore[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + leftNodeName + \"' AND BUILDING_SIDE=\" + i\n      +\";\";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var nodepluswin = rightNodeName + i;\n    //Dom updated\n    var line = \"UPDATE BuildingWindowStatus SET \"\n      + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\" \n      + \", WINDOWS_ACTIVE = \" + WindowsActive[nodepluswin]\n      + \", WINDOW_SEQUENCE = \" + WindowSequence[nodepluswin]\n      + \", DAMAGE_PREVENTION_SCORE = \" + DamagePreventionScore[nodepluswin]\n      + \", NUM_HITS = 0 \"\n      + \", TIMEOFMATCH = \" + timestamp\n      + \" WHERE MATCH_NUM=\" + matchnum + \" AND BUILDING_NAME='\" + rightNodeName + \"' AND BUILDING_SIDE=\" + i\n      + \";\";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nmsg.lance = burningNode1;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4858,7 +4858,7 @@
         "z": "8b4b6895c0ec29ec",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY VARCHAR[12] NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOW_SEQUENCE INT,\nWINDOWS_ACTIVE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
+        "sql": "CREATE TABLE BuildingWindowStatus (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nCOMMUNITY VARCHAR[12] NOT NULL,\nBUILDING_SIDE INT NOT NULL,\nWINDOW_SEQUENCE INT,\nWINDOWS_ACTIVE INT,\nDAMAGE_PREVENTION_SCORE INT,\nNUM_HITS INT NOT NULL,\nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));",
         "name": "Create BuildingWindowStatus",
         "x": 970,
         "y": 140,
@@ -5834,7 +5834,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Set Values (edit me to test)",
-        "func": "//edit this as needed for testing\n\nmsg.building_name = 'LTI';\nmsg.inc_hits = 12;\nmsg.side_id = 1;\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n\nmsg.building_name = 'LTO';\nmsg.inc_hits = 13;\nmsg.side_id = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5963,18 +5963,19 @@
         "id": "9e5a92b373541cee",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "Ball - Retrieve Num activeWindows",
-        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n//(in work) Window deactivation needs to occur in reverse order\n//using the WINDOW_SEQUENCE field in table BuildingWindowStatus\n\nvar previous_hits = msg.payload[0].SumOfNUM_HITS; //from database\nvar inc_hits = msg.inc_hits; //from mqtt\nvar SumOfWindowsActive = msg.activewindows; //from database\nvar building_name = msg.building_name;\n\nvar SumTheTwo = previous_hits + inc_hits;\nvar DivideByFour = SumTheTwo/4;\nvar RoundDown = Math.floor(DivideByFour)\nvar MultByFour = RoundDown * 4\nvar UpdNumHits = SumTheTwo - MultByFour\nvar NewActiveWindows = SumOfWindowsActive - RoundDown\n\nif (NewActiveWindows >=1){\n    //SQL to update active windows and hits based on logic.. tbd\n}else{\n    //SQL to update all active windows to zero, and all hits to zero for side 1\n}\n\nmsg.payload = \"Active Windows from:\" + SumOfWindowsActive + \" to:\" + NewActiveWindows + \" with leftover hits:\" + UpdNumHits\n\nreturn msg;",
+        "name": "Ball - Retrieve updatedActiveWindows",
+        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n//(in work) Window deactivation needs to occur in reverse order\n//using the WINDOW_SEQUENCE field in table BuildingWindowStatus\n\nvar previous_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits that were extra beyond four\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in\nvar SumOfWindowsActive = msg.activewindows; //from database. Current active windows this building\nvar building_name = msg.building_name;\n\nvar SumTheTwo = previous_hits + inc_hits; // incoming hits added to saved extra hits\nvar DivideByFour = SumTheTwo/4; // window require four balls to register\nvar RoundDown = Math.floor(DivideByFour) // rounding down to nearest whole integer. this is the window total to extinguish\nvar UpdatedActiveWindows = SumOfWindowsActive - RoundDown // subtract the windows to extinguish from the current active window count\nif (UpdatedActiveWindows < 0) {\n    UpdatedActiveWindows = 0;\n}\n\n\n\nvar MultByFour = RoundDown * 4 // totallying the sum of whole \"every four\" hits\nvar UpdNumHits = SumTheTwo - MultByFour // this is carryover to be saved in database\n\n\nmsg.payload = \"Active Windows from:\" + SumOfWindowsActive + \" to:\" + UpdatedActiveWindows + \" with leftover hits:\" + UpdNumHits\nmsg.updated_active_windows = UpdatedActiveWindows\nmsg.updated_num_hits = UpdNumHits\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1440,
+        "x": 1450,
         "y": 400,
         "wires": [
             [
-                "ee8049a1d610e89a"
+                "ee8049a1d610e89a",
+                "118fe373075a7843"
             ]
         ]
     },
@@ -5993,6 +5994,128 @@
         "statusType": "auto",
         "x": 1690,
         "y": 400,
+        "wires": []
+    },
+    {
+        "id": "118fe373075a7843",
+        "type": "switch",
+        "z": "f74b301e4f22310f",
+        "name": "Updated Active Windows",
+        "property": "updated_active_windows",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 1410,
+        "y": 560,
+        "wires": [
+            [
+                "c89ce28430d01f6e"
+            ],
+            [
+                "c89ce28430d01f6e"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c89ce28430d01f6e",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - updActWin 6 or 7",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = mgs.updated_active_windows\nvar ActiveWindowsThisSide = 8 - UpdatedActiveWindows\n\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + match_num + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeID + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=4))\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1720,
+        "y": 520,
+        "wires": [
+            [
+                "258ffd1e51cbc4fc",
+                "8991db730b3e6525"
+            ]
+        ]
+    },
+    {
+        "id": "258ffd1e51cbc4fc",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLLiteGenericAccess",
+        "x": 1970,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8991db730b3e6525",
+        "type": "mqtt out",
+        "z": "f74b301e4f22310f",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1910,
+        "y": 540,
         "wires": []
     }
 ]
