@@ -319,8 +319,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
-        "y": 740,
+        "x": 860,
+        "y": 720,
         "wires": []
     },
     {
@@ -6236,8 +6236,10 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 52",
+        "mode": "link",
         "links": [
-            "7a6d7007d9d5ec67"
+            "7a6d7007d9d5ec67",
+            "bc8a6edecc1a9a5c"
         ],
         "x": 445,
         "y": 480,
@@ -6730,5 +6732,148 @@
         "x": 3090,
         "y": 720,
         "wires": []
+    },
+    {
+        "id": "67088a3f2dedd67b",
+        "type": "mqtt in",
+        "z": "8d38dc412a73d987",
+        "name": "edgenode/latesttare/#",
+        "topic": "edgenode/latesttare/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "5999f1d09afe1039",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "b057c4c81f9a5137"
+            ]
+        ]
+    },
+    {
+        "id": "b057c4c81f9a5137",
+        "type": "debug",
+        "z": "8d38dc412a73d987",
+        "name": "Dump Latest Tares From Field",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e2b27e9faf37bd1e",
+        "type": "mqtt out",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Broadcast Query Latest Tare",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 700,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "6331f7057ebfd37c",
+        "type": "function",
+        "z": "f3ec5d556e86f8d0",
+        "name": "assemble mqtt message",
+        "func": "var o = msg.payload;\n\nvar t = \"{ }\";\nmsg.payload = t;\n//nodered/firescore/[node id]\nmsg.topic = \"nodered/weighttare\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1140,
+        "wires": [
+            [
+                "e2b27e9faf37bd1e"
+            ]
+        ]
+    },
+    {
+        "id": "bc8a6edecc1a9a5c",
+        "type": "link in",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Broadcast TareQuery",
+        "links": [
+            "c1f7e764f490f914",
+            "4bdef8d87b5da823"
+        ],
+        "x": 105,
+        "y": 1140,
+        "wires": [
+            [
+                "6331f7057ebfd37c"
+            ]
+        ]
+    },
+    {
+        "id": "c74fb766b19e2bf1",
+        "type": "comment",
+        "z": "f3ec5d556e86f8d0",
+        "name": "Broadcast Query for Weight Tare",
+        "info": "Reported back through a separate message\nedgenode/latesttare/",
+        "x": 170,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "4bdef8d87b5da823",
+        "type": "link out",
+        "z": "829ad5255d8cf01f",
+        "name": "link out 53",
+        "mode": "link",
+        "links": [
+            "bc8a6edecc1a9a5c"
+        ],
+        "x": 495,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b15078312d3e61f5",
+        "type": "ui_button",
+        "z": "829ad5255d8cf01f",
+        "name": "Query Latest Tare Value from all Field",
+        "group": "a5991f3b10b51e7c",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Query Field For Latest Tares",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "4bdef8d87b5da823"
+            ]
+        ]
     }
 ]
