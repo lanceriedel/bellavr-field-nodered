@@ -4651,7 +4651,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Set Values (edit me to test)",
-        "func": "//edit this as needed for testing\n\nmsg.building_name = 'LTI';\nmsg.inc_hits = 3;\nmsg.side_id = 1;\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n\nmsg.building_name = 'RBO';\nmsg.inc_hits = 5;\nmsg.side_id = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4781,7 +4781,7 @@
         "type": "function",
         "z": "f74b301e4f22310f",
         "name": "Ball - Retrieve updatedActiveWindows",
-        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n//(in work) Window deactivation needs to occur in reverse order\n//using the WINDOW_SEQUENCE field in table BuildingWindowStatus\n\nvar carryover_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits that were extra beyond four\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in\nvar SumOfWindowsActive = msg.activewindows; //from database. Current active windows this building\nvar building_name = msg.building_name;\n\nvar SumTheTwo = carryover_hits + inc_hits; // incoming hits added to saved extra hits\nvar DivideByFour = SumTheTwo/4; // window require four balls to register\nvar WindowsToExtinguish = Math.floor(DivideByFour) // rounding down to nearest whole integer. this is the window total to extinguish\nvar UpdatedActiveWindows = SumOfWindowsActive - WindowsToExtinguish // subtract the windows to extinguish from the current active window count\nif (UpdatedActiveWindows <= 0) {\n    UpdatedActiveWindows = 0;\n}\n\nvar MultByFour = WindowsToExtinguish * 4 // totaling the sum of whole \"every four\" hits\nvar UpdCarryoverHits = SumTheTwo - MultByFour // this is carryover to be saved in database\n\nmsg.payload = \"Active Windows from:\" + SumOfWindowsActive + \" to:\" + UpdatedActiveWindows + \" with leftover hits:\" + UpdCarryoverHits\n\nreturn msg;",
+        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n//(in work) Window deactivation needs to occur in reverse order\n//using the WINDOW_SEQUENCE field in table BuildingWindowStatus\n\nvar building_name = msg.building_name;\nvar SumOfWindowsActive = msg.activewindows; //from database. Current active windows this building\nvar carryover_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits that were extra beyond four\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in\n\n\nvar SumTheTwo = carryover_hits + inc_hits; // incoming hits added to carryover hits\nvar DivideByFour = SumTheTwo/4; // window require four balls to register\nvar WindowsToExtinguish = Math.floor(DivideByFour) // rounding down to nearest whole integer. this is the window total to extinguish\nvar ActiveWindowsNow = SumOfWindowsActive - WindowsToExtinguish // subtract the windows to extinguish from the current active window count\nif (ActiveWindowsNow <= 0) {\n    ActiveWindowsNow = 0;\n}\n\nvar MultByFour = WindowsToExtinguish * 4 // totaling the sum of whole \"every four\" hits\nvar UpdCarryoverHits = SumTheTwo - MultByFour // this is carryover to be saved in database\n\nmsg.payload = \"Active Windows from:\" + SumOfWindowsActive + \"  WindowsActiveNow:\" + ActiveWindowsNow + \" with leftover hits:\" + UpdCarryoverHits;\nmsg.active_windows_now = ActiveWindowsNow;\nmsg.updated_num_hits = UpdCarryoverHits;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4792,7 +4792,7 @@
         "wires": [
             [
                 "ee8049a1d610e89a",
-                "118fe373075a7843"
+                "fb3a415c29f2f9f5"
             ]
         ]
     },
@@ -4818,9 +4818,14 @@
         "type": "switch",
         "z": "f74b301e4f22310f",
         "name": "Updated Active Windows",
-        "property": "updated_active_windows",
+        "property": "active_windows_now",
         "propertyType": "msg",
         "rules": [
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "str"
+            },
             {
                 "t": "eq",
                 "v": "7",
@@ -4864,33 +4869,36 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 8,
-        "x": 1410,
-        "y": 560,
+        "outputs": 9,
+        "x": 1650,
+        "y": 660,
         "wires": [
             [
-                "c89ce28430d01f6e"
+                "3df0f6e8f2adc162"
             ],
             [
                 "c89ce28430d01f6e"
             ],
             [
-                "b2bb77738690b784"
+                "c89ce28430d01f6e"
             ],
             [
-                "b2bb77738690b784"
+                "3c4281ef2190a952"
             ],
             [
-                "740c3e55f4df469f"
+                "3c4281ef2190a952"
             ],
             [
-                "740c3e55f4df469f"
+                "e0991053e4799cb8"
             ],
             [
-                "a1aad6ac5862b983"
+                "e0991053e4799cb8"
             ],
             [
-                "a1aad6ac5862b983"
+                "c880cf37615ba05e"
+            ],
+            [
+                "c880cf37615ba05e"
             ]
         ]
     },
@@ -4898,15 +4906,15 @@
         "id": "c89ce28430d01f6e",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - updActWin 6 or 7",
-        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.updated_active_windows\nvar ActiveWindowsThisSide = 8 - UpdatedActiveWindows\n\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=4))\";\n\n\nreturn msg;",
+        "name": "SQL - Ball - update side 4",
+        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.active_windows_now\nvar ActiveWindowsThisSide = UpdatedActiveWindows - 6\n\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=4))\";\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2100,
-        "y": 460,
+        "x": 2090,
+        "y": 580,
         "wires": [
             [
                 "258ffd1e51cbc4fc",
@@ -4923,7 +4931,7 @@
         "sql": "",
         "name": "SQL1",
         "x": 2290,
-        "y": 440,
+        "y": 560,
         "wires": [
             [
                 "3df0f6e8f2adc162"
@@ -4946,7 +4954,7 @@
         "expiry": "",
         "broker": "5999f1d09afe1039",
         "x": 2290,
-        "y": 480,
+        "y": 600,
         "wires": []
     },
     {
@@ -6236,7 +6244,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 52",
-        "mode": "link",
         "links": [
             "7a6d7007d9d5ec67",
             "bc8a6edecc1a9a5c"
@@ -6256,8 +6263,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3660,
-        "y": 440,
+        "x": 3280,
+        "y": 200,
         "wires": [
             [
                 "d4dbf4a6eff55c66"
@@ -6272,8 +6279,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL11",
-        "x": 3850,
-        "y": 440,
+        "x": 3470,
+        "y": 200,
         "wires": [
             []
         ]
@@ -6282,15 +6289,15 @@
         "id": "3c4281ef2190a952",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - updActWin 4 or 5",
-        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.updated_active_windows\nvar ActiveWindowsThisSide = 6 - UpdatedActiveWindows\nvar SeqThreeSide = msg.payload[0].SeqThreeSide; //this is the data needed via the SQL\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + SeqThreeSide + \"))\";\n\nreturn msg;",
+        "name": "SQL - Ball - update sequence 3 side",
+        "func": "// updated side corresponding to sequence 3\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.active_windows_now\nvar ActiveWindowsThisSide = UpdatedActiveWindows - 4\nvar SeqThreeSide = msg.seqthreeside; //this is the data needed via the SQL\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + SeqThreeSide + \"))\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2100,
-        "y": 540,
+        "x": 2130,
+        "y": 680,
         "wires": [
             [
                 "259fec90edf9cd0b",
@@ -6302,14 +6309,14 @@
         "id": "401c29e35ca559d0",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - side 4 activewin=0",
+        "name": "SQL - Ball - side 4 to zero",
         "func": "// set side 4 activewindows = 0\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = 0 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=4));\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3270,
+        "x": 3250,
         "y": 540,
         "wires": [
             [
@@ -6338,41 +6345,6 @@
         "wires": []
     },
     {
-        "id": "b2bb77738690b784",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - find sequence side 3",
-        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BuildingWindowStatus.BUILDING_SIDE AS SeqThreeSide FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.WINDOW_SEQUENCE)=3));\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1700,
-        "y": 540,
-        "wires": [
-            [
-                "357ee5161a5c09ef"
-            ]
-        ]
-    },
-    {
-        "id": "357ee5161a5c09ef",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL2",
-        "x": 1910,
-        "y": 540,
-        "wires": [
-            [
-                "3c4281ef2190a952"
-            ]
-        ]
-    },
-    {
         "id": "259fec90edf9cd0b",
         "type": "sqlite",
         "z": "f74b301e4f22310f",
@@ -6380,8 +6352,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL3",
-        "x": 2290,
-        "y": 520,
+        "x": 2350,
+        "y": 660,
         "wires": [
             [
                 "401c29e35ca559d0"
@@ -6419,318 +6391,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 2290,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "740c3e55f4df469f",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - find sequence side 2",
-        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BuildingWindowStatus.BUILDING_SIDE AS SeqTwoSide FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.WINDOW_SEQUENCE)=2))\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1700,
-        "y": 580,
-        "wires": [
-            [
-                "0d71981a78a0f4e4"
-            ]
-        ]
-    },
-    {
-        "id": "0d71981a78a0f4e4",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL4",
-        "x": 1910,
-        "y": 580,
-        "wires": [
-            [
-                "042f8c737a3d3a9b"
-            ]
-        ]
-    },
-    {
-        "id": "042f8c737a3d3a9b",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - updActWin 2 or 3",
-        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.updated_active_windows\nvar ActiveWindowsThisSide = 4 - UpdatedActiveWindows\nvar SeqTwoSide = msg.payload[0].SeqTwoSide; //this is the data needed via the SQL\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)= '\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + SeqTwoSide + \"))\";\nmsg.seqtwoside = SeqTwoSide\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2100,
-        "y": 580,
-        "wires": [
-            [
-                "ecd7f9b35b762086",
-                "0bf8dfd58a4d27ae"
-            ]
-        ]
-    },
-    {
-        "id": "ecd7f9b35b762086",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL5",
-        "x": 2290,
-        "y": 600,
-        "wires": [
-            [
-                "8d984eb8c9701e51"
-            ]
-        ]
-    },
-    {
-        "id": "0bf8dfd58a4d27ae",
-        "type": "mqtt out",
-        "z": "f74b301e4f22310f",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 2290,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "8d984eb8c9701e51",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - seq 3 side activewin=0",
-        "func": "// set side 2 OR 3 activewindows = 0\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar seqtwoside = msg.seqtwoside;\nvar seqthreeside = 3 //default guess\n\nif (seqtwoside == 3){\n    seqthreeside = 2;\n}\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET BuildingWindowStatus.WINDOWS_ACTIVE = 0 WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + match_num + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + seqthreeside + \"))\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2500,
-        "y": 600,
-        "wires": [
-            [
-                "39426fb46a135c9d",
-                "9047695dc6fd0e30"
-            ]
-        ]
-    },
-    {
-        "id": "39426fb46a135c9d",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL7",
-        "x": 2710,
-        "y": 600,
-        "wires": [
-            [
-                "401c29e35ca559d0"
-            ]
-        ]
-    },
-    {
-        "id": "9047695dc6fd0e30",
-        "type": "mqtt out",
-        "z": "f74b301e4f22310f",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 2710,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "a1aad6ac5862b983",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - updActWin 0 or 1",
-        "func": "// update side 1\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.updated_active_windows\nvar ActiveWindowsThisSide = 2 - UpdatedActiveWindows\n\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1));\";\n\n\n\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2100,
-        "y": 680,
-        "wires": [
-            [
-                "99294426f450dc04",
-                "82e03ff78364a6ff"
-            ]
-        ]
-    },
-    {
-        "id": "99294426f450dc04",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL6",
-        "x": 2290,
-        "y": 680,
-        "wires": [
-            [
-                "8399373f5728528b"
-            ]
-        ]
-    },
-    {
-        "id": "82e03ff78364a6ff",
-        "type": "mqtt out",
-        "z": "f74b301e4f22310f",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 2290,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "8399373f5728528b",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - side 2 activewin=0",
-        "func": "// set side 2 activewindows = 0\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = 0 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=2));\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2490,
-        "y": 680,
-        "wires": [
-            [
-                "2df6eedd11ac5b7d",
-                "aebd5ab10edf6df2"
-            ]
-        ]
-    },
-    {
-        "id": "2df6eedd11ac5b7d",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL8",
-        "x": 2690,
-        "y": 680,
-        "wires": [
-            [
-                "c5fb9fa2590883ef"
-            ]
-        ]
-    },
-    {
-        "id": "c5fb9fa2590883ef",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "name": "SQL - Ball - side 3 activewin=0",
-        "func": "// set side 3 activewindows = 0\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = 0 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=3));\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2890,
-        "y": 680,
-        "wires": [
-            [
-                "4bf499891b16446c",
-                "2278e6e95348c412"
-            ]
-        ]
-    },
-    {
-        "id": "4bf499891b16446c",
-        "type": "sqlite",
-        "z": "f74b301e4f22310f",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL9",
-        "x": 3090,
-        "y": 680,
-        "wires": [
-            [
-                "401c29e35ca559d0"
-            ]
-        ]
-    },
-    {
-        "id": "aebd5ab10edf6df2",
-        "type": "mqtt out",
-        "z": "f74b301e4f22310f",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 2690,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "2278e6e95348c412",
-        "type": "mqtt out",
-        "z": "f74b301e4f22310f",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 3090,
-        "y": 720,
+        "x": 2350,
+        "y": 700,
         "wires": []
     },
     {
@@ -6745,7 +6407,6 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
         "x": 140,
         "y": 440,
         "wires": [
@@ -6840,7 +6501,6 @@
         "type": "link out",
         "z": "829ad5255d8cf01f",
         "name": "link out 53",
-        "mode": "link",
         "links": [
             "bc8a6edecc1a9a5c"
         ],
@@ -6862,7 +6522,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -6875,5 +6534,333 @@
                 "4bdef8d87b5da823"
             ]
         ]
+    },
+    {
+        "id": "fb3a415c29f2f9f5",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - find sequence side 3",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BuildingWindowStatus.BUILDING_SIDE AS SeqThreeSide FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.WINDOW_SEQUENCE)=3));\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 440,
+        "wires": [
+            [
+                "295c0df60c6111df"
+            ]
+        ]
+    },
+    {
+        "id": "295c0df60c6111df",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL2",
+        "x": 1650,
+        "y": 440,
+        "wires": [
+            [
+                "95d6ca86eb3efd78"
+            ]
+        ]
+    },
+    {
+        "id": "6166855471cd0471",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - find sequence side 1",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BuildingWindowStatus.BUILDING_SIDE AS SeqOneSide FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.WINDOW_SEQUENCE)=1))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 480,
+        "wires": [
+            [
+                "f6d8e63ab5019756"
+            ]
+        ]
+    },
+    {
+        "id": "f6d8e63ab5019756",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL4",
+        "x": 1650,
+        "y": 480,
+        "wires": [
+            [
+                "224a55db4febe5e4"
+            ]
+        ]
+    },
+    {
+        "id": "95d6ca86eb3efd78",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Sequence Side 3",
+        "func": "msg.seqthreeside = msg.payload[0].SeqThreeSide;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1810,
+        "y": 440,
+        "wires": [
+            [
+                "6166855471cd0471"
+            ]
+        ]
+    },
+    {
+        "id": "224a55db4febe5e4",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Sequence Side 1",
+        "func": "msg.seqoneside = msg.payload[0].SeqOneSide;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1810,
+        "y": 480,
+        "wires": [
+            [
+                "118fe373075a7843"
+            ]
+        ]
+    },
+    {
+        "id": "e0991053e4799cb8",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - update side 1",
+        "func": "// update side 1\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.active_windows_now\nvar ActiveWindowsThisSide = UpdatedActiveWindows - 2\n\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1));\";\n\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2090,
+        "y": 760,
+        "wires": [
+            [
+                "7289b58fcfeca3e3",
+                "fc31b54f9dcf04fb"
+            ]
+        ]
+    },
+    {
+        "id": "7289b58fcfeca3e3",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL6",
+        "x": 2270,
+        "y": 760,
+        "wires": [
+            [
+                "0ca309d3db166915"
+            ]
+        ]
+    },
+    {
+        "id": "fc31b54f9dcf04fb",
+        "type": "mqtt out",
+        "z": "f74b301e4f22310f",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 2270,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "0ca309d3db166915",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - sequence side 3 to zero",
+        "func": "// updated side corresponding to sequence 3\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar SeqThreeSide = msg.seqthreeside; //this is the data needed via the SQL\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = 0 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + SeqThreeSide + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2810,
+        "y": 760,
+        "wires": [
+            [
+                "481f2a50b974e83e",
+                "db30a0f0a31bdf48"
+            ]
+        ]
+    },
+    {
+        "id": "481f2a50b974e83e",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL6",
+        "x": 3030,
+        "y": 760,
+        "wires": [
+            [
+                "401c29e35ca559d0"
+            ]
+        ]
+    },
+    {
+        "id": "db30a0f0a31bdf48",
+        "type": "mqtt out",
+        "z": "f74b301e4f22310f",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 3030,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "c880cf37615ba05e",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - update sequence 1 side",
+        "func": "// updated side corresponding to sequence 2\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.active_windows_now\nvar ActiveWindowsThisSide = UpdatedActiveWindows\nvar SeqOneSide = msg.seqoneside; //this is the data needed via the SQL\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + SeqOneSide + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2130,
+        "y": 860,
+        "wires": [
+            [
+                "d30e6e32d223fc24",
+                "8295be54cfe5afbf"
+            ]
+        ]
+    },
+    {
+        "id": "d30e6e32d223fc24",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL6",
+        "x": 2350,
+        "y": 860,
+        "wires": [
+            [
+                "73b399a0b482ecb6"
+            ]
+        ]
+    },
+    {
+        "id": "8295be54cfe5afbf",
+        "type": "mqtt out",
+        "z": "f74b301e4f22310f",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 2350,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "73b399a0b482ecb6",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - Ball - side 1 to zero",
+        "func": "// update side 1\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = 0 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1));\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2530,
+        "y": 860,
+        "wires": [
+            [
+                "f94d21843a41f0c2",
+                "d0b5494642a81e13"
+            ]
+        ]
+    },
+    {
+        "id": "f94d21843a41f0c2",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL6",
+        "x": 2710,
+        "y": 860,
+        "wires": [
+            [
+                "0ca309d3db166915"
+            ]
+        ]
+    },
+    {
+        "id": "d0b5494642a81e13",
+        "type": "mqtt out",
+        "z": "f74b301e4f22310f",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 2710,
+        "y": 900,
+        "wires": []
     }
 ]
