@@ -63,6 +63,13 @@
         "info": ""
     },
     {
+        "id": "66af4b80919b8266",
+        "type": "tab",
+        "label": "Remaining Common Flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "8b4b6895c0ec29ec",
         "type": "tab",
         "label": "Storage Management",
@@ -6010,7 +6017,7 @@
         "type": "function",
         "z": "5b48d63e525889af",
         "name": "SQL - Ball - activeWindows = 0",
-        "func": "//Number of active windows was already zero. Thus, for completeness,\n//we updated the number of hits to zero.\n//Since this is a ball building, we use side 1 as the default for hits\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1) AND ((MATCH_NUM)=\" + matchid + \"))\";\nmsg.payload = \"No active windows this building\"\nreturn msg;",
+        "func": "//Number of active windows was already zero. Thus, for completeness,\n//we updated the number of hits to zero.\n//Since this is a ball building, we use side 1 as the default for hits\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1) AND ((MATCH_NUM)=\" + matchid + \"))\";\nmsg.debug = \"No active windows this building\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6032,11 +6039,13 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL act 0",
-        "x": 720,
+        "name": "SQL",
+        "x": 710,
         "y": 160,
         "wires": [
-            []
+            [
+                "35d3b0609f3c1c10"
+            ]
         ]
     },
     {
@@ -6079,7 +6088,7 @@
         "type": "function",
         "z": "5b48d63e525889af",
         "name": "Ball - Retrieve updatedActiveWindows",
-        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n\nvar building_name = msg.building_name;\nvar SumOfWindowsActive = msg.activewindows; //from database. Current active windows this building\nvar carryover_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits that were extra beyond four\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in\n\n\nvar SumTheTwo = carryover_hits + inc_hits; // incoming hits added to carryover hits\nvar DivideByFour = SumTheTwo/4; // window require four balls to register\nvar WindowsToExtinguish = Math.floor(DivideByFour) // rounding down to nearest whole integer. this is the window total to extinguish\nvar ActiveWindowsNow = SumOfWindowsActive - WindowsToExtinguish // subtract the windows to extinguish from the current active window count\nif (ActiveWindowsNow <= 0) {\n    ActiveWindowsNow = 0;\n}\n\nvar MultByFour = WindowsToExtinguish * 4 // totaling the sum of whole \"every four\" hits\nvar UpdCarryoverHits = SumTheTwo - MultByFour // this is carryover to be saved in database\n\nmsg.payload = \"BALL PreviousActiveWindows:\" + SumOfWindowsActive + \"  WindowsActiveNow:\" + ActiveWindowsNow + \" with leftover hits:\" + UpdCarryoverHits;\nmsg.active_windows_now = ActiveWindowsNow;\nmsg.updated_num_hits = UpdCarryoverHits;\nreturn msg;",
+        "func": "//Ball code\n//SQLite results; We now have the current number of hits from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated.\n//Since this is a Ball building, then four (4) hits will deactivate one\n//window. Any leftover hits will be stored back into the database\n//for later use if needed\n\nvar building_name = msg.building_name;\nvar SumOfWindowsActive = msg.activewindows; //from database. Current active windows this building\nvar carryover_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits that were extra beyond four\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in\n\n\nvar SumTheTwo = carryover_hits + inc_hits; // incoming hits added to carryover hits\nvar DivideByFour = SumTheTwo/4; // window require four balls to register\nvar WindowsToExtinguish = Math.floor(DivideByFour) // rounding down to nearest whole integer. this is the window total to extinguish\nvar ActiveWindowsNow = SumOfWindowsActive - WindowsToExtinguish // subtract the windows to extinguish from the current active window count\nif (ActiveWindowsNow <= 0) {\n    ActiveWindowsNow = 0;\n}\n\nvar MultByFour = WindowsToExtinguish * 4 // totaling the sum of whole \"every four\" hits\nvar UpdCarryoverHits = SumTheTwo - MultByFour // this is carryover to be saved in database\n\nmsg.debug = \"BALL PreviousActiveWindows:\" + SumOfWindowsActive + \"  WindowsActiveNow:\" + ActiveWindowsNow + \" with leftover hits:\" + UpdCarryoverHits;\nmsg.active_windows_now = ActiveWindowsNow;\nmsg.updated_num_hits = UpdCarryoverHits;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6098,16 +6107,16 @@
         "id": "2e2ff89264a068bf",
         "type": "debug",
         "z": "5b48d63e525889af",
-        "name": "What Is Happeining",
+        "name": "msg.debug",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "debug",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
+        "x": 590,
         "y": 240,
         "wires": []
     },
@@ -6168,8 +6177,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 9,
-        "x": 370,
-        "y": 680,
+        "x": 530,
+        "y": 640,
         "wires": [
             [
                 "9507789b22d5f388"
@@ -6227,7 +6236,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL1",
+        "name": "SQL",
         "x": 1030,
         "y": 580,
         "wires": [
@@ -6281,11 +6290,13 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL11",
+        "name": "SQL",
         "x": 2210,
         "y": 220,
         "wires": [
-            []
+            [
+                "f762d2377419ea56"
+            ]
         ]
     },
     {
@@ -6319,8 +6330,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1830,
-        "y": 540,
+        "x": 1950,
+        "y": 680,
         "wires": [
             [
                 "926978629096483a",
@@ -6343,8 +6354,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 2030,
-        "y": 580,
+        "x": 2150,
+        "y": 720,
         "wires": []
     },
     {
@@ -6354,7 +6365,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL3",
+        "name": "SQL",
         "x": 1090,
         "y": 680,
         "wires": [
@@ -6370,9 +6381,9 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL10",
-        "x": 2020,
-        "y": 540,
+        "name": "SQL",
+        "x": 2150,
+        "y": 680,
         "wires": [
             [
                 "9507789b22d5f388"
@@ -6424,7 +6435,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL2",
+        "name": "SQL",
         "x": 530,
         "y": 280,
         "wires": [
@@ -6459,7 +6470,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL4",
+        "name": "SQL",
         "x": 530,
         "y": 320,
         "wires": [
@@ -6533,7 +6544,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL6",
+        "name": "SQL",
         "x": 1010,
         "y": 780,
         "wires": [
@@ -6588,7 +6599,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL6",
+        "name": "SQL",
         "x": 1770,
         "y": 780,
         "wires": [
@@ -6643,7 +6654,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL6",
+        "name": "SQL",
         "x": 1090,
         "y": 880,
         "wires": [
@@ -6698,7 +6709,7 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL6",
+        "name": "SQL",
         "x": 1450,
         "y": 880,
         "wires": [
@@ -6727,67 +6738,6 @@
         "wires": []
     },
     {
-        "id": "3bb438dae9469e89",
-        "type": "function",
-        "z": "5b48d63e525889af",
-        "name": "Increase ActiveWindows (edit me)",
-        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\nvar sideid = 1\nvar ActiveWindowsThisSide = 2\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid + \"))\";\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 40,
-        "wires": [
-            [
-                "03e21eec806df10a"
-            ]
-        ]
-    },
-    {
-        "id": "0e03d8d915539d0d",
-        "type": "inject",
-        "z": "5b48d63e525889af",
-        "name": "Increase Windows",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 910,
-        "y": 40,
-        "wires": [
-            [
-                "3bb438dae9469e89"
-            ]
-        ]
-    },
-    {
-        "id": "03e21eec806df10a",
-        "type": "sqlite",
-        "z": "5b48d63e525889af",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL",
-        "x": 1370,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "b4883cec7d727b82",
         "type": "function",
         "z": "e1a756fd8363adc2",
@@ -6804,67 +6754,6 @@
             [
                 "4f5b0d4b352ef051"
             ]
-        ]
-    },
-    {
-        "id": "dbcef8b513540730",
-        "type": "function",
-        "z": "e1a756fd8363adc2",
-        "name": "Increase ActiveWindows (edit me)",
-        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"LBO\"\nvar sideid = 4\nvar ActiveWindowsThisSide = 2\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid + \"))\";\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1280,
-        "y": 40,
-        "wires": [
-            [
-                "0c0af96644ec8933"
-            ]
-        ]
-    },
-    {
-        "id": "0f1441b8c6c2b276",
-        "type": "inject",
-        "z": "e1a756fd8363adc2",
-        "name": "Increase Windows",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 1030,
-        "y": 40,
-        "wires": [
-            [
-                "dbcef8b513540730"
-            ]
-        ]
-    },
-    {
-        "id": "0c0af96644ec8933",
-        "type": "sqlite",
-        "z": "e1a756fd8363adc2",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL",
-        "x": 1490,
-        "y": 40,
-        "wires": [
-            []
         ]
     },
     {
@@ -6939,14 +6828,14 @@
         "id": "b180819e3b9213c6",
         "type": "function",
         "z": "e1a756fd8363adc2",
-        "name": "SQL - Laser - activeWindows = 0",
-        "func": "//Number of active windows was already zero FOR THIS SIDE. Thus, for completeness,\n//we updated the number of hits to zero FOR THIS SIDE.\n//Since this is a laser building, we use the side that was hit as provided via MQTT\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\nmsg.payload = \"No active windows on side \" + sideid;\nreturn msg;",
+        "name": "SQL - Laser - update hits to zero",
+        "func": "//Number of active windows was already zero FOR THIS SIDE. Thus, for completeness,\n//we updated the number of hits to zero FOR THIS SIDE.\n//Since this is a laser building, we use the side that was hit as provided via MQTT\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\nmsg.debug = \"No active windows on side \" + sideid;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
+        "x": 1110,
         "y": 160,
         "wires": [
             [
@@ -6962,11 +6851,13 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL act 0",
-        "x": 800,
+        "name": "SQL",
+        "x": 1350,
         "y": 160,
         "wires": [
-            []
+            [
+                "e78b05fbdb887da1"
+            ]
         ]
     },
     {
@@ -7009,7 +6900,7 @@
         "type": "function",
         "z": "e1a756fd8363adc2",
         "name": "Laser - Retrieve updatedActiveWindows",
-        "func": "//Laser code\n//SQLite results; We now have the current number of hits on this side from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated ON THIS SIDE\n//Since this is a Laser building, then two (2) hits will deactivate one\n//window ON THIS SIDE. Any leftover hits will be stored back into the database\n//for FOR THIS SIDE for later use if needed\n\nvar building_name = msg.building_name;\nvar SumOfWindowsActive = msg.activewindowsthisside; //from database. Current active windows this building FOR THIS SIDE\nvar carryover_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits ON THIS SIDE that were extra beyond two\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in FOR THIS SIDE\n\n\nvar SumTheTwo = carryover_hits + inc_hits; // incoming hits added to carryover hits\nvar DivideByTwo = SumTheTwo/2; // window require four balls to register\nvar WindowsToExtinguish = Math.floor(DivideByTwo) // rounding down to nearest whole integer. this is the window total to extinguish\nvar ActiveWindowsNow = SumOfWindowsActive - WindowsToExtinguish // subtract the windows to extinguish from the current active window count\nif (ActiveWindowsNow <= 0) {\n    ActiveWindowsNow = 0;\n}\n\nvar MultByTwo = WindowsToExtinguish * 2 // totaling the sum of whole \"every two\" hits\nvar UpdCarryoverHits = SumTheTwo - MultByTwo // this is carryover FOR THIS SIDE to be saved in database\n\nmsg.payload = \"LASER PreviousActiveWindowsTHISSIDE:\" + SumOfWindowsActive + \"  WindowsActiveNowTHISSIDE:\" + ActiveWindowsNow + \" with leftover hits this side:\" + UpdCarryoverHits;\nmsg.active_windows_now = ActiveWindowsNow;\nmsg.updated_num_hits = UpdCarryoverHits;\nreturn msg;",
+        "func": "//Laser code\n//SQLite results; We now have the current number of hits on this side from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated ON THIS SIDE\n//Since this is a Laser building, then two (2) hits will deactivate one\n//window ON THIS SIDE. Any leftover hits will be stored back into the database\n//for FOR THIS SIDE for later use if needed\n\nvar building_name = msg.building_name;\nvar SumOfWindowsActive = msg.activewindowsthisside; //from database. Current active windows this building FOR THIS SIDE\nvar carryover_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits ON THIS SIDE that were extra beyond two\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in FOR THIS SIDE\n\n\nvar SumTheTwo = carryover_hits + inc_hits; // incoming hits added to carryover hits\nvar DivideByTwo = SumTheTwo/2; // window require four balls to register\nvar WindowsToExtinguish = Math.floor(DivideByTwo) // rounding down to nearest whole integer. this is the window total to extinguish\nvar ActiveWindowsNow = SumOfWindowsActive - WindowsToExtinguish // subtract the windows to extinguish from the current active window count\nif (ActiveWindowsNow <= 0) {\n    ActiveWindowsNow = 0;\n}\n\nvar MultByTwo = WindowsToExtinguish * 2 // totaling the sum of whole \"every two\" hits\nvar UpdCarryoverHits = SumTheTwo - MultByTwo // this is carryover FOR THIS SIDE to be saved in database\n\nmsg.debug = \"LASER PreviousActiveWindowsTHISSIDE:\" + SumOfWindowsActive + \"  WindowsActiveNowTHISSIDE:\" + ActiveWindowsNow + \" with leftover hits this side:\" + UpdCarryoverHits;\nmsg.active_windows_now = ActiveWindowsNow;\nmsg.updated_num_hits = UpdCarryoverHits;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7028,16 +6919,16 @@
         "id": "3186aed41caae2d3",
         "type": "debug",
         "z": "e1a756fd8363adc2",
-        "name": "What Is Happeining",
+        "name": "msg.debug",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "debug",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
+        "x": 730,
         "y": 240,
         "wires": []
     },
@@ -7050,7 +6941,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "debug",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 740,
@@ -7066,10 +6958,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "debug",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
+        "x": 1370,
         "y": 120,
         "wires": []
     },
@@ -7085,10 +6978,11 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
-                "93ab7685c29c0ea9"
+                "93ab7685c29c0ea9",
+                "2ae9cf78d199e1c3"
             ]
         ]
     },
@@ -7101,10 +6995,10 @@
         "sql": "",
         "name": "SQL",
         "x": 670,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
-                "926d37cb9295938e"
+                "14467402e3f1abbc"
             ]
         ]
     },
@@ -7119,8 +7013,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 320,
+        "x": 1110,
+        "y": 400,
         "wires": [
             [
                 "11d669e5a2a8a656"
@@ -7135,10 +7029,12 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 670,
-        "y": 320,
+        "x": 1310,
+        "y": 400,
         "wires": [
-            []
+            [
+                "49340053d9bb65e1"
+            ]
         ]
     },
     {
@@ -7363,7 +7259,7 @@
         "type": "function",
         "z": "c46bd56bf00dd36c",
         "name": "Set Values (edit to test)",
-        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'LBO';\nmsg.side_id = 3;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'RTO';\nmsg.side_id = 1;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7567,6 +7463,693 @@
         "info": "",
         "x": 160,
         "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2ae9cf78d199e1c3",
+        "type": "mqtt out",
+        "z": "e1a756fd8363adc2",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "cba9608e72f13a68",
+        "type": "comment",
+        "z": "5b48d63e525889af",
+        "name": "remaining common flow starts here",
+        "info": "",
+        "x": 2420,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1adc4cdba4330e68",
+        "type": "comment",
+        "z": "e1a756fd8363adc2",
+        "name": "remaining common flow starts here",
+        "info": "",
+        "x": 1520,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "7323b2975a27ec40",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "SQL - Total Active Windows",
+        "func": "//SQL to retreive total active windows for entire building (ball or laser)\n//Used to determine if total is zero, then make building dormant (burning status = false)\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 40,
+        "wires": [
+            [
+                "5669cfa434e64d88"
+            ]
+        ]
+    },
+    {
+        "id": "890ab98d5562fb14",
+        "type": "link in",
+        "z": "66af4b80919b8266",
+        "name": "Common Flow In",
+        "links": [
+            "49340053d9bb65e1",
+            "f762d2377419ea56",
+            "e78b05fbdb887da1",
+            "35d3b0609f3c1c10"
+        ],
+        "x": 165,
+        "y": 40,
+        "wires": [
+            [
+                "7323b2975a27ec40"
+            ]
+        ]
+    },
+    {
+        "id": "49340053d9bb65e1",
+        "type": "link out",
+        "z": "e1a756fd8363adc2",
+        "name": "Common Flow Out",
+        "links": [
+            "890ab98d5562fb14"
+        ],
+        "x": 1395,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f762d2377419ea56",
+        "type": "link out",
+        "z": "5b48d63e525889af",
+        "name": "Common Flow Out",
+        "links": [
+            "890ab98d5562fb14"
+        ],
+        "x": 2295,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5669cfa434e64d88",
+        "type": "sqlite",
+        "z": "66af4b80919b8266",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 510,
+        "y": 40,
+        "wires": [
+            [
+                "168fb3018e5de3d0"
+            ]
+        ]
+    },
+    {
+        "id": "bf4049db740a3afd",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Active Windows = 0",
+        "func": "//Number of active windows was already zero.\n\n// First, for completeness,\n//we updated the number of hits to zero for side 1 (for both laser and ball. Laser already zero from Laser flow)\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1) AND ((MATCH_NUM)=\" + matchid + \"))\";\nmsg.debug = \"No active windows this building. Set hits to zero. Time to continue\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 100,
+        "wires": [
+            [
+                "55ed0281f92ebbf9",
+                "d0a445bd08bec86f"
+            ]
+        ]
+    },
+    {
+        "id": "1cbe30fd3e837398",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Active Windows > 0",
+        "func": "//total active windows is greater than zero for this building. Do nothing more.\n\nvar nodeid = msg.building_name;\nvar totalactivewindows = msg.total_active_windows\n\nmsg.debug = \"Building: \" + nodeid + \" still has total active windows = \" + totalactivewindows + \". Not zero. Nothing more to do.\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "a27df8763ef12799"
+            ]
+        ]
+    },
+    {
+        "id": "9fe1f2eb5294962a",
+        "type": "switch",
+        "z": "66af4b80919b8266",
+        "name": "Active Windows",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "bf4049db740a3afd"
+            ],
+            [
+                "1cbe30fd3e837398"
+            ]
+        ]
+    },
+    {
+        "id": "a27df8763ef12799",
+        "type": "debug",
+        "z": "66af4b80919b8266",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "55ed0281f92ebbf9",
+        "type": "debug",
+        "z": "66af4b80919b8266",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "168fb3018e5de3d0",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Retrieve Total Active Windows",
+        "func": "//SQLite results; total active windows in this building\n\nvar totalActiveWindows = msg.payload[0].SumOfWindowsActive;\n\nmsg.payload = totalActiveWindows\nmsg.total_active_windows = totalActiveWindows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 40,
+        "wires": [
+            [
+                "9fe1f2eb5294962a"
+            ]
+        ]
+    },
+    {
+        "id": "14467402e3f1abbc",
+        "type": "switch",
+        "z": "e1a756fd8363adc2",
+        "name": "Active Windows",
+        "property": "active_windows_now",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 820,
+        "y": 340,
+        "wires": [
+            [
+                "b180819e3b9213c6"
+            ],
+            [
+                "926d37cb9295938e"
+            ]
+        ]
+    },
+    {
+        "id": "e78b05fbdb887da1",
+        "type": "link out",
+        "z": "e1a756fd8363adc2",
+        "name": "Common Flow Out",
+        "links": [
+            "890ab98d5562fb14"
+        ],
+        "x": 1435,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "35d3b0609f3c1c10",
+        "type": "link out",
+        "z": "5b48d63e525889af",
+        "name": "Common Flow Out",
+        "links": [
+            "890ab98d5562fb14"
+        ],
+        "x": 795,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d0a445bd08bec86f",
+        "type": "sqlite",
+        "z": "66af4b80919b8266",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL2",
+        "x": 1030,
+        "y": 100,
+        "wires": [
+            [
+                "1369da3b1e2cb608"
+            ]
+        ]
+    },
+    {
+        "id": "1369da3b1e2cb608",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Update Burning Status to False",
+        "func": "//\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE Buildings SET BURNING_STATUS = False WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\"+ nodeid +\"'))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 200,
+        "wires": [
+            [
+                "5fd26b066d326743"
+            ]
+        ]
+    },
+    {
+        "id": "5fd26b066d326743",
+        "type": "sqlite",
+        "z": "66af4b80919b8266",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL3",
+        "x": 1150,
+        "y": 200,
+        "wires": [
+            [
+                "9eb919606ec5696b"
+            ]
+        ]
+    },
+    {
+        "id": "9eb919606ec5696b",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Retrieved Blocked Status",
+        "func": "//SQL to retrieve blocked status\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BLOCKED FROM Buildings WHERE (((Buildings.MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 260,
+        "wires": [
+            [
+                "4ba1c7dc76d6ac42"
+            ]
+        ]
+    },
+    {
+        "id": "4ba1c7dc76d6ac42",
+        "type": "sqlite",
+        "z": "66af4b80919b8266",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL4",
+        "x": 1150,
+        "y": 260,
+        "wires": [
+            [
+                "fc17484b596d2373"
+            ]
+        ]
+    },
+    {
+        "id": "fc17484b596d2373",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Update Burning Status to False",
+        "func": "//retrieved blocked status\n\nvar isblocked = msg.payload[0].BLOCKED;\nvar nodeid = msg.building_name;\n\nmsg.debug = \"Building '\" + nodeid + \"' blocked status is \" + isblocked;\nmsg.payload = isblocked\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 320,
+        "wires": [
+            [
+                "3cc489c9d1b8ca83",
+                "8fc41e58855b1918"
+            ]
+        ]
+    },
+    {
+        "id": "3cc489c9d1b8ca83",
+        "type": "debug",
+        "z": "66af4b80919b8266",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f8ebb08cbac54939",
+        "type": "inject",
+        "z": "c46bd56bf00dd36c",
+        "name": "Building Blocked",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "c7839544c6f7c108"
+            ]
+        ]
+    },
+    {
+        "id": "c7839544c6f7c108",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Set Building to Blocked (edit me)",
+        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\n\nmsg.topic = \"UPDATE Buildings SET BLOCKED = True WHERE (((Buildings.MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 480,
+        "wires": [
+            [
+                "a4ee5ad8874c8a5c"
+            ]
+        ]
+    },
+    {
+        "id": "a4ee5ad8874c8a5c",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 590,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5e15c6fe3666794",
+        "type": "comment",
+        "z": "c46bd56bf00dd36c",
+        "name": "Active building BLOCKED for testing",
+        "info": "",
+        "x": 160,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8fc41e58855b1918",
+        "type": "switch",
+        "z": "66af4b80919b8266",
+        "name": "Blocked Status",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1240,
+        "y": 380,
+        "wires": [
+            [
+                "385b11ca2d3efba5"
+            ],
+            [
+                "8d0c0060934c564e"
+            ]
+        ]
+    },
+    {
+        "id": "8d0c0060934c564e",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Set Fire Elegility to False",
+        "func": "//SQL to set Fire Elgibility to false\n\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE Buildings SET FIRE_ELIGIBLE = False WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1450,
+        "y": 440,
+        "wires": [
+            [
+                "0ed26f2f37e490dd"
+            ]
+        ]
+    },
+    {
+        "id": "0ed26f2f37e490dd",
+        "type": "sqlite",
+        "z": "66af4b80919b8266",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL5",
+        "x": 1630,
+        "y": 440,
+        "wires": [
+            [
+                "70acde872b2f9f3c"
+            ]
+        ]
+    },
+    {
+        "id": "385b11ca2d3efba5",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Fire Elegibility still TRUE",
+        "func": "\n\nvar nodeid = msg.building_name;\n\nmsg.debug = \"Building '\" + nodeid + \"' blocked status = FALSE\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1450,
+        "y": 360,
+        "wires": [
+            [
+                "7d8bdda0ae8b57b8",
+                "70acde872b2f9f3c"
+            ]
+        ]
+    },
+    {
+        "id": "7d8bdda0ae8b57b8",
+        "type": "debug",
+        "z": "66af4b80919b8266",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "70acde872b2f9f3c",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Retrieved Community Status",
+        "func": "//SQL to retrieve community status\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar buildingfirstletter = Array.from(nodeid)[0];\nvar community = \"unknown\"\n\nif (buildingfirstletter == 'R'){\n    msg.debug = \"Community = RIGHT\"\n    community = \"RIGHT\"\n}\n\nif (buildingfirstletter == 'L'){\n    msg.debug = \"Community = LEFT\"\n    community = \"LEFT\"\n}\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWINDOWS_ACTIVE FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.Community)='\" + community + \"'))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1840,
+        "y": 400,
+        "wires": [
+            [
+                "f6f894f634253a09",
+                "a3ec53662f59092f"
+            ]
+        ]
+    },
+    {
+        "id": "f6f894f634253a09",
+        "type": "debug",
+        "z": "66af4b80919b8266",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2070,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a3ec53662f59092f",
+        "type": "sqlite",
+        "z": "66af4b80919b8266",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL6",
+        "x": 2050,
+        "y": 420,
+        "wires": [
+            [
+                "7b8f6b8a58ca1708"
+            ]
+        ]
+    },
+    {
+        "id": "7b8f6b8a58ca1708",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Community active windows",
+        "func": "//retrieved blocked status\n\nvar activewindowsincommunity = msg.payload[0].SumOfWINDOWS_ACTIVE;\n\nmsg.debug = \"Active windows in community = \" + activewindowsincommunity + \" END PHASE\";\nmsg.payload = activewindowsincommunity;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 480,
+        "wires": [
+            [
+                "04430db2fc24a20a"
+            ]
+        ]
+    },
+    {
+        "id": "04430db2fc24a20a",
+        "type": "debug",
+        "z": "66af4b80919b8266",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2190,
+        "y": 480,
         "wires": []
     }
 ]
