@@ -42,16 +42,23 @@
         "info": ""
     },
     {
+        "id": "c46bd56bf00dd36c",
+        "type": "tab",
+        "label": "Hit Injects For Testing",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "5b48d63e525889af",
         "type": "tab",
-        "label": "BallFlow(test)",
+        "label": "BallFlow",
         "disabled": false,
         "info": ""
     },
     {
         "id": "e1a756fd8363adc2",
         "type": "tab",
-        "label": "LaserFlow(test)",
+        "label": "LaserFlow",
         "disabled": false,
         "info": ""
     },
@@ -4261,8 +4268,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
-        "y": 1580,
+        "x": 1410,
+        "y": 1780,
         "wires": [
             []
         ]
@@ -4332,7 +4339,9 @@
         "x": 970,
         "y": 1480,
         "wires": [
-            []
+            [
+                "77a83cc806cc1911"
+            ]
         ]
     },
     {
@@ -5910,74 +5919,6 @@
         ]
     },
     {
-        "id": "c2193eec083eacdb",
-        "type": "function",
-        "z": "5b48d63e525889af",
-        "name": "SQL - Building Sensor Type",
-        "func": "//SQL to select building sensor type (ball or laser)\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \")\";\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 100,
-        "wires": [
-            [
-                "a67694159f710341"
-            ]
-        ]
-    },
-    {
-        "id": "a67694159f710341",
-        "type": "sqlite",
-        "z": "5b48d63e525889af",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL",
-        "x": 590,
-        "y": 100,
-        "wires": [
-            [
-                "c2f038296e76b682"
-            ]
-        ]
-    },
-    {
-        "id": "6eac2fe7281c11f2",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Sensor Type",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Laser",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Ball",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 130,
-        "y": 180,
-        "wires": [
-            [
-                "11588512fe70d6b0"
-            ],
-            [
-                "ea7d0061413f925f"
-            ]
-        ]
-    },
-    {
         "id": "ea7d0061413f925f",
         "type": "function",
         "z": "5b48d63e525889af",
@@ -5988,48 +5929,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 220,
+        "x": 440,
+        "y": 40,
         "wires": [
             [
                 "a4553dd306cedcd0"
-            ]
-        ]
-    },
-    {
-        "id": "11588512fe70d6b0",
-        "type": "function",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "SQL - Laser - Active Windows Total (tbd)",
-        "func": "//Building is of type Laser\n//SQL tbd\n\nvar num_hits = msg.savedvalues.num_hits\nvar nodeid = msg.savedvalues.BUILDING_NAME;\nvar sideid = msg.savedvalues.side_id;\nmsg.payload = nodeid + \" is Laser\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c2f038296e76b682",
-        "type": "function",
-        "z": "5b48d63e525889af",
-        "name": "Retreive Sensor Type",
-        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 160,
-        "y": 140,
-        "wires": [
-            [
-                "6eac2fe7281c11f2"
             ]
         ]
     },
@@ -6041,8 +5945,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 110,
-        "y": 260,
+        "x": 250,
+        "y": 80,
         "wires": [
             [
                 "18d0398ffa53edda"
@@ -6060,70 +5964,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 200,
-        "y": 300,
+        "x": 340,
+        "y": 120,
         "wires": [
             [
                 "44a0094fdc96d8c2"
             ]
         ]
-    },
-    {
-        "id": "1641bb288999c860",
-        "type": "inject",
-        "z": "5b48d63e525889af",
-        "name": "Drop Ball",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 340,
-        "y": 60,
-        "wires": [
-            [
-                "7f0e8c768e7bd333"
-            ]
-        ]
-    },
-    {
-        "id": "7f0e8c768e7bd333",
-        "type": "function",
-        "z": "5b48d63e525889af",
-        "name": "Set Values (edit me to test)",
-        "func": "//edit this as needed for testing\n\nmsg.building_name = 'RBI';\nmsg.inc_hits = 31;\nmsg.side_id = 1;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 60,
-        "wires": [
-            [
-                "c2193eec083eacdb"
-            ]
-        ]
-    },
-    {
-        "id": "5045da469492c582",
-        "type": "comment",
-        "z": "5b48d63e525889af",
-        "name": "Inject for testing",
-        "info": "",
-        "x": 160,
-        "y": 60,
-        "wires": []
     },
     {
         "id": "44a0094fdc96d8c2",
@@ -6147,8 +5994,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 140,
-        "y": 340,
+        "x": 280,
+        "y": 160,
         "wires": [
             [
                 "e485da60de8ffdd0"
@@ -6163,17 +6010,18 @@
         "type": "function",
         "z": "5b48d63e525889af",
         "name": "SQL - Ball - activeWindows = 0",
-        "func": "//Number of active windows was already zero. Thus, for completeness,\n//we updated the number of hits to zero.\n//Since this is a ball building, we use side 1 as the default for hits\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1) AND ((MATCH_NUM)=\" + matchid + \"))\";\n\nreturn msg;",
+        "func": "//Number of active windows was already zero. Thus, for completeness,\n//we updated the number of hits to zero.\n//Since this is a ball building, we use side 1 as the default for hits\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1) AND ((MATCH_NUM)=\" + matchid + \"))\";\nmsg.payload = \"No active windows this building\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 340,
+        "x": 510,
+        "y": 160,
         "wires": [
             [
-                "5907f4cea55aae19"
+                "5907f4cea55aae19",
+                "e7ff83dbb5786658"
             ]
         ]
     },
@@ -6185,8 +6033,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL act 0",
-        "x": 580,
-        "y": 340,
+        "x": 720,
+        "y": 160,
         "wires": [
             []
         ]
@@ -6202,8 +6050,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 380,
+        "x": 510,
+        "y": 200,
         "wires": [
             [
                 "1f8bdb18d82341c7"
@@ -6218,8 +6066,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 570,
-        "y": 380,
+        "x": 710,
+        "y": 200,
         "wires": [
             [
                 "9fef1bf51bd82d93"
@@ -6237,8 +6085,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
-        "y": 420,
+        "x": 330,
+        "y": 240,
         "wires": [
             [
                 "2e2ff89264a068bf",
@@ -6259,8 +6107,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
-        "y": 420,
+        "x": 630,
+        "y": 240,
         "wires": []
     },
     {
@@ -6561,8 +6409,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 180,
-        "y": 460,
+        "x": 320,
+        "y": 280,
         "wires": [
             [
                 "367d82828fd6ff70"
@@ -6577,8 +6425,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL2",
-        "x": 390,
-        "y": 460,
+        "x": 530,
+        "y": 280,
         "wires": [
             [
                 "5b7196606532f662"
@@ -6596,8 +6444,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 180,
-        "y": 500,
+        "x": 320,
+        "y": 320,
         "wires": [
             [
                 "6e6a4b5ac69db804"
@@ -6612,8 +6460,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL4",
-        "x": 390,
-        "y": 500,
+        "x": 530,
+        "y": 320,
         "wires": [
             [
                 "feed706833b18dcb"
@@ -6631,8 +6479,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 460,
+        "x": 690,
+        "y": 280,
         "wires": [
             [
                 "f5c4d853da6c42c4"
@@ -6650,8 +6498,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 500,
+        "x": 690,
+        "y": 320,
         "wires": [
             [
                 "362cdf8487a4ec20"
@@ -6890,7 +6738,7 @@
         "finalize": "",
         "libs": [],
         "x": 1160,
-        "y": 60,
+        "y": 40,
         "wires": [
             [
                 "03e21eec806df10a"
@@ -6918,7 +6766,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 910,
-        "y": 60,
+        "y": 40,
         "wires": [
             [
                 "3bb438dae9469e89"
@@ -6934,93 +6782,7 @@
         "sql": "",
         "name": "SQL",
         "x": 1370,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e6d30826475b7b92",
-        "type": "function",
-        "z": "e1a756fd8363adc2",
-        "name": "SQL - Building Sensor Type",
-        "func": "//SQL to select building sensor type (ball or laser)\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \")\";\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 80,
-        "wires": [
-            [
-                "8e77061f625fb34c"
-            ]
-        ]
-    },
-    {
-        "id": "8e77061f625fb34c",
-        "type": "sqlite",
-        "z": "e1a756fd8363adc2",
-        "mydb": "6f6f2d0bf9d4b5e3",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "SQL",
-        "x": 590,
-        "y": 80,
-        "wires": [
-            [
-                "c5083e4288d2992d"
-            ]
-        ]
-    },
-    {
-        "id": "acefc24e1ecdaa15",
-        "type": "switch",
-        "z": "e1a756fd8363adc2",
-        "name": "Sensor Type",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Laser",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Ball",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 130,
-        "y": 160,
-        "wires": [
-            [
-                "b4883cec7d727b82"
-            ],
-            [
-                "cb924bba051807a0"
-            ]
-        ]
-    },
-    {
-        "id": "cb924bba051807a0",
-        "type": "function",
-        "z": "e1a756fd8363adc2",
-        "d": true,
-        "name": "SQL - Ball - Active Windows Total",
-        "func": "//Building is of type Ball\n//SQL statement to determine number of currently active windows\n//in this building\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 200,
+        "y": 40,
         "wires": [
             []
         ]
@@ -7036,8 +6798,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 160,
+        "x": 400,
+        "y": 40,
         "wires": [
             [
                 "4f5b0d4b352ef051"
@@ -7045,93 +6807,17 @@
         ]
     },
     {
-        "id": "c5083e4288d2992d",
-        "type": "function",
-        "z": "e1a756fd8363adc2",
-        "name": "Retreive Sensor Type",
-        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 160,
-        "y": 120,
-        "wires": [
-            [
-                "acefc24e1ecdaa15"
-            ]
-        ]
-    },
-    {
-        "id": "bc378d088b33a398",
-        "type": "inject",
-        "z": "e1a756fd8363adc2",
-        "name": "Laser Hit",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 340,
-        "y": 40,
-        "wires": [
-            [
-                "2c7e6e3885c23b37"
-            ]
-        ]
-    },
-    {
-        "id": "2c7e6e3885c23b37",
-        "type": "function",
-        "z": "e1a756fd8363adc2",
-        "name": "Set Values (edit me to test)",
-        "func": "//edit this as needed for testing\n\nmsg.building_name = 'RTO';\nmsg.inc_hits = 6;\nmsg.side_id = 2;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 40,
-        "wires": [
-            [
-                "e6d30826475b7b92"
-            ]
-        ]
-    },
-    {
-        "id": "39443efa26cd3081",
-        "type": "comment",
-        "z": "e1a756fd8363adc2",
-        "name": "Inject for testing",
-        "info": "",
-        "x": 160,
-        "y": 40,
-        "wires": []
-    },
-    {
         "id": "dbcef8b513540730",
         "type": "function",
         "z": "e1a756fd8363adc2",
         "name": "Increase ActiveWindows (edit me)",
-        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\nvar sideid = 1\nvar ActiveWindowsThisSide = 2\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid + \"))\";\n\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"LBO\"\nvar sideid = 4\nvar ActiveWindowsThisSide = 2\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid + \"))\";\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1160,
+        "x": 1280,
         "y": 40,
         "wires": [
             [
@@ -7159,7 +6845,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 910,
+        "x": 1030,
         "y": 40,
         "wires": [
             [
@@ -7175,7 +6861,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 1370,
+        "x": 1490,
         "y": 40,
         "wires": [
             []
@@ -7189,8 +6875,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 630,
-        "y": 160,
+        "x": 310,
+        "y": 80,
         "wires": [
             [
                 "15a2c8dd212691c2"
@@ -7208,8 +6894,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
-        "y": 160,
+        "x": 430,
+        "y": 120,
         "wires": [
             [
                 "9da197977bc771a0"
@@ -7238,7 +6924,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1140,
+        "x": 340,
         "y": 160,
         "wires": [
             [
@@ -7254,17 +6940,18 @@
         "type": "function",
         "z": "e1a756fd8363adc2",
         "name": "SQL - Laser - activeWindows = 0",
-        "func": "//Number of active windows was already zero FOR THIS SIDE. Thus, for completeness,\n//we updated the number of hits to zero FOR THIS SIDE.\n//Since this is a laser building, we use the side that was hit as provided via MQTT\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "func": "//Number of active windows was already zero FOR THIS SIDE. Thus, for completeness,\n//we updated the number of hits to zero FOR THIS SIDE.\n//Since this is a laser building, we use the side that was hit as provided via MQTT\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\nmsg.payload = \"No active windows on side \" + sideid;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
-        "y": 140,
+        "x": 580,
+        "y": 160,
         "wires": [
             [
-                "32c2b5c059f36a0a"
+                "32c2b5c059f36a0a",
+                "050fa4f644c7a9b9"
             ]
         ]
     },
@@ -7276,8 +6963,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL act 0",
-        "x": 1600,
-        "y": 140,
+        "x": 800,
+        "y": 160,
         "wires": [
             []
         ]
@@ -7293,8 +6980,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
-        "y": 180,
+        "x": 580,
+        "y": 200,
         "wires": [
             [
                 "5f2509c20a465828"
@@ -7309,8 +6996,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 1590,
-        "y": 180,
+        "x": 790,
+        "y": 200,
         "wires": [
             [
                 "7ae2217a9f645817"
@@ -7328,11 +7015,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1280,
+        "x": 460,
         "y": 240,
         "wires": [
             [
-                "3186aed41caae2d3"
+                "3186aed41caae2d3",
+                "2b842ffbe6a7f57d"
             ]
         ]
     },
@@ -7349,8 +7037,536 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1550,
+        "x": 750,
         "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e7ff83dbb5786658",
+        "type": "debug",
+        "z": "5b48d63e525889af",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "050fa4f644c7a9b9",
+        "type": "debug",
+        "z": "e1a756fd8363adc2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2b842ffbe6a7f57d",
+        "type": "function",
+        "z": "e1a756fd8363adc2",
+        "name": "SQL - Laser - update windows this side",
+        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindowsnow = msg.active_windows_now;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + activewindowsnow + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid +\"))\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "93ab7685c29c0ea9"
+            ]
+        ]
+    },
+    {
+        "id": "93ab7685c29c0ea9",
+        "type": "sqlite",
+        "z": "e1a756fd8363adc2",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 670,
+        "y": 280,
+        "wires": [
+            [
+                "926d37cb9295938e"
+            ]
+        ]
+    },
+    {
+        "id": "926d37cb9295938e",
+        "type": "function",
+        "z": "e1a756fd8363adc2",
+        "name": "SQL - Laser - update num hits",
+        "func": "//SQL to write updated carryover hits to database\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar updnumhits = msg.updated_num_hits\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = \" + updnumhits + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "11d669e5a2a8a656"
+            ]
+        ]
+    },
+    {
+        "id": "11d669e5a2a8a656",
+        "type": "sqlite",
+        "z": "e1a756fd8363adc2",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 670,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba76e8252f59be76",
+        "type": "link in",
+        "z": "e1a756fd8363adc2",
+        "name": "Laser Flow In",
+        "links": [
+            "2f7511a670bcd2d4",
+            "f9a71de89c31f5e6",
+            "5598e9bedb216108"
+        ],
+        "x": 215,
+        "y": 40,
+        "wires": [
+            [
+                "b4883cec7d727b82"
+            ]
+        ]
+    },
+    {
+        "id": "01954de24ad5a0da",
+        "type": "link in",
+        "z": "5b48d63e525889af",
+        "name": "Ball Flow In",
+        "links": [
+            "c3ed8bf2158185be",
+            "ca207569b8ffecb7"
+        ],
+        "x": 215,
+        "y": 40,
+        "wires": [
+            [
+                "ea7d0061413f925f"
+            ]
+        ]
+    },
+    {
+        "id": "77a83cc806cc1911",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - What building is Laser?",
+        "func": "//Start of match SQL to determine which active building is Laser\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE (((Buildings.SENSOR_TYPE)='Laser') AND ((Buildings.BURNING_STATUS)=True))\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1290,
+        "y": 1540,
+        "wires": [
+            [
+                "31fbf44c69967dc6"
+            ]
+        ]
+    },
+    {
+        "id": "31fbf44c69967dc6",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1490,
+        "y": 1540,
+        "wires": [
+            [
+                "9d5a3a60e2f7a702"
+            ]
+        ]
+    },
+    {
+        "id": "9d5a3a60e2f7a702",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Retreive Laser Building",
+        "func": "//SQLite results; laser building\n\nvar laserbuilding = msg.payload[0].BUILDING_NAME;\nmsg.laser_building = laserbuilding\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1670,
+        "y": 1540,
+        "wires": [
+            [
+                "3906a1f3b5aae88b"
+            ]
+        ]
+    },
+    {
+        "id": "3906a1f3b5aae88b",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "SQL - What building is Ball?",
+        "func": "//Start of match SQL to determine which active building is Ball\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE (((Buildings.SENSOR_TYPE)='Ball') AND ((Buildings.BURNING_STATUS)=True))\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 1580,
+        "wires": [
+            [
+                "886f1bf59dfd0f7e"
+            ]
+        ]
+    },
+    {
+        "id": "886f1bf59dfd0f7e",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1490,
+        "y": 1580,
+        "wires": [
+            [
+                "2e54183334f1fc80"
+            ]
+        ]
+    },
+    {
+        "id": "2e54183334f1fc80",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Retreive Ball Building",
+        "func": "//SQLite results; ball building\n\nvar ballbuilding = msg.payload[0].BUILDING_NAME;\nmsg.ball_building = ballbuilding\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 1580,
+        "wires": [
+            [
+                "6cf089b32235b868"
+            ]
+        ]
+    },
+    {
+        "id": "6cf089b32235b868",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "name": "Starting Buildings",
+        "func": "\nmsg.payload = \"Laser: \" + msg.laser_building + \"   Ball: \" + msg.ball_building;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 1620,
+        "wires": [
+            [
+                "57063f0af227550c"
+            ]
+        ]
+    },
+    {
+        "id": "57063f0af227550c",
+        "type": "debug",
+        "z": "f74b301e4f22310f",
+        "name": "Starting Buildings",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1450,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "3657f15f91c08259",
+        "type": "comment",
+        "z": "c46bd56bf00dd36c",
+        "name": "Inject for testing",
+        "info": "//All incoming MQTTs should have these three data\n\nbuilding_name\n//the building name, nodeid, or whatever we are calling it\n\nside_id\n//the side of the hit.\n//MQTT wise, for Ball the message should push as 1 by default. For Laser the message should push the specific value\n\ninc_hits\n//total sum of batched hits (ball or laser)",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "58f91e5a06b49681",
+        "type": "inject",
+        "z": "c46bd56bf00dd36c",
+        "name": "Hit Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "d95bc0be08b649e4"
+            ]
+        ]
+    },
+    {
+        "id": "d95bc0be08b649e4",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Set Values (edit to test)",
+        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'LBO';\nmsg.side_id = 3;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 80,
+        "wires": [
+            [
+                "a39cc0a1489b6dd0"
+            ]
+        ]
+    },
+    {
+        "id": "a39cc0a1489b6dd0",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "SQL - Building Sensor Type",
+        "func": "//SQL to select building sensor type (ball or laser)\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT BUILDINGS.SENSOR_TYPE FROM BUILDINGS WHERE ((BUILDINGS.BUILDING_NAME)='\" + nodeid + \"') AND ((Buildings.MATCH_NUM)=\" + matchid + \")\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "cc88980df5b50e81"
+            ]
+        ]
+    },
+    {
+        "id": "cc88980df5b50e81",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "98c60bf4f503a36e"
+            ]
+        ]
+    },
+    {
+        "id": "98c60bf4f503a36e",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Retreive Sensor Type",
+        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "870e04fa144c4f6c"
+            ]
+        ]
+    },
+    {
+        "id": "870e04fa144c4f6c",
+        "type": "switch",
+        "z": "c46bd56bf00dd36c",
+        "name": "Sensor Type",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Laser",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Ball",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "5598e9bedb216108"
+            ],
+            [
+                "ca207569b8ffecb7"
+            ]
+        ]
+    },
+    {
+        "id": "5598e9bedb216108",
+        "type": "link out",
+        "z": "c46bd56bf00dd36c",
+        "name": "Lazer Flow Out",
+        "links": [
+            "ba76e8252f59be76"
+        ],
+        "x": 495,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ca207569b8ffecb7",
+        "type": "link out",
+        "z": "c46bd56bf00dd36c",
+        "name": "Ball Flow Out",
+        "links": [
+            "01954de24ad5a0da"
+        ],
+        "x": 495,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "39e74dd8054364ef",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": "Dom added for convenience",
+        "info": "Added this flow for testing convenience to provide start-of-match active building names",
+        "x": 1280,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "d83a5043f1f82c75",
+        "type": "inject",
+        "z": "c46bd56bf00dd36c",
+        "name": "Increase Windows",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "56b66c00e99f38c3"
+            ]
+        ]
+    },
+    {
+        "id": "56b66c00e99f38c3",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Increase ActiveWindows (edit me)",
+        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\nvar sideid = 1\nvar ActiveWindowsThisSide = 2\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid + \"))\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 360,
+        "wires": [
+            [
+                "54d5da1e44335e4d"
+            ]
+        ]
+    },
+    {
+        "id": "54d5da1e44335e4d",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 590,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d58044e6edc0422",
+        "type": "comment",
+        "z": "c46bd56bf00dd36c",
+        "name": "Active Window Increase for testing",
+        "info": "",
+        "x": 160,
+        "y": 320,
         "wires": []
     }
 ]
