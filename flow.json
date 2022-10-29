@@ -136,12 +136,16 @@
             "da33cf2e422fe969",
             "977940dbb24cd0d3",
             "5d504534615be681",
-            "7faa48872118547a"
+            "7faa48872118547a",
+            "25b25582dbcb2144",
+            "84c72e5e7a50791b",
+            "c37b3d3b6e56e19a",
+            "2481a3e18ec02d52"
         ],
         "x": 54,
-        "y": 1759,
+        "y": 1079,
         "w": 1132,
-        "h": 982
+        "h": 1122
     },
     {
         "id": "876d6d7684ab551a",
@@ -181,12 +185,15 @@
             "d026e7298107e8b5",
             "9827bb283a8e319e",
             "8c5e3572a53fc2f1",
-            "04c4f4f285f0deb1"
+            "04c4f4f285f0deb1",
+            "0151b281f9b86223",
+            "986017af6fcb9593",
+            "2fe33fb8bb9a740c"
         ],
-        "x": 114,
-        "y": 1039,
+        "x": 1314,
+        "y": 1139,
         "w": 1002,
-        "h": 662
+        "h": 762
     },
     {
         "id": "b761ec70a9ef3fae",
@@ -294,7 +301,9 @@
             "1c7894266bb4be36"
         ],
         "x": 74,
-        "y": 39
+        "y": 39,
+        "w": 1502,
+        "h": 262
     },
     {
         "id": "c5248dc36aacb922",
@@ -350,7 +359,9 @@
             "b4c6561b559a3ff5"
         ],
         "x": 74,
-        "y": 379
+        "y": 379,
+        "w": 1592,
+        "h": 1062
     },
     {
         "id": "418e8e7e5f859cb1",
@@ -377,7 +388,9 @@
             "69cd02e02585755b"
         ],
         "x": 1734,
-        "y": 439
+        "y": 439,
+        "w": 832,
+        "h": 222
     },
     {
         "id": "4bbf2c1d342827b1",
@@ -408,7 +421,9 @@
             "98b12c1e303486f3"
         ],
         "x": 54,
-        "y": 79
+        "y": 79,
+        "w": 1172,
+        "h": 282
     },
     {
         "id": "0832a839154f65ab",
@@ -438,7 +453,9 @@
             "370c0cbf29d05ab1"
         ],
         "x": 54,
-        "y": 419
+        "y": 419,
+        "w": 1412,
+        "h": 522
     },
     {
         "id": "59950207257cb065",
@@ -484,7 +501,9 @@
             "7684f0009e5ef352"
         ],
         "x": 34,
-        "y": 39
+        "y": 39,
+        "w": 1042,
+        "h": 862
     },
     {
         "id": "229d7911730c710f",
@@ -546,7 +565,9 @@
             "396bd91435c9a4fe"
         ],
         "x": 1134,
-        "y": 39
+        "y": 39,
+        "w": 1572,
+        "h": 922
     },
     {
         "id": "44c6bd61d9aa5d1d",
@@ -566,7 +587,9 @@
             "de154b3cccf614e0"
         ],
         "x": 48,
-        "y": 1013
+        "y": 1013,
+        "w": 1514,
+        "h": 1334
     },
     {
         "id": "208849015b030c99",
@@ -591,7 +614,9 @@
             "cc89dbf72d1f6006"
         ],
         "x": 74,
-        "y": 19
+        "y": 19,
+        "w": 1082,
+        "h": 142
     },
     {
         "id": "31e8c747379a1719",
@@ -617,7 +642,9 @@
             "3719854fdfed232d"
         ],
         "x": 74,
-        "y": 199
+        "y": 199,
+        "w": 542,
+        "h": 242
     },
     {
         "id": "82485a2c45a42ec4",
@@ -647,7 +674,9 @@
             "5690d1607d8fc9da"
         ],
         "x": 74,
-        "y": 479
+        "y": 479,
+        "w": 1952,
+        "h": 262
     },
     {
         "id": "dec7910ea27af2d0",
@@ -679,7 +708,9 @@
             "09b68daef587970a"
         ],
         "x": 74,
-        "y": 779
+        "y": 779,
+        "w": 1832,
+        "h": 322
     },
     {
         "id": "152a8cb72061205a",
@@ -705,7 +736,9 @@
             "d88db86de710b8e9"
         ],
         "x": 34,
-        "y": 59
+        "y": 59,
+        "w": 942,
+        "h": 162
     },
     {
         "id": "2008d605d368ad7e",
@@ -731,7 +764,9 @@
             "221e289248744137"
         ],
         "x": 34,
-        "y": 239
+        "y": 239,
+        "w": 942,
+        "h": 162
     },
     {
         "id": "37232e2e92b5faa6",
@@ -757,7 +792,9 @@
             "2f1658364fc5719b"
         ],
         "x": 34,
-        "y": 419
+        "y": 419,
+        "w": 942,
+        "h": 162
     },
     {
         "id": "d9c57fb2a381a320",
@@ -780,7 +817,9 @@
             "4244695d7f15d3fd"
         ],
         "x": 34,
-        "y": 599
+        "y": 599,
+        "w": 932,
+        "h": 142
     },
     {
         "id": "738e4f614ef8a7a5",
@@ -804,7 +843,9 @@
             "72bcba239803d115"
         ],
         "x": 34,
-        "y": 779
+        "y": 779,
+        "w": 972,
+        "h": 142
     },
     {
         "id": "e56885edbfad9853",
@@ -829,7 +870,9 @@
             "50a7d4620d30956a"
         ],
         "x": 34,
-        "y": 939
+        "y": 939,
+        "w": 1052,
+        "h": 142
     },
     {
         "id": "c4beeef48c6dcf84",
@@ -868,7 +911,9 @@
             "39e74dd8054364ef"
         ],
         "x": 1304,
-        "y": 39
+        "y": 39,
+        "w": 1792,
+        "h": 562
     },
     {
         "id": "650381ccef7c28a3",
@@ -899,7 +944,9 @@
             "abf14147cd05c8bd"
         ],
         "x": 34,
-        "y": 1139
+        "y": 1139,
+        "w": 972,
+        "h": 542
     },
     {
         "id": "c9a02ca8caf3cfb8",
@@ -926,7 +973,9 @@
             "ca207569b8ffecb7"
         ],
         "x": 54,
-        "y": 39
+        "y": 39,
+        "w": 592,
+        "h": 222
     },
     {
         "id": "fd36eb12b8432134",
@@ -950,7 +999,9 @@
             "5d2ad7baf266e2f2"
         ],
         "x": 54,
-        "y": 279
+        "y": 279,
+        "w": 912,
+        "h": 202
     },
     {
         "id": "8e3af1c96b869979",
@@ -972,7 +1023,9 @@
             "a4ee5ad8874c8a5c"
         ],
         "x": 54,
-        "y": 499
+        "y": 499,
+        "w": 712,
+        "h": 122
     },
     {
         "id": "1bd0079dd85b8647",
@@ -995,7 +1048,9 @@
             "4ead786be8e28f0e"
         ],
         "x": 54,
-        "y": 659
+        "y": 659,
+        "w": 772,
+        "h": 182
     },
     {
         "id": "aa1431e66ec37b16",
@@ -1019,7 +1074,9 @@
             "bb20e976f6f77ed1"
         ],
         "x": 34,
-        "y": 839
+        "y": 839,
+        "w": 1172,
+        "h": 162
     },
     {
         "id": "f630143dd6413aac",
@@ -1044,7 +1101,9 @@
             "f6566f17a1e9b78e"
         ],
         "x": 34,
-        "y": 479
+        "y": 479,
+        "w": 912,
+        "h": 242
     },
     {
         "id": "f69756401f15d7b4",
@@ -1072,7 +1131,9 @@
             "85525cb2f906b575"
         ],
         "x": 34,
-        "y": 39
+        "y": 39,
+        "w": 1472,
+        "h": 262
     },
     {
         "id": "a83bb00d46efe804",
@@ -1104,7 +1165,9 @@
             "ad34ea44766153db"
         ],
         "x": 134,
-        "y": 659
+        "y": 659,
+        "w": 1272,
+        "h": 402
     },
     {
         "id": "e63633ec18181ba7",
@@ -1133,7 +1196,9 @@
             "c79cb601a8c0ab17"
         ],
         "x": 134,
-        "y": 1099
+        "y": 1099,
+        "w": 952,
+        "h": 342
     },
     {
         "id": "bc92f0b2168e67b1",
@@ -1155,7 +1220,9 @@
             "cd811a5da6dea1c9"
         ],
         "x": 1174,
-        "y": 1079
+        "y": 1079,
+        "w": 512,
+        "h": 122
     },
     {
         "id": "2024311963b7a70e",
@@ -1176,7 +1243,9 @@
             "b70ae83c222fa7da"
         ],
         "x": 1174,
-        "y": 1299
+        "y": 1299,
+        "w": 482,
+        "h": 122
     },
     {
         "id": "7ceda8dc6f5a8d60",
@@ -1198,7 +1267,9 @@
             "ccf03d13258bb4e3"
         ],
         "x": 134,
-        "y": 1499
+        "y": 1499,
+        "w": 792,
+        "h": 142
     },
     {
         "id": "96cafb8e88dad064",
@@ -1220,7 +1291,9 @@
             "c74fb766b19e2bf1"
         ],
         "x": 134,
-        "y": 1679
+        "y": 1679,
+        "w": 832,
+        "h": 142
     },
     {
         "id": "96faa29525ade8f0",
@@ -1254,7 +1327,9 @@
             "da8da29f2b800fa5"
         ],
         "x": 134,
-        "y": 59
+        "y": 59,
+        "w": 672,
+        "h": 542
     },
     {
         "id": "cc0e458f8d09ebf0",
@@ -1288,7 +1363,9 @@
             "a58539412bbfe6b2"
         ],
         "x": 74,
-        "y": 1039
+        "y": 1039,
+        "w": 1462,
+        "h": 662
     },
     {
         "id": "de154b3cccf614e0",
@@ -1319,7 +1396,9 @@
             "b057c4c81f9a5137"
         ],
         "x": 74,
-        "y": 1739
+        "y": 1739,
+        "w": 1012,
+        "h": 582
     },
     {
         "id": "5999f1d09afe1039",
@@ -1537,6 +1616,17 @@
         "order": 1,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "5d736b3773c1b6c1",
+        "type": "ui_group",
+        "name": "Scoring",
+        "tab": "eb575f243f1f5772",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "bcef7098b2bcab87",
@@ -3267,6 +3357,7 @@
         "id": "6cddfd33ec05b6b7",
         "type": "mqtt in",
         "z": "6f07332b8253050a",
+        "d": true,
         "g": "de154b3cccf614e0",
         "name": "edgenode/laserhit/#",
         "topic": "edgenode/laserhit/#",
@@ -3354,6 +3445,7 @@
         "id": "c371b220cd83bc24",
         "type": "mqtt in",
         "z": "6f07332b8253050a",
+        "d": true,
         "g": "de154b3cccf614e0",
         "name": "edgenode/balldrop/#",
         "topic": "edgenode/balldrop/#",
@@ -3392,6 +3484,7 @@
         "id": "a24bdb4ce4be3d99",
         "type": "mqtt in",
         "z": "6f07332b8253050a",
+        "d": true,
         "g": "de154b3cccf614e0",
         "name": "edgenode/troughbags/#",
         "topic": "edgenode/troughbags/#",
@@ -3428,6 +3521,7 @@
         "id": "67088a3f2dedd67b",
         "type": "mqtt in",
         "z": "6f07332b8253050a",
+        "d": true,
         "g": "de154b3cccf614e0",
         "name": "edgenode/latesttare/#",
         "topic": "edgenode/latesttare/#",
@@ -7750,7 +7844,7 @@
         "z": "c46bd56bf00dd36c",
         "g": "c9a02ca8caf3cfb8",
         "name": "Set Values (edit to test)",
-        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'RBI';\nmsg.side_id = 1;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'RTO';\nmsg.side_id = 1;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8167,7 +8261,8 @@
         "y": 80,
         "wires": [
             [
-                "a4553dd306cedcd0"
+                "a4553dd306cedcd0",
+                "3a84fbfb28f88958"
             ]
         ]
     },
@@ -8989,13 +9084,15 @@
         "links": [
             "c3ed8bf2158185be",
             "ca207569b8ffecb7",
-            "928b2b1d022b2425"
+            "928b2b1d022b2425",
+            "0151b281f9b86223"
         ],
         "x": 215,
         "y": 80,
         "wires": [
             [
-                "ea7d0061413f925f"
+                "ea7d0061413f925f",
+                "fa8b01c9b08b3910"
             ]
         ]
     },
@@ -9031,6 +9128,104 @@
         ],
         "x": 795,
         "y": 200,
+        "wires": []
+    },
+    {
+        "id": "3a84fbfb28f88958",
+        "type": "debug",
+        "z": "5b48d63e525889af",
+        "name": "debug 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fa8b01c9b08b3910",
+        "type": "debug",
+        "z": "5b48d63e525889af",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "91f99770496518e8",
+        "type": "ui_form",
+        "z": "5b48d63e525889af",
+        "name": "",
+        "label": "Manual Send 4 Hits to Bldg",
+        "group": "5ff2841845e80e0c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "(e.g. \"LTO\")",
+                "value": "BUILDING_NAME",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "BUILDING_NAME": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "795cabc05eeb25ca"
+            ]
+        ]
+    },
+    {
+        "id": "795cabc05eeb25ca",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "function 1",
+        "func": "var input = msg.payload;\nvar theBldg = input.BUILDING_NAME;\n\nmsg[\"building_name\"] = theBldg;\nnode.warn(theBldg);\nnode.warn(msg);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 480,
+        "wires": [
+            [
+                "ea7d0061413f925f"
+            ]
+        ]
+    },
+    {
+        "id": "4dc2ac32bf292919",
+        "type": "comment",
+        "z": "5b48d63e525889af",
+        "name": "PAUSING HERE \\n MY FORM INPUT ISNT WORKING \\n BUT THE MANUAL INJECT STILL WORKS",
+        "info": "",
+        "x": 650,
+        "y": 480,
         "wires": []
     },
     {
@@ -9933,7 +10128,7 @@
         "setTimeToNewWhileRunning": true,
         "startCountdownOnControlMessage": false,
         "x": 290,
-        "y": 1900,
+        "y": 1220,
         "wires": [
             [],
             [
@@ -9954,7 +10149,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1900,
+        "y": 1220,
         "wires": [
             [
                 "db6a188325dcd4b5"
@@ -9976,7 +10171,7 @@
         "layout": "col-center",
         "className": "",
         "x": 940,
-        "y": 1900,
+        "y": 1220,
         "wires": []
     },
     {
@@ -9987,7 +10182,7 @@
         "name": "Build \"Match Info\" Dashboard",
         "info": "",
         "x": 200,
-        "y": 1800,
+        "y": 1120,
         "wires": []
     },
     {
@@ -9998,7 +10193,7 @@
         "name": "Timer",
         "info": "",
         "x": 170,
-        "y": 1860,
+        "y": 1180,
         "wires": []
     },
     {
@@ -10016,7 +10211,7 @@
         "layout": "row-center",
         "className": "",
         "x": 520,
-        "y": 2180,
+        "y": 1500,
         "wires": []
     },
     {
@@ -10041,7 +10236,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 240,
-        "y": 2100,
+        "y": 1420,
         "wires": [
             [
                 "acc02b92d4d8c13e",
@@ -10060,7 +10255,7 @@
             "d36ef2fad2d08d5f"
         ],
         "x": 475,
-        "y": 2120,
+        "y": 1440,
         "wires": []
     },
     {
@@ -10075,7 +10270,7 @@
             "8f95daa740229529"
         ],
         "x": 915,
-        "y": 2060,
+        "y": 1380,
         "wires": []
     },
     {
@@ -10097,7 +10292,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 480,
-        "y": 2080,
+        "y": 1400,
         "wires": [
             [
                 "ab6b0ced1764bbe7"
@@ -10125,7 +10320,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 2100,
+        "y": 1420,
         "wires": [
             [
                 "c8663193fd1a2a4c",
@@ -10155,7 +10350,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 2260,
+        "y": 1580,
         "wires": [
             []
         ]
@@ -10168,7 +10363,7 @@
         "name": "Match Controls",
         "info": "",
         "x": 200,
-        "y": 2040,
+        "y": 1360,
         "wires": []
     },
     {
@@ -10182,7 +10377,7 @@
             "d92cebfab339228d"
         ],
         "x": 915,
-        "y": 2100,
+        "y": 1420,
         "wires": []
     },
     {
@@ -10196,7 +10391,7 @@
             "df0c2380cde11191"
         ],
         "x": 175,
-        "y": 1900,
+        "y": 1220,
         "wires": [
             [
                 "8dd58815c2e5e6ed"
@@ -10211,7 +10406,7 @@
         "name": "Global 15s Timer",
         "info": "",
         "x": 1020,
-        "y": 2060,
+        "y": 1380,
         "wires": []
     },
     {
@@ -10222,7 +10417,7 @@
         "name": "Match Countdown Timer",
         "info": "",
         "x": 1050,
-        "y": 2100,
+        "y": 1420,
         "wires": []
     },
     {
@@ -10246,7 +10441,7 @@
         "to": "",
         "reg": false,
         "x": 340,
-        "y": 2180,
+        "y": 1500,
         "wires": [
             [
                 "b887e05d8e16f98a"
@@ -10264,7 +10459,7 @@
             "4a0f846d052b27a1"
         ],
         "x": 915,
-        "y": 2140,
+        "y": 1460,
         "wires": []
     },
     {
@@ -10277,7 +10472,7 @@
             "ee09a1869c62b35f"
         ],
         "x": 185,
-        "y": 2180,
+        "y": 1500,
         "wires": [
             [
                 "490f0337c9b5fdde"
@@ -10292,7 +10487,7 @@
         "name": "Match Num Display",
         "info": "",
         "x": 1030,
-        "y": 2140,
+        "y": 1460,
         "wires": []
     },
     {
@@ -10317,7 +10512,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 230,
-        "y": 2260,
+        "y": 1580,
         "wires": [
             [
                 "3b62b6b510d4e006"
@@ -10336,7 +10531,7 @@
             "e6f7df6891d456f8"
         ],
         "x": 415,
-        "y": 1900,
+        "y": 1220,
         "wires": []
     },
     {
@@ -10349,7 +10544,7 @@
             "2d8175ca745dc0c0"
         ],
         "x": 535,
-        "y": 1900,
+        "y": 1220,
         "wires": [
             [
                 "59f5d060d5848730"
@@ -10364,7 +10559,7 @@
         "name": "== NEED SOMETHING HERE TO PAUSE TIMER ===",
         "info": "",
         "x": 840,
-        "y": 2260,
+        "y": 1580,
         "wires": []
     },
     {
@@ -10375,7 +10570,7 @@
         "name": "=====",
         "info": "",
         "x": 150,
-        "y": 2700,
+        "y": 2160,
         "wires": []
     },
     {
@@ -10386,7 +10581,7 @@
         "name": "Scoring Displays",
         "info": "",
         "x": 200,
-        "y": 2360,
+        "y": 1680,
         "wires": []
     },
     {
@@ -10397,7 +10592,7 @@
         "name": "Tie to the existing window update timing - that way any changes happen in sync",
         "info": "",
         "x": 440,
-        "y": 2400,
+        "y": 1720,
         "wires": []
     },
     {
@@ -10410,7 +10605,7 @@
             "657f37cb57ddaa95"
         ],
         "x": 175,
-        "y": 2440,
+        "y": 1760,
         "wires": [
             []
         ]
@@ -10428,7 +10623,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 2440,
+        "y": 1760,
         "wires": [
             [
                 "a31a48fc659094dc"
@@ -10445,7 +10640,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 730,
-        "y": 2440,
+        "y": 1760,
         "wires": [
             [
                 "977940dbb24cd0d3"
@@ -10475,7 +10670,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 250,
-        "y": 2500,
+        "y": 1820,
         "wires": [
             [
                 "dd3ee7af1c1be3f9"
@@ -10495,7 +10690,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 2500,
+        "y": 1820,
         "wires": [
             []
         ]
@@ -10514,7 +10709,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 920,
-        "y": 2500,
+        "y": 1820,
         "wires": []
     },
     {
@@ -10530,7 +10725,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 2620,
+        "y": 1940,
         "wires": [
             []
         ]
@@ -10543,7 +10738,7 @@
         "name": "THIS _WILL_ WORK - INITIALIZER FCS CODE IS WHAT IS WRONG, CHECK THAT NEXT ",
         "info": "",
         "x": 640,
-        "y": 2460,
+        "y": 1780,
         "wires": []
     },
     {
@@ -10558,8 +10753,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1160,
+        "x": 1870,
+        "y": 1260,
         "wires": [
             [
                 "238491dc517ad107"
@@ -10587,8 +10782,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 270,
-        "y": 1140,
+        "x": 1470,
+        "y": 1240,
         "wires": [
             [
                 "cefe09f15191636e",
@@ -10608,8 +10803,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 1120,
+        "x": 1820,
+        "y": 1220,
         "wires": [
             [
                 "4b3225e374299121"
@@ -10623,8 +10818,8 @@
         "g": "876d6d7684ab551a",
         "name": "Manual Overrides",
         "info": "",
-        "x": 230,
-        "y": 1080,
+        "x": 1430,
+        "y": 1180,
         "wires": []
     },
     {
@@ -10636,8 +10831,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 950,
-        "y": 1120,
+        "x": 2150,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -10651,8 +10846,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 950,
-        "y": 1160,
+        "x": 2150,
+        "y": 1260,
         "wires": [
             [
                 "e3e43826d5609708"
@@ -10689,8 +10884,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 280,
-        "y": 1300,
+        "x": 1480,
+        "y": 1400,
         "wires": [
             [
                 "5f1b71b4e2a46e94",
@@ -10710,8 +10905,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 1280,
+        "x": 1820,
+        "y": 1380,
         "wires": [
             [
                 "f029d33d5a01430b"
@@ -10730,8 +10925,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1320,
+        "x": 1870,
+        "y": 1420,
         "wires": [
             [
                 "7e5bdfbfdb4b0b19"
@@ -10747,8 +10942,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 950,
-        "y": 1280,
+        "x": 2150,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -10762,8 +10957,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 950,
-        "y": 1320,
+        "x": 2150,
+        "y": 1420,
         "wires": [
             [
                 "59745bda3e910197"
@@ -10782,8 +10977,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 1420,
+        "x": 1820,
+        "y": 1520,
         "wires": [
             [
                 "312e300ef0c3ebfc"
@@ -10802,8 +10997,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1460,
+        "x": 1870,
+        "y": 1560,
         "wires": [
             [
                 "232f875101b89298"
@@ -10819,8 +11014,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 950,
-        "y": 1420,
+        "x": 2150,
+        "y": 1520,
         "wires": [
             []
         ]
@@ -10834,8 +11029,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 950,
-        "y": 1460,
+        "x": 2150,
+        "y": 1560,
         "wires": [
             [
                 "b505ddef8a8d5b22"
@@ -10863,8 +11058,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 310,
-        "y": 1440,
+        "x": 1510,
+        "y": 1540,
         "wires": [
             [
                 "087ea15ff4df1c45",
@@ -10893,8 +11088,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 290,
-        "y": 1580,
+        "x": 1490,
+        "y": 1680,
         "wires": [
             [
                 "5884816cd47f36fa"
@@ -10911,8 +11106,8 @@
         "links": [
             "6be1279db19ab616"
         ],
-        "x": 535,
-        "y": 1580,
+        "x": 1735,
+        "y": 1680,
         "wires": []
     },
     {
@@ -10925,8 +11120,8 @@
         "links": [
             "6be1279db19ab616"
         ],
-        "x": 1075,
-        "y": 1160,
+        "x": 2275,
+        "y": 1260,
         "wires": []
     },
     {
@@ -10939,8 +11134,8 @@
         "links": [
             "6be1279db19ab616"
         ],
-        "x": 1075,
-        "y": 1320,
+        "x": 2275,
+        "y": 1420,
         "wires": []
     },
     {
@@ -10953,8 +11148,8 @@
         "links": [
             "6be1279db19ab616"
         ],
-        "x": 1075,
-        "y": 1460,
+        "x": 2275,
+        "y": 1560,
         "wires": []
     },
     {
@@ -10978,8 +11173,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 270,
-        "y": 1640,
+        "x": 1470,
+        "y": 1740,
         "wires": [
             [
                 "9827bb283a8e319e",
@@ -10998,8 +11193,8 @@
             "4b3144091dcaa8ef",
             "35f9efa88ad160c8"
         ],
-        "x": 455,
-        "y": 1640,
+        "x": 1655,
+        "y": 1740,
         "wires": []
     },
     {
@@ -11020,8 +11215,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 550,
-        "y": 1660,
+        "x": 1750,
+        "y": 1760,
         "wires": [
             [
                 "04c4f4f285f0deb1"
@@ -11038,8 +11233,8 @@
         "links": [
             "6be1279db19ab616"
         ],
-        "x": 665,
-        "y": 1660,
+        "x": 1865,
+        "y": 1760,
         "wires": []
     },
     {
@@ -11185,7 +11380,7 @@
         "z": "221fa9b81205c952",
         "g": "b761ec70a9ef3fae",
         "name": "Convert SQL ActiveWindows to Progress Bar #'s",
-        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0]:\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n    \n -- So, we just need to convert those values into the appropriate table\n    row / column / progress bar %'s \n\n -- Output is JSON that contains the new table updates.  E.g.: \n    [\n        {\n            \"BuildingName\": \"LTO\",\n            \"Side1\":0,\n            \"Side2\":50,\n            \"Side3\":100,\n            \"Side4\":0\n        }\n    ]\n*/\n\n// set up basic variablfes\nvar input = msg.payload;\nvar output = {};\nvar curBldg = input[0].BUILDING_NAME; // it will be the same for all values\n\noutput[\"BUILDING_NAME\"] = curBldg;\n\n// Loop through the object\nfor (let i in input) {\n    var sidestring = \"Side\" + (input[i][\"BUILDING_SIDE\"]);\n    output[sidestring] = 50 * input[i][\"WINDOWS_ACTIVE\"];\n}\n\n// fin\n// Use node-red-ui-table table command\nmsg.payload = {\n    command: \"updateOrAddData\",\n    arguments: [\n        [\n            output\n        ],\n        true\n    ],\n    returnPromise: true\n}\nreturn msg;",
+        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0]:\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n    \n -- So, we just need to convert those values into the appropriate table\n    row / column / progress bar %'s \n\n -- Output is JSON that contains the new table updates.  E.g.: \n    [\n        {\n            \"BuildingName\": \"LTO\",\n            \"Side1\":0,\n            \"Side2\":50,\n            \"Side3\":100,\n            \"Side4\":0,\n        }\n    ]\n*/\n\n// set up basic variablfes\nvar input = msg.payload;\nvar output = {};\nvar curBldg = input[0].BUILDING_NAME; // it will be the same for all values\n\noutput[\"BUILDING_NAME\"] = curBldg;\n\n// Loop through the object\nfor (let i in input) {\n    var sidestring = \"Side\" + (input[i][\"BUILDING_SIDE\"]);\n    output[sidestring] = 50 * input[i][\"WINDOWS_ACTIVE\"];\n}\n\n// fin\n// Use node-red-ui-table table command\nmsg.payload = {\n    command: \"updateOrAddData\",\n    arguments: [\n        [\n            output\n        ],\n        true\n    ],\n    returnPromise: true\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11524,6 +11719,7 @@
         "id": "d11da172d0a3d14e",
         "type": "sqlite",
         "z": "221fa9b81205c952",
+        "d": true,
         "g": "b761ec70a9ef3fae",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
@@ -11541,6 +11737,7 @@
         "id": "1d23ea346df62408",
         "type": "function",
         "z": "221fa9b81205c952",
+        "d": true,
         "g": "b761ec70a9ef3fae",
         "name": "Build SQL Stmt to Get Scores for Bldg",
         "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar bldg = msg.payload; //from loop\n\n// build SQL statement\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME, FS, FCS, DPS FROM Buildings\" + \n        \" WHERE MATCH_NUM = \" + matchid + \n        \" AND BUILDING_NAME = \\\"\" + bldg + \"\\\"\"\n}\n\n// fin\nreturn newMsg;\n",
@@ -11561,6 +11758,7 @@
         "id": "561c69906925c60c",
         "type": "function",
         "z": "221fa9b81205c952",
+        "d": true,
         "g": "b761ec70a9ef3fae",
         "name": "Convert SQLScores to Table Row",
         "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of scores for one building.  For example, at index[0]:\n        BUILDING_NAME: \"LTM\"\n        FS: 8\n        FCS: 4\n        DPS: 4\n   \n\n -- Output is JSON that contains the new table updates.  E.g.: \n    [\n        {\n            \"BuildingName\": \"LTM\",\n            \"FS\":8,\n            \"FCS\":4,\n            \"DPS\":4,\n        }\n    ]\n*/\n\n// set up basic variablfes\nvar input = msg.payload;\nvar output = {}; //json \n\nvar curBldg = input[0].BUILDING_NAME; // it will be the same for all values\n\noutput[\"BuildingName\"] = curBldg;\n\n// Loop through the object\nfor (let i in input) {\n    var sidestring = \"Side\" + (input[i][\"BUILDING_SIDE\"]);\n    output[sidestring] = 50 * input[i][\"WINDOWS_ACTIVE\"];\n}\n\n// fin\n//node.warn(output);\n//msg.payload = [output];\n// Use node-red-ui-table table command\nmsg.payload = { \n    command:\"updateOrAddData\",\n    arguments: [\n        [\n            output\n        ],\n        true\n    ],\n    returnPromise: true\n}\nreturn msg;",
@@ -11837,6 +12035,128 @@
         "info": "",
         "x": 1160,
         "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0151b281f9b86223",
+        "type": "link out",
+        "z": "221fa9b81205c952",
+        "g": "876d6d7684ab551a",
+        "name": "Goto BallFlow",
+        "mode": "link",
+        "links": [
+            "01954de24ad5a0da"
+        ],
+        "x": 2095,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "986017af6fcb9593",
+        "type": "debug",
+        "z": "221fa9b81205c952",
+        "g": "876d6d7684ab551a",
+        "name": "debug 30",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1760,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "2fe33fb8bb9a740c",
+        "type": "function",
+        "z": "221fa9b81205c952",
+        "g": "876d6d7684ab551a",
+        "name": "Convert",
+        "func": "// Convert form entry to the format that BallFlow is expecting\nvar pyld = msg.payload;\nvar theBldg = pyld.BUILDING_NAME;\n\nmsg.building_name = theBldg;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1740,
+        "y": 1860,
+        "wires": [
+            [
+                "986017af6fcb9593",
+                "0151b281f9b86223"
+            ]
+        ]
+    },
+    {
+        "id": "25b25582dbcb2144",
+        "type": "ui_text",
+        "z": "221fa9b81205c952",
+        "g": "06961c6f5e4566a1",
+        "group": "5d736b3773c1b6c1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "FCS: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 430,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "84c72e5e7a50791b",
+        "type": "comment",
+        "z": "221fa9b81205c952",
+        "g": "06961c6f5e4566a1",
+        "name": "Fire Clear Score Display using Dom Magic SQL ",
+        "info": "",
+        "x": 280,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "c37b3d3b6e56e19a",
+        "type": "inject",
+        "z": "221fa9b81205c952",
+        "g": "06961c6f5e4566a1",
+        "name": "FCS Test Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "99",
+        "payloadType": "num",
+        "x": 220,
+        "y": 2080,
+        "wires": [
+            [
+                "25b25582dbcb2144"
+            ]
+        ]
+    },
+    {
+        "id": "2481a3e18ec02d52",
+        "type": "comment",
+        "z": "221fa9b81205c952",
+        "g": "06961c6f5e4566a1",
+        "name": "\\n \\n \\n [[ THIS WHOLE SECTION WILL PROBABLY BE REPLACED BY DOM MAGIC SQL ]]\\n \\n \\n ",
+        "info": "",
+        "x": 860,
+        "y": 1780,
         "wires": []
     },
     {
