@@ -147,7 +147,9 @@
             "2481a3e18ec02d52"
         ],
         "x": 54,
-        "y": 1079
+        "y": 1079,
+        "w": 1132,
+        "h": 1122
     },
     {
         "id": "876d6d7684ab551a",
@@ -192,8 +194,10 @@
             "986017af6fcb9593",
             "2fe33fb8bb9a740c"
         ],
-        "x": 1314,
-        "y": 1139
+        "x": 1324,
+        "y": 1139,
+        "w": 992,
+        "h": 762
     },
     {
         "id": "b761ec70a9ef3fae",
@@ -244,7 +248,9 @@
             "2694953f60e43f5d"
         ],
         "x": 114,
-        "y": 319
+        "y": 319,
+        "w": 1412,
+        "h": 682
     },
     {
         "id": "46ce7ea15148c3c0",
@@ -269,7 +275,9 @@
             "0fe794e7a88f6314"
         ],
         "x": 54,
-        "y": 39
+        "y": 39,
+        "w": 552,
+        "h": 262
     },
     {
         "id": "b2b1f1ca3c2a378c",
@@ -298,7 +306,9 @@
             "1c7894266bb4be36"
         ],
         "x": 74,
-        "y": 39
+        "y": 39,
+        "w": 1502,
+        "h": 262
     },
     {
         "id": "c5248dc36aacb922",
@@ -355,7 +365,9 @@
             "04eb8073c0c2a66d"
         ],
         "x": 74,
-        "y": 379
+        "y": 379,
+        "w": 1592,
+        "h": 1062
     },
     {
         "id": "418e8e7e5f859cb1",
@@ -382,7 +394,9 @@
             "69cd02e02585755b"
         ],
         "x": 1734,
-        "y": 439
+        "y": 439,
+        "w": 832,
+        "h": 222
     },
     {
         "id": "4bbf2c1d342827b1",
@@ -412,7 +426,9 @@
             "98b12c1e303486f3"
         ],
         "x": 54,
-        "y": 79
+        "y": 79,
+        "w": 1172,
+        "h": 282
     },
     {
         "id": "0832a839154f65ab",
@@ -442,7 +458,9 @@
             "370c0cbf29d05ab1"
         ],
         "x": 54,
-        "y": 419
+        "y": 419,
+        "w": 1412,
+        "h": 522
     },
     {
         "id": "59950207257cb065",
@@ -1785,6 +1803,17 @@
         "order": 8,
         "width": "29",
         "height": "1"
+    },
+    {
+        "id": "9c6c4c4610be9e88",
+        "type": "ui_group",
+        "name": "Tello / Recon Path / Spread Paths",
+        "tab": "9502d10e0d8b284f",
+        "order": 9,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "bcef7098b2bcab87",
@@ -14594,8 +14623,8 @@
         "z": "525a1f93b25a2b87",
         "name": "=== RECON PATH CONTROLS ===",
         "info": "",
-        "x": 460,
-        "y": 40,
+        "x": 920,
+        "y": 220,
         "wires": []
     },
     {
@@ -14872,5 +14901,179 @@
                 "5faa2ea03f7e52a8"
             ]
         ]
+    },
+    {
+        "id": "438d458d7eaef895",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "group": "9c6c4c4610be9e88",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Light up Recon Path - L",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "LEFT",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 930,
+        "y": 300,
+        "wires": [
+            [
+                "dd2414c260cac898"
+            ]
+        ]
+    },
+    {
+        "id": "6a58ec8ae0dd8ea5",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "group": "9c6c4c4610be9e88",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Light up Recon Path - R",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "RIGHT",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 930,
+        "y": 400,
+        "wires": [
+            [
+                "dd2414c260cac898"
+            ]
+        ]
+    },
+    {
+        "id": "dd2414c260cac898",
+        "type": "function",
+        "z": "525a1f93b25a2b87",
+        "name": "Create Recon Paths",
+        "func": "/*\n-- Payload coming in is a string, \"LEFT\" or \"RIGHT\".\n\n-- Possible recon path options:\n    1-4-6-5 :: RTI, RBM, RTO, RBO\n            :: LBI, LTM, LTO, LBO\n            \n    2-4-3-5 :: RBI, RBM, RTM, RTO\n            :: LTI, LTM, LBM, LBO \n    \n    2-4-6-5 :: RBI, RBM, RBO, RTO\n            :: LTI, LTM, LTO, LBO\n\n-- Output MQTT messages turn on the full gutters to yellow (color is hex code):\n topic: \"nodered/updategutter/full/[node_id]\"\n message: { \n     \"color\": \"FFFF00\"\n  }\n*/\n\n//--- Set up basic variables\nvar whichSide = msg.payload;\nvar numPaths = 3;\nvar numBldgs = 4;\n//node.outputCount = numBldgs;\n//var output = new Array(numBldgs);;\nvar output = [];\nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\nvar msg4 = {};\n\n\n\n//--- Randomly choose 1 of 3 spread path options\n//  Returns 0, 1, or 2\n// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random\nvar whichPath = Math.floor(Math.random() * numPaths);\n\n//--- Build the array of buildings that we're turning on\n// don't overthink it - simple is fine, we're not building a space shuttle\nswitch(whichSide) {\n    case \"LEFT\":\n        switch (whichPath) {\n            case 0:\n                var theBldgs = ['LBI','LTM','LTO','LBO'];\n                break;\n            case 1:\n                var theBldgs = ['LTI', 'LTM', 'LBM', 'LBO'];\n                break;\n            case 2:\n                var theBldgs = ['LTI', 'LTM', 'LTO', 'LBO'];\n                break;\n        }\n        break;\n    case \"RIGHT\":\n        switch (whichPath) {\n            case 0:\n                var theBldgs = ['RTI', 'RBM', 'RTO', 'RBO'];\n                break;\n            case 1:\n                var theBldgs = ['RBI', 'RBM', 'RTM', 'RBO'];\n                break;\n            case 2:\n                var theBldgs = ['RBI', 'RBM', 'RBO', 'RTO'];\n                break;\n        }\n        break;\n}\n\n//--- Loop through bldgs, build the array of MQTT topics\n/*for (let i=0; i<numBldgs; i++) {\n    var curBldg = theBldgs[i];\n    output[i].topic = \"nodered/updategutter/full/\" + curBldg;\n    output[i].payload = \"{ \\\"color\\\":\\\"FFFF00\\\" }\";\n}*/\n\n// -- Build output msgs\n// You'll be tempted to try and make this a loop... just trust me, save the headache and do the dumb way\n// https://nodered.org/docs/user-guide/writing-functions#multiple-outputs\nmsg1.topic = \"nodered/updategutter/full/\" + theBldgs[0];\nmsg1.payload = \"{ \\\"color\\\":\\\"FFFF00\\\" }\";\nmsg2.topic = \"nodered/updategutter/full/\" + theBldgs[1];\nmsg2.payload = \"{ \\\"color\\\":\\\"FFFF00\\\" }\";\nmsg3.topic = \"nodered/updategutter/full/\" + theBldgs[2];\nmsg3.payload = \"{ \\\"color\\\":\\\"FFFF00\\\" }\";\nmsg4.topic = \"nodered/updategutter/full/\" + theBldgs[3];\nmsg4.payload = \"{ \\\"color\\\":\\\"FFFF00\\\" }\";\n\n//--- Fin\nreturn [msg1, msg2, msg3, msg4];",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 340,
+        "wires": [
+            [
+                "e6381dd2b6d8901f",
+                "37b8b30999bafc53"
+            ],
+            [
+                "6a41d1d9d00587f0"
+            ],
+            [
+                "a1ab82cc9e9814f2"
+            ],
+            [
+                "f79ecab684ce047d"
+            ]
+        ]
+    },
+    {
+        "id": "e6381dd2b6d8901f",
+        "type": "debug",
+        "z": "525a1f93b25a2b87",
+        "name": "db Recon Paths",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1460,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "37b8b30999bafc53",
+        "type": "mqtt out",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1470,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6a41d1d9d00587f0",
+        "type": "mqtt out",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1470,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a1ab82cc9e9814f2",
+        "type": "mqtt out",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1470,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f79ecab684ce047d",
+        "type": "mqtt out",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1470,
+        "y": 380,
+        "wires": []
     }
 ]
