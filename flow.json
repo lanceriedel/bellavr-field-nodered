@@ -84,6 +84,14 @@
         "info": ""
     },
     {
+        "id": "525a1f93b25a2b87",
+        "type": "tab",
+        "label": "Manual Ref Actions",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "06961c6f5e4566a1",
         "type": "group",
         "z": "221fa9b81205c952",
@@ -139,9 +147,7 @@
             "2481a3e18ec02d52"
         ],
         "x": 54,
-        "y": 1079,
-        "w": 1132,
-        "h": 1122
+        "y": 1079
     },
     {
         "id": "876d6d7684ab551a",
@@ -187,9 +193,7 @@
             "2fe33fb8bb9a740c"
         ],
         "x": 1314,
-        "y": 1139,
-        "w": 1002,
-        "h": 762
+        "y": 1139
     },
     {
         "id": "b761ec70a9ef3fae",
@@ -236,12 +240,11 @@
             "55a5760f1ef81c07",
             "9a61ec5826546fce",
             "6d8eea74bd881d3e",
-            "b87bb6e70f564e51"
+            "b87bb6e70f564e51",
+            "2694953f60e43f5d"
         ],
         "x": 114,
-        "y": 319,
-        "w": 1412,
-        "h": 682
+        "y": 319
     },
     {
         "id": "46ce7ea15148c3c0",
@@ -266,9 +269,7 @@
             "0fe794e7a88f6314"
         ],
         "x": 54,
-        "y": 39,
-        "w": 552,
-        "h": 262
+        "y": 39
     },
     {
         "id": "b2b1f1ca3c2a378c",
@@ -333,7 +334,6 @@
             "6d6d9e4073bfca2a",
             "0ff4b05a25dbcb05",
             "b86fcf4650bb15c0",
-            "58597e887a5478f5",
             "f7ad0a1277125d73",
             "c0b679d5263dc4cd",
             "7804a412d60bf28e",
@@ -350,7 +350,9 @@
             "9c36b025ce60755e",
             "3ac3e5e6d417580e",
             "d22a44513afbaff1",
-            "b4c6561b559a3ff5"
+            "b4c6561b559a3ff5",
+            "22e6cafe7f33addb",
+            "04eb8073c0c2a66d"
         ],
         "x": 74,
         "y": 379
@@ -410,9 +412,7 @@
             "98b12c1e303486f3"
         ],
         "x": 54,
-        "y": 79,
-        "w": 1172,
-        "h": 282
+        "y": 79
     },
     {
         "id": "0832a839154f65ab",
@@ -442,9 +442,7 @@
             "370c0cbf29d05ab1"
         ],
         "x": 54,
-        "y": 419,
-        "w": 1412,
-        "h": 522
+        "y": 419
     },
     {
         "id": "59950207257cb065",
@@ -489,9 +487,7 @@
             "7684f0009e5ef352"
         ],
         "x": 34,
-        "y": 39,
-        "w": 1042,
-        "h": 862
+        "y": 39
     },
     {
         "id": "229d7911730c710f",
@@ -553,9 +549,7 @@
             "396bd91435c9a4fe"
         ],
         "x": 1134,
-        "y": 39,
-        "w": 1572,
-        "h": 922
+        "y": 39
     },
     {
         "id": "44c6bd61d9aa5d1d",
@@ -575,9 +569,7 @@
             "de154b3cccf614e0"
         ],
         "x": 48,
-        "y": 1013,
-        "w": 1514,
-        "h": 1334
+        "y": 1013
     },
     {
         "id": "208849015b030c99",
@@ -602,9 +594,7 @@
             "cc89dbf72d1f6006"
         ],
         "x": 74,
-        "y": 19,
-        "w": 1082,
-        "h": 142
+        "y": 19
     },
     {
         "id": "31e8c747379a1719",
@@ -630,9 +620,7 @@
             "3719854fdfed232d"
         ],
         "x": 74,
-        "y": 199,
-        "w": 542,
-        "h": 242
+        "y": 199
     },
     {
         "id": "82485a2c45a42ec4",
@@ -662,9 +650,7 @@
             "5690d1607d8fc9da"
         ],
         "x": 74,
-        "y": 479,
-        "w": 1952,
-        "h": 262
+        "y": 479
     },
     {
         "id": "dec7910ea27af2d0",
@@ -696,9 +682,7 @@
             "09b68daef587970a"
         ],
         "x": 74,
-        "y": 779,
-        "w": 1832,
-        "h": 322
+        "y": 779
     },
     {
         "id": "152a8cb72061205a",
@@ -724,9 +708,7 @@
             "d88db86de710b8e9"
         ],
         "x": 34,
-        "y": 59,
-        "w": 942,
-        "h": 162
+        "y": 59
     },
     {
         "id": "2008d605d368ad7e",
@@ -752,9 +734,7 @@
             "221e289248744137"
         ],
         "x": 34,
-        "y": 239,
-        "w": 942,
-        "h": 162
+        "y": 239
     },
     {
         "id": "37232e2e92b5faa6",
@@ -780,9 +760,7 @@
             "2f1658364fc5719b"
         ],
         "x": 34,
-        "y": 419,
-        "w": 942,
-        "h": 162
+        "y": 419
     },
     {
         "id": "d9c57fb2a381a320",
@@ -805,9 +783,7 @@
             "4244695d7f15d3fd"
         ],
         "x": 34,
-        "y": 599,
-        "w": 932,
-        "h": 142
+        "y": 599
     },
     {
         "id": "738e4f614ef8a7a5",
@@ -831,9 +807,7 @@
             "72bcba239803d115"
         ],
         "x": 34,
-        "y": 779,
-        "w": 972,
-        "h": 142
+        "y": 779
     },
     {
         "id": "e56885edbfad9853",
@@ -858,9 +832,7 @@
             "50a7d4620d30956a"
         ],
         "x": 34,
-        "y": 939,
-        "w": 1052,
-        "h": 142
+        "y": 939
     },
     {
         "id": "c4beeef48c6dcf84",
@@ -900,9 +872,7 @@
             "5e3bed73fbede711"
         ],
         "x": 1304,
-        "y": 39,
-        "w": 1792,
-        "h": 562
+        "y": 39
     },
     {
         "id": "650381ccef7c28a3",
@@ -933,9 +903,7 @@
             "abf14147cd05c8bd"
         ],
         "x": 34,
-        "y": 1139,
-        "w": 972,
-        "h": 542
+        "y": 1139
     },
     {
         "id": "c9a02ca8caf3cfb8",
@@ -1055,9 +1023,7 @@
             "bb20e976f6f77ed1"
         ],
         "x": 34,
-        "y": 839,
-        "w": 1172,
-        "h": 162
+        "y": 839
     },
     {
         "id": "f630143dd6413aac",
@@ -1082,9 +1048,7 @@
             "f6566f17a1e9b78e"
         ],
         "x": 34,
-        "y": 479,
-        "w": 912,
-        "h": 242
+        "y": 479
     },
     {
         "id": "f69756401f15d7b4",
@@ -1112,9 +1076,7 @@
             "85525cb2f906b575"
         ],
         "x": 34,
-        "y": 39,
-        "w": 1472,
-        "h": 262
+        "y": 39
     },
     {
         "id": "a83bb00d46efe804",
@@ -1299,6 +1261,42 @@
         "y": 59
     },
     {
+        "id": "5c65227277323287",
+        "type": "group",
+        "z": "525a1f93b25a2b87",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "6077c07895f4bae1",
+            "e1c36286bc30ba8f",
+            "fe877aa6ca1a2686",
+            "108395cf07686851",
+            "ef4614a854027dfd",
+            "f918679aafed294c",
+            "9f388ade70cc5c75",
+            "71b32bf55fca92eb",
+            "81316d8b0f159ca4",
+            "f2111068ae08bf78",
+            "94416571ba74b77f",
+            "cf0111e5ca742b20",
+            "815e93274f7aec7f",
+            "4fe9e9b1bb1664ca",
+            "3a47778aea970255",
+            "b925475f454abcb9"
+        ],
+        "x": 54,
+        "y": 179,
+        "w": 652,
+        "h": 422
+    },
+    {
         "id": "cc0e458f8d09ebf0",
         "type": "group",
         "z": "6f07332b8253050a",
@@ -1330,9 +1328,7 @@
             "a58539412bbfe6b2"
         ],
         "x": 74,
-        "y": 1039,
-        "w": 1462,
-        "h": 662
+        "y": 1039
     },
     {
         "id": "de154b3cccf614e0",
@@ -1363,9 +1359,63 @@
             "b057c4c81f9a5137"
         ],
         "x": 74,
-        "y": 1739,
-        "w": 1012,
-        "h": 582
+        "y": 1739
+    },
+    {
+        "id": "fcce3ddf70aae004",
+        "type": "group",
+        "z": "525a1f93b25a2b87",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "f0d4a2147acdb332",
+            "5b592964282fa6bd",
+            "c47ea9a3505aeaca",
+            "1f24c4eef910d0ec",
+            "786dc31c8b26d179"
+        ],
+        "x": 54,
+        "y": 619,
+        "w": 592,
+        "h": 202
+    },
+    {
+        "id": "b896a2547aafcc37",
+        "type": "group",
+        "z": "525a1f93b25a2b87",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "d4e41109f58ad96b",
+            "d24577c203e19ced",
+            "2ae56ec179b256e8",
+            "0923a704b9e96487",
+            "ba2c9e19eaf4edf9",
+            "5faa2ea03f7e52a8",
+            "de9624346ca2f666",
+            "25cde416a4dd5bd0",
+            "47058287c023df75",
+            "b33efb4c7740f0e7",
+            "5a9eac7aa8d6ccf3"
+        ],
+        "x": 54,
+        "y": 859,
+        "w": 1372,
+        "h": 282
     },
     {
         "id": "5999f1d09afe1039",
@@ -1589,6 +1639,152 @@
         "disp": true,
         "width": "6",
         "collapse": false
+    },
+    {
+        "id": "9502d10e0d8b284f",
+        "type": "ui_tab",
+        "name": "Referee / Scorekeeper",
+        "icon": "fa-flag-checkered",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e13f7d3261501fe3",
+        "type": "ui_group",
+        "name": "Trees - L",
+        "tab": "9502d10e0d8b284f",
+        "order": 5,
+        "disp": false,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6890d2c616ecd108",
+        "type": "ui_group",
+        "name": "Trees - R",
+        "tab": "9502d10e0d8b284f",
+        "order": 6,
+        "disp": false,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "84f97fbd3c7205ba",
+        "type": "ui_group",
+        "name": "Trees",
+        "tab": "9502d10e0d8b284f",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bb89faae78459cdc",
+        "type": "ui_group",
+        "name": "[blank spacer]",
+        "tab": "9502d10e0d8b284f",
+        "order": 2,
+        "disp": false,
+        "width": "30",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "26b5a92f7d2f9187",
+        "type": "ui_spacer",
+        "z": "525a1f93b25a2b87",
+        "name": "spacer",
+        "group": "bb89faae78459cdc",
+        "order": 4,
+        "width": "29",
+        "height": "1"
+    },
+    {
+        "id": "72b35259ae15f45f",
+        "type": "ui_group",
+        "name": "Auton",
+        "tab": "9502d10e0d8b284f",
+        "order": 8,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "994ac39d4884e0e0",
+        "type": "ui_group",
+        "name": "Header",
+        "tab": "9502d10e0d8b284f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ae4df2ea2925ad61",
+        "type": "ui_group",
+        "name": "[blank spacer]",
+        "tab": "9502d10e0d8b284f",
+        "order": 7,
+        "disp": false,
+        "width": "30",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d4216061b374b695",
+        "type": "ui_spacer",
+        "z": "525a1f93b25a2b87",
+        "name": "spacer",
+        "group": "ae4df2ea2925ad61",
+        "order": 7,
+        "width": "29",
+        "height": "1"
+    },
+    {
+        "id": "c3578a6ed04088cb",
+        "type": "ui_spacer",
+        "z": "525a1f93b25a2b87",
+        "name": "spacer",
+        "group": "72b35259ae15f45f",
+        "order": 2,
+        "width": "6",
+        "height": "1"
+    },
+    {
+        "id": "ad4cd1b9f2a498a2",
+        "type": "ui_spacer",
+        "z": "525a1f93b25a2b87",
+        "name": "spacer",
+        "group": "72b35259ae15f45f",
+        "order": 5,
+        "width": "6",
+        "height": "1"
+    },
+    {
+        "id": "fd2fe275dae75008",
+        "type": "ui_group",
+        "name": "[blank spacer]",
+        "tab": "9502d10e0d8b284f",
+        "order": 4,
+        "disp": false,
+        "width": "30",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a87725765c1145ea",
+        "type": "ui_spacer",
+        "z": "525a1f93b25a2b87",
+        "name": "spacer",
+        "group": "fd2fe275dae75008",
+        "order": 8,
+        "width": "29",
+        "height": "1"
     },
     {
         "id": "bcef7098b2bcab87",
@@ -2594,6 +2790,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 2340,
         "y": 640,
         "wires": [
@@ -2633,6 +2830,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 2340,
         "y": 700,
         "wires": [
@@ -2686,6 +2884,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1940,
         "y": 600,
         "wires": [
@@ -2924,6 +3123,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1540,
         "y": 140,
         "wires": [
@@ -3325,6 +3525,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 250,
         "y": 1880,
         "wires": [
@@ -3412,6 +3613,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 260,
         "y": 2000,
         "wires": [
@@ -3450,6 +3652,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 270,
         "y": 2080,
         "wires": [
@@ -3486,6 +3689,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 280,
         "y": 2180,
         "wires": [
@@ -5846,16 +6050,15 @@
         "id": "5aaea6a334032def",
         "type": "function",
         "z": "f74b301e4f22310f",
-        "d": true,
         "g": "c4beeef48c6dcf84",
-        "name": "SQL - Calculate and UPDATE TABLE Buildings ",
+        "name": "SQL - Calculate and UPDATE TABLE Buildings NO TREES",
         "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft);\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight);\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1670,
+        "x": 1710,
         "y": 240,
         "wires": [
             [
@@ -5890,7 +6093,7 @@
         "sqlquery": "batch",
         "sql": "",
         "name": "InitializeBuildings For Match",
-        "x": 2010,
+        "x": 2080,
         "y": 240,
         "wires": [
             [
@@ -6246,6 +6449,48 @@
         "x": 2570,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "fa744c0499161826",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "SQL - Initialize Match - TABLE Buildings ",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst TreesRight = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft).concat(TreesLeft); //dom modified\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight).concat(TreesRight); //dom modified\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = { //dom modified\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch',\n};\n\nconst BuildingSensorsForRightMap = { //dom modified\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch',\n};\n\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"',1,0, 0,0, 0, 0, 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n      + \"',1,0, 0,0,0, 0,0,0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1640,
+        "y": 100,
+        "wires": [
+            [
+                "12b7849527a8f3d3",
+                "5e3bed73fbede711"
+            ]
+        ]
+    },
+    {
+        "id": "5e3bed73fbede711",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "d": true,
+        "g": "c4beeef48c6dcf84",
+        "name": "SQL - Calculate and UPDATE TABLE Buildings WITH TREES",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst RightTrees = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft) //dom didn't add trees because they should not be randomly chosen later in code\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight) //dom didn't add trees because they should not be randomly chosen later in code\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch', //dom added\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch', //dom added\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n  'LTREES': 1, //dom added\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n  'RTREES': 1, //dom added\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 1,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1700,
+        "y": 200,
+        "wires": [
+            [
+                "0aa61745968b6ee5"
+            ]
+        ]
     },
     {
         "id": "890050b7a3592bf1",
@@ -6703,6 +6948,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 280,
         "y": 1320,
         "wires": [
@@ -7610,6 +7856,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 600,
         "y": 280,
         "wires": [
@@ -8111,6 +8358,7 @@
         "nl": false,
         "rap": true,
         "rh": 0,
+        "inputs": 0,
         "x": 220,
         "y": 760,
         "wires": [
@@ -10220,6 +10468,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 480,
         "y": 1400,
         "wires": [
@@ -11129,6 +11378,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1750,
         "y": 1760,
         "wires": [
@@ -11283,7 +11533,8 @@
         "y": 540,
         "wires": [
             [
-                "5007fdcc502bf71f"
+                "5007fdcc502bf71f",
+                "2694953f60e43f5d"
             ]
         ]
     },
@@ -12065,6 +12316,24 @@
         "wires": []
     },
     {
+        "id": "2694953f60e43f5d",
+        "type": "debug",
+        "z": "221fa9b81205c952",
+        "g": "b761ec70a9ef3fae",
+        "name": "DB THE SQL RES",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 500,
+        "wires": []
+    },
+    {
         "id": "1041872ebca1978e",
         "type": "function",
         "z": "78c5e866df5030a1",
@@ -12324,7 +12593,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "Build SQL Stmt to get Bldgs at Max FS",
-        "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\n\n// build SQL statement to select all buildings with max FS\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME FROM Buildings\" + \n        \" WHERE MATCH_NUM = \" + matchid + \n        \" AND FS = 8\"\n}\n\n// fin\nreturn newMsg;\n",
+        "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\n\n// build SQL statement to select all buildings with max FS\n/*var newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME FROM Buildings\" + \n        \" WHERE MATCH_NUM = \" + matchid + \n        \" AND FS = 8\"\n}*/\n\n// lol Dom will hate this\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME FROM BuildingWindowStatus \" +\n        \"WHERE MATCH_NUM = \" + matchid +\n        \" AND WINDOWS_ACTIVE = 2 \" +\n        \"AND BUILDING_SIDE = 4\"\n}\n\n// fin\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -12553,6 +12822,7 @@
         "id": "af0cc8f3c2088bbc",
         "type": "link in",
         "z": "78c5e866df5030a1",
+        "d": true,
         "g": "c5248dc36aacb922",
         "name": "Burn Within Building",
         "links": [
@@ -12562,7 +12832,7 @@
         "y": 820,
         "wires": [
             [
-                "58597e887a5478f5"
+                "22e6cafe7f33addb"
             ]
         ]
     },
@@ -12680,26 +12950,6 @@
         "wires": [
             [
                 "fa0c4978405d7038"
-            ]
-        ]
-    },
-    {
-        "id": "58597e887a5478f5",
-        "type": "function",
-        "z": "78c5e866df5030a1",
-        "g": "c5248dc36aacb922",
-        "name": "Build SQL Stmt to get Burning Bldgs",
-        "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\n\n// build SQL statement to select all buildings with burning status, but less than max FS\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME, WAS_JUST_SPREAD, FS FROM Buildings\" + \n        \" WHERE MATCH_NUM = \" + matchid + \n        \" AND BURNING_STATUS = 1 \" + \n        \" AND FS < 8\"\n}\n\n// fin\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 820,
-        "wires": [
-            [
-                "afe0ce27b8dd56da"
             ]
         ]
     },
@@ -13185,6 +13435,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
+        "outputs": 1,
         "x": 1990,
         "y": 620,
         "wires": [
@@ -13192,6 +13443,37 @@
                 "d0a5e8de374a7a44"
             ]
         ]
+    },
+    {
+        "id": "22e6cafe7f33addb",
+        "type": "function",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "name": "Build SQL Stmt to get Burning Bldgs",
+        "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\n\n// build SQL statement to select all buildings with burning status, but less than max FS\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME, WAS_JUST_SPREAD, FS FROM Buildings\" + \n        \" WHERE MATCH_NUM = \" + matchid + \n        \" AND BURNING_STATUS = 1 \" + \n        \" AND FS < 8\"\n}\n\n// fin\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 820,
+        "wires": [
+            [
+                "afe0ce27b8dd56da"
+            ]
+        ]
+    },
+    {
+        "id": "04eb8073c0c2a66d",
+        "type": "comment",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "name": "\\n \\n THIS IS PAUSED FOR NOW UNTIL \\n I CAN ADD WAS_JUST_SPREAD BACK TO BUILDINGS \\n ",
+        "info": "",
+        "x": 430,
+        "y": 900,
+        "wires": []
     },
     {
         "id": "0992c684f2271f0e",
@@ -13640,43 +13922,954 @@
         "wires": []
     },
     {
-        "id": "fa744c0499161826",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "g": "c4beeef48c6dcf84",
-        "name": "SQL - Initialize Match - TABLE Buildings ",
-        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst TreesRight = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft).concat(TreesLeft); //dom modified\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight).concat(TreesRight); //dom modified\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = { //dom modified\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch',\n};\n\nconst BuildingSensorsForRightMap = { //dom modified\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch',\n};\n\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"',1,0, 0,0, 0, 0, 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n      + \"',1,0, 0,0,0, 0,0,0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1640,
-        "y": 100,
+        "id": "6077c07895f4bae1",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-1",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1c36286bc30ba8f",
+        "type": "ui_text",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "group": "84f97fbd3c7205ba",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "\"OFF\" means Still Standing",
+        "format": "\"ON\" means Knocked Down",
+        "layout": "col-center",
+        "className": "",
+        "x": 240,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "555cbe484b6f6bb5",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "name": "Next steps and so forths",
+        "info": "",
+        "x": 170,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fe877aa6ca1a2686",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-2",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "108395cf07686851",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-3",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ef4614a854027dfd",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-4",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f918679aafed294c",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-6",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f388ade70cc5c75",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-5",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71b32bf55fca92eb",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "Set to False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 440,
         "wires": [
             [
-                "12b7849527a8f3d3",
-                "5e3bed73fbede711"
+                "6077c07895f4bae1",
+                "fe877aa6ca1a2686",
+                "108395cf07686851",
+                "ef4614a854027dfd",
+                "9f388ade70cc5c75",
+                "f918679aafed294c",
+                "94416571ba74b77f",
+                "cf0111e5ca742b20",
+                "815e93274f7aec7f",
+                "4fe9e9b1bb1664ca",
+                "3a47778aea970255",
+                "b925475f454abcb9"
             ]
         ]
     },
     {
-        "id": "5e3bed73fbede711",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "g": "c4beeef48c6dcf84",
-        "name": "SQL - Calculate and UPDATE TABLE Buildings ",
-        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst RightTrees = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft) //dom didn't add trees because they should not be randomly chosen later in code\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight) //dom didn't add trees because they should not be randomly chosen later in code\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch', //dom added\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch', //dom added\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n  'LTREES': 1, //dom added\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n  'RTREES': 1, //dom added\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1660,
-        "y": 200,
+        "id": "81316d8b0f159ca4",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "=== TREES ===",
+        "info": "",
+        "x": 160,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f2111068ae08bf78",
+        "type": "link in",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "Reset Trees",
+        "links": [
+            "f1ab8335d85f6123",
+            "ef84f7dd03ac2927"
+        ],
+        "x": 135,
+        "y": 440,
         "wires": [
             [
-                "0aa61745968b6ee5"
+                "71b32bf55fca92eb"
+            ]
+        ]
+    },
+    {
+        "id": "94416571ba74b77f",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "RIGHT-1",
+        "tooltip": "",
+        "group": "6890d2c616ecd108",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 620,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf0111e5ca742b20",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "RIGHT-2",
+        "tooltip": "",
+        "group": "6890d2c616ecd108",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 620,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "815e93274f7aec7f",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "RIGHT-3",
+        "tooltip": "",
+        "group": "6890d2c616ecd108",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 620,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4fe9e9b1bb1664ca",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "RIGHT-4",
+        "tooltip": "",
+        "group": "6890d2c616ecd108",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 620,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a47778aea970255",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "RIGHT-5",
+        "tooltip": "",
+        "group": "6890d2c616ecd108",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 620,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b925475f454abcb9",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "RIGHT-6",
+        "tooltip": "",
+        "group": "6890d2c616ecd108",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 620,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f0d4a2147acdb332",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "g": "fcce3ddf70aae004",
+        "name": "=== AUTON BONUS ===",
+        "info": "",
+        "x": 190,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "5b592964282fa6bd",
+        "type": "ui_numeric",
+        "z": "525a1f93b25a2b87",
+        "g": "fcce3ddf70aae004",
+        "name": "",
+        "label": "RVR Auton Checkpoints",
+        "tooltip": "",
+        "group": "72b35259ae15f45f",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "999",
+        "step": 1,
+        "className": "",
+        "x": 510,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "753357e6fb0f91c0",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "name": "=== HEADER ===",
+        "info": "",
+        "x": 850,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "47bf75c6428d5147",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "group": "994ac39d4884e0e0",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "RESET ALL",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 890,
+        "y": 120,
+        "wires": [
+            [
+                "f1ab8335d85f6123"
+            ]
+        ]
+    },
+    {
+        "id": "f1ab8335d85f6123",
+        "type": "link out",
+        "z": "525a1f93b25a2b87",
+        "name": "Reset button",
+        "mode": "link",
+        "links": [
+            "f2111068ae08bf78",
+            "c47ea9a3505aeaca",
+            "0923a704b9e96487"
+        ],
+        "x": 1025,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c47ea9a3505aeaca",
+        "type": "link in",
+        "z": "525a1f93b25a2b87",
+        "g": "fcce3ddf70aae004",
+        "name": "Reset Auton",
+        "links": [
+            "f1ab8335d85f6123"
+        ],
+        "x": 145,
+        "y": 740,
+        "wires": [
+            [
+                "786dc31c8b26d179"
+            ]
+        ]
+    },
+    {
+        "id": "1f24c4eef910d0ec",
+        "type": "ui_numeric",
+        "z": "525a1f93b25a2b87",
+        "g": "fcce3ddf70aae004",
+        "name": "",
+        "label": "Tello Auton Checkpoints",
+        "tooltip": "",
+        "group": "72b35259ae15f45f",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "999",
+        "step": 1,
+        "className": "",
+        "x": 510,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "786dc31c8b26d179",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "g": "fcce3ddf70aae004",
+        "name": "Set to 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 740,
+        "wires": [
+            [
+                "5b592964282fa6bd",
+                "1f24c4eef910d0ec"
+            ]
+        ]
+    },
+    {
+        "id": "d4e41109f58ad96b",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "=== AUTON DROP ===",
+        "info": "",
+        "x": 180,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "1c192af273e08580",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "name": "=== RECON PATH CONTROLS ===",
+        "info": "",
+        "x": 460,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e1ab4bde91f3cd8b",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "name": "=== SPREAD PATH CONTROLS ===",
+        "info": "",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d24577c203e19ced",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "",
+        "label": "Auton Ball Drop",
+        "tooltip": "",
+        "group": "72b35259ae15f45f",
+        "order": 9,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "payload",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 640,
+        "y": 980,
+        "wires": [
+            [
+                "5a9eac7aa8d6ccf3"
+            ]
+        ]
+    },
+    {
+        "id": "2ae56ec179b256e8",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "Set to False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 980,
+        "wires": [
+            [
+                "d24577c203e19ced"
+            ]
+        ]
+    },
+    {
+        "id": "0923a704b9e96487",
+        "type": "link in",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "Reset Auton Drop",
+        "links": [
+            "f1ab8335d85f6123"
+        ],
+        "x": 155,
+        "y": 980,
+        "wires": [
+            [
+                "2ae56ec179b256e8"
+            ]
+        ]
+    },
+    {
+        "id": "c65a1fd6f93a2347",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "name": "=== PARKING BONUSES ===",
+        "info": "",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b982b5e40f9afbd2",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "name": "=== MANUAL BALL/LASER ADJUST ===",
+        "info": "",
+        "x": 480,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ba2c9e19eaf4edf9",
+        "type": "inject",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "Test Ball Drop",
+        "props": [
+            {
+                "p": "num_drops",
+                "v": "4",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 430,
+        "y": 920,
+        "wires": [
+            [
+                "d24577c203e19ced"
+            ]
+        ]
+    },
+    {
+        "id": "5faa2ea03f7e52a8",
+        "type": "switch",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "If auton",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 820,
+        "y": 1060,
+        "wires": [
+            [
+                "de9624346ca2f666"
+            ],
+            [
+                "25cde416a4dd5bd0"
+            ]
+        ]
+    },
+    {
+        "id": "de9624346ca2f666",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "Double num_drops",
+        "rules": [
+            {
+                "t": "set",
+                "p": "num_drops",
+                "pt": "msg",
+                "to": "msg.num_drops * 2",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 1020,
+        "wires": [
+            [
+                "b33efb4c7740f0e7"
+            ]
+        ]
+    },
+    {
+        "id": "25cde416a4dd5bd0",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "Normal num_drops",
+        "rules": [
+            {
+                "t": "set",
+                "p": "num_drops",
+                "pt": "msg",
+                "to": "msg.num_drops",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 1100,
+        "wires": [
+            [
+                "b33efb4c7740f0e7"
+            ]
+        ]
+    },
+    {
+        "id": "47058287c023df75",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "=== NOTE: Right now this operates on msg.num_drops ===",
+        "info": "",
+        "x": 820,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "b33efb4c7740f0e7",
+        "type": "debug",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "db msg.num_drops",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "num_drops",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "5a9eac7aa8d6ccf3",
+        "type": "switch",
+        "z": "525a1f93b25a2b87",
+        "g": "b896a2547aafcc37",
+        "name": "Check if drops or just toggle",
+        "property": "num_drops",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 620,
+        "y": 1060,
+        "wires": [
+            [
+                "5faa2ea03f7e52a8"
             ]
         ]
     }
