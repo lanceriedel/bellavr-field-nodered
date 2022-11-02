@@ -155,7 +155,7 @@
             "2481a3e18ec02d52"
         ],
         "x": 54,
-        "y": 1079,
+        "y": 1119,
         "w": 1132,
         "h": 1122
     },
@@ -251,15 +251,17 @@
             "561c69906925c60c",
             "045e41f36b73f834",
             "55a5760f1ef81c07",
-            "9a61ec5826546fce",
             "6d8eea74bd881d3e",
             "b87bb6e70f564e51",
-            "2694953f60e43f5d"
+            "4de1973804e05054",
+            "8f2a84c4a6014fa8",
+            "1c382e5efa72fbfc",
+            "6f02b326141d42ed"
         ],
-        "x": 114,
+        "x": 74,
         "y": 319,
         "w": 1412,
-        "h": 682
+        "h": 762
     },
     {
         "id": "46ce7ea15148c3c0",
@@ -313,7 +315,8 @@
             "648381244912ad1f",
             "42dc7006a64f8054",
             "1c7894266bb4be36",
-            "6fdf930c4ad24a03"
+            "6fdf930c4ad24a03",
+            "23ade44d3f6d5796"
         ],
         "x": 74,
         "y": 39,
@@ -376,12 +379,13 @@
             "96265e6d8477570d",
             "e9cbc44edd04e442",
             "5b294341ac84aae4",
-            "6905bddfb52cc754"
+            "6905bddfb52cc754",
+            "301ff5ddd37b8e02"
         ],
         "x": 94,
         "y": 379,
         "w": 1592,
-        "h": 1162
+        "h": 1322
     },
     {
         "id": "418e8e7e5f859cb1",
@@ -406,12 +410,15 @@
             "4c03455adb33b337",
             "d6ddc265e0e6f590",
             "69cd02e02585755b",
-            "7a05719eb862d0e6"
+            "7a05719eb862d0e6",
+            "a7051b8e4534bfa7",
+            "6ff9a3425a7b60f4",
+            "21b3888bb84ac7fb"
         ],
-        "x": 1734,
-        "y": 439,
+        "x": 1784,
+        "y": 459,
         "w": 872,
-        "h": 242
+        "h": 362
     },
     {
         "id": "4bbf2c1d342827b1",
@@ -520,7 +527,9 @@
             "7684f0009e5ef352"
         ],
         "x": 34,
-        "y": 39
+        "y": 39,
+        "w": 1042,
+        "h": 862
     },
     {
         "id": "229d7911730c710f",
@@ -582,7 +591,9 @@
             "396bd91435c9a4fe"
         ],
         "x": 1134,
-        "y": 39
+        "y": 39,
+        "w": 1572,
+        "h": 922
     },
     {
         "id": "44c6bd61d9aa5d1d",
@@ -602,7 +613,9 @@
             "de154b3cccf614e0"
         ],
         "x": 48,
-        "y": 1013
+        "y": 1013,
+        "w": 1514,
+        "h": 1334
     },
     {
         "id": "208849015b030c99",
@@ -1080,9 +1093,7 @@
             "bb20e976f6f77ed1"
         ],
         "x": 34,
-        "y": 839,
-        "w": 1172,
-        "h": 162
+        "y": 839
     },
     {
         "id": "f630143dd6413aac",
@@ -1107,9 +1118,7 @@
             "f6566f17a1e9b78e"
         ],
         "x": 34,
-        "y": 479,
-        "w": 912,
-        "h": 242
+        "y": 479
     },
     {
         "id": "f69756401f15d7b4",
@@ -1137,9 +1146,7 @@
             "85525cb2f906b575"
         ],
         "x": 34,
-        "y": 39,
-        "w": 1472,
-        "h": 262
+        "y": 39
     },
     {
         "id": "a83bb00d46efe804",
@@ -1352,7 +1359,9 @@
             "815e93274f7aec7f",
             "4fe9e9b1bb1664ca",
             "3a47778aea970255",
-            "b925475f454abcb9"
+            "b925475f454abcb9",
+            "4aa231ce7353fdce",
+            "903760fb2626b52e"
         ],
         "x": 54,
         "y": 179,
@@ -1439,75 +1448,10 @@
             "a1ab82cc9e9814f2",
             "f79ecab684ce047d"
         ],
-        "x": 754,
+        "x": 914,
         "y": 179,
         "w": 832,
         "h": 262
-    },
-    {
-        "id": "cc0e458f8d09ebf0",
-        "type": "group",
-        "z": "6f07332b8253050a",
-        "g": "44c6bd61d9aa5d1d",
-        "style": {
-            "stroke": "#3a3a3a",
-            "stroke-opacity": "1",
-            "fill": "#1e1e1e",
-            "fill-opacity": "0.5",
-            "label": true,
-            "label-position": "nw",
-            "color": "#cccccc"
-        },
-        "nodes": [
-            "675e506f8cc3e3c6",
-            "c11317ac5ddaf481",
-            "4f1f03d9ace5b214",
-            "6a3261bd5d1634ff",
-            "7956c7f15c937519",
-            "2e5f3a887f317523",
-            "a983e99d613458db",
-            "1d8b42fd0952e51b",
-            "2c24dc53b6049b78",
-            "3a4f65d2f43899bf",
-            "1e0fd409ba1a6b71",
-            "31536652b0e65c1c",
-            "3327ecc679f21bed",
-            "2309213c36dd8fd8",
-            "a58539412bbfe6b2"
-        ],
-        "x": 74,
-        "y": 1039
-    },
-    {
-        "id": "de154b3cccf614e0",
-        "type": "group",
-        "z": "6f07332b8253050a",
-        "g": "44c6bd61d9aa5d1d",
-        "style": {
-            "stroke": "#3a3a3a",
-            "stroke-opacity": "1",
-            "fill": "#1e1e1e",
-            "fill-opacity": "0.5",
-            "label": true,
-            "label-position": "nw",
-            "color": "#cccccc"
-        },
-        "nodes": [
-            "6cddfd33ec05b6b7",
-            "515a805e2750f3bd",
-            "372b9594ce982517",
-            "bfe3c6c9b8f1ea94",
-            "dc294b3548567c18",
-            "17d454ff68066317",
-            "c371b220cd83bc24",
-            "f1340eb46d54b7e1",
-            "a24bdb4ce4be3d99",
-            "87e764dac83fb351",
-            "67088a3f2dedd67b",
-            "b057c4c81f9a5137"
-        ],
-        "x": 74,
-        "y": 1739
     },
     {
         "id": "51ede297f3c78b54",
@@ -1555,6 +1499,109 @@
         "y": 1179,
         "w": 1552,
         "h": 462
+    },
+    {
+        "id": "cc0e458f8d09ebf0",
+        "type": "group",
+        "z": "6f07332b8253050a",
+        "g": "44c6bd61d9aa5d1d",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "675e506f8cc3e3c6",
+            "c11317ac5ddaf481",
+            "4f1f03d9ace5b214",
+            "6a3261bd5d1634ff",
+            "7956c7f15c937519",
+            "2e5f3a887f317523",
+            "a983e99d613458db",
+            "1d8b42fd0952e51b",
+            "2c24dc53b6049b78",
+            "3a4f65d2f43899bf",
+            "1e0fd409ba1a6b71",
+            "31536652b0e65c1c",
+            "3327ecc679f21bed",
+            "2309213c36dd8fd8",
+            "a58539412bbfe6b2"
+        ],
+        "x": 74,
+        "y": 1039,
+        "w": 1462,
+        "h": 662
+    },
+    {
+        "id": "de154b3cccf614e0",
+        "type": "group",
+        "z": "6f07332b8253050a",
+        "g": "44c6bd61d9aa5d1d",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "6cddfd33ec05b6b7",
+            "515a805e2750f3bd",
+            "372b9594ce982517",
+            "bfe3c6c9b8f1ea94",
+            "dc294b3548567c18",
+            "17d454ff68066317",
+            "c371b220cd83bc24",
+            "f1340eb46d54b7e1",
+            "a24bdb4ce4be3d99",
+            "87e764dac83fb351",
+            "67088a3f2dedd67b",
+            "b057c4c81f9a5137"
+        ],
+        "x": 74,
+        "y": 1739,
+        "w": 1012,
+        "h": 582
+    },
+    {
+        "id": "2be40bf2cea2fcc0",
+        "type": "group",
+        "z": "525a1f93b25a2b87",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "718d208a89ea8b30",
+            "6abb0e74954d6572",
+            "97ef0a81b064b450",
+            "687892c2bf2be574",
+            "caa9669f67d81b5f",
+            "7043296a0b6f6954",
+            "8e213e791174f126",
+            "318e6253966df86d",
+            "b5d48cb1f5bf1cd1",
+            "91990964365378d7",
+            "287dac46554da062",
+            "883976c8ba9c3276",
+            "122b49d10f607001",
+            "f4a8e1577ab1f1dd"
+        ],
+        "x": 114,
+        "y": 1695,
+        "w": 1092,
+        "h": 446
     },
     {
         "id": "5999f1d09afe1039",
@@ -1785,7 +1832,7 @@
         "tab": "9502d10e0d8b284f",
         "order": 5,
         "disp": false,
-        "width": 4,
+        "width": 5,
         "collapse": false,
         "className": ""
     },
@@ -1796,16 +1843,16 @@
         "tab": "9502d10e0d8b284f",
         "order": 6,
         "disp": false,
-        "width": 4,
+        "width": 5,
         "collapse": false,
         "className": ""
     },
     {
         "id": "84f97fbd3c7205ba",
         "type": "ui_group",
-        "name": "Trees",
+        "name": "Trees Week 1 Mode",
         "tab": "9502d10e0d8b284f",
-        "order": 3,
+        "order": 14,
         "disp": true,
         "width": "10",
         "collapse": false,
@@ -1829,7 +1876,7 @@
         "tab": "9502d10e0d8b284f",
         "order": 8,
         "disp": true,
-        "width": "12",
+        "width": 10,
         "collapse": false,
         "className": ""
     },
@@ -1840,7 +1887,7 @@
         "tab": "9502d10e0d8b284f",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": 10,
         "collapse": false,
         "className": ""
     },
@@ -1873,7 +1920,7 @@
         "tab": "9502d10e0d8b284f",
         "order": 9,
         "disp": true,
-        "width": "6",
+        "width": 10,
         "collapse": false,
         "className": ""
     },
@@ -1911,44 +1958,70 @@
         "className": ""
     },
     {
-        "id": "38f7ca688b79e95d",
-        "type": "ui_spacer",
-        "z": "525a1f93b25a2b87",
-        "name": "spacer",
-        "group": "84f97fbd3c7205ba",
-        "order": 2,
-        "width": 4,
-        "height": 1
+        "id": "b05458b57f36b38d",
+        "type": "ui_group",
+        "name": "[blank spacer]",
+        "tab": "9502d10e0d8b284f",
+        "order": 13,
+        "disp": false,
+        "width": 30,
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "322f518ccfb027a6",
-        "type": "ui_spacer",
-        "z": "525a1f93b25a2b87",
-        "name": "spacer",
-        "group": "72b35259ae15f45f",
-        "order": 2,
-        "width": 6,
-        "height": 1
+        "id": "8f9d38c224d4c5f4",
+        "type": "ui_group",
+        "name": "Trees",
+        "tab": "9502d10e0d8b284f",
+        "order": 3,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "c62e5e2426c49033",
+        "id": "0315af01570fd7c0",
         "type": "ui_spacer",
         "z": "525a1f93b25a2b87",
         "name": "spacer",
         "group": "72b35259ae15f45f",
         "order": 4,
-        "width": 6,
+        "width": 5,
         "height": 1
     },
     {
-        "id": "7f7e4746ee243eda",
-        "type": "ui_spacer",
-        "z": "525a1f93b25a2b87",
-        "name": "spacer",
-        "group": "72b35259ae15f45f",
-        "order": 6,
-        "width": 6,
-        "height": 1
+        "id": "4cf693d802e2de2b",
+        "type": "ui_group",
+        "name": "test",
+        "tab": "472d8fc.6c1387",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "472d8fc.6c1387",
+        "type": "ui_tab",
+        "name": "sample",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "26332cb7.024dd4",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "e45fadc8.79108",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e45fadc8.79108",
+        "type": "ui_tab",
+        "name": "Start",
+        "icon": "dashboard"
     },
     {
         "id": "bcef7098b2bcab87",
@@ -4347,6 +4420,7 @@
         "id": "e8fcbe1eaf3b0d0b",
         "type": "function",
         "z": "0661e4588e011b72",
+        "d": true,
         "g": "dec7910ea27af2d0",
         "name": "Calculate Scores",
         "func": "var o = msg.payload\n/*Results set inbound ( see what is calling this node - usuall results from a database call) \nwill be a list of buildings for the match, with the following data (all buidlings in the match with their data fields) \n\n\n[{\"MATCH_NUM\":5,\"BUILDING_NAME\":\"LTO\",\"BUILDING_SIDE\":1,\"NUM_BAGS\":0,\"NUM_DROPS\":1,\"NUM_HITS\":0},\n{\"MATCH_NUM\":5,\"BUILDING_NAME\":\"LTO\",\"BUILDING_SIDE\":2,\"NUM_BAGS\":0,\"NUM_DROPS\":1,\"NUM_HITS\":0},\n{\"MATCH_NUM\":5,\"BUILDING_NAME\":\"LTO\",\"BUILDING_SIDE\":3,\"NUM_BAGS\":0,\"NUM_DROPS\":1,\"NUM_HITS\":0},\n... \n*/\n\n//shows how you can iterate and access the data that is sent in\nvar debug1 = \"\";\no.forEach((element, index, array) => {\n    debug1 = debug1 + element.BUILDING_NAME;\n    debug1 = debug1 + \" | \";\n    debug1 = debug1 + \"NUM_HITS:\" +  element.NUM_HITS;\n    debug1 = debug1 + \" | \";\n    debug1 = debug1 + \"\\r \";\n  \n});\n\n\n//just some hacky code to iterate over the results and set some data fields\nvar HitsByBuilding = new Map();\nvar debug = \"\";\no.forEach((element, index, array) => {\n    var name = element.BUILDING_NAME;\n    var side = element.BUILDING_SIDE;\n    var numhits = element.NUM_HITS;\n    if (numhits>1) {\n        debug += debug + \" | \" + name + \":\" + numhits;\n        HitsByBuilding.set(name, numhits);\n    }\n\n});\n\n//BOGUS PLACE HOLDER -- more hacky code to show what you need to set \n//to send to both a database update, and on to the arduinos via mqtt\nvar updates = new Array();\n\nif (HitsByBuilding.has(\"RBI\")) {\n    var fireScoreBuilding1 = new Map();\n    fireScoreBuilding1.set(\"BUILDING_NAME\",\"RBI\");\n    fireScoreBuilding1.set(\"FS\", HitsByBuilding.get(\"RBI\"));    \n    updates.push(fireScoreBuilding1);\n}\n \nvar fireScoreBuilding2 = new Map();\nfireScoreBuilding2.set(\"BUILDING_NAME\", \"LTO\");\nfireScoreBuilding2.set(\"FS\", 3);\nupdates.push(fireScoreBuilding2);\n\nvar fireScoreBuilding3 = new Map();\nfireScoreBuilding3.set(\"BUILDING_NAME\", \"LTI\");\nfireScoreBuilding3.set(\"FS\", 3);\nupdates.push(fireScoreBuilding3);\n\n//This is now sent on to update the DB and also then triggers a send to MQTT for the edge nodes to pick up\nmsg.payload = updates;\n//Hacky way to do some specific debugging -\nmsg.lancedebug = debug;\nreturn msg;",
@@ -5319,7 +5393,7 @@
         "z": "f74b301e4f22310f",
         "g": "738e4f614ef8a7a5",
         "name": "SQL - New Match",
-        "func": "\nvar timestamp = msg.payload;\n//Choose a random side to start match -\n\nvar matchnum = global.get(\"matchnum\");\n\n\n//Choose a random side\nvar active = \"LEFT\";\n;\nif (Math.floor(Math.random() * 2)==0) {\n    active = \"RIGHT\"\n}\nglobal.set(\"startside\", active);\n\nvar newMsg = {\n    \"topic\": \"INSERT INTO MATCH_STATE (TIMEOFMATCH, ACTIVE_COMMUNITY) VALUES (  \"+ timestamp + \", '\" + active + \"');\"\n}\n\nreturn newMsg;\n",
+        "func": "\nvar timestamp = msg.payload;\n//Choose a random side to start match -\n\nvar matchnum = global.get(\"matchnum\");\n\n\n//Choose a random side, start setting up global variables\nvar active = \"LEFT\";\n;\nif (Math.floor(Math.random() * 2)==0) {\n    active = \"RIGHT\"\n}\nglobal.set(\"startside\", active);\n\nglobal.set(\"currentphase\", 1);\n\nvar newMsg = {\n    \"topic\": \"INSERT INTO MATCH_STATE (TIMEOFMATCH, ACTIVE_COMMUNITY) VALUES (  \"+ timestamp + \", '\" + active + \"');\"\n}\n\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6178,7 +6252,7 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
+        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6655,6 +6729,16 @@
                 "0aa61745968b6ee5"
             ]
         ]
+    },
+    {
+        "id": "a7b32356f06af517",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "name": " <------ \\n <------ \\n This right here \\n This is where the match starts \\n <----- \\n  <------  ",
+        "info": "",
+        "x": 1140,
+        "y": 840,
+        "wires": []
     },
     {
         "id": "890050b7a3592bf1",
@@ -10474,7 +10558,7 @@
         "setTimeToNewWhileRunning": true,
         "startCountdownOnControlMessage": false,
         "x": 290,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             [],
             [
@@ -10495,7 +10579,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             [
                 "db6a188325dcd4b5"
@@ -10516,7 +10600,7 @@
         "format": "{{msg.finalTime}}",
         "layout": "col-center",
         "x": 940,
-        "y": 1220,
+        "y": 1260,
         "wires": []
     },
     {
@@ -10527,7 +10611,7 @@
         "name": "Build \"Match Info\" Dashboard",
         "info": "",
         "x": 200,
-        "y": 1120,
+        "y": 1160,
         "wires": []
     },
     {
@@ -10538,7 +10622,7 @@
         "name": "Timer",
         "info": "",
         "x": 170,
-        "y": 1180,
+        "y": 1220,
         "wires": []
     },
     {
@@ -10555,7 +10639,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-center",
         "x": 520,
-        "y": 1500,
+        "y": 1540,
         "wires": []
     },
     {
@@ -10579,7 +10663,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 240,
-        "y": 1420,
+        "y": 1460,
         "wires": [
             [
                 "acc02b92d4d8c13e",
@@ -10598,7 +10682,7 @@
             "d36ef2fad2d08d5f"
         ],
         "x": 475,
-        "y": 1440,
+        "y": 1480,
         "wires": []
     },
     {
@@ -10612,7 +10696,7 @@
             "8f95daa740229529"
         ],
         "x": 915,
-        "y": 1380,
+        "y": 1420,
         "wires": []
     },
     {
@@ -10634,7 +10718,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 480,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "ab6b0ced1764bbe7"
@@ -10662,7 +10746,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1420,
+        "y": 1460,
         "wires": [
             [
                 "c8663193fd1a2a4c",
@@ -10692,7 +10776,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1580,
+        "y": 1620,
         "wires": [
             []
         ]
@@ -10705,7 +10789,7 @@
         "name": "Match Controls",
         "info": "",
         "x": 200,
-        "y": 1360,
+        "y": 1400,
         "wires": []
     },
     {
@@ -10718,7 +10802,7 @@
             "d92cebfab339228d"
         ],
         "x": 915,
-        "y": 1420,
+        "y": 1460,
         "wires": []
     },
     {
@@ -10732,7 +10816,7 @@
             "df0c2380cde11191"
         ],
         "x": 175,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             [
                 "8dd58815c2e5e6ed"
@@ -10747,7 +10831,7 @@
         "name": "Global 15s Timer",
         "info": "",
         "x": 1020,
-        "y": 1380,
+        "y": 1420,
         "wires": []
     },
     {
@@ -10758,7 +10842,7 @@
         "name": "Match Countdown Timer",
         "info": "",
         "x": 1050,
-        "y": 1420,
+        "y": 1460,
         "wires": []
     },
     {
@@ -10782,7 +10866,7 @@
         "to": "",
         "reg": false,
         "x": 340,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "b887e05d8e16f98a"
@@ -10799,7 +10883,7 @@
             "4a0f846d052b27a1"
         ],
         "x": 915,
-        "y": 1460,
+        "y": 1500,
         "wires": []
     },
     {
@@ -10812,7 +10896,7 @@
             "ee09a1869c62b35f"
         ],
         "x": 185,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "490f0337c9b5fdde"
@@ -10827,7 +10911,7 @@
         "name": "Match Num Display",
         "info": "",
         "x": 1030,
-        "y": 1460,
+        "y": 1500,
         "wires": []
     },
     {
@@ -10851,7 +10935,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 230,
-        "y": 1580,
+        "y": 1620,
         "wires": [
             [
                 "3b62b6b510d4e006"
@@ -10869,7 +10953,7 @@
             "e6f7df6891d456f8"
         ],
         "x": 415,
-        "y": 1220,
+        "y": 1260,
         "wires": []
     },
     {
@@ -10882,7 +10966,7 @@
             "2d8175ca745dc0c0"
         ],
         "x": 535,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             [
                 "59f5d060d5848730"
@@ -10897,7 +10981,7 @@
         "name": "== NEED SOMETHING HERE TO PAUSE TIMER ===",
         "info": "",
         "x": 840,
-        "y": 1580,
+        "y": 1620,
         "wires": []
     },
     {
@@ -10908,7 +10992,7 @@
         "name": "=====",
         "info": "",
         "x": 150,
-        "y": 2160,
+        "y": 2200,
         "wires": []
     },
     {
@@ -10919,7 +11003,7 @@
         "name": "Scoring Displays",
         "info": "",
         "x": 200,
-        "y": 1680,
+        "y": 1720,
         "wires": []
     },
     {
@@ -10930,7 +11014,7 @@
         "name": "Tie to the existing window update timing - that way any changes happen in sync",
         "info": "",
         "x": 440,
-        "y": 1720,
+        "y": 1760,
         "wires": []
     },
     {
@@ -10943,7 +11027,7 @@
             "657f37cb57ddaa95"
         ],
         "x": 175,
-        "y": 1760,
+        "y": 1800,
         "wires": [
             []
         ]
@@ -10961,7 +11045,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1760,
+        "y": 1800,
         "wires": [
             [
                 "a31a48fc659094dc"
@@ -10978,7 +11062,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 730,
-        "y": 1760,
+        "y": 1800,
         "wires": [
             [
                 "977940dbb24cd0d3"
@@ -11008,7 +11092,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 250,
-        "y": 1820,
+        "y": 1860,
         "wires": [
             [
                 "dd3ee7af1c1be3f9"
@@ -11028,7 +11112,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 1820,
+        "y": 1860,
         "wires": [
             []
         ]
@@ -11047,7 +11131,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 920,
-        "y": 1820,
+        "y": 1860,
         "wires": []
     },
     {
@@ -11063,7 +11147,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 1940,
+        "y": 1980,
         "wires": [
             []
         ]
@@ -11076,7 +11160,7 @@
         "name": "THIS _WILL_ WORK - INITIALIZER FCS CODE IS WHAT IS WRONG, CHECK THAT NEXT ",
         "info": "",
         "x": 640,
-        "y": 1780,
+        "y": 1820,
         "wires": []
     },
     {
@@ -11573,7 +11657,7 @@
         "g": "b761ec70a9ef3fae",
         "name": "Every [however-fast-we-can-without-breaking-things], loop through all bldgs and read current window statuses from SQL",
         "info": "",
-        "x": 540,
+        "x": 500,
         "y": 360,
         "wires": []
     },
@@ -11588,14 +11672,14 @@
                 "p": "payload"
             }
         ],
-        "repeat": "2",
+        "repeat": "0.5",
         "crontab": "",
         "once": true,
         "onceDelay": "0.5",
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 210,
+        "x": 170,
         "y": 420,
         "wires": [
             [
@@ -11616,17 +11700,17 @@
         "condition": "",
         "conditionType": "js",
         "when": "before",
-        "enumeration": "[\"LTO\",\"LTM\",\"LTI\",\"LBO\",\"LBM\",\"LBI\",\"RTO\",\"RTM\",\"RTI\",\"RBO\",\"RBM\",\"RBI\"]",
-        "enumerationType": "json",
+        "enumeration": "payload",
+        "enumerationType": "msg",
         "limit": "200",
-        "loopPayload": "loop-index",
+        "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 590,
-        "y": 480,
+        "x": 870,
+        "y": 520,
         "wires": [
             [],
             [
-                "a5d13575b4066615"
+                "b529cac067f45af4"
             ]
         ]
     },
@@ -11657,8 +11741,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 560,
+        "x": 380,
+        "y": 620,
         "wires": [
             [
                 "b529cac067f45af4",
@@ -11678,8 +11762,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 540,
+        "x": 740,
+        "y": 600,
         "wires": [
             [
                 "51b576984a477740"
@@ -11695,12 +11779,11 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Get SQL Results",
-        "x": 1070,
-        "y": 540,
+        "x": 1030,
+        "y": 600,
         "wires": [
             [
-                "5007fdcc502bf71f",
-                "2694953f60e43f5d"
+                "5007fdcc502bf71f"
             ]
         ]
     },
@@ -11716,8 +11799,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 680,
+        "x": 440,
+        "y": 740,
         "wires": [
             [
                 "8cbd51125ac85550"
@@ -11733,8 +11816,8 @@
         "links": [
             "5fd586e91231d64b"
         ],
-        "x": 905,
-        "y": 680,
+        "x": 865,
+        "y": 740,
         "wires": []
     },
     {
@@ -11746,8 +11829,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 750,
-        "y": 680,
+        "x": 710,
+        "y": 740,
         "wires": [
             [
                 "4a8a1a766a1837c0",
@@ -11764,7 +11847,7 @@
         "links": [
             "5fd586e91231d64b"
         ],
-        "x": 415,
+        "x": 375,
         "y": 460,
         "wires": []
     },
@@ -11788,12 +11871,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 290,
+        "x": 250,
         "y": 480,
         "wires": [
             [
-                "4a8a1a766a1837c0",
-                "50359eeb29b81631"
+                "50359eeb29b81631",
+                "4de1973804e05054"
             ]
         ]
     },
@@ -11815,7 +11898,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 410,
+        "x": 370,
         "y": 420,
         "wires": [
             [
@@ -11829,10 +11912,10 @@
         "type": "comment",
         "z": "221fa9b81205c952",
         "g": "b761ec70a9ef3fae",
-        "name": "Send MQTT messages to update real bldgs (4 sides, 4 msgs)",
+        "name": "Send MQTT messages to update real bldgs (4 sides, 4 msgs, plus gutter)",
         "info": "",
         "x": 400,
-        "y": 860,
+        "y": 920,
         "wires": []
     },
     {
@@ -11841,14 +11924,14 @@
         "z": "221fa9b81205c952",
         "g": "b761ec70a9ef3fae",
         "name": "Build MQTT Messages",
-        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0] (for side 1):\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n    \n -- Convert these into MQTT messages \n topic: \"nodered/updatewindow/[node_id]\"\n message: { \n     \"side_id\": [side_id],\n     \"activeWindows\": [num_activeWindows]\n  }\n*/\n\n// --- Set up basic variables\nvar input = msg.payload;\nvar theNode = input[0].BUILDING_NAME; \nvar output = []; //array of json strings\nvar msg0 = {};\nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\n\n// --- Loop through the object (each side)\nfor (let i in input) {\n    var theSide = input[i][\"BUILDING_SIDE\"];\n    var theActiveWindows = input[i][\"WINDOWS_ACTIVE\"];\n\n    // -- Build MQTT message for that side\n    output[i] = \"{ \" +\n        \"\\\"side_id\\\": \" + theSide + \", \" +\n        \"\\\"activeWindows\\\": \" + theActiveWindows +\n        \"}\";\n    \n}\n\n// --- Build output msgs\nmsg0.topic = \"nodered/updatewindow/\" + theNode;\nmsg0.payload = output[0];\nmsg1.topic = \"nodered/updatewindow/\" + theNode;\nmsg1.payload = output[1];\nmsg2.topic = \"nodered/updatewindow/\" + theNode;\nmsg2.payload = output[2];\nmsg3.topic = \"nodered/updatewindow/\" + theNode;\nmsg3.payload = output[3];\n\n// --- Fin\nreturn [msg0, msg1, msg2, msg3];",
-        "outputs": 4,
+        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0] (for side 1):\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n    \n -- Convert these into MQTT messages \n topic: \"nodered/updatewindow/[node_id]\"\n message: { \n     \"side_id\": [side_id],\n     \"activeWindows\": [num_activeWindows]\n  }\n*/\n\n// --- Set up basic variables\nvar input = msg.payload;\nvar theNode = input[0].BUILDING_NAME; \nvar output = []; //array of json strings\nvar msg0 = {};\nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\nvar gutterSum = 0;\n\n// --- Loop through the object (each side)\nfor (let i in input) {\n    var theSide = input[i][\"BUILDING_SIDE\"];\n    var theActiveWindows = input[i][\"WINDOWS_ACTIVE\"];\n\n    // -- Build MQTT message for that side\n    // [[[[NEXT - DAMAGEEE??]]]]\n    output[i] = \"{ \" +\n        \"\\\"side_id\\\": \" + theSide + \", \" +\n        \"\\\"activeWindows\\\": \" + theActiveWindows +\n        \"}\";\n    \n    // -- Build up the gutter sum\n    gutterSum += theActiveWindows;\n    \n}\n\n// -- The gutter\noutput[4] = \"{ \" +\n    \"\\\"num_segments\\\": \" + gutterSum + \", \" +\n    \"\\\"color\\\": 'FF0000'\" //red\n    \"}\";\n\n// --- Build output msgs\nmsg0.topic = \"nodered/updatewindow/\" + theNode;\nmsg0.payload = output[0];\nmsg1.topic = \"nodered/updatewindow/\" + theNode;\nmsg1.payload = output[1];\nmsg2.topic = \"nodered/updatewindow/\" + theNode;\nmsg2.payload = output[2];\nmsg3.topic = \"nodered/updatewindow/\" + theNode;\nmsg3.payload = output[3];\nmsg4.topic = \"nodered/updategutter/orderedsegments/\" + theNode;\nmsg4.payload = output[4];\n\n\n// --- Fin\nreturn [msg0, msg1, msg2, msg3, msg4];",
+        "outputs": 5,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 920,
+        "x": 360,
+        "y": 1000,
         "wires": [
             [
                 "b4e29f7a97232bf2"
@@ -11861,6 +11944,9 @@
             ],
             [
                 "a8cf64b853f83977"
+            ],
+            [
+                "6f02b326141d42ed"
             ]
         ]
     },
@@ -11879,8 +11965,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 690,
-        "y": 900,
+        "x": 650,
+        "y": 960,
         "wires": []
     },
     {
@@ -11890,8 +11976,8 @@
         "g": "b761ec70a9ef3fae",
         "name": "Update dashboard table",
         "info": "",
-        "x": 280,
-        "y": 640,
+        "x": 240,
+        "y": 700,
         "wires": []
     },
     {
@@ -11906,8 +11992,8 @@
             "9861e3a7d85924df",
             "3c83eb799e9d7892"
         ],
-        "x": 1205,
-        "y": 540,
+        "x": 1165,
+        "y": 600,
         "wires": []
     },
     {
@@ -11921,8 +12007,8 @@
             "d3db9f92aff0b743",
             "cd3d137ba28619f3"
         ],
-        "x": 255,
-        "y": 680,
+        "x": 215,
+        "y": 740,
         "wires": [
             [
                 "c693bf2be0bdd6c9"
@@ -11941,8 +12027,8 @@
             "cd3d137ba28619f3",
             "cdebbedd4633914f"
         ],
-        "x": 255,
-        "y": 920,
+        "x": 225,
+        "y": 1000,
         "wires": [
             [
                 "109255f8ae4b157b"
@@ -11964,8 +12050,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 690,
-        "y": 920,
+        "x": 650,
+        "y": 980,
         "wires": []
     },
     {
@@ -11983,8 +12069,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 690,
-        "y": 940,
+        "x": 650,
+        "y": 1000,
         "wires": []
     },
     {
@@ -12002,8 +12088,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 690,
-        "y": 960,
+        "x": 650,
+        "y": 1020,
         "wires": []
     },
     {
@@ -12021,7 +12107,7 @@
             "b7dc6bf4c8549af4",
             "04c4f4f285f0deb1"
         ],
-        "x": 165,
+        "x": 125,
         "y": 480,
         "wires": [
             [
@@ -12038,7 +12124,7 @@
         "links": [
             "b4f6bbea7b9c1425"
         ],
-        "x": 575,
+        "x": 535,
         "y": 420,
         "wires": []
     },
@@ -12052,8 +12138,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Get SQL Results",
-        "x": 1070,
-        "y": 580,
+        "x": 1030,
+        "y": 640,
         "wires": [
             [
                 "6d8eea74bd881d3e"
@@ -12073,8 +12159,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 580,
+        "x": 710,
+        "y": 640,
         "wires": [
             [
                 "d11da172d0a3d14e"
@@ -12094,8 +12180,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 720,
+        "x": 440,
+        "y": 780,
         "wires": [
             []
         ]
@@ -12110,8 +12196,8 @@
         "links": [
             "6d8eea74bd881d3e"
         ],
-        "x": 255,
-        "y": 720,
+        "x": 215,
+        "y": 780,
         "wires": [
             [
                 "561c69906925c60c"
@@ -12125,27 +12211,9 @@
         "g": "b761ec70a9ef3fae",
         "name": "Spent a ton of time trying to get a Join node to work, but couldn't get these two to combine.. \\n Don't want to do them separately because you don't want two separate things updating ui-table at the same time \\n Maybe Dom has some SQL magic to pull from two tables at once? ",
         "info": "",
-        "x": 1020,
-        "y": 740,
+        "x": 980,
+        "y": 800,
         "wires": []
-    },
-    {
-        "id": "9a61ec5826546fce",
-        "type": "function",
-        "z": "221fa9b81205c952",
-        "g": "b761ec70a9ef3fae",
-        "name": "Convert all of this to the UI table command",
-        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0]:\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n    \n -- So, we just need to convert those values into the appropriate table\n    row / column / progress bar %'s \n\n -- Output is JSON that contains the new table updates.  E.g.: \n    [\n        {\n            \"BuildingName\": \"LTO\",\n            \"Side1\":0,\n            \"Side2\":50,\n            \"Side3\":100,\n            \"Side4\":0\n        }\n    ]\n*/\n\n// set up basic variablfes\nvar input = msg.payload;\nvar output = {}; //json \n\nvar curBldg = input[0].BUILDING_NAME; // it will be the same for all values\n\noutput[\"BuildingName\"] = curBldg;\n\n// Loop through the object\nfor (let i in input) {\n    var sidestring = \"Side\" + (input[i][\"BUILDING_SIDE\"]);\n    output[sidestring] = 50 * input[i][\"WINDOWS_ACTIVE\"];\n}\n\n// fin\nmsg.payload = output;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1270,
-        "y": 880,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "6d8eea74bd881d3e",
@@ -12156,8 +12224,8 @@
         "links": [
             "045e41f36b73f834"
         ],
-        "x": 1205,
-        "y": 580,
+        "x": 1165,
+        "y": 640,
         "wires": []
     },
     {
@@ -12328,7 +12396,7 @@
         "g": "b761ec70a9ef3fae",
         "name": "Long term - maybe dashboard every 3s or so, and MQTT every 250-500ms? \\n This wouldn't even be a big deal if I could get \"updateOrAddData\" working correctly on the ui-table..",
         "info": "",
-        "x": 1160,
+        "x": 1120,
         "y": 420,
         "wires": []
     },
@@ -12399,7 +12467,7 @@
         "layout": "row-center",
         "className": "",
         "x": 430,
-        "y": 2080,
+        "y": 2120,
         "wires": []
     },
     {
@@ -12410,7 +12478,7 @@
         "name": "Fire Clear Score Display using Dom Magic SQL ",
         "info": "",
         "x": 280,
-        "y": 2020,
+        "y": 2060,
         "wires": []
     },
     {
@@ -12436,7 +12504,7 @@
         "payload": "99",
         "payloadType": "num",
         "x": 220,
-        "y": 2080,
+        "y": 2120,
         "wires": [
             [
                 "25b25582dbcb2144"
@@ -12451,25 +12519,7 @@
         "name": "\\n \\n \\n [[ THIS WHOLE SECTION WILL PROBABLY BE REPLACED BY DOM MAGIC SQL ]]\\n \\n \\n ",
         "info": "",
         "x": 860,
-        "y": 1780,
-        "wires": []
-    },
-    {
-        "id": "2694953f60e43f5d",
-        "type": "debug",
-        "z": "221fa9b81205c952",
-        "g": "b761ec70a9ef3fae",
-        "name": "DB THE SQL RES",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1350,
-        "y": 500,
+        "y": 1820,
         "wires": []
     },
     {
@@ -12571,6 +12621,82 @@
         "broker": "5999f1d09afe1039",
         "x": 1990,
         "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "4de1973804e05054",
+        "type": "function",
+        "z": "221fa9b81205c952",
+        "g": "b761ec70a9ef3fae",
+        "name": "Set up array of bldgs for active community",
+        "func": "//--- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar phase = global.get(\"currentphase\");\nvar startSide = global.get(\"startside\");\nvar curSide = \"\";\nvar output = {};\n\n//--- Figure out where we at\nswitch (phase) {\n    case 1: \n        curSide = startSide;\n        break;\n    case 2:\n        curSide = (startSide == \"LEFT\") ? \"LEFT\" : \"RIGHT\";  //magical js shorthand\n        break;\n    case 3:\n        curSide = \"ENDGAME\";\n        break;\n}\n\n//--- Set up output JSON array \n// Weird formatting is so it acts an \"enumeration\" for the loop node\nswitch(curSide) {\n    case \"LEFT\":\n        output = { 0:'LTO', 1:'LTM', 2:'LTI', 3:'LBO', 4:'LBM', 5:'LBI'};\n        break;\n    case \"RIGHT\":\n        output = { 0:'RTO', 1:'RTM', 2:'RTI', 3: 'RBO', 4:'RBM', 5:'RBI' };\n        break;\n    case \"ENDGAME\":\n        output = {\n            0: 'LTO', 1: 'LTM', 2: 'LTI', 3: 'LBO', 4: 'LBM', 5: 'LBI',\n            6: 'RTO', 7: 'RTM', 8: 'RTI', 9: 'RBO', 10: 'RBM', 11: 'RBI'\n        };\n        break;\n}\n\n//--- Fin\nmsg.payload = output;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "4a8a1a766a1837c0"
+            ]
+        ]
+    },
+    {
+        "id": "8f2a84c4a6014fa8",
+        "type": "comment",
+        "z": "221fa9b81205c952",
+        "g": "b761ec70a9ef3fae",
+        "name": "Only active side ",
+        "info": "",
+        "x": 700,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1c382e5efa72fbfc",
+        "type": "loop",
+        "z": "221fa9b81205c952",
+        "d": true,
+        "g": "b761ec70a9ef3fae",
+        "name": "Loop Through Building Names (ezmode)",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "[\"LTO\",\"LTM\",\"LTI\",\"LBO\",\"LBM\",\"LBI\",\"RTO\",\"RTM\",\"RTI\",\"RBO\",\"RBM\",\"RBI\"]",
+        "enumerationType": "json",
+        "limit": "200",
+        "loopPayload": "loop-index",
+        "finalPayload": "final-orig",
+        "x": 920,
+        "y": 480,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6f02b326141d42ed",
+        "type": "mqtt out",
+        "z": "221fa9b81205c952",
+        "g": "b761ec70a9ef3fae",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 650,
+        "y": 1040,
         "wires": []
     },
     {
@@ -12706,7 +12832,8 @@
         "y": 140,
         "wires": [
             [
-                "9cca8f992b8c7647"
+                "9cca8f992b8c7647",
+                "23ade44d3f6d5796"
             ]
         ]
     },
@@ -12820,7 +12947,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 630,
-        "y": 500,
+        "y": 660,
         "wires": [
             [
                 "38031cb4243cb25c"
@@ -12840,7 +12967,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 500,
+        "y": 660,
         "wires": [
             [
                 "d21ffff25b233c0c"
@@ -12860,7 +12987,7 @@
         "finalize": "",
         "libs": [],
         "x": 930,
-        "y": 500,
+        "y": 660,
         "wires": [
             [
                 "90ab0fecc32bcde5"
@@ -12879,7 +13006,7 @@
             "9827bb283a8e319e"
         ],
         "x": 165,
-        "y": 500,
+        "y": 660,
         "wires": [
             [
                 "66fe54ab87d11648"
@@ -12910,7 +13037,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 680,
+        "y": 840,
         "wires": [
             [
                 "bfe8431d74b3bed6"
@@ -12936,7 +13063,7 @@
         "loopPayload": "loop-val",
         "finalPayload": "final-count",
         "x": 620,
-        "y": 600,
+        "y": 760,
         "wires": [
             [
                 "5f1a0c0f330d9d19"
@@ -12956,7 +13083,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 630,
-        "y": 680,
+        "y": 840,
         "wires": [
             [
                 "5462a2bd26666b2f"
@@ -12986,8 +13113,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1000,
-        "y": 680,
+        "x": 1040,
+        "y": 840,
         "wires": [
             [
                 "0174ebdf7245c867",
@@ -13009,7 +13136,7 @@
             "c8924c7acd40cb1f"
         ],
         "x": 1215,
-        "y": 660,
+        "y": 820,
         "wires": []
     },
     {
@@ -13019,8 +13146,8 @@
         "g": "c5248dc36aacb922",
         "name": "START THE BURN",
         "info": "",
-        "x": 1110,
-        "y": 620,
+        "x": 1130,
+        "y": 760,
         "wires": []
     },
     {
@@ -13031,7 +13158,7 @@
         "name": "Spread Between Buildings",
         "info": "",
         "x": 250,
-        "y": 460,
+        "y": 620,
         "wires": []
     },
     {
@@ -13042,7 +13169,7 @@
         "name": "Burn Within a Building",
         "info": "",
         "x": 240,
-        "y": 780,
+        "y": 940,
         "wires": []
     },
     {
@@ -13055,7 +13182,7 @@
             "af0cc8f3c2088bbc"
         ],
         "x": 855,
-        "y": 600,
+        "y": 760,
         "wires": []
     },
     {
@@ -13068,7 +13195,7 @@
             "5f1a0c0f330d9d19"
         ],
         "x": 175,
-        "y": 820,
+        "y": 980,
         "wires": [
             [
                 "22e6cafe7f33addb"
@@ -13085,7 +13212,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 630,
-        "y": 820,
+        "y": 980,
         "wires": [
             [
                 "fa0c4978405d7038"
@@ -13111,7 +13238,7 @@
         "loopPayload": "loop-val",
         "finalPayload": "final-count",
         "x": 540,
-        "y": 900,
+        "y": 1060,
         "wires": [
             [],
             [
@@ -13143,7 +13270,7 @@
         "repair": false,
         "outputs": 2,
         "x": 540,
-        "y": 1040,
+        "y": 1200,
         "wires": [
             [
                 "0ff4b05a25dbcb05"
@@ -13167,7 +13294,7 @@
         "finalize": "",
         "libs": [],
         "x": 900,
-        "y": 1020,
+        "y": 1180,
         "wires": [
             [
                 "b86fcf4650bb15c0",
@@ -13185,7 +13312,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 1190,
-        "y": 1020,
+        "y": 1180,
         "wires": [
             [
                 "fa0c4978405d7038"
@@ -13205,7 +13332,7 @@
         "finalize": "",
         "libs": [],
         "x": 850,
-        "y": 1300,
+        "y": 1460,
         "wires": [
             [
                 "986d2e280e45de7f",
@@ -13227,7 +13354,7 @@
         "finalize": "",
         "libs": [],
         "x": 890,
-        "y": 1140,
+        "y": 1300,
         "wires": [
             [
                 "7804a412d60bf28e",
@@ -13245,7 +13372,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 1130,
-        "y": 1140,
+        "y": 1300,
         "wires": [
             []
         ]
@@ -13260,7 +13387,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 1130,
-        "y": 1300,
+        "y": 1460,
         "wires": [
             [
                 "d5ecf80c25bd29b1",
@@ -13278,7 +13405,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 1130,
-        "y": 1360,
+        "y": 1520,
         "wires": [
             [
                 "c7250da4e3efc921",
@@ -13299,7 +13426,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 1360,
+        "y": 1520,
         "wires": [
             [
                 "ffa6f64c863dd6d7",
@@ -13320,7 +13447,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 1420,
+        "y": 1580,
         "wires": [
             [
                 "301cc370fc617f4c",
@@ -13338,7 +13465,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 1130,
-        "y": 1420,
+        "y": 1580,
         "wires": [
             [
                 "fa0c4978405d7038"
@@ -13369,7 +13496,7 @@
         "repair": false,
         "outputs": 2,
         "x": 830,
-        "y": 680,
+        "y": 840,
         "wires": [
             [
                 "b52a86402946ae8d"
@@ -13394,7 +13521,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1280,
-        "y": 1080,
+        "y": 1240,
         "wires": []
     },
     {
@@ -13412,7 +13539,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1240,
-        "y": 940,
+        "y": 1100,
         "wires": []
     },
     {
@@ -13421,7 +13548,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "to start a burn",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13429,8 +13556,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1300,
-        "y": 720,
+        "x": 1340,
+        "y": 780,
         "wires": []
     },
     {
@@ -13439,7 +13566,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db asking minwindowsequence",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13448,7 +13575,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1450,
-        "y": 1340,
+        "y": 1500,
         "wires": []
     },
     {
@@ -13466,7 +13593,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1500,
-        "y": 1380,
+        "y": 1540,
         "wires": []
     },
     {
@@ -13475,7 +13602,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db asking activewindows",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13484,7 +13611,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1430,
-        "y": 1440,
+        "y": 1600,
         "wires": []
     },
     {
@@ -13493,7 +13620,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db receiving activewindows",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13502,7 +13629,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1480,
-        "y": 1480,
+        "y": 1640,
         "wires": []
     },
     {
@@ -13519,8 +13646,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
-        "y": 1500,
+        "x": 1060,
+        "y": 1660,
         "wires": []
     },
     {
@@ -13532,13 +13659,14 @@
         "links": [
             "0174ebdf7245c867"
         ],
-        "x": 1865,
-        "y": 580,
+        "x": 1915,
+        "y": 600,
         "wires": [
             [
                 "f7954fdaf37f1d6b",
                 "69cd02e02585755b",
-                "4c03455adb33b337"
+                "4c03455adb33b337",
+                "a7051b8e4534bfa7"
             ]
         ]
     },
@@ -13549,8 +13677,8 @@
         "g": "418e8e7e5f859cb1",
         "name": "Building Start Burning",
         "info": "",
-        "x": 1860,
-        "y": 480,
+        "x": 1910,
+        "y": 500,
         "wires": []
     },
     {
@@ -13565,8 +13693,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2060,
-        "y": 560,
+        "x": 2110,
+        "y": 580,
         "wires": [
             [
                 "74784ec507860137"
@@ -13582,8 +13710,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 2470,
-        "y": 560,
+        "x": 2520,
+        "y": 580,
         "wires": [
             []
         ]
@@ -13600,8 +13728,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2230,
-        "y": 640,
+        "x": 2280,
+        "y": 660,
         "wires": [
             [
                 "9694f7729d4a4b39"
@@ -13617,8 +13745,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 2470,
-        "y": 640,
+        "x": 2520,
+        "y": 660,
         "wires": [
             []
         ]
@@ -13635,8 +13763,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2120,
-        "y": 600,
+        "x": 2170,
+        "y": 620,
         "wires": [
             [
                 "d6ddc265e0e6f590"
@@ -13652,8 +13780,8 @@
         "sqlquery": "batch",
         "sql": "",
         "name": "Send SQL (Batch)",
-        "x": 2490,
-        "y": 600,
+        "x": 2540,
+        "y": 620,
         "wires": [
             []
         ]
@@ -13676,8 +13804,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1990,
-        "y": 640,
+        "x": 2040,
+        "y": 660,
         "wires": [
             [
                 "d0a5e8de374a7a44"
@@ -13697,7 +13825,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 820,
+        "y": 980,
         "wires": [
             [
                 "afe0ce27b8dd56da"
@@ -13711,8 +13839,8 @@
         "g": "418e8e7e5f859cb1",
         "name": " - First update FS in Buildings, then update Window Sequence, and finally set Active Windows",
         "info": "",
-        "x": 2100,
-        "y": 520,
+        "x": 2150,
+        "y": 540,
         "wires": []
     },
     {
@@ -13754,7 +13882,7 @@
         "finalize": "",
         "libs": [],
         "x": 850,
-        "y": 1220,
+        "y": 1380,
         "wires": [
             [
                 "96265e6d8477570d",
@@ -13772,7 +13900,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 1130,
-        "y": 1220,
+        "y": 1380,
         "wires": [
             [
                 "5b294341ac84aae4",
@@ -13799,7 +13927,7 @@
         "repair": false,
         "outputs": 1,
         "x": 530,
-        "y": 1280,
+        "y": 1440,
         "wires": [
             [
                 "f7ad0a1277125d73"
@@ -13812,7 +13940,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db receiving sumwindowsactive",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13821,7 +13949,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1490,
-        "y": 1280,
+        "y": 1440,
         "wires": []
     },
     {
@@ -13830,7 +13958,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db asking sumwindowsactive",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13839,7 +13967,107 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1440,
-        "y": 1240,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "23ade44d3f6d5796",
+        "type": "debug",
+        "z": "78c5e866df5030a1",
+        "g": "b2b1f1ca3c2a378c",
+        "name": "db global timer",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1360,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a7051b8e4534bfa7",
+        "type": "delay",
+        "z": "78c5e866df5030a1",
+        "g": "418e8e7e5f859cb1",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2080,
+        "y": 780,
+        "wires": [
+            [
+                "0b703c282da9ef19"
+            ]
+        ]
+    },
+    {
+        "id": "6ff9a3425a7b60f4",
+        "type": "comment",
+        "z": "78c5e866df5030a1",
+        "g": "418e8e7e5f859cb1",
+        "name": "Turn off \"was just spread\" \\n (the only purpose of this is to prevent accidental double-burn on that loop)",
+        "info": "",
+        "x": 2200,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "0b703c282da9ef19",
+        "type": "function",
+        "z": "78c5e866df5030a1",
+        "name": "Update Buildings SQL",
+        "func": "// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar theBldg = pyld[0].BUILDING_NAME;\n\n// --- Build SQL statement\nvar newMsg = { \"topic\": \"UPDATE Buildings SET WAS_JUST_SPREAD = 0 \" +\n    \"WHERE MATCH_NUM = \" + matchid + \" AND \" +\n    \"BUILDING_NAME= '\" + theBldg + \"';\"\n}\n\n// --- Fin\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2280,
+        "y": 780,
+        "wires": [
+            [
+                "21b3888bb84ac7fb"
+            ]
+        ]
+    },
+    {
+        "id": "21b3888bb84ac7fb",
+        "type": "sqlite",
+        "z": "78c5e866df5030a1",
+        "g": "418e8e7e5f859cb1",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Send SQL",
+        "x": 2530,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "301ff5ddd37b8e02",
+        "type": "comment",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "name": "Spread From Forest",
+        "info": "",
+        "x": 230,
+        "y": 460,
         "wires": []
     },
     {
@@ -14298,7 +14526,7 @@
         "tooltip": "",
         "group": "e13f7d3261501fe3",
         "order": 1,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14326,9 +14554,9 @@
         "type": "ui_text",
         "z": "525a1f93b25a2b87",
         "g": "5c65227277323287",
-        "group": "84f97fbd3c7205ba",
+        "group": "8f9d38c224d4c5f4",
         "order": 1,
-        "width": 6,
+        "width": 10,
         "height": 1,
         "name": "",
         "label": "\"OFF\" means Still Standing",
@@ -14359,7 +14587,7 @@
         "tooltip": "",
         "group": "e13f7d3261501fe3",
         "order": 2,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14392,7 +14620,7 @@
         "tooltip": "",
         "group": "e13f7d3261501fe3",
         "order": 3,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14416,39 +14644,6 @@
         ]
     },
     {
-        "id": "ef4614a854027dfd",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-4",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 4,
-        "width": 4,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "f918679aafed294c",
         "type": "ui_switch",
         "z": "525a1f93b25a2b87",
@@ -14458,7 +14653,7 @@
         "tooltip": "",
         "group": "e13f7d3261501fe3",
         "order": 6,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14477,39 +14672,6 @@
         "className": "",
         "x": 460,
         "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9f388ade70cc5c75",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-5",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 5,
-        "width": 4,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 520,
         "wires": [
             []
         ]
@@ -14541,15 +14703,15 @@
                 "6077c07895f4bae1",
                 "fe877aa6ca1a2686",
                 "108395cf07686851",
-                "ef4614a854027dfd",
-                "9f388ade70cc5c75",
                 "f918679aafed294c",
                 "94416571ba74b77f",
                 "cf0111e5ca742b20",
                 "815e93274f7aec7f",
                 "4fe9e9b1bb1664ca",
                 "3a47778aea970255",
-                "b925475f454abcb9"
+                "b925475f454abcb9",
+                "4aa231ce7353fdce",
+                "903760fb2626b52e"
             ]
         ]
     },
@@ -14592,7 +14754,7 @@
         "tooltip": "",
         "group": "6890d2c616ecd108",
         "order": 1,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14625,7 +14787,7 @@
         "tooltip": "",
         "group": "6890d2c616ecd108",
         "order": 2,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14658,7 +14820,7 @@
         "tooltip": "",
         "group": "6890d2c616ecd108",
         "order": 3,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14691,7 +14853,7 @@
         "tooltip": "",
         "group": "6890d2c616ecd108",
         "order": 4,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14724,7 +14886,7 @@
         "tooltip": "",
         "group": "6890d2c616ecd108",
         "order": 5,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14757,7 +14919,7 @@
         "tooltip": "",
         "group": "6890d2c616ecd108",
         "order": 6,
-        "width": 4,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -14801,7 +14963,7 @@
         "tooltip": "",
         "group": "72b35259ae15f45f",
         "order": 1,
-        "width": 6,
+        "width": 5,
         "height": 1,
         "wrap": false,
         "passthru": true,
@@ -14835,7 +14997,7 @@
         "name": "",
         "group": "994ac39d4884e0e0",
         "order": 1,
-        "width": 6,
+        "width": 10,
         "height": 1,
         "passthru": false,
         "label": "RESET ALL",
@@ -14867,7 +15029,9 @@
             "c47ea9a3505aeaca",
             "0923a704b9e96487",
             "e5a163d2cb046c94",
-            "4a7a3b9ad8b98977"
+            "4a7a3b9ad8b98977",
+            "e91aa64faff0cc5e",
+            "91990964365378d7"
         ],
         "x": 1025,
         "y": 120,
@@ -14899,8 +15063,8 @@
         "label": "Tello Auton Checkpoints",
         "tooltip": "",
         "group": "72b35259ae15f45f",
-        "order": 3,
-        "width": 6,
+        "order": 2,
+        "width": 5,
         "height": 1,
         "wrap": false,
         "passthru": true,
@@ -14964,7 +15128,7 @@
         "g": "d07f6babdcefefa3",
         "name": "=== RECON PATH CONTROLS ===",
         "info": "",
-        "x": 920,
+        "x": 1080,
         "y": 220,
         "wires": []
     },
@@ -14977,8 +15141,8 @@
         "label": "Auton Ball Drop",
         "tooltip": "",
         "group": "72b35259ae15f45f",
-        "order": 5,
-        "width": 6,
+        "order": 3,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -15241,7 +15405,7 @@
         "name": "",
         "group": "9c6c4c4610be9e88",
         "order": 1,
-        "width": 6,
+        "width": 5,
         "height": 1,
         "passthru": false,
         "label": "Light up Recon Path - L",
@@ -15254,7 +15418,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 930,
+        "x": 1090,
         "y": 300,
         "wires": [
             [
@@ -15270,7 +15434,7 @@
         "name": "",
         "group": "9c6c4c4610be9e88",
         "order": 2,
-        "width": 6,
+        "width": 5,
         "height": 1,
         "passthru": false,
         "label": "Light up Recon Path - R",
@@ -15283,7 +15447,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 930,
+        "x": 1090,
         "y": 400,
         "wires": [
             [
@@ -15303,7 +15467,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1220,
+        "x": 1380,
         "y": 340,
         "wires": [
             [
@@ -15335,7 +15499,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1460,
+        "x": 1620,
         "y": 280,
         "wires": []
     },
@@ -15354,7 +15518,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1470,
+        "x": 1630,
         "y": 320,
         "wires": []
     },
@@ -15373,7 +15537,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1470,
+        "x": 1630,
         "y": 340,
         "wires": []
     },
@@ -15392,7 +15556,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1470,
+        "x": 1630,
         "y": 360,
         "wires": []
     },
@@ -15411,7 +15575,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1470,
+        "x": 1630,
         "y": 380,
         "wires": []
     },
@@ -16245,5 +16409,502 @@
                 "9f45351cdfb14e9f"
             ]
         ]
+    },
+    {
+        "id": "4aa231ce7353fdce",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-4",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 4,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "903760fb2626b52e",
+        "type": "ui_switch",
+        "z": "525a1f93b25a2b87",
+        "g": "5c65227277323287",
+        "name": "",
+        "label": "LEFT-5",
+        "tooltip": "",
+        "group": "e13f7d3261501fe3",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 460,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "718d208a89ea8b30",
+        "type": "ui_text",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "group": "84f97fbd3c7205ba",
+        "order": 1,
+        "width": 10,
+        "height": 1,
+        "name": "",
+        "label": "Forest represents a FS of 2.  Each set of 3 trees controls the Forest's spread.",
+        "format": "ON means knocked down",
+        "layout": "col-center",
+        "className": "",
+        "x": 450,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "6abb0e74954d6572",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "=== TREES YOLO MODE ===",
+        "info": "",
+        "x": 270,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "97ef0a81b064b450",
+        "type": "function",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "Update Blocked status",
+        "func": "//basic variables\nvar matchid = global.get(\"matchnum\");\nvar theTree = msg.payload;\nvar bldgToBlock = \"\";\n\n// math\nswitch(theTree) {\n    case \"LEFT-TOP\":\n        bldgToBlock = \"LTO\";\n        break;\n    case \"LEFT-BOT\":\n        bldgToBlock = \"LBO\";\n        break;\n    case \"RIGHT-TOP\":\n        bldgToBlock = \"RTO\";\n        break;\n    case \"RIGHT-BOT\":\n        bldgToBlock = \"RBO\";\n        break;\n}\n\n// build the stmt\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET BLOCKED = 1 \" +\n        \"WHERE MATCH_NUM = \" + matchid + \" AND \" +\n        \"BUILDING_NAME= '\" + bldgToBlock + \"';\"\n}\n\n// --- Fin\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1980,
+        "wires": [
+            [
+                "b5d48cb1f5bf1cd1"
+            ]
+        ]
+    },
+    {
+        "id": "687892c2bf2be574",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "",
+        "group": "84f97fbd3c7205ba",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Left Top Trees - Tipped",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "\"LEFT-TOP\"",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 560,
+        "y": 1920,
+        "wires": [
+            [
+                "97ef0a81b064b450",
+                "287dac46554da062"
+            ]
+        ]
+    },
+    {
+        "id": "caa9669f67d81b5f",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "",
+        "group": "84f97fbd3c7205ba",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Left Bottom Trees - Tipped",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "\"LEFT-BOT\"",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 580,
+        "y": 1960,
+        "wires": [
+            [
+                "97ef0a81b064b450",
+                "287dac46554da062"
+            ]
+        ]
+    },
+    {
+        "id": "7043296a0b6f6954",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "",
+        "group": "84f97fbd3c7205ba",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Right Top Trees - Tipped",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "\"RIGHT-TOP\"",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 570,
+        "y": 2000,
+        "wires": [
+            [
+                "97ef0a81b064b450",
+                "287dac46554da062"
+            ]
+        ]
+    },
+    {
+        "id": "8e213e791174f126",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "",
+        "group": "84f97fbd3c7205ba",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Right Bottom Trees - Tipped",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "\"RIGHT-BOTTOM\"",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 580,
+        "y": 2040,
+        "wires": [
+            [
+                "97ef0a81b064b450",
+                "287dac46554da062"
+            ]
+        ]
+    },
+    {
+        "id": "318e6253966df86d",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "WEEK 1 MODE \\n Just have the ref mark when a set of 3 trees have been knocked. \\n  This then blocks the fire spread to the outer bldgs",
+        "info": "",
+        "x": 810,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "b5d48cb1f5bf1cd1",
+        "type": "sqlite",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Send SQL",
+        "x": 1110,
+        "y": 1980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "91990964365378d7",
+        "type": "link in",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "Reset Trees",
+        "links": [
+            "f1ab8335d85f6123"
+        ],
+        "x": 175,
+        "y": 1980,
+        "wires": [
+            [
+                "122b49d10f607001"
+            ]
+        ]
+    },
+    {
+        "id": "82c9dc8d.87c11",
+        "type": "ui_button",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "group": "26332cb7.024dd4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start",
+        "color": "black",
+        "bgcolor": "{{background}}",
+        "icon": "",
+        "payload": "RUNNING",
+        "payloadType": "str",
+        "topic": "",
+        "x": 630,
+        "y": 2340,
+        "wires": [
+            [
+                "319cf0e6.f709a"
+            ]
+        ]
+    },
+    {
+        "id": "319cf0e6.f709a",
+        "type": "delay",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 816,
+        "y": 2339,
+        "wires": [
+            [
+                "6176046c.1b3b6c",
+                "2bd239b8.7085a6"
+            ]
+        ]
+    },
+    {
+        "id": "6176046c.1b3b6c",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "background",
+                "pt": "msg",
+                "to": "RED",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 2420,
+        "wires": [
+            [
+                "82c9dc8d.87c11"
+            ]
+        ]
+    },
+    {
+        "id": "f59c0526.513b98",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "background",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 2420,
+        "wires": [
+            [
+                "82c9dc8d.87c11"
+            ]
+        ]
+    },
+    {
+        "id": "2bd239b8.7085a6",
+        "type": "delay",
+        "z": "525a1f93b25a2b87",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 1040,
+        "y": 2340,
+        "wires": [
+            [
+                "f59c0526.513b98"
+            ]
+        ]
+    },
+    {
+        "id": "287dac46554da062",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "set bg gray",
+        "rules": [
+            {
+                "t": "set",
+                "p": "background",
+                "pt": "msg",
+                "to": "black",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 2100,
+        "wires": [
+            [
+                "687892c2bf2be574",
+                "caa9669f67d81b5f",
+                "7043296a0b6f6954",
+                "8e213e791174f126",
+                "f4a8e1577ab1f1dd"
+            ]
+        ]
+    },
+    {
+        "id": "883976c8ba9c3276",
+        "type": "comment",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "\\n \\n THIS STILL NEEDS FCS \\n \\n BG DOESNT WORK",
+        "info": "",
+        "x": 830,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "122b49d10f607001",
+        "type": "change",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "set bg blue",
+        "rules": [
+            {
+                "t": "set",
+                "p": "background",
+                "pt": "msg",
+                "to": "BLUE",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 1980,
+        "wires": [
+            [
+                "687892c2bf2be574",
+                "caa9669f67d81b5f",
+                "7043296a0b6f6954",
+                "8e213e791174f126"
+            ]
+        ]
+    },
+    {
+        "id": "f4a8e1577ab1f1dd",
+        "type": "debug",
+        "z": "525a1f93b25a2b87",
+        "g": "2be40bf2cea2fcc0",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 2100,
+        "wires": []
     }
 ]
