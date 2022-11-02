@@ -92,6 +92,14 @@
         "env": []
     },
     {
+        "id": "43806f78105b6ff3",
+        "type": "tab",
+        "label": "Admin Panel",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "06961c6f5e4566a1",
         "type": "group",
         "z": "221fa9b81205c952",
@@ -304,11 +312,12 @@
             "e973f31882c4c9cf",
             "648381244912ad1f",
             "42dc7006a64f8054",
-            "1c7894266bb4be36"
+            "1c7894266bb4be36",
+            "6fdf930c4ad24a03"
         ],
         "x": 74,
         "y": 39,
-        "w": 1502,
+        "w": 1702,
         "h": 262
     },
     {
@@ -363,12 +372,16 @@
             "d22a44513afbaff1",
             "b4c6561b559a3ff5",
             "22e6cafe7f33addb",
-            "04eb8073c0c2a66d"
+            "c35ddcec750286f8",
+            "96265e6d8477570d",
+            "e9cbc44edd04e442",
+            "5b294341ac84aae4",
+            "6905bddfb52cc754"
         ],
-        "x": 74,
+        "x": 94,
         "y": 379,
         "w": 1592,
-        "h": 1062
+        "h": 1162
     },
     {
         "id": "418e8e7e5f859cb1",
@@ -392,12 +405,13 @@
             "9694f7729d4a4b39",
             "4c03455adb33b337",
             "d6ddc265e0e6f590",
-            "69cd02e02585755b"
+            "69cd02e02585755b",
+            "7a05719eb862d0e6"
         ],
         "x": 1734,
         "y": 439,
-        "w": 832,
-        "h": 222
+        "w": 872,
+        "h": 242
     },
     {
         "id": "4bbf2c1d342827b1",
@@ -427,7 +441,9 @@
             "98b12c1e303486f3"
         ],
         "x": 54,
-        "y": 79
+        "y": 79,
+        "w": 1172,
+        "h": 282
     },
     {
         "id": "0832a839154f65ab",
@@ -457,7 +473,9 @@
             "370c0cbf29d05ab1"
         ],
         "x": 54,
-        "y": 419
+        "y": 419,
+        "w": 1412,
+        "h": 522
     },
     {
         "id": "59950207257cb065",
@@ -731,7 +749,9 @@
             "d88db86de710b8e9"
         ],
         "x": 34,
-        "y": 59
+        "y": 59,
+        "w": 942,
+        "h": 162
     },
     {
         "id": "2008d605d368ad7e",
@@ -757,7 +777,9 @@
             "221e289248744137"
         ],
         "x": 34,
-        "y": 239
+        "y": 239,
+        "w": 942,
+        "h": 162
     },
     {
         "id": "37232e2e92b5faa6",
@@ -783,7 +805,9 @@
             "2f1658364fc5719b"
         ],
         "x": 34,
-        "y": 419
+        "y": 419,
+        "w": 942,
+        "h": 162
     },
     {
         "id": "d9c57fb2a381a320",
@@ -806,7 +830,9 @@
             "4244695d7f15d3fd"
         ],
         "x": 34,
-        "y": 599
+        "y": 599,
+        "w": 932,
+        "h": 142
     },
     {
         "id": "738e4f614ef8a7a5",
@@ -830,7 +856,9 @@
             "72bcba239803d115"
         ],
         "x": 34,
-        "y": 779
+        "y": 779,
+        "w": 972,
+        "h": 142
     },
     {
         "id": "e56885edbfad9853",
@@ -855,7 +883,9 @@
             "50a7d4620d30956a"
         ],
         "x": 34,
-        "y": 939
+        "y": 939,
+        "w": 1052,
+        "h": 142
     },
     {
         "id": "c4beeef48c6dcf84",
@@ -895,7 +925,9 @@
             "5e3bed73fbede711"
         ],
         "x": 1304,
-        "y": 39
+        "y": 39,
+        "w": 1792,
+        "h": 562
     },
     {
         "id": "650381ccef7c28a3",
@@ -926,7 +958,9 @@
             "abf14147cd05c8bd"
         ],
         "x": 34,
-        "y": 1139
+        "y": 1139,
+        "w": 972,
+        "h": 542
     },
     {
         "id": "c9a02ca8caf3cfb8",
@@ -1046,7 +1080,9 @@
             "bb20e976f6f77ed1"
         ],
         "x": 34,
-        "y": 839
+        "y": 839,
+        "w": 1172,
+        "h": 162
     },
     {
         "id": "f630143dd6413aac",
@@ -1071,7 +1107,9 @@
             "f6566f17a1e9b78e"
         ],
         "x": 34,
-        "y": 479
+        "y": 479,
+        "w": 912,
+        "h": 242
     },
     {
         "id": "f69756401f15d7b4",
@@ -1099,7 +1137,9 @@
             "85525cb2f906b575"
         ],
         "x": 34,
-        "y": 39
+        "y": 39,
+        "w": 1472,
+        "h": 262
     },
     {
         "id": "a83bb00d46efe804",
@@ -6580,7 +6620,7 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "SQL - Initialize Match - TABLE Buildings ",
-        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst TreesRight = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft).concat(TreesLeft); //dom modified\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight).concat(TreesRight); //dom modified\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = { //dom modified\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch',\n};\n\nconst BuildingSensorsForRightMap = { //dom modified\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch',\n};\n\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"',1,0, 0,0, 0, 0, 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n      + \"',1,0, 0,0,0, 0,0,0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst TreesRight = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft).concat(TreesLeft); //dom modified\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight).concat(TreesRight); //dom modified\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = { //dom modified\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch',\n};\n\nconst BuildingSensorsForRightMap = { //dom modified\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch',\n};\n\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nWAS_JUST_SPREAD INT NOT NULL, <-- GC added\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, WAS_JUST_SPREAD, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"', 1, 0, 0, 0, 0, 0, 0, 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, WAS_JUST_SPREAD, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n    + \"', 1, 0, 0, 0, 0, 0, 0, 0, 0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7015,7 +7055,7 @@
         "g": "f69756401f15d7b4",
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY VARCHAR[12] NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));",
+        "sql": "CREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY VARCHAR[12] NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nWAS_JUST_SPREAD INT NOT NULL,\nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));",
         "name": "Create Buildings table",
         "x": 980,
         "y": 260,
@@ -12545,7 +12585,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
+        "x": 1090,
         "y": 140,
         "wires": [
             [
@@ -12562,7 +12602,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 1170,
+        "x": 1370,
         "y": 140,
         "wires": [
             [
@@ -12594,7 +12634,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 520,
+        "x": 720,
         "y": 140,
         "wires": [
             [
@@ -12621,7 +12661,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
+        "x": 1040,
         "y": 260,
         "wires": []
     },
@@ -12640,7 +12680,7 @@
         "y": 140,
         "wires": [
             [
-                "9cd82c4daa29d5ad"
+                "6fdf930c4ad24a03"
             ]
         ]
     },
@@ -12662,7 +12702,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 350,
+        "x": 450,
         "y": 140,
         "wires": [
             [
@@ -12690,7 +12730,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
+        "x": 830,
         "y": 260,
         "wires": [
             [
@@ -12718,7 +12758,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
+        "x": 820,
         "y": 220,
         "wires": [
             [
@@ -12740,7 +12780,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1430,
+        "x": 1630,
         "y": 220,
         "wires": []
     },
@@ -12755,7 +12795,7 @@
             "35f9efa88ad160c8",
             "5f3bdfbbd6f3cb90"
         ],
-        "x": 1345,
+        "x": 1545,
         "y": 140,
         "wires": []
     },
@@ -12779,7 +12819,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 610,
+        "x": 630,
         "y": 500,
         "wires": [
             [
@@ -12799,7 +12839,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 370,
         "y": 500,
         "wires": [
             [
@@ -12819,7 +12859,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
+        "x": 930,
         "y": 500,
         "wires": [
             [
@@ -12838,7 +12878,7 @@
             "03cd4b02fae19f57",
             "9827bb283a8e319e"
         ],
-        "x": 145,
+        "x": 165,
         "y": 500,
         "wires": [
             [
@@ -12853,7 +12893,7 @@
         "g": "c5248dc36aacb922",
         "name": "15s Burn Rate Check",
         "info": "",
-        "x": 200,
+        "x": 220,
         "y": 420,
         "wires": []
     },
@@ -12863,13 +12903,13 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "Build SQL Stmt to Check Fire Eligibility",
-        "func": "// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar curBldg = pyld.BUILDING_NAME;\n\n// --- Build SQL statement\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME, FIRE_ELIGIBLE, FS FROM Buildings \" +\n    \"WHERE MATCH_NUM = \" + matchid + \" AND \" +\n    \"BUILDING_NAME = '\" + curBldg + \"';\"\n}\n\n// --- Fin\nreturn newMsg;",
+        "func": "// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar curBldg = pyld.BUILDING_NAME;\n\n// --- Build SQL statement\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME, FIRE_ELIGIBLE, BURNING_STATUS FROM Buildings \" +\n    \"WHERE MATCH_NUM = \" + matchid + \" AND \" +\n    \"BUILDING_NAME = '\" + curBldg + \"';\"\n}\n\n// --- Fin\nreturn newMsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 370,
         "y": 680,
         "wires": [
             [
@@ -12895,7 +12935,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-count",
-        "x": 600,
+        "x": 620,
         "y": 600,
         "wires": [
             [
@@ -12915,7 +12955,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 610,
+        "x": 630,
         "y": 680,
         "wires": [
             [
@@ -12946,7 +12986,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 980,
+        "x": 1000,
         "y": 680,
         "wires": [
             [
@@ -12968,7 +13008,7 @@
         "links": [
             "c8924c7acd40cb1f"
         ],
-        "x": 1195,
+        "x": 1215,
         "y": 660,
         "wires": []
     },
@@ -12979,7 +13019,7 @@
         "g": "c5248dc36aacb922",
         "name": "START THE BURN",
         "info": "",
-        "x": 1090,
+        "x": 1110,
         "y": 620,
         "wires": []
     },
@@ -12990,7 +13030,7 @@
         "g": "c5248dc36aacb922",
         "name": "Spread Between Buildings",
         "info": "",
-        "x": 230,
+        "x": 250,
         "y": 460,
         "wires": []
     },
@@ -13001,7 +13041,7 @@
         "g": "c5248dc36aacb922",
         "name": "Burn Within a Building",
         "info": "",
-        "x": 220,
+        "x": 240,
         "y": 780,
         "wires": []
     },
@@ -13014,7 +13054,7 @@
         "links": [
             "af0cc8f3c2088bbc"
         ],
-        "x": 835,
+        "x": 855,
         "y": 600,
         "wires": []
     },
@@ -13022,13 +13062,12 @@
         "id": "af0cc8f3c2088bbc",
         "type": "link in",
         "z": "78c5e866df5030a1",
-        "d": true,
         "g": "c5248dc36aacb922",
         "name": "Burn Within Building",
         "links": [
             "5f1a0c0f330d9d19"
         ],
-        "x": 155,
+        "x": 175,
         "y": 820,
         "wires": [
             [
@@ -13045,7 +13084,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 610,
+        "x": 630,
         "y": 820,
         "wires": [
             [
@@ -13071,7 +13110,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-count",
-        "x": 520,
+        "x": 540,
         "y": 900,
         "wires": [
             [],
@@ -13103,15 +13142,15 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 520,
+        "x": 540,
         "y": 1040,
         "wires": [
             [
                 "0ff4b05a25dbcb05"
             ],
             [
-                "f7ad0a1277125d73",
-                "c0b679d5263dc4cd"
+                "c0b679d5263dc4cd",
+                "c35ddcec750286f8"
             ]
         ]
     },
@@ -13127,7 +13166,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
+        "x": 900,
         "y": 1020,
         "wires": [
             [
@@ -13145,7 +13184,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 1170,
+        "x": 1190,
         "y": 1020,
         "wires": [
             [
@@ -13159,14 +13198,14 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "Build SQL Stmt to get MinWindowSequence",
-        "func": "// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar curBldg = pyld.BUILDING_NAME;\n\n// --- Build SQL statement to get the minimum (earliest) side sequence with < 2 windows\nvar wndwMsg = {\n    \"topic\": \"SELECT BuildingWindowStatus.BUILDING_NAME, Min(BuildingWindowStatus.WINDOW_SEQUENCE) AS MinOfSideSequence FROM BuildingWindowStatus \" +\n        \"WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND \" +\n        \"((BuildingWindowStatus.BUILDING_NAME)='\" + curBldg + \"') AND \" +\n        \"((BuildingWindowStatus.WINDOWS_ACTIVE)<2));\"\n}\n\n// --- Fin\nreturn wndwMsg;",
+        "func": "/* example input: \narray[1]\n0: object\nBUILDING_NAME: \"RBI\"\nSumOfWindowsActive: 4\n*/ \n\n// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar curBldg = pyld[0].BUILDING_NAME;\n\n// --- Build SQL statement to get the minimum (earliest) side sequence with < 2 windows\nvar wndwMsg = {\n    \"topic\": \"SELECT BuildingWindowStatus.BUILDING_NAME, Min(BuildingWindowStatus.WINDOW_SEQUENCE) AS MinOfSideSequence FROM BuildingWindowStatus \" +\n        \"WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND \" +\n        \"((BuildingWindowStatus.BUILDING_NAME)='\" + curBldg + \"') AND \" +\n        \"((BuildingWindowStatus.WINDOWS_ACTIVE)<2));\"\n}\n\n// --- Fin\nreturn wndwMsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 1200,
+        "x": 850,
+        "y": 1300,
         "wires": [
             [
                 "986d2e280e45de7f",
@@ -13178,6 +13217,7 @@
         "id": "c0b679d5263dc4cd",
         "type": "function",
         "z": "78c5e866df5030a1",
+        "d": true,
         "g": "c5248dc36aacb922",
         "name": "Build SQL Stmt to Increment FS",
         "func": "/* Example input\n0: object\n    BUILDING_NAME: \"LBI\"\n    WAS_JUST_SPREAD: 1\n    FS: 4\n*/\n\n\n// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar curBldg = pyld.BUILDING_NAME;\nvar curFS = pyld.FS;\nvar newFS = curFS + 1;\n\n// --- Build SQL statements\nvar msg = {\n    \"topic\": \"UPDATE Buildings SET FS = \" + newFS + \" WHERE \" + \n        \"MATCH_NUM = \" + matchid + \" AND \" +\n        \"BUILDING_NAME = '\" + curBldg + \"';\"\n}\n\n// --- Fin\nreturn msg;",
@@ -13186,7 +13226,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
+        "x": 890,
         "y": 1140,
         "wires": [
             [
@@ -13204,7 +13244,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 1110,
+        "x": 1130,
         "y": 1140,
         "wires": [
             []
@@ -13219,8 +13259,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 1110,
-        "y": 1200,
+        "x": 1130,
+        "y": 1300,
         "wires": [
             [
                 "d5ecf80c25bd29b1",
@@ -13237,8 +13277,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 1110,
-        "y": 1260,
+        "x": 1130,
+        "y": 1360,
         "wires": [
             [
                 "c7250da4e3efc921",
@@ -13258,8 +13298,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 1260,
+        "x": 830,
+        "y": 1360,
         "wires": [
             [
                 "ffa6f64c863dd6d7",
@@ -13279,8 +13319,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 1320,
+        "x": 790,
+        "y": 1420,
         "wires": [
             [
                 "301cc370fc617f4c",
@@ -13297,8 +13337,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 1110,
-        "y": 1320,
+        "x": 1130,
+        "y": 1420,
         "wires": [
             [
                 "fa0c4978405d7038"
@@ -13310,8 +13350,8 @@
         "type": "switch",
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
-        "name": "If FS = 0",
-        "property": "payload[0].FS",
+        "name": "If Already Burning",
+        "property": "payload[0].BURNING_STATUS",
         "propertyType": "msg",
         "rules": [
             {
@@ -13328,7 +13368,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 780,
+        "x": 830,
         "y": 680,
         "wires": [
             [
@@ -13353,7 +13393,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1260,
+        "x": 1280,
         "y": 1080,
         "wires": []
     },
@@ -13371,7 +13411,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1220,
+        "x": 1240,
         "y": 940,
         "wires": []
     },
@@ -13389,7 +13429,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1280,
+        "x": 1300,
         "y": 720,
         "wires": []
     },
@@ -13407,8 +13447,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1430,
-        "y": 1240,
+        "x": 1450,
+        "y": 1340,
         "wires": []
     },
     {
@@ -13417,7 +13457,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db receiving minwindowsequence",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13425,8 +13465,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1480,
-        "y": 1280,
+        "x": 1500,
+        "y": 1380,
         "wires": []
     },
     {
@@ -13443,8 +13483,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1410,
-        "y": 1340,
+        "x": 1430,
+        "y": 1440,
         "wires": []
     },
     {
@@ -13461,8 +13501,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1460,
-        "y": 1380,
+        "x": 1480,
+        "y": 1480,
         "wires": []
     },
     {
@@ -13479,8 +13519,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
-        "y": 1400,
+        "x": 1040,
+        "y": 1500,
         "wires": []
     },
     {
@@ -13493,7 +13533,7 @@
             "0174ebdf7245c867"
         ],
         "x": 1865,
-        "y": 560,
+        "y": 580,
         "wires": [
             [
                 "f7954fdaf37f1d6b",
@@ -13507,9 +13547,9 @@
         "type": "comment",
         "z": "78c5e866df5030a1",
         "g": "418e8e7e5f859cb1",
-        "name": "Building Start Burning - First update FS in Buildings, then update Window Sequence, and finally set Active Windows",
+        "name": "Building Start Burning",
         "info": "",
-        "x": 2150,
+        "x": 1860,
         "y": 480,
         "wires": []
     },
@@ -13519,14 +13559,14 @@
         "z": "78c5e866df5030a1",
         "g": "418e8e7e5f859cb1",
         "name": "Update Buildings SQL",
-        "func": "// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar theBldg = pyld[0].BUILDING_NAME;\n\n// --- Build SQL statement\n// Since it's just the first time, we know the FS, side, etc\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET FS = 1, BURNING_STATUS = 1, WAS_JUST_SPREAD = 1 \" +\n    \"WHERE MATCH_NUM = \" + matchid + \" AND \" +\n    \"BUILDING_NAME= '\" + theBldg + \"';\"\n}\n\n// --- Fin\nreturn newMsg;",
+        "func": "// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar theBldg = pyld[0].BUILDING_NAME;\n\n// --- Build SQL statement\n// Since it's just the first time, we know the FS, side, etc\nvar newMsg = {\n    \"topic\": \"UPDATE Buildings SET BURNING_STATUS = 1, WAS_JUST_SPREAD = 1 \" +\n    \"WHERE MATCH_NUM = \" + matchid + \" AND \" +\n    \"BUILDING_NAME= '\" + theBldg + \"';\"\n}\n\n// --- Fin\nreturn newMsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 2060,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "74784ec507860137"
@@ -13542,8 +13582,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Send SQL",
-        "x": 2390,
-        "y": 540,
+        "x": 2470,
+        "y": 560,
         "wires": [
             []
         ]
@@ -13561,7 +13601,7 @@
         "finalize": "",
         "libs": [],
         "x": 2230,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
                 "9694f7729d4a4b39"
@@ -13578,7 +13618,7 @@
         "sql": "",
         "name": "Send SQL",
         "x": 2470,
-        "y": 620,
+        "y": 640,
         "wires": [
             []
         ]
@@ -13596,7 +13636,7 @@
         "finalize": "",
         "libs": [],
         "x": 2120,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "d6ddc265e0e6f590"
@@ -13612,8 +13652,8 @@
         "sqlquery": "batch",
         "sql": "",
         "name": "Send SQL (Batch)",
-        "x": 2410,
-        "y": 580,
+        "x": 2490,
+        "y": 600,
         "wires": [
             []
         ]
@@ -13637,7 +13677,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1990,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
                 "d0a5e8de374a7a44"
@@ -13650,13 +13690,13 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "Build SQL Stmt to get Burning Bldgs",
-        "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\n\n// build SQL statement to select all buildings with burning status, but less than max FS\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME, WAS_JUST_SPREAD, FS FROM Buildings\" + \n        \" WHERE MATCH_NUM = \" + matchid + \n        \" AND BURNING_STATUS = 1 \" + \n        \" AND FS < 8\"\n}\n\n// fin\nreturn newMsg;\n",
+        "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\n\n// build SQL statement to select all buildings with burning status\nvar newMsg = {\n    \"topic\": \"SELECT BUILDING_NAME, WAS_JUST_SPREAD FROM Buildings\" + \n        \" WHERE MATCH_NUM = \" + matchid + \n        \" AND BURNING_STATUS = 1 \"\n}\n\n// fin\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 370,
         "y": 820,
         "wires": [
             [
@@ -13665,14 +13705,141 @@
         ]
     },
     {
-        "id": "04eb8073c0c2a66d",
+        "id": "7a05719eb862d0e6",
         "type": "comment",
         "z": "78c5e866df5030a1",
-        "g": "c5248dc36aacb922",
-        "name": "\\n \\n THIS IS PAUSED FOR NOW UNTIL \\n I CAN ADD WAS_JUST_SPREAD BACK TO BUILDINGS \\n ",
+        "g": "418e8e7e5f859cb1",
+        "name": " - First update FS in Buildings, then update Window Sequence, and finally set Active Windows",
         "info": "",
-        "x": 430,
-        "y": 900,
+        "x": 2100,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6fdf930c4ad24a03",
+        "type": "delay",
+        "z": "78c5e866df5030a1",
+        "g": "b2b1f1ca3c2a378c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "9cd82c4daa29d5ad"
+            ]
+        ]
+    },
+    {
+        "id": "c35ddcec750286f8",
+        "type": "function",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "name": "Build SQL Stmt to get SumOfWindowsActive",
+        "func": "// --- Set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\nvar curBldg = pyld.BUILDING_NAME;\n\n// --- Build SQL statement\nvar theMsg = {\n    \"topic\": \"SELECT BuildingWindowStatus.BUILDING_NAME, Sum(BuildingWindowStatus.WINDOWS_ACTIVE) AS SumOfWindowsActive \" + \n        \"FROM BuildingWindowStatus \" + \n        \"WHERE BuildingWindowStatus.MATCH_NUM = \" + matchid +\n        \" AND BuildingWindowStatus.BUILDING_NAME = '\" + curBldg + \"';\"\n}\n\n// --- Fin\nreturn theMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 1220,
+        "wires": [
+            [
+                "96265e6d8477570d",
+                "6905bddfb52cc754"
+            ]
+        ]
+    },
+    {
+        "id": "96265e6d8477570d",
+        "type": "sqlite",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Send SQL",
+        "x": 1130,
+        "y": 1220,
+        "wires": [
+            [
+                "5b294341ac84aae4",
+                "e9cbc44edd04e442"
+            ]
+        ]
+    },
+    {
+        "id": "e9cbc44edd04e442",
+        "type": "switch",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "name": "If 8 active, ignore the burn",
+        "property": "payload[0].SumOfWindowsActive",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "8",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 530,
+        "y": 1280,
+        "wires": [
+            [
+                "f7ad0a1277125d73"
+            ]
+        ]
+    },
+    {
+        "id": "5b294341ac84aae4",
+        "type": "debug",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "name": "db receiving sumwindowsactive",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1490,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "6905bddfb52cc754",
+        "type": "debug",
+        "z": "78c5e866df5030a1",
+        "g": "c5248dc36aacb922",
+        "name": "db asking sumwindowsactive",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1440,
+        "y": 1240,
         "wires": []
     },
     {
