@@ -56,6 +56,13 @@
         "info": ""
     },
     {
+        "id": "c4f77bdc618b8d18",
+        "type": "tab",
+        "label": "TreeFlow",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "66af4b80919b8266",
         "type": "tab",
         "label": "Remaining Common Flow",
@@ -139,9 +146,7 @@
             "2481a3e18ec02d52"
         ],
         "x": 54,
-        "y": 1079,
-        "w": 1132,
-        "h": 1122
+        "y": 1079
     },
     {
         "id": "876d6d7684ab551a",
@@ -187,9 +192,7 @@
             "2fe33fb8bb9a740c"
         ],
         "x": 1314,
-        "y": 1139,
-        "w": 1002,
-        "h": 762
+        "y": 1139
     },
     {
         "id": "b761ec70a9ef3fae",
@@ -239,9 +242,7 @@
             "b87bb6e70f564e51"
         ],
         "x": 114,
-        "y": 319,
-        "w": 1412,
-        "h": 682
+        "y": 319
     },
     {
         "id": "46ce7ea15148c3c0",
@@ -266,9 +267,7 @@
             "0fe794e7a88f6314"
         ],
         "x": 54,
-        "y": 39,
-        "w": 552,
-        "h": 262
+        "y": 39
     },
     {
         "id": "b2b1f1ca3c2a378c",
@@ -410,9 +409,7 @@
             "98b12c1e303486f3"
         ],
         "x": 54,
-        "y": 79,
-        "w": 1172,
-        "h": 282
+        "y": 79
     },
     {
         "id": "0832a839154f65ab",
@@ -442,9 +439,7 @@
             "370c0cbf29d05ab1"
         ],
         "x": 54,
-        "y": 419,
-        "w": 1412,
-        "h": 522
+        "y": 419
     },
     {
         "id": "59950207257cb065",
@@ -602,9 +597,7 @@
             "cc89dbf72d1f6006"
         ],
         "x": 74,
-        "y": 19,
-        "w": 1082,
-        "h": 142
+        "y": 19
     },
     {
         "id": "31e8c747379a1719",
@@ -630,9 +623,7 @@
             "3719854fdfed232d"
         ],
         "x": 74,
-        "y": 199,
-        "w": 542,
-        "h": 242
+        "y": 199
     },
     {
         "id": "82485a2c45a42ec4",
@@ -662,9 +653,7 @@
             "5690d1607d8fc9da"
         ],
         "x": 74,
-        "y": 479,
-        "w": 1952,
-        "h": 262
+        "y": 479
     },
     {
         "id": "dec7910ea27af2d0",
@@ -696,9 +685,7 @@
             "09b68daef587970a"
         ],
         "x": 74,
-        "y": 779,
-        "w": 1832,
-        "h": 322
+        "y": 779
     },
     {
         "id": "152a8cb72061205a",
@@ -897,7 +884,8 @@
             "57063f0af227550c",
             "39e74dd8054364ef",
             "fa744c0499161826",
-            "5e3bed73fbede711"
+            "5e3bed73fbede711",
+            "0692d55544c5bd31"
         ],
         "x": 1304,
         "y": 39,
@@ -962,7 +950,9 @@
             "ca207569b8ffecb7"
         ],
         "x": 54,
-        "y": 39
+        "y": 39,
+        "w": 592,
+        "h": 229.5
     },
     {
         "id": "fd36eb12b8432134",
@@ -986,7 +976,9 @@
             "5d2ad7baf266e2f2"
         ],
         "x": 54,
-        "y": 279
+        "y": 279,
+        "w": 912,
+        "h": 202
     },
     {
         "id": "8e3af1c96b869979",
@@ -1008,7 +1000,9 @@
             "a4ee5ad8874c8a5c"
         ],
         "x": 54,
-        "y": 499
+        "y": 499,
+        "w": 712,
+        "h": 122
     },
     {
         "id": "1bd0079dd85b8647",
@@ -1031,7 +1025,9 @@
             "4ead786be8e28f0e"
         ],
         "x": 54,
-        "y": 659
+        "y": 799,
+        "w": 772,
+        "h": 182
     },
     {
         "id": "aa1431e66ec37b16",
@@ -1146,7 +1142,9 @@
             "ad34ea44766153db"
         ],
         "x": 134,
-        "y": 659
+        "y": 659,
+        "w": 1272,
+        "h": 402
     },
     {
         "id": "e63633ec18181ba7",
@@ -1175,7 +1173,9 @@
             "c79cb601a8c0ab17"
         ],
         "x": 134,
-        "y": 1099
+        "y": 1099,
+        "w": 952,
+        "h": 342
     },
     {
         "id": "bc92f0b2168e67b1",
@@ -1197,7 +1197,9 @@
             "cd811a5da6dea1c9"
         ],
         "x": 1174,
-        "y": 1079
+        "y": 1079,
+        "w": 512,
+        "h": 122
     },
     {
         "id": "2024311963b7a70e",
@@ -1218,7 +1220,9 @@
             "b70ae83c222fa7da"
         ],
         "x": 1174,
-        "y": 1299
+        "y": 1299,
+        "w": 532,
+        "h": 122
     },
     {
         "id": "7ceda8dc6f5a8d60",
@@ -1240,7 +1244,9 @@
             "ccf03d13258bb4e3"
         ],
         "x": 134,
-        "y": 1499
+        "y": 1499,
+        "w": 792,
+        "h": 142
     },
     {
         "id": "96cafb8e88dad064",
@@ -1262,7 +1268,9 @@
             "c74fb766b19e2bf1"
         ],
         "x": 134,
-        "y": 1679
+        "y": 1679,
+        "w": 832,
+        "h": 142
     },
     {
         "id": "96faa29525ade8f0",
@@ -1296,7 +1304,9 @@
             "da8da29f2b800fa5"
         ],
         "x": 134,
-        "y": 59
+        "y": 59,
+        "w": 672,
+        "h": 542
     },
     {
         "id": "cc0e458f8d09ebf0",
@@ -5808,6 +5818,7 @@
         "id": "e354ec1a31284c79",
         "type": "function",
         "z": "f74b301e4f22310f",
+        "d": true,
         "g": "c4beeef48c6dcf84",
         "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
         "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
@@ -5894,7 +5905,8 @@
         "y": 240,
         "wires": [
             [
-                "e354ec1a31284c79"
+                "e354ec1a31284c79",
+                "0692d55544c5bd31"
             ]
         ]
     },
@@ -7780,7 +7792,7 @@
         "z": "c46bd56bf00dd36c",
         "g": "c9a02ca8caf3cfb8",
         "name": "Set Values (edit to test)",
-        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'RTO';\nmsg.side_id = 1;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'RBI';\nmsg.side_id = 1;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7790,7 +7802,7 @@
         "y": 120,
         "wires": [
             [
-                "a39cc0a1489b6dd0"
+                "55d8f8946d586a92"
             ]
         ]
     },
@@ -7837,7 +7849,7 @@
         "z": "c46bd56bf00dd36c",
         "g": "c9a02ca8caf3cfb8",
         "name": "Retreive Sensor Type",
-        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.payload = sensortype\nreturn msg;",
+        "func": "//SQLite results; building sensor type\n\nvar sensortype = msg.payload[0].SENSOR_TYPE; //this is the data needed via the SQL\nmsg.sensor_type = sensortype\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7857,7 +7869,7 @@
         "z": "c46bd56bf00dd36c",
         "g": "c9a02ca8caf3cfb8",
         "name": "Sensor Type",
-        "property": "payload",
+        "property": "sensor_type",
         "propertyType": "msg",
         "rules": [
             {
@@ -7869,20 +7881,26 @@
                 "t": "eq",
                 "v": "Ball",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Switch",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
+        "outputs": 3,
         "x": 450,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
                 "5598e9bedb216108"
             ],
             [
                 "ca207569b8ffecb7"
-            ]
+            ],
+            []
         ]
     },
     {
@@ -8112,7 +8130,7 @@
         "rap": true,
         "rh": 0,
         "x": 220,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "34ef0188a339e4b1"
@@ -8127,7 +8145,7 @@
         "name": "Ball input MQTT TESTING",
         "info": "",
         "x": 190,
-        "y": 700,
+        "y": 840,
         "wires": []
     },
     {
@@ -8143,7 +8161,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "928b2b1d022b2425",
@@ -8161,7 +8179,7 @@
             "01954de24ad5a0da"
         ],
         "x": 705,
-        "y": 760,
+        "y": 900,
         "wires": []
     },
     {
@@ -8178,7 +8196,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 720,
-        "y": 800,
+        "y": 940,
         "wires": []
     },
     {
@@ -8482,7 +8500,7 @@
         "wires": [
             [
                 "96915771e6e35ba5",
-                "d659c7c1a1ee4638"
+                "28fa28d003db402b"
             ]
         ]
     },
@@ -8517,7 +8535,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1030,
+        "x": 1170,
         "y": 620,
         "wires": []
     },
@@ -8572,7 +8590,7 @@
         "wires": [
             [
                 "4a532ab323f31897",
-                "eefd448726fdf3ee"
+                "4cad3e5e4fd26039"
             ]
         ]
     },
@@ -8591,8 +8609,8 @@
         "y": 680,
         "wires": [
             [
-                "926978629096483a",
-                "b23693337d0bf525"
+                "b23693337d0bf525",
+                "bb65f8fab55826f6"
             ]
         ]
     },
@@ -8611,7 +8629,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 2150,
+        "x": 2290,
         "y": 720,
         "wires": []
     },
@@ -8662,7 +8680,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1090,
+        "x": 1230,
         "y": 720,
         "wires": []
     },
@@ -8790,7 +8808,7 @@
         "wires": [
             [
                 "5e1bedb2aeceb7e9",
-                "d0c72785beeaf77f"
+                "de84522b3b85352e"
             ]
         ]
     },
@@ -8825,7 +8843,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1010,
+        "x": 1150,
         "y": 820,
         "wires": []
     },
@@ -8845,7 +8863,7 @@
         "wires": [
             [
                 "9f435b2414157ed3",
-                "aff8404fddd1fe2e"
+                "58df087ce7a70c25"
             ]
         ]
     },
@@ -8880,7 +8898,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1770,
+        "x": 1910,
         "y": 820,
         "wires": []
     },
@@ -8900,7 +8918,7 @@
         "wires": [
             [
                 "efb06d29e5adbe9f",
-                "3ba3088e67cb12eb"
+                "d8a1bac52593bbb4"
             ]
         ]
     },
@@ -8935,7 +8953,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1090,
+        "x": 1230,
         "y": 920,
         "wires": []
     },
@@ -8955,7 +8973,7 @@
         "wires": [
             [
                 "d506f148496ad4c0",
-                "27578e827405ddbe"
+                "a9fbd03404b6b1ae"
             ]
         ]
     },
@@ -8990,7 +9008,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1450,
+        "x": 1590,
         "y": 920,
         "wires": []
     },
@@ -9158,8 +9176,8 @@
         "z": "5b48d63e525889af",
         "name": "PAUSING HERE \\n MY FORM INPUT ISNT WORKING \\n BUT THE MANUAL INJECT STILL WORKS",
         "info": "",
-        "x": 650,
-        "y": 480,
+        "x": 230,
+        "y": 540,
         "wires": []
     },
     {
@@ -9390,7 +9408,7 @@
         "wires": [
             [
                 "93ab7685c29c0ea9",
-                "2ae9cf78d199e1c3"
+                "7d6da5e70ab066c4"
             ]
         ]
     },
@@ -9462,25 +9480,6 @@
                 "b4883cec7d727b82"
             ]
         ]
-    },
-    {
-        "id": "2ae9cf78d199e1c3",
-        "type": "mqtt out",
-        "z": "e1a756fd8363adc2",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 670,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "1adc4cdba4330e68",
@@ -13666,7 +13665,7 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "SQL - Calculate and UPDATE TABLE Buildings ",
-        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst RightTrees = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft) //dom didn't add trees because they should not be randomly chosen later in code\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight) //dom didn't add trees because they should not be randomly chosen later in code\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch', //dom added\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch', //dom added\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n  'LTREES': 1, //dom added\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n  'RTREES': 1, //dom added\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst TreesRight = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft) //dom didn't add trees because they should not be randomly chosen later in code\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight) //dom didn't add trees because they should not be randomly chosen later in code\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch', //dom added\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch', //dom added\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n  'LTREES': 1, //dom added\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n  'RTREES': 1, //dom added\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -13678,6 +13677,418 @@
             [
                 "0aa61745968b6ee5"
             ]
+        ]
+    },
+    {
+        "id": "0692d55544c5bd31",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
+        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI', 'LTREES'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI', 'RTREES'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1700,
+        "y": 300,
+        "wires": [
+            [
+                "c1f1b1372fb990e6"
+            ]
+        ]
+    },
+    {
+        "id": "55d8f8946d586a92",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "SQL - Is Hotspot",
+        "func": "//SQL to determine if building is a hotspot\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.HOTSPOT as IsHotspot FROM Buildings WHERE (((Buildings.MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 120,
+        "wires": [
+            [
+                "57b270e787b21dfd"
+            ]
+        ]
+    },
+    {
+        "id": "57b270e787b21dfd",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 910,
+        "y": 120,
+        "wires": [
+            [
+                "8c0a74adb92331c1"
+            ]
+        ]
+    },
+    {
+        "id": "8c0a74adb92331c1",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Retreive IsHotspot Value",
+        "func": "//SQLite results; is building a hotspot?\n\nvar ishotspot = msg.payload[0].IsHotspot; //this is the data needed via the SQL\nmsg.is_hotspot = ishotspot\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 120,
+        "wires": [
+            [
+                "a39cc0a1489b6dd0"
+            ]
+        ]
+    },
+    {
+        "id": "ca6af37434b7c2bc",
+        "type": "inject",
+        "z": "c46bd56bf00dd36c",
+        "name": "Make Hotspot",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "5cc92e9812d69911"
+            ]
+        ]
+    },
+    {
+        "id": "5cc92e9812d69911",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Make Hotspot (edit me)",
+        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\nmsg.topic = \"UPDATE Buildings SET HOTSPOT = 1 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 720,
+        "wires": [
+            [
+                "646666eba37fcc66"
+            ]
+        ]
+    },
+    {
+        "id": "646666eba37fcc66",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 570,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2053eb0ef9726e0d",
+        "type": "comment",
+        "z": "c46bd56bf00dd36c",
+        "name": "Make Hotspot for testing",
+        "info": "",
+        "x": 170,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "7d6da5e70ab066c4",
+        "type": "switch",
+        "z": "e1a756fd8363adc2",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 660,
+        "y": 380,
+        "wires": [
+            [
+                "89c8eb874103c96c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "89c8eb874103c96c",
+        "type": "mqtt out",
+        "z": "e1a756fd8363adc2",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 810,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "28fa28d003db402b",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1040,
+        "y": 620,
+        "wires": [
+            [
+                "d659c7c1a1ee4638"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4cad3e5e4fd26039",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1100,
+        "y": 720,
+        "wires": [
+            [
+                "eefd448726fdf3ee"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "de84522b3b85352e",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1020,
+        "y": 820,
+        "wires": [
+            [
+                "d0c72785beeaf77f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d8a1bac52593bbb4",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1100,
+        "y": 920,
+        "wires": [
+            [
+                "3ba3088e67cb12eb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a9fbd03404b6b1ae",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1460,
+        "y": 920,
+        "wires": [
+            [
+                "27578e827405ddbe"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "58df087ce7a70c25",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1780,
+        "y": 820,
+        "wires": [
+            [
+                "aff8404fddd1fe2e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bb65f8fab55826f6",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 720,
+        "wires": [
+            [
+                "926978629096483a"
+            ],
+            []
         ]
     }
 ]
