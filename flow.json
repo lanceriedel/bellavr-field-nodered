@@ -5821,7 +5821,7 @@
         "d": true,
         "g": "c4beeef48c6dcf84",
         "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\nvar treeleft = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n  \"VALUES(\" + matchnum + \", 'LTREES','\" + COMMUNITYLEFT + \"', 0, 0, 2, 0, \" + timestamp + \"); \";\nsql = sql + line;\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\nvar treeright = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n  \"VALUES(\" + matchnum + \", 'RTREES','\" + COMMUNITYRIGHT + \"', 0, 0, 2, 0, \" + timestamp + \"); \";\nsql = sql + treeright;\n\nmsg.topic = sql; \nreturn msg;\n",
+        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7010,8 +7010,7 @@
         "y": 1400,
         "wires": [
             [
-                "feddd1768611c551",
-                "e1a86479aff7db29"
+                "feddd1768611c551"
             ]
         ]
     },
@@ -7407,23 +7406,6 @@
         "info": "Reported back through a separate message\nedgenode/latesttare/",
         "x": 290,
         "y": 1720,
-        "wires": []
-    },
-    {
-        "id": "e1a86479aff7db29",
-        "type": "debug",
-        "z": "f3ec5d556e86f8d0",
-        "name": "Node id to fields MQTT",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 820,
         "wires": []
     },
     {
