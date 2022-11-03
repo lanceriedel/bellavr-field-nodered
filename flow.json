@@ -100,6 +100,14 @@
         "env": []
     },
     {
+        "id": "4ace7d9f834bdbfa",
+        "type": "tab",
+        "label": "Match Control",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "06961c6f5e4566a1",
         "type": "group",
         "z": "221fa9b81205c952",
@@ -155,9 +163,7 @@
             "2481a3e18ec02d52"
         ],
         "x": 54,
-        "y": 1119,
-        "w": 1132,
-        "h": 1122
+        "y": 1119
     },
     {
         "id": "876d6d7684ab551a",
@@ -204,9 +210,7 @@
             "2b3696045a17e3f2"
         ],
         "x": 1314,
-        "y": 1139,
-        "w": 1002,
-        "h": 762
+        "y": 1139
     },
     {
         "id": "b761ec70a9ef3fae",
@@ -259,9 +263,7 @@
             "6f02b326141d42ed"
         ],
         "x": 74,
-        "y": 319,
-        "w": 1412,
-        "h": 762
+        "y": 319
     },
     {
         "id": "46ce7ea15148c3c0",
@@ -286,9 +288,7 @@
             "0fe794e7a88f6314"
         ],
         "x": 54,
-        "y": 39,
-        "w": 552,
-        "h": 262
+        "y": 39
     },
     {
         "id": "b2b1f1ca3c2a378c",
@@ -319,9 +319,7 @@
             "23ade44d3f6d5796"
         ],
         "x": 74,
-        "y": 39,
-        "w": 1702,
-        "h": 262
+        "y": 39
     },
     {
         "id": "c5248dc36aacb922",
@@ -383,9 +381,7 @@
             "301ff5ddd37b8e02"
         ],
         "x": 94,
-        "y": 379,
-        "w": 1592,
-        "h": 1322
+        "y": 379
     },
     {
         "id": "418e8e7e5f859cb1",
@@ -416,9 +412,7 @@
             "21b3888bb84ac7fb"
         ],
         "x": 1784,
-        "y": 459,
-        "w": 872,
-        "h": 362
+        "y": 459
     },
     {
         "id": "4bbf2c1d342827b1",
@@ -448,9 +442,7 @@
             "98b12c1e303486f3"
         ],
         "x": 54,
-        "y": 79,
-        "w": 1172,
-        "h": 282
+        "y": 79
     },
     {
         "id": "0832a839154f65ab",
@@ -480,9 +472,7 @@
             "370c0cbf29d05ab1"
         ],
         "x": 54,
-        "y": 419,
-        "w": 1412,
-        "h": 522
+        "y": 419
     },
     {
         "id": "59950207257cb065",
@@ -640,9 +630,7 @@
             "cc89dbf72d1f6006"
         ],
         "x": 74,
-        "y": 19,
-        "w": 1082,
-        "h": 142
+        "y": 19
     },
     {
         "id": "31e8c747379a1719",
@@ -668,9 +656,7 @@
             "3719854fdfed232d"
         ],
         "x": 74,
-        "y": 199,
-        "w": 542,
-        "h": 242
+        "y": 199
     },
     {
         "id": "82485a2c45a42ec4",
@@ -700,9 +686,7 @@
             "5690d1607d8fc9da"
         ],
         "x": 74,
-        "y": 479,
-        "w": 1952,
-        "h": 262
+        "y": 479
     },
     {
         "id": "dec7910ea27af2d0",
@@ -734,9 +718,7 @@
             "09b68daef587970a"
         ],
         "x": 74,
-        "y": 779,
-        "w": 1832,
-        "h": 322
+        "y": 779
     },
     {
         "id": "152a8cb72061205a",
@@ -935,12 +917,16 @@
             "57063f0af227550c",
             "39e74dd8054364ef",
             "fa744c0499161826",
-            "5e3bed73fbede711"
+            "5e3bed73fbede711",
+            "ff13433931df62ed",
+            "b548fc9962c90423",
+            "5d01e4f203162183",
+            "99c2626feb93ead0"
         ],
         "x": 1304,
         "y": 39,
-        "w": 1792,
-        "h": 562
+        "w": 2202,
+        "h": 642
     },
     {
         "id": "650381ccef7c28a3",
@@ -1331,44 +1317,6 @@
         "y": 59
     },
     {
-        "id": "5c65227277323287",
-        "type": "group",
-        "z": "525a1f93b25a2b87",
-        "style": {
-            "stroke": "#3a3a3a",
-            "stroke-opacity": "1",
-            "fill": "#1e1e1e",
-            "fill-opacity": "0.5",
-            "label": true,
-            "label-position": "nw",
-            "color": "#cccccc"
-        },
-        "nodes": [
-            "6077c07895f4bae1",
-            "e1c36286bc30ba8f",
-            "fe877aa6ca1a2686",
-            "108395cf07686851",
-            "ef4614a854027dfd",
-            "f918679aafed294c",
-            "9f388ade70cc5c75",
-            "71b32bf55fca92eb",
-            "81316d8b0f159ca4",
-            "f2111068ae08bf78",
-            "94416571ba74b77f",
-            "cf0111e5ca742b20",
-            "815e93274f7aec7f",
-            "4fe9e9b1bb1664ca",
-            "3a47778aea970255",
-            "b925475f454abcb9",
-            "4aa231ce7353fdce",
-            "903760fb2626b52e"
-        ],
-        "x": 54,
-        "y": 179,
-        "w": 652,
-        "h": 422
-    },
-    {
         "id": "fcce3ddf70aae004",
         "type": "group",
         "z": "525a1f93b25a2b87",
@@ -1448,8 +1396,8 @@
             "a1ab82cc9e9814f2",
             "f79ecab684ce047d"
         ],
-        "x": 914,
-        "y": 179,
+        "x": 74,
+        "y": 219,
         "w": 832,
         "h": 262
     },
@@ -1498,6 +1446,101 @@
         "x": 54,
         "y": 1179,
         "w": 1552,
+        "h": 462
+    },
+    {
+        "id": "2be40bf2cea2fcc0",
+        "type": "group",
+        "z": "525a1f93b25a2b87",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "718d208a89ea8b30",
+            "6abb0e74954d6572",
+            "97ef0a81b064b450",
+            "687892c2bf2be574",
+            "caa9669f67d81b5f",
+            "7043296a0b6f6954",
+            "8e213e791174f126",
+            "318e6253966df86d",
+            "b5d48cb1f5bf1cd1",
+            "91990964365378d7",
+            "287dac46554da062",
+            "883976c8ba9c3276",
+            "122b49d10f607001",
+            "f4a8e1577ab1f1dd"
+        ],
+        "x": 114,
+        "y": 1695,
+        "w": 1092,
+        "h": 446
+    },
+    {
+        "id": "206d71c6be221eb6",
+        "type": "group",
+        "z": "43806f78105b6ff3",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "5a959408c11bc480",
+            "28a69ec14b52011b",
+            "ba815b97c26d1ccb"
+        ],
+        "x": 174,
+        "y": 119
+    },
+    {
+        "id": "974ad5eb2df0ec50",
+        "type": "group",
+        "z": "4ace7d9f834bdbfa",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "6c4b9f2fadab2a22",
+            "f122f1e2bee7696d",
+            "9b509844c9e2d71a",
+            "684b1743da06bbc1",
+            "309b7d92817328ea",
+            "20595a8f3a49bec1",
+            "ab05231cdb64c385",
+            "2a5c26a04309b252",
+            "f2aba8356711cc8c",
+            "7763c8132171217d",
+            "18cf72e8d5d4a880",
+            "86d026a66b99dcfc",
+            "e624e39773d896bf",
+            "cd5041a79dbf9dfc",
+            "1bd5d8b8275c5f57",
+            "c5d4ba720de1e7e2",
+            "9b45db7635f178e3",
+            "68b8b6123903b28d",
+            "fa7574453c35d5aa",
+            "a842a5ba003b9c7b"
+        ],
+        "x": 74,
+        "y": 59,
+        "w": 1112,
         "h": 462
     },
     {
@@ -1570,40 +1613,6 @@
         "h": 582
     },
     {
-        "id": "2be40bf2cea2fcc0",
-        "type": "group",
-        "z": "525a1f93b25a2b87",
-        "style": {
-            "stroke": "#3a3a3a",
-            "stroke-opacity": "1",
-            "fill": "#1e1e1e",
-            "fill-opacity": "0.5",
-            "label": true,
-            "label-position": "nw",
-            "color": "#cccccc"
-        },
-        "nodes": [
-            "718d208a89ea8b30",
-            "6abb0e74954d6572",
-            "97ef0a81b064b450",
-            "687892c2bf2be574",
-            "caa9669f67d81b5f",
-            "7043296a0b6f6954",
-            "8e213e791174f126",
-            "318e6253966df86d",
-            "b5d48cb1f5bf1cd1",
-            "91990964365378d7",
-            "287dac46554da062",
-            "883976c8ba9c3276",
-            "122b49d10f607001",
-            "f4a8e1577ab1f1dd"
-        ],
-        "x": 114,
-        "y": 1695,
-        "w": 1092,
-        "h": 446
-    },
-    {
         "id": "5999f1d09afe1039",
         "type": "mqtt-broker",
         "name": "mqtt-node-main",
@@ -1639,7 +1648,8 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
-        "disabled": false,
+        "order": 1,
+        "disabled": true,
         "hidden": false
     },
     {
@@ -1763,8 +1773,9 @@
     {
         "id": "8cc3fd17a6d665c5",
         "type": "ui_tab",
-        "name": "Field Config",
+        "name": "Admin / Field Config",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -1813,7 +1824,7 @@
         "type": "ui_tab",
         "name": "Field Display",
         "icon": "dashboard",
-        "order": 1,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -1822,6 +1833,7 @@
         "type": "ui_tab",
         "name": "Referee / Scorekeeper",
         "icon": "fa-flag-checkered",
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -1886,8 +1898,8 @@
         "name": "Header",
         "tab": "9502d10e0d8b284f",
         "order": 1,
-        "disp": true,
-        "width": 10,
+        "disp": false,
+        "width": "10",
         "collapse": false,
         "className": ""
     },
@@ -1990,38 +2002,24 @@
         "height": 1
     },
     {
-        "id": "4cf693d802e2de2b",
-        "type": "ui_group",
-        "name": "test",
-        "tab": "472d8fc.6c1387",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "472d8fc.6c1387",
+        "id": "e45fadc8.79108",
         "type": "ui_tab",
-        "name": "sample",
-        "icon": "dashboard",
+        "name": "Match Control",
+        "icon": "fa-bolt",
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
     {
-        "id": "26332cb7.024dd4",
+        "id": "36d82d82c96d17b3",
         "type": "ui_group",
-        "name": "Default",
+        "name": "Pre-Match",
         "tab": "e45fadc8.79108",
         "order": 1,
         "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "e45fadc8.79108",
-        "type": "ui_tab",
-        "name": "Start",
-        "icon": "dashboard"
+        "width": "10",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "bcef7098b2bcab87",
@@ -5434,7 +5432,8 @@
         "links": [
             "4eb277af36ef1fe2",
             "6243bfa8703f32ca",
-            "7f5a474942e946d6"
+            "7f5a474942e946d6",
+            "684b1743da06bbc1"
         ],
         "x": 205,
         "y": 880,
@@ -6223,7 +6222,7 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "Current Game Debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6258,8 +6257,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1690,
-        "y": 340,
+        "x": 1700,
+        "y": 380,
         "wires": [
             [
                 "c1f1b1372fb990e6",
@@ -6276,8 +6275,8 @@
         "sqlquery": "batch",
         "sql": "",
         "name": "InitializeBuildingsWindows For Match",
-        "x": 2080,
-        "y": 340,
+        "x": 2090,
+        "y": 380,
         "wires": [
             [
                 "6b1897b0ddc816e3"
@@ -6290,7 +6289,7 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "SQL - Calculate and UPDATE TABLE Buildings NO TREES",
-        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft);\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight);\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft);\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight);\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n\n/*\n  //GC - possible new method to find the hotspot building?  \n  //Existing code wasn't working, not sure why, not familiar with Maps\n  var goodHotspot = false;\n  while (goodHotspot == false) {\n    goodHotspot = true;\n    var checkHotspotIndex = Math.floor(Math.random() * 6);\n    var checkHotspot = NodesForLeft[checkHotspotIndex];\n    for (const node of BurningNodes) {\n      if (BurningNodes[node] == checkHotspot) {\n        goodHotspot = false;\n      }\n    }\n    if (checkHotspot.substring(0, 1) == \"R\") {\n      goodHotspot = false;\n    }\n  }\n  node.warn(checkHotspot);\n  */\n\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n\n/*\n  //GC - possible new brute-force method to find the hotspot building?  \n  //Existing code wasn't working, not sure why, not familiar with Maps\n  var goodHotspot = false;\n  while (goodHotspot == false) {\n    goodHotspot = true;\n    var checkHotspotIndex = Math.floor(Math.random() * 6);\n    var checkHotspot = NodesForLeft[checkHotspotIndex];\n    for (const node of BurningNodes) {\n      if (BurningNodes[node] == checkHotspot) {\n        goodHotspot = false;\n      }\n    }\n    if(checkHotspot.substring(0,1) == \"L\") {\n      goodHotspot = false;\n    }\n  }\n  node.warn(checkHotspot);\n*/\n\n}\n\n//-- GC note - this doesn't appear currently working for some reason\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\n\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \"+ Hotspots[rightNodeName] \n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6369,8 +6368,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1760,
-        "y": 420,
+        "x": 1770,
+        "y": 460,
         "wires": [
             [
                 "806da0dcb41029ca",
@@ -6387,8 +6386,8 @@
         "sqlquery": "batch",
         "sql": "",
         "name": "InitializeBuildingsWindows For Match",
-        "x": 2260,
-        "y": 420,
+        "x": 2270,
+        "y": 460,
         "wires": [
             [
                 "77a83cc806cc1911"
@@ -6531,14 +6530,14 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "SQL - What building is Laser?",
-        "func": "//Start of match SQL to determine which active building is Laser\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE (((Buildings.SENSOR_TYPE)='Laser') AND ((Buildings.BURNING_STATUS)=True))\";\n\nreturn msg;\n",
+        "func": "//Start of match SQL to determine which active building is Laser\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE (((Buildings.SENSOR_TYPE)='Laser') AND ((Buildings.BURNING_STATUS)=True)) AND ((Buildings.MATCH_NUM)=\" + matchid + \")\";\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2580,
-        "y": 480,
+        "x": 2590,
+        "y": 520,
         "wires": [
             [
                 "31fbf44c69967dc6"
@@ -6554,8 +6553,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 2780,
-        "y": 480,
+        "x": 2790,
+        "y": 520,
         "wires": [
             [
                 "9d5a3a60e2f7a702"
@@ -6574,8 +6573,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2960,
-        "y": 480,
+        "x": 2970,
+        "y": 520,
         "wires": [
             [
                 "3906a1f3b5aae88b"
@@ -6588,14 +6587,14 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "SQL - What building is Ball?",
-        "func": "//Start of match SQL to determine which active building is Ball\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE (((Buildings.SENSOR_TYPE)='Ball') AND ((Buildings.BURNING_STATUS)=True))\";\n\nreturn msg;\n",
+        "func": "//Start of match SQL to determine which active building is Ball\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE \" + \n \"Buildings.SENSOR_TYPE='Ball' AND Buildings.BURNING_STATUS=1 AND Buildings.MATCH_NUM=\" + matchid;\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2570,
-        "y": 520,
+        "x": 2580,
+        "y": 560,
         "wires": [
             [
                 "886f1bf59dfd0f7e"
@@ -6611,8 +6610,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 2780,
-        "y": 520,
+        "x": 2790,
+        "y": 560,
         "wires": [
             [
                 "2e54183334f1fc80"
@@ -6625,14 +6624,14 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "Retreive Ball Building",
-        "func": "//SQLite results; ball building\n\nvar ballbuilding = msg.payload[0].BUILDING_NAME;\nmsg.ball_building = ballbuilding\nreturn msg;",
+        "func": "//SQLite results; ball building\n\nvar ballbuilding = msg.payload[0].BUILDING_NAME;\nmsg.ball_building = ballbuilding;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2950,
-        "y": 520,
+        "x": 2960,
+        "y": 560,
         "wires": [
             [
                 "6cf089b32235b868"
@@ -6645,14 +6644,14 @@
         "z": "f74b301e4f22310f",
         "g": "c4beeef48c6dcf84",
         "name": "Starting Buildings",
-        "func": "\nmsg.payload = \"Laser: \" + msg.laser_building + \"   Ball: \" + msg.ball_building;\n\nreturn msg;",
+        "func": "\nmsg.payload = \"Laser: \" + msg.laser_building + \"   Ball: \" + msg.ball_building + \"  Hott: \" + msg.hot_building;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 2540,
-        "y": 560,
+        "y": 640,
         "wires": [
             [
                 "57063f0af227550c"
@@ -6674,7 +6673,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 2740,
-        "y": 560,
+        "y": 640,
         "wires": []
     },
     {
@@ -6684,8 +6683,8 @@
         "g": "c4beeef48c6dcf84",
         "name": "Dom added for convenience",
         "info": "Added this flow for testing convenience to provide start-of-match active building names",
-        "x": 2570,
-        "y": 440,
+        "x": 2580,
+        "y": 480,
         "wires": []
     },
     {
@@ -6737,7 +6736,73 @@
         "name": " <------ \\n <------ \\n This right here \\n This is where the match starts \\n <----- \\n  <------  ",
         "info": "",
         "x": 1140,
-        "y": 840,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "ff13433931df62ed",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "SQL - What building is Hotspot?",
+        "func": "//Start of match SQL to determine which active building is Hotspot\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE Buildings.HOTSPOT = 1 AND MATCH_NUM = \" + matchid;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2770,
+        "y": 600,
+        "wires": [
+            [
+                "b548fc9962c90423"
+            ]
+        ]
+    },
+    {
+        "id": "b548fc9962c90423",
+        "type": "sqlite",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 2960,
+        "y": 600,
+        "wires": [
+            [
+                "5d01e4f203162183"
+            ]
+        ]
+    },
+    {
+        "id": "5d01e4f203162183",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "Retreive Hotspot Building",
+        "func": "//SQLite results; hot building\n\nvar hotbuilding = msg.payload[0].BUILDING_NAME;\nmsg.hot_building = hotbuilding;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3140,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99c2626feb93ead0",
+        "type": "comment",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "We should add this once hotspot is working",
+        "info": "Added this flow for testing convenience to provide start-of-match active building names",
+        "x": 3320,
+        "y": 580,
         "wires": []
     },
     {
@@ -11924,7 +11989,7 @@
         "z": "221fa9b81205c952",
         "g": "b761ec70a9ef3fae",
         "name": "Build MQTT Messages",
-        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0] (for side 1):\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n    \n -- Convert these into MQTT messages \n topic: \"nodered/updatewindow/[node_id]\"\n message: { \n     \"side_id\": [side_id],\n     \"activeWindows\": [num_activeWindows]\n  }\n*/\n\n// --- Set up basic variables\nvar input = msg.payload;\nvar theNode = input[0].BUILDING_NAME; \nvar output = []; //array of json strings\nvar msg0 = {};\nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\nvar gutterSum = 0;\n\n// --- Loop through the object (each side)\nfor (let i in input) {\n    var theSide = input[i][\"BUILDING_SIDE\"];\n    var theActiveWindows = input[i][\"WINDOWS_ACTIVE\"];\n\n    // -- Build MQTT message for that side\n    // [[[[NEXT - DAMAGEEE??]]]]\n    output[i] = \"{ \" +\n        \"\\\"side_id\\\": \" + theSide + \", \" +\n        \"\\\"activeWindows\\\": \" + theActiveWindows +\n        \"}\";\n    \n    // -- Build up the gutter sum\n    gutterSum += theActiveWindows;\n    \n}\n\n// -- The gutter\noutput[4] = \"{ \" +\n    \"\\\"num_segments\\\": \" + gutterSum + \", \" +\n    \"\\\"color\\\": 'FF0000'\" //red\n    \"}\";\n\n// --- Build output msgs\nmsg0.topic = \"nodered/updatewindow/\" + theNode;\nmsg0.payload = output[0];\nmsg1.topic = \"nodered/updatewindow/\" + theNode;\nmsg1.payload = output[1];\nmsg2.topic = \"nodered/updatewindow/\" + theNode;\nmsg2.payload = output[2];\nmsg3.topic = \"nodered/updatewindow/\" + theNode;\nmsg3.payload = output[3];\nmsg4.topic = \"nodered/updategutter/orderedsegments/\" + theNode;\nmsg4.payload = output[4];\n\n\n// --- Fin\nreturn [msg0, msg1, msg2, msg3, msg4];",
+        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0] (for side 1):\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n    \n -- Convert these into MQTT messages \n topic: \"nodered/updatewindow/[node_id]\"\n message: { \n     \"side_id\": [side_id],\n     \"activeWindows\": [num_activeWindows]\n  }\n*/\n\n// --- Set up basic variables\nvar input = msg.payload;\nvar theNode = input[0].BUILDING_NAME; \nvar output = []; //array of json strings\nvar msg0 = {};\nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\nvar msg4 = {};\nvar gutterSum = 0;\n\n// --- Loop through the object (each side)\nfor (let i in input) {\n    var theSide = input[i][\"BUILDING_SIDE\"];\n    var theActiveWindows = input[i][\"WINDOWS_ACTIVE\"];\n\n    // -- Build MQTT message for that side\n    // [[[[NEXT - DAMAGEEE??]]]]\n    output[i] = \"{ \" +\n        \"\\\"side_id\\\": \" + theSide + \", \" +\n        \"\\\"activeWindows\\\": \" + theActiveWindows +\n        \"}\";\n    \n    // -- Build up the gutter sum\n    gutterSum += theActiveWindows;\n    \n}\n\n// -- The gutter\noutput[4] = \"{ \" +\n    \"\\\"num_segments\\\": \" + gutterSum + \", \" +\n    \"\\\"color\\\": 'FF0000'\" //red\n    \"}\";\n\n// --- Build output msgs\nmsg0.topic = \"nodered/updatewindow/\" + theNode;\nmsg0.payload = output[0];\nmsg1.topic = \"nodered/updatewindow/\" + theNode;\nmsg1.payload = output[1];\nmsg2.topic = \"nodered/updatewindow/\" + theNode;\nmsg2.payload = output[2];\nmsg3.topic = \"nodered/updatewindow/\" + theNode;\nmsg3.payload = output[3];\nmsg4.topic = \"nodered/updategutter/orderedsegments/\" + theNode;\nmsg4.payload = output[4];\n\n\n// --- Fin\nreturn [msg0, msg1, msg2, msg3, msg4];",
         "outputs": 5,
         "noerr": 0,
         "initialize": "",
@@ -13584,7 +13649,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db receiving minwindowsequence",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13602,7 +13667,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db asking activewindows",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13620,7 +13685,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db receiving activewindows",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13940,7 +14005,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db receiving sumwindowsactive",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -13958,7 +14023,7 @@
         "z": "78c5e866df5030a1",
         "g": "c5248dc36aacb922",
         "name": "db asking sumwindowsactive",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -14100,7 +14165,8 @@
         "links": [
             "4eb277af36ef1fe2",
             "6243bfa8703f32ca",
-            "7f5a474942e946d6"
+            "7f5a474942e946d6",
+            "684b1743da06bbc1"
         ],
         "x": 285,
         "y": 180,
@@ -14517,57 +14583,6 @@
         "wires": []
     },
     {
-        "id": "6077c07895f4bae1",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-1",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 1,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e1c36286bc30ba8f",
-        "type": "ui_text",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "group": "8f9d38c224d4c5f4",
-        "order": 1,
-        "width": 10,
-        "height": 1,
-        "name": "",
-        "label": "\"OFF\" means Still Standing",
-        "format": "\"ON\" means Knocked Down",
-        "layout": "col-center",
-        "className": "",
-        "x": 240,
-        "y": 320,
-        "wires": []
-    },
-    {
         "id": "555cbe484b6f6bb5",
         "type": "comment",
         "z": "525a1f93b25a2b87",
@@ -14576,371 +14591,6 @@
         "x": 170,
         "y": 60,
         "wires": []
-    },
-    {
-        "id": "fe877aa6ca1a2686",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-2",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 2,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "108395cf07686851",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-3",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 3,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f918679aafed294c",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-6",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 6,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "71b32bf55fca92eb",
-        "type": "change",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "Set to False",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 250,
-        "y": 440,
-        "wires": [
-            [
-                "6077c07895f4bae1",
-                "fe877aa6ca1a2686",
-                "108395cf07686851",
-                "f918679aafed294c",
-                "94416571ba74b77f",
-                "cf0111e5ca742b20",
-                "815e93274f7aec7f",
-                "4fe9e9b1bb1664ca",
-                "3a47778aea970255",
-                "b925475f454abcb9",
-                "4aa231ce7353fdce",
-                "903760fb2626b52e"
-            ]
-        ]
-    },
-    {
-        "id": "81316d8b0f159ca4",
-        "type": "comment",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "=== TREES ===",
-        "info": "",
-        "x": 160,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "f2111068ae08bf78",
-        "type": "link in",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "Reset Trees",
-        "links": [
-            "f1ab8335d85f6123",
-            "ef84f7dd03ac2927"
-        ],
-        "x": 135,
-        "y": 440,
-        "wires": [
-            [
-                "71b32bf55fca92eb"
-            ]
-        ]
-    },
-    {
-        "id": "94416571ba74b77f",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "RIGHT-1",
-        "tooltip": "",
-        "group": "6890d2c616ecd108",
-        "order": 1,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 620,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cf0111e5ca742b20",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "RIGHT-2",
-        "tooltip": "",
-        "group": "6890d2c616ecd108",
-        "order": 2,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 620,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "815e93274f7aec7f",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "RIGHT-3",
-        "tooltip": "",
-        "group": "6890d2c616ecd108",
-        "order": 3,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 620,
-        "y": 440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4fe9e9b1bb1664ca",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "RIGHT-4",
-        "tooltip": "",
-        "group": "6890d2c616ecd108",
-        "order": 4,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 620,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3a47778aea970255",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "RIGHT-5",
-        "tooltip": "",
-        "group": "6890d2c616ecd108",
-        "order": 5,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 620,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b925475f454abcb9",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "RIGHT-6",
-        "tooltip": "",
-        "group": "6890d2c616ecd108",
-        "order": 6,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 620,
-        "y": 560,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "f0d4a2147acdb332",
@@ -15128,8 +14778,8 @@
         "g": "d07f6babdcefefa3",
         "name": "=== RECON PATH CONTROLS ===",
         "info": "",
-        "x": 1080,
-        "y": 220,
+        "x": 240,
+        "y": 260,
         "wires": []
     },
     {
@@ -15418,8 +15068,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 1090,
-        "y": 300,
+        "x": 250,
+        "y": 340,
         "wires": [
             [
                 "dd2414c260cac898"
@@ -15447,8 +15097,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 1090,
-        "y": 400,
+        "x": 250,
+        "y": 440,
         "wires": [
             [
                 "dd2414c260cac898"
@@ -15467,8 +15117,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
-        "y": 340,
+        "x": 540,
+        "y": 380,
         "wires": [
             [
                 "e6381dd2b6d8901f",
@@ -15499,8 +15149,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1620,
-        "y": 280,
+        "x": 780,
+        "y": 320,
         "wires": []
     },
     {
@@ -15518,8 +15168,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1630,
-        "y": 320,
+        "x": 790,
+        "y": 360,
         "wires": []
     },
     {
@@ -15537,8 +15187,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1630,
-        "y": 340,
+        "x": 790,
+        "y": 380,
         "wires": []
     },
     {
@@ -15556,8 +15206,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1630,
-        "y": 360,
+        "x": 790,
+        "y": 400,
         "wires": []
     },
     {
@@ -15575,8 +15225,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1630,
-        "y": 380,
+        "x": 790,
+        "y": 420,
         "wires": []
     },
     {
@@ -16411,72 +16061,6 @@
         ]
     },
     {
-        "id": "4aa231ce7353fdce",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-4",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 4,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "903760fb2626b52e",
-        "type": "ui_switch",
-        "z": "525a1f93b25a2b87",
-        "g": "5c65227277323287",
-        "name": "",
-        "label": "LEFT-5",
-        "tooltip": "",
-        "group": "e13f7d3261501fe3",
-        "order": 5,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 460,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "718d208a89ea8b30",
         "type": "ui_text",
         "z": "525a1f93b25a2b87",
@@ -16689,134 +16273,6 @@
         ]
     },
     {
-        "id": "82c9dc8d.87c11",
-        "type": "ui_button",
-        "z": "525a1f93b25a2b87",
-        "name": "",
-        "group": "26332cb7.024dd4",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Start",
-        "color": "black",
-        "bgcolor": "{{background}}",
-        "icon": "",
-        "payload": "RUNNING",
-        "payloadType": "str",
-        "topic": "",
-        "x": 630,
-        "y": 2340,
-        "wires": [
-            [
-                "319cf0e6.f709a"
-            ]
-        ]
-    },
-    {
-        "id": "319cf0e6.f709a",
-        "type": "delay",
-        "z": "525a1f93b25a2b87",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "0.5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "outputs": 1,
-        "x": 816,
-        "y": 2339,
-        "wires": [
-            [
-                "6176046c.1b3b6c",
-                "2bd239b8.7085a6"
-            ]
-        ]
-    },
-    {
-        "id": "6176046c.1b3b6c",
-        "type": "change",
-        "z": "525a1f93b25a2b87",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "background",
-                "pt": "msg",
-                "to": "RED",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 820,
-        "y": 2420,
-        "wires": [
-            [
-                "82c9dc8d.87c11"
-            ]
-        ]
-    },
-    {
-        "id": "f59c0526.513b98",
-        "type": "change",
-        "z": "525a1f93b25a2b87",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "background",
-                "pt": "msg",
-                "to": "green",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1120,
-        "y": 2420,
-        "wires": [
-            [
-                "82c9dc8d.87c11"
-            ]
-        ]
-    },
-    {
-        "id": "2bd239b8.7085a6",
-        "type": "delay",
-        "z": "525a1f93b25a2b87",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "3",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "outputs": 1,
-        "x": 1040,
-        "y": 2340,
-        "wires": [
-            [
-                "f59c0526.513b98"
-            ]
-        ]
-    },
-    {
         "id": "287dac46554da062",
         "type": "change",
         "z": "525a1f93b25a2b87",
@@ -16906,5 +16362,486 @@
         "x": 780,
         "y": 2100,
         "wires": []
+    },
+    {
+        "id": "5a959408c11bc480",
+        "type": "mqtt in",
+        "z": "43806f78105b6ff3",
+        "g": "206d71c6be221eb6",
+        "name": "",
+        "topic": "edgenode/initialize",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "5999f1d09afe1039",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "ba815b97c26d1ccb"
+            ]
+        ]
+    },
+    {
+        "id": "28a69ec14b52011b",
+        "type": "comment",
+        "z": "43806f78105b6ff3",
+        "g": "206d71c6be221eb6",
+        "name": "Listen for Node Init",
+        "info": "",
+        "x": 290,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ba815b97c26d1ccb",
+        "type": "ui_text",
+        "z": "43806f78105b6ff3",
+        "g": "206d71c6be221eb6",
+        "group": "df6f4c796677e729",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last node initialized:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 600,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6c4b9f2fadab2a22",
+        "type": "comment",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "=== MATCH PRESTART ===",
+        "info": "",
+        "x": 220,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f122f1e2bee7696d",
+        "type": "ui_button",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "",
+        "group": "36d82d82c96d17b3",
+        "order": 1,
+        "width": 10,
+        "height": 2,
+        "passthru": false,
+        "label": "PRESTART - Initialize database, enable hotspot",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "darkyellow",
+        "className": "",
+        "icon": "",
+        "payload": "LEFT",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "9b509844c9e2d71a",
+                "684b1743da06bbc1"
+            ]
+        ]
+    },
+    {
+        "id": "9b509844c9e2d71a",
+        "type": "delay",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "1s Delay to prep SQL Tables",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 720,
+        "y": 160,
+        "wires": [
+            [
+                "309b7d92817328ea"
+            ]
+        ]
+    },
+    {
+        "id": "684b1743da06bbc1",
+        "type": "link out",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "link out 61",
+        "links": [
+            "a5a1bd31c468f86b",
+            "d36ef2fad2d08d5f"
+        ],
+        "x": 715,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "309b7d92817328ea",
+        "type": "change",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "Set global.activematch to PRE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "activematch",
+                "pt": "global",
+                "to": "PRE",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 180,
+        "wires": [
+            [
+                "ab05231cdb64c385",
+                "e624e39773d896bf",
+                "cd5041a79dbf9dfc",
+                "a842a5ba003b9c7b"
+            ]
+        ]
+    },
+    {
+        "id": "7763c8132171217d",
+        "type": "ui_text",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "group": "36d82d82c96d17b3",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Start Laser Bldg:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1010,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ab05231cdb64c385",
+        "type": "function",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "SQL - What building is Laser?",
+        "func": "//Start of match SQL to determine which active building is Laser\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE (((Buildings.SENSOR_TYPE)='Laser') AND ((Buildings.BURNING_STATUS)=True)) AND ((Buildings.MATCH_NUM)=\" + matchid + \")\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "2a5c26a04309b252"
+            ]
+        ]
+    },
+    {
+        "id": "2a5c26a04309b252",
+        "type": "sqlite",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "f2aba8356711cc8c"
+            ]
+        ]
+    },
+    {
+        "id": "f2aba8356711cc8c",
+        "type": "function",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "Retrieve Laser Building",
+        "func": "//SQLite results; laser building\n\nvar laserbuilding = msg.payload[0].BUILDING_NAME;\nmsg.payload = laserbuilding\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 300,
+        "wires": [
+            [
+                "7763c8132171217d"
+            ]
+        ]
+    },
+    {
+        "id": "e624e39773d896bf",
+        "type": "function",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "SQL - What building is Ball?",
+        "func": "//Start of match SQL to determine which active building is Ball\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\n\nmsg.topic = \"SELECT Buildings.BUILDING_NAME FROM Buildings WHERE \" + \n \"Buildings.SENSOR_TYPE='Ball' AND Buildings.BURNING_STATUS=1 AND Buildings.MATCH_NUM=\" + matchid;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "57187e3cea142229"
+            ]
+        ]
+    },
+    {
+        "id": "57187e3cea142229",
+        "type": "sqlite",
+        "z": "4ace7d9f834bdbfa",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 550,
+        "y": 340,
+        "wires": [
+            [
+                "86d026a66b99dcfc"
+            ]
+        ]
+    },
+    {
+        "id": "86d026a66b99dcfc",
+        "type": "function",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "Retrieve Ball Building",
+        "func": "//SQLite results; ball building\n\nvar ballbuilding = msg.payload[0].BUILDING_NAME;\nmsg.payload = ballbuilding;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "18cf72e8d5d4a880"
+            ]
+        ]
+    },
+    {
+        "id": "18cf72e8d5d4a880",
+        "type": "ui_text",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "group": "36d82d82c96d17b3",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Start Ball Bldg:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1000,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "cd5041a79dbf9dfc",
+        "type": "function",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "SQL - Retrieve Hotspot Candidates",
+        "func": "// set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar theSide = global.get(\"startside\");\n\n// build the SQL msg\nmsg.topic = \"SELECT BUILDING_NAME FROM Buildings WHERE \" + \n \"MATCH_NUM = \" + matchid + \" AND \" + \n \"COMMUNITY = '\" + theSide + \"' AND \" + \n \"BURNING_STATUS = 0 AND \" + \n \"BUILDING_SIZE <> 'Tree'\";\n\n// fin\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "1bd5d8b8275c5f57"
+            ]
+        ]
+    },
+    {
+        "id": "1bd5d8b8275c5f57",
+        "type": "sqlite",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 570,
+        "y": 380,
+        "wires": [
+            [
+                "c5d4ba720de1e7e2"
+            ]
+        ]
+    },
+    {
+        "id": "c5d4ba720de1e7e2",
+        "type": "function",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "Pick a Hotspot Bldg",
+        "func": "/* \nExample input: \narray[4]\n0: object\n    BUILDING_NAME: \"RBI\"\n1: object\n    BUILDING_NAME: \"RBM\"\n2: object\n    BUILDING_NAME: \"RTI\"\n3: object\n    BUILDING_NAME: \"RTO\"\n*/\n\n// set up basic variables\nvar matchid = global.get(\"matchnum\");\nvar pyld = msg.payload;\n\n// pick one\nvar theIndex = Math.floor(Math.random() * 4); //includes 0\nvar theBldg = pyld[theIndex].BUILDING_NAME;\n\n//fin\nmsg.payload = theBldg;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 380,
+        "wires": [
+            [
+                "9b45db7635f178e3"
+            ]
+        ]
+    },
+    {
+        "id": "9b45db7635f178e3",
+        "type": "ui_text",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "group": "36d82d82c96d17b3",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Start Ball Bldg:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1000,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "20595a8f3a49bec1",
+        "type": "comment",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "Ask Referee / Match Operator to confirm that the Prestart is good to go",
+        "info": "",
+        "x": 350,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "68b8b6123903b28d",
+        "type": "ui_button",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "",
+        "group": "36d82d82c96d17b3",
+        "order": 2,
+        "width": 5,
+        "height": 2,
+        "passthru": false,
+        "label": "Confirm - Begin Hotspot Preheat",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "gray",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 610,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa7574453c35d5aa",
+        "type": "ui_button",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "",
+        "group": "36d82d82c96d17b3",
+        "order": 3,
+        "width": 5,
+        "height": 2,
+        "passthru": false,
+        "label": "Something is Wrong - Re-roll Bldgs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "gray",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 620,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a842a5ba003b9c7b",
+        "type": "change",
+        "z": "4ace7d9f834bdbfa",
+        "g": "974ad5eb2df0ec50",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "background",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 460,
+        "wires": [
+            [
+                "68b8b6123903b28d",
+                "fa7574453c35d5aa"
+            ]
+        ]
     }
 ]
