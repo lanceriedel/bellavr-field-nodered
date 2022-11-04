@@ -711,9 +711,7 @@
             "d88db86de710b8e9"
         ],
         "x": 34,
-        "y": 59,
-        "w": 942,
-        "h": 162
+        "y": 59
     },
     {
         "id": "2008d605d368ad7e",
@@ -739,9 +737,7 @@
             "221e289248744137"
         ],
         "x": 34,
-        "y": 239,
-        "w": 942,
-        "h": 162
+        "y": 239
     },
     {
         "id": "37232e2e92b5faa6",
@@ -767,9 +763,7 @@
             "2f1658364fc5719b"
         ],
         "x": 34,
-        "y": 419,
-        "w": 942,
-        "h": 162
+        "y": 419
     },
     {
         "id": "d9c57fb2a381a320",
@@ -792,9 +786,7 @@
             "4244695d7f15d3fd"
         ],
         "x": 34,
-        "y": 599,
-        "w": 932,
-        "h": 142
+        "y": 599
     },
     {
         "id": "738e4f614ef8a7a5",
@@ -818,9 +810,7 @@
             "72bcba239803d115"
         ],
         "x": 34,
-        "y": 779,
-        "w": 972,
-        "h": 142
+        "y": 779
     },
     {
         "id": "e56885edbfad9853",
@@ -845,9 +835,7 @@
             "50a7d4620d30956a"
         ],
         "x": 34,
-        "y": 939,
-        "w": 1052,
-        "h": 142
+        "y": 939
     },
     {
         "id": "c4beeef48c6dcf84",
@@ -888,9 +876,7 @@
             "967a1bfc8a88de49"
         ],
         "x": 1304,
-        "y": 39,
-        "w": 1792,
-        "h": 562
+        "y": 39
     },
     {
         "id": "650381ccef7c28a3",
@@ -921,9 +907,7 @@
             "abf14147cd05c8bd"
         ],
         "x": 34,
-        "y": 1139,
-        "w": 972,
-        "h": 542
+        "y": 1139
     },
     {
         "id": "c9a02ca8caf3cfb8",
@@ -1052,9 +1036,7 @@
             "bb20e976f6f77ed1"
         ],
         "x": 34,
-        "y": 839,
-        "w": 1172,
-        "h": 162
+        "y": 839
     },
     {
         "id": "f630143dd6413aac",
@@ -1079,9 +1061,7 @@
             "f6566f17a1e9b78e"
         ],
         "x": 34,
-        "y": 479,
-        "w": 912,
-        "h": 242
+        "y": 479
     },
     {
         "id": "f69756401f15d7b4",
@@ -1109,9 +1089,7 @@
             "85525cb2f906b575"
         ],
         "x": 34,
-        "y": 39,
-        "w": 1472,
-        "h": 262
+        "y": 39
     },
     {
         "id": "a83bb00d46efe804",
@@ -8494,7 +8472,7 @@
         "type": "function",
         "z": "5b48d63e525889af",
         "name": "SQL - Ball - update side 4",
-        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.active_windows_now\nvar ActiveWindowsThisSide = UpdatedActiveWindows - 6\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=4))\";\n\nreturn msg;",
+        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar UpdatedActiveWindows = msg.active_windows_now\nvar ActiveWindowsThisSide = UpdatedActiveWindows - 6\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=4))\";\nmsg.active_windows_this_side = ActiveWindowsThisSide;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8504,8 +8482,7 @@
         "y": 600,
         "wires": [
             [
-                "96915771e6e35ba5",
-                "8645ae886095ec7f"
+                "96915771e6e35ba5"
             ]
         ]
     },
@@ -8518,31 +8495,12 @@
         "sql": "",
         "name": "SQL",
         "x": 1030,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
-                "9507789b22d5f388"
+                "e21ca4f49144b1cb"
             ]
         ]
-    },
-    {
-        "id": "d659c7c1a1ee4638",
-        "type": "mqtt out",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 1150,
-        "y": 620,
-        "wires": []
     },
     {
         "id": "9507789b22d5f388",
@@ -8590,12 +8548,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
-        "y": 700,
+        "x": 890,
+        "y": 800,
         "wires": [
             [
-                "4a532ab323f31897",
-                "9465ad063917243b"
+                "4a532ab323f31897"
             ]
         ]
     },
@@ -8610,33 +8567,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1950,
-        "y": 680,
+        "x": 1990,
+        "y": 700,
         "wires": [
             [
-                "b23693337d0bf525",
-                "5121869761f1780d"
+                "b23693337d0bf525"
             ]
         ]
-    },
-    {
-        "id": "926978629096483a",
-        "type": "mqtt out",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 2290,
-        "y": 720,
-        "wires": []
     },
     {
         "id": "4a532ab323f31897",
@@ -8646,11 +8583,11 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 1090,
-        "y": 680,
+        "x": 1110,
+        "y": 800,
         "wires": [
             [
-                "e9fb10454fdcd876"
+                "7fccb15d8e064368"
             ]
         ]
     },
@@ -8662,32 +8599,13 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 2150,
-        "y": 680,
+        "x": 2190,
+        "y": 700,
         "wires": [
             [
-                "9507789b22d5f388"
+                "fa0a27fe4a70a06a"
             ]
         ]
-    },
-    {
-        "id": "eefd448726fdf3ee",
-        "type": "mqtt out",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 1230,
-        "y": 720,
-        "wires": []
     },
     {
         "id": "fa4c981d240556ce",
@@ -8808,12 +8726,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 780,
+        "x": 870,
+        "y": 1040,
         "wires": [
             [
-                "5e1bedb2aeceb7e9",
-                "ac66756e139a88d1"
+                "5e1bedb2aeceb7e9"
             ]
         ]
     },
@@ -8825,32 +8742,13 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 1010,
-        "y": 780,
+        "x": 1050,
+        "y": 1040,
         "wires": [
             [
-                "0f411cc6b38c0078"
+                "472f4d6aa17d2a53"
             ]
         ]
-    },
-    {
-        "id": "d0c72785beeaf77f",
-        "type": "mqtt out",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 1150,
-        "y": 820,
-        "wires": []
     },
     {
         "id": "0f411cc6b38c0078",
@@ -8863,12 +8761,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1550,
-        "y": 780,
+        "x": 1890,
+        "y": 1040,
         "wires": [
             [
-                "9f435b2414157ed3",
-                "78901de08bf5d648"
+                "9f435b2414157ed3"
             ]
         ]
     },
@@ -8880,32 +8777,13 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL-me",
-        "x": 1780,
-        "y": 780,
+        "x": 2120,
+        "y": 1040,
         "wires": [
             [
-                "e9fb10454fdcd876"
+                "b04c9ff26cdd985b"
             ]
         ]
-    },
-    {
-        "id": "aff8404fddd1fe2e",
-        "type": "mqtt out",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 1910,
-        "y": 820,
-        "wires": []
     },
     {
         "id": "f5d0aa28e6f0422e",
@@ -8918,12 +8796,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
-        "y": 880,
+        "x": 770,
+        "y": 1500,
         "wires": [
             [
-                "efb06d29e5adbe9f",
-                "65c4dfdf7dc709ae"
+                "efb06d29e5adbe9f"
             ]
         ]
     },
@@ -8935,32 +8812,13 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 1090,
-        "y": 880,
+        "x": 990,
+        "y": 1500,
         "wires": [
             [
-                "db22302541b3901f"
+                "33afc32b1e66eabc"
             ]
         ]
-    },
-    {
-        "id": "3ba3088e67cb12eb",
-        "type": "mqtt out",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 1230,
-        "y": 920,
-        "wires": []
     },
     {
         "id": "db22302541b3901f",
@@ -8973,12 +8831,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1270,
-        "y": 880,
+        "x": 1950,
+        "y": 1500,
         "wires": [
             [
-                "d506f148496ad4c0",
-                "ed099e54b9bbfa96"
+                "d506f148496ad4c0"
             ]
         ]
     },
@@ -8990,32 +8847,13 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "SQL",
-        "x": 1450,
-        "y": 880,
+        "x": 2130,
+        "y": 1500,
         "wires": [
             [
-                "0f411cc6b38c0078"
+                "56429cc741134e76"
             ]
         ]
-    },
-    {
-        "id": "27578e827405ddbe",
-        "type": "mqtt out",
-        "z": "5b48d63e525889af",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "5999f1d09afe1039",
-        "x": 1590,
-        "y": 920,
-        "wires": []
     },
     {
         "id": "e7ff83dbb5786658",
@@ -9402,7 +9240,7 @@
         "type": "function",
         "z": "e1a756fd8363adc2",
         "name": "SQL - Laser - update windows this side",
-        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindowsnow = msg.active_windows_now;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + activewindowsnow + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid +\"))\";\n\n\nreturn msg;",
+        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindowsnow = msg.active_windows_now;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + activewindowsnow + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid +\"))\";\nmsg.active_windows_this_side = activewindowsnow;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9412,8 +9250,7 @@
         "y": 340,
         "wires": [
             [
-                "93ab7685c29c0ea9",
-                "4c6dd4846cc93c76"
+                "93ab7685c29c0ea9"
             ]
         ]
     },
@@ -9429,7 +9266,7 @@
         "y": 340,
         "wires": [
             [
-                "14467402e3f1abbc"
+                "4c6dd4846cc93c76"
             ]
         ]
     },
@@ -9530,7 +9367,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 820,
+        "x": 940,
         "y": 340,
         "wires": [
             [
@@ -13789,8 +13626,8 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 810,
-        "y": 380,
+        "x": 1330,
+        "y": 500,
         "wires": []
     },
     {
@@ -13889,223 +13726,6 @@
         ]
     },
     {
-        "id": "8645ae886095ec7f",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1020,
-        "y": 620,
-        "wires": [
-            [
-                "d659c7c1a1ee4638"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "9465ad063917243b",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1100,
-        "y": 720,
-        "wires": [
-            [
-                "eefd448726fdf3ee"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "ac66756e139a88d1",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1020,
-        "y": 820,
-        "wires": [
-            [
-                "d0c72785beeaf77f"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "65c4dfdf7dc709ae",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1100,
-        "y": 920,
-        "wires": [
-            [
-                "3ba3088e67cb12eb"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "ed099e54b9bbfa96",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1460,
-        "y": 920,
-        "wires": [
-            [
-                "27578e827405ddbe"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "78901de08bf5d648",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1780,
-        "y": 820,
-        "wires": [
-            [
-                "aff8404fddd1fe2e"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "5121869761f1780d",
-        "type": "switch",
-        "z": "5b48d63e525889af",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 2160,
-        "y": 720,
-        "wires": [
-            [
-                "926978629096483a"
-            ],
-            []
-        ]
-    },
-    {
         "id": "4c6dd4846cc93c76",
         "type": "switch",
         "z": "e1a756fd8363adc2",
@@ -14127,13 +13747,15 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 680,
-        "y": 380,
+        "x": 560,
+        "y": 500,
         "wires": [
             [
-                "89c8eb874103c96c"
+                "9fcf32411cc2b1d4"
             ],
-            []
+            [
+                "14467402e3f1abbc"
+            ]
         ]
     },
     {
@@ -14740,6 +14362,820 @@
         "y": 860,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "9fcf32411cc2b1d4",
+        "type": "function",
+        "z": "e1a756fd8363adc2",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 500,
+        "wires": [
+            [
+                "8066a251f66be821"
+            ]
+        ]
+    },
+    {
+        "id": "8066a251f66be821",
+        "type": "sqlite",
+        "z": "e1a756fd8363adc2",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1030,
+        "y": 500,
+        "wires": [
+            [
+                "ab34f7d0237babd1"
+            ]
+        ]
+    },
+    {
+        "id": "ab34f7d0237babd1",
+        "type": "function",
+        "z": "e1a756fd8363adc2",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 500,
+        "wires": [
+            [
+                "89c8eb874103c96c",
+                "14467402e3f1abbc"
+            ]
+        ]
+    },
+    {
+        "id": "e21ca4f49144b1cb",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1600,
+        "y": 540,
+        "wires": [
+            [
+                "839339ee7d74fdd8"
+            ],
+            [
+                "9507789b22d5f388"
+            ]
+        ]
+    },
+    {
+        "id": "839339ee7d74fdd8",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 500,
+        "wires": [
+            [
+                "961aa155345b68d7"
+            ]
+        ]
+    },
+    {
+        "id": "961aa155345b68d7",
+        "type": "sqlite",
+        "z": "5b48d63e525889af",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1410,
+        "y": 460,
+        "wires": [
+            [
+                "76462edcb079694d"
+            ]
+        ]
+    },
+    {
+        "id": "76462edcb079694d",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 420,
+        "wires": [
+            [
+                "add93259e7432ebb",
+                "9507789b22d5f388"
+            ]
+        ]
+    },
+    {
+        "id": "add93259e7432ebb",
+        "type": "mqtt out",
+        "z": "5b48d63e525889af",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1590,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6e8f587050934745",
+        "type": "comment",
+        "z": "5b48d63e525889af",
+        "name": "Do this for all other is_hotspot switches",
+        "info": "",
+        "x": 1490,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7fccb15d8e064368",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1480,
+        "y": 820,
+        "wires": [
+            [
+                "4eb784bcb0435066"
+            ],
+            [
+                "e9fb10454fdcd876"
+            ]
+        ]
+    },
+    {
+        "id": "4eb784bcb0435066",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 780,
+        "wires": [
+            [
+                "1c54d24fe84d6b4f"
+            ]
+        ]
+    },
+    {
+        "id": "481bcac9287ff9e0",
+        "type": "mqtt out",
+        "z": "5b48d63e525889af",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1470,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "1c54d24fe84d6b4f",
+        "type": "sqlite",
+        "z": "5b48d63e525889af",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1290,
+        "y": 740,
+        "wires": [
+            [
+                "5d811d56535aed37"
+            ]
+        ]
+    },
+    {
+        "id": "5d811d56535aed37",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 700,
+        "wires": [
+            [
+                "481bcac9287ff9e0",
+                "e9fb10454fdcd876"
+            ]
+        ]
+    },
+    {
+        "id": "3ab52ee8a9d44c11",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 940,
+        "wires": [
+            [
+                "adb50284107609a5",
+                "0f411cc6b38c0078"
+            ]
+        ]
+    },
+    {
+        "id": "708a935a2849a353",
+        "type": "sqlite",
+        "z": "5b48d63e525889af",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1230,
+        "y": 980,
+        "wires": [
+            [
+                "3ab52ee8a9d44c11"
+            ]
+        ]
+    },
+    {
+        "id": "b2fa34c06d0cd39a",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 1020,
+        "wires": [
+            [
+                "708a935a2849a353"
+            ]
+        ]
+    },
+    {
+        "id": "472f4d6aa17d2a53",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1420,
+        "y": 1060,
+        "wires": [
+            [
+                "b2fa34c06d0cd39a"
+            ],
+            [
+                "0f411cc6b38c0078"
+            ]
+        ]
+    },
+    {
+        "id": "adb50284107609a5",
+        "type": "mqtt out",
+        "z": "5b48d63e525889af",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1410,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "33afc32b1e66eabc",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1340,
+        "y": 1500,
+        "wires": [
+            [
+                "7ff71a2506c9246d"
+            ],
+            [
+                "db22302541b3901f"
+            ]
+        ]
+    },
+    {
+        "id": "7ff71a2506c9246d",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1460,
+        "wires": [
+            [
+                "93b4321cab70cdf9"
+            ]
+        ]
+    },
+    {
+        "id": "23a0be63c03bb368",
+        "type": "mqtt out",
+        "z": "5b48d63e525889af",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 1330,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "93b4321cab70cdf9",
+        "type": "sqlite",
+        "z": "5b48d63e525889af",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1150,
+        "y": 1420,
+        "wires": [
+            [
+                "922cc2422dc260ac"
+            ]
+        ]
+    },
+    {
+        "id": "922cc2422dc260ac",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1380,
+        "wires": [
+            [
+                "23a0be63c03bb368",
+                "db22302541b3901f"
+            ]
+        ]
+    },
+    {
+        "id": "56429cc741134e76",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2080,
+        "y": 1400,
+        "wires": [
+            [
+                "19f3df775bbd62ed"
+            ],
+            [
+                "0f411cc6b38c0078"
+            ]
+        ]
+    },
+    {
+        "id": "19f3df775bbd62ed",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2000,
+        "y": 1360,
+        "wires": [
+            [
+                "65ab3f905d9e1023"
+            ]
+        ]
+    },
+    {
+        "id": "28297f589a6462ea",
+        "type": "mqtt out",
+        "z": "5b48d63e525889af",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 2070,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "65ab3f905d9e1023",
+        "type": "sqlite",
+        "z": "5b48d63e525889af",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1890,
+        "y": 1320,
+        "wires": [
+            [
+                "2228aaa9c8a6ef62"
+            ]
+        ]
+    },
+    {
+        "id": "2228aaa9c8a6ef62",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1920,
+        "y": 1280,
+        "wires": [
+            [
+                "28297f589a6462ea",
+                "0f411cc6b38c0078"
+            ]
+        ]
+    },
+    {
+        "id": "b04c9ff26cdd985b",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2320,
+        "y": 1040,
+        "wires": [
+            [
+                "88e9369adadf44ce"
+            ],
+            [
+                "e9fb10454fdcd876"
+            ]
+        ]
+    },
+    {
+        "id": "88e9369adadf44ce",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1000,
+        "wires": [
+            [
+                "5e336562d89f0ce7"
+            ]
+        ]
+    },
+    {
+        "id": "4234bda77d59456f",
+        "type": "mqtt out",
+        "z": "5b48d63e525889af",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 2310,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "5e336562d89f0ce7",
+        "type": "sqlite",
+        "z": "5b48d63e525889af",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 2130,
+        "y": 960,
+        "wires": [
+            [
+                "3f27aafae71d86a8"
+            ]
+        ]
+    },
+    {
+        "id": "3f27aafae71d86a8",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2160,
+        "y": 920,
+        "wires": [
+            [
+                "4234bda77d59456f",
+                "e9fb10454fdcd876"
+            ]
+        ]
+    },
+    {
+        "id": "fa0a27fe4a70a06a",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2360,
+        "y": 700,
+        "wires": [
+            [
+                "74265e74ce766083"
+            ],
+            [
+                "9507789b22d5f388"
+            ]
+        ]
+    },
+    {
+        "id": "74265e74ce766083",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "SQL - Retrieve Damaged Window Count",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT 2-Sum(BuildingWindowStatus.DAMAGE_PREVENTION_SCORE) AS DamagedWindows FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2280,
+        "y": 660,
+        "wires": [
+            [
+                "576488b165eb187b"
+            ]
+        ]
+    },
+    {
+        "id": "4a540d584c5f211d",
+        "type": "mqtt out",
+        "z": "5b48d63e525889af",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5999f1d09afe1039",
+        "x": 2350,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "576488b165eb187b",
+        "type": "sqlite",
+        "z": "5b48d63e525889af",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 2170,
+        "y": 620,
+        "wires": [
+            [
+                "19306772cdae9884"
+            ]
+        ]
+    },
+    {
+        "id": "19306772cdae9884",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "MQTT Msg Info",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindows = msg.active_windows_this_side;\nvar damagedwindows = msg.payload[0].DamagedWindows;\n\nmsg.damaged_windows = damagedwindows\n\n//For outgoing MQTT, you can now use:\n//use msg.building_name\n//use msg.side_id\n//use msg.msg.active_windows_this_side\n//use msg.damaged_windows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2200,
+        "y": 580,
+        "wires": [
+            [
+                "4a540d584c5f211d",
+                "9507789b22d5f388"
+            ]
         ]
     }
 ]
