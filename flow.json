@@ -14527,16 +14527,6 @@
         "wires": []
     },
     {
-        "id": "6e8f587050934745",
-        "type": "comment",
-        "z": "5b48d63e525889af",
-        "name": "Do this for all other is_hotspot switches",
-        "info": "",
-        "x": 1490,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "7fccb15d8e064368",
         "type": "switch",
         "z": "5b48d63e525889af",
