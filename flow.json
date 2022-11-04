@@ -58,7 +58,7 @@
     {
         "id": "c4f77bdc618b8d18",
         "type": "tab",
-        "label": "TreeFlow",
+        "label": "ForestFlow",
         "disabled": false,
         "info": ""
     },
@@ -883,9 +883,9 @@
             "6cf089b32235b868",
             "57063f0af227550c",
             "39e74dd8054364ef",
-            "fa744c0499161826",
-            "5e3bed73fbede711",
-            "0692d55544c5bd31"
+            "83b6b82977f5c491",
+            "fd7048174b8a385b",
+            "967a1bfc8a88de49"
         ],
         "x": 1304,
         "y": 39,
@@ -947,12 +947,13 @@
             "98c60bf4f503a36e",
             "870e04fa144c4f6c",
             "5598e9bedb216108",
-            "ca207569b8ffecb7"
+            "ca207569b8ffecb7",
+            "d71923a1c0b40a2a"
         ],
         "x": 54,
         "y": 39,
         "w": 592,
-        "h": 229.5
+        "h": 262
     },
     {
         "id": "fd36eb12b8432134",
@@ -976,7 +977,7 @@
             "5d2ad7baf266e2f2"
         ],
         "x": 54,
-        "y": 279,
+        "y": 339,
         "w": 912,
         "h": 202
     },
@@ -1000,7 +1001,7 @@
             "a4ee5ad8874c8a5c"
         ],
         "x": 54,
-        "y": 499,
+        "y": 559,
         "w": 712,
         "h": 122
     },
@@ -1025,7 +1026,7 @@
             "4ead786be8e28f0e"
         ],
         "x": 54,
-        "y": 799,
+        "y": 879,
         "w": 772,
         "h": 182
     },
@@ -5508,7 +5509,7 @@
         "wires": [
             [
                 "fc55610d6c9105b3",
-                "fa744c0499161826"
+                "83b6b82977f5c491"
             ]
         ]
     },
@@ -5547,7 +5548,8 @@
         "y": 140,
         "wires": [
             [
-                "5aaea6a334032def"
+                "5aaea6a334032def",
+                "fd7048174b8a385b"
             ]
         ]
     },
@@ -5906,7 +5908,7 @@
         "wires": [
             [
                 "e354ec1a31284c79",
-                "0692d55544c5bd31"
+                "967a1bfc8a88de49"
             ]
         ]
     },
@@ -7792,7 +7794,7 @@
         "z": "c46bd56bf00dd36c",
         "g": "c9a02ca8caf3cfb8",
         "name": "Set Values (edit to test)",
-        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'RBI';\nmsg.side_id = 1;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 4;\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n//All incoming MQTTs should follow this format\n\nmsg.building_name = 'RTO';\nmsg.side_id = 3;// MQTT wise, for Ball this will be received as 1 by default. For Laser this will received as a specific value\nmsg.inc_hits = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7900,7 +7902,9 @@
             [
                 "ca207569b8ffecb7"
             ],
-            []
+            [
+                "d71923a1c0b40a2a"
+            ]
         ]
     },
     {
@@ -7910,7 +7914,8 @@
         "g": "c9a02ca8caf3cfb8",
         "name": "Lazer Flow Out",
         "links": [
-            "ba76e8252f59be76"
+            "ba76e8252f59be76",
+            "72919ac12e8bd001"
         ],
         "x": 595,
         "y": 180,
@@ -7951,7 +7956,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 230,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "56b66c00e99f38c3"
@@ -7964,14 +7969,14 @@
         "z": "c46bd56bf00dd36c",
         "g": "fd36eb12b8432134",
         "name": "Increase ActiveWindows (edit me)",
-        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\nvar sideid = 1\nvar ActiveWindowsThisSide = 2\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid + \"))\";\n\n\nreturn msg;",
+        "func": "//edit this as needed for testing\nvar matchid = global.get(\"matchnum\");\nvar nodeid = \"RBI\"\nvar sideid = 1\nvar ActiveWindowsThisSide = 2\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + ActiveWindowsThisSide + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)= '\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid + \"))\";\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "54d5da1e44335e4d",
@@ -7989,7 +7994,7 @@
         "sql": "",
         "name": "SQL",
         "x": 690,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "0e64c0905e30abf0"
@@ -8004,7 +8009,7 @@
         "name": "Active Window Increase for testing",
         "info": "",
         "x": 220,
-        "y": 320,
+        "y": 380,
         "wires": []
     },
     {
@@ -8029,7 +8034,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 220,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "c7839544c6f7c108"
@@ -8042,14 +8047,14 @@
         "z": "c46bd56bf00dd36c",
         "g": "8e3af1c96b869979",
         "name": "Set Building to Blocked (edit me)",
-        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\n\nmsg.topic = \"UPDATE Buildings SET BLOCKED = True WHERE (((Buildings.MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = \"RBI\"\n\nmsg.topic = \"UPDATE Buildings SET BLOCKED = True WHERE (((Buildings.MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "a4ee5ad8874c8a5c"
@@ -8066,7 +8071,7 @@
         "sql": "",
         "name": "SQL",
         "x": 690,
-        "y": 580,
+        "y": 640,
         "wires": [
             []
         ]
@@ -8079,7 +8084,7 @@
         "name": "Active building BLOCKED for testing",
         "info": "",
         "x": 220,
-        "y": 540,
+        "y": 600,
         "wires": []
     },
     {
@@ -8096,7 +8101,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 860,
-        "y": 440,
+        "y": 500,
         "wires": []
     },
     {
@@ -8113,7 +8118,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 860,
-        "y": 400,
+        "y": 460,
         "wires": []
     },
     {
@@ -8130,7 +8135,7 @@
         "rap": true,
         "rh": 0,
         "x": 220,
-        "y": 900,
+        "y": 980,
         "wires": [
             [
                 "34ef0188a339e4b1"
@@ -8145,7 +8150,7 @@
         "name": "Ball input MQTT TESTING",
         "info": "",
         "x": 190,
-        "y": 840,
+        "y": 920,
         "wires": []
     },
     {
@@ -8161,7 +8166,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 900,
+        "y": 980,
         "wires": [
             [
                 "928b2b1d022b2425",
@@ -8179,7 +8184,7 @@
             "01954de24ad5a0da"
         ],
         "x": 705,
-        "y": 900,
+        "y": 980,
         "wires": []
     },
     {
@@ -8196,7 +8201,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 720,
-        "y": 940,
+        "y": 1020,
         "wires": []
     },
     {
@@ -8374,7 +8379,7 @@
         "wires": [
             [
                 "2e2ff89264a068bf",
-                "fa4c981d240556ce"
+                "c0e2f9272a072072"
             ]
         ]
     },
@@ -8500,7 +8505,7 @@
         "wires": [
             [
                 "96915771e6e35ba5",
-                "28fa28d003db402b"
+                "8645ae886095ec7f"
             ]
         ]
     },
@@ -8535,7 +8540,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5999f1d09afe1039",
-        "x": 1170,
+        "x": 1150,
         "y": 620,
         "wires": []
     },
@@ -8590,7 +8595,7 @@
         "wires": [
             [
                 "4a532ab323f31897",
-                "4cad3e5e4fd26039"
+                "9465ad063917243b"
             ]
         ]
     },
@@ -8610,7 +8615,7 @@
         "wires": [
             [
                 "b23693337d0bf525",
-                "bb65f8fab55826f6"
+                "5121869761f1780d"
             ]
         ]
     },
@@ -8696,7 +8701,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "367d82828fd6ff70"
@@ -8712,7 +8717,7 @@
         "sql": "",
         "name": "SQL",
         "x": 530,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "5b7196606532f662"
@@ -8731,7 +8736,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "6e6a4b5ac69db804"
@@ -8747,7 +8752,7 @@
         "sql": "",
         "name": "SQL",
         "x": 530,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "feed706833b18dcb"
@@ -8766,7 +8771,7 @@
         "finalize": "",
         "libs": [],
         "x": 690,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "f5c4d853da6c42c4"
@@ -8785,7 +8790,7 @@
         "finalize": "",
         "libs": [],
         "x": 690,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "362cdf8487a4ec20"
@@ -8808,7 +8813,7 @@
         "wires": [
             [
                 "5e1bedb2aeceb7e9",
-                "de84522b3b85352e"
+                "ac66756e139a88d1"
             ]
         ]
     },
@@ -8863,7 +8868,7 @@
         "wires": [
             [
                 "9f435b2414157ed3",
-                "58df087ce7a70c25"
+                "78901de08bf5d648"
             ]
         ]
     },
@@ -8874,8 +8879,8 @@
         "mydb": "6f6f2d0bf9d4b5e3",
         "sqlquery": "msg.topic",
         "sql": "",
-        "name": "SQL",
-        "x": 1770,
+        "name": "SQL-me",
+        "x": 1780,
         "y": 780,
         "wires": [
             [
@@ -8918,7 +8923,7 @@
         "wires": [
             [
                 "efb06d29e5adbe9f",
-                "d8a1bac52593bbb4"
+                "65c4dfdf7dc709ae"
             ]
         ]
     },
@@ -8973,7 +8978,7 @@
         "wires": [
             [
                 "d506f148496ad4c0",
-                "a9fbd03404b6b1ae"
+                "ed099e54b9bbfa96"
             ]
         ]
     },
@@ -9408,7 +9413,7 @@
         "wires": [
             [
                 "93ab7685c29c0ea9",
-                "7d6da5e70ab066c4"
+                "4c6dd4846cc93c76"
             ]
         ]
     },
@@ -9576,7 +9581,11 @@
             "49340053d9bb65e1",
             "f762d2377419ea56",
             "e78b05fbdb887da1",
-            "35d3b0609f3c1c10"
+            "35d3b0609f3c1c10",
+            "075d5e79d96ac0fa",
+            "c80c582bbd5c7d73",
+            "3e697bf95b64118b",
+            "29a246e8f40b2075"
         ],
         "x": 165,
         "y": 40,
@@ -9739,7 +9748,7 @@
         "y": 100,
         "wires": [
             [
-                "1369da3b1e2cb608"
+                "db59a92dbf31bf13"
             ]
         ]
     },
@@ -10013,7 +10022,7 @@
         "type": "function",
         "z": "66af4b80919b8266",
         "name": "Community active windows",
-        "func": "//retrieved blocked status\n\nvar activewindowsincommunity = msg.payload[0].SumOfWINDOWS_ACTIVE;\n\nmsg.debug = \"Active windows in community = \" + activewindowsincommunity + \" END PHASE\";\nmsg.payload = activewindowsincommunity;\n\nreturn msg;",
+        "func": "//retrieved blocked status\n\nvar activewindowsincommunity = msg.payload[0].SumOfWINDOWS_ACTIVE;\n\nmsg.debug = \"Active windows in community = \" + activewindowsincommunity;\nmsg.payload = activewindowsincommunity;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -13639,67 +13648,6 @@
         "wires": []
     },
     {
-        "id": "fa744c0499161826",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "g": "c4beeef48c6dcf84",
-        "name": "SQL - Initialize Match - TABLE Buildings ",
-        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst TreesRight = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft).concat(TreesLeft); //dom modified\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight).concat(TreesRight); //dom modified\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = { //dom modified\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch',\n};\n\nconst BuildingSensorsForRightMap = { //dom modified\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch',\n};\n\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"',1,0, 0,0, 0, 0, 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n      + \"',1,0, 0,0,0, 0,0,0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1640,
-        "y": 100,
-        "wires": [
-            [
-                "12b7849527a8f3d3",
-                "5e3bed73fbede711"
-            ]
-        ]
-    },
-    {
-        "id": "5e3bed73fbede711",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "g": "c4beeef48c6dcf84",
-        "name": "SQL - Calculate and UPDATE TABLE Buildings ",
-        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst TreesLeft = ['LTREES']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst TreesRight = ['RTREES']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft) //dom didn't add trees because they should not be randomly chosen later in code\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight) //dom didn't add trees because they should not be randomly chosen later in code\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const tree of TreesLeft) { //dom added\n  BuildingSizeForLeftMap[tree] = 'Tree'; //dom added\n} //dom added\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const tree of TreesRight) { //dom added\n  BuildingSizeForRightMap[tree] = 'Tree'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LTREES': 'Switch', //dom added\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RTREES': 'Switch', //dom added\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n  'LTREES': 1, //dom added\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n  'RTREES': 1, //dom added\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1660,
-        "y": 200,
-        "wires": [
-            [
-                "0aa61745968b6ee5"
-            ]
-        ]
-    },
-    {
-        "id": "0692d55544c5bd31",
-        "type": "function",
-        "z": "f74b301e4f22310f",
-        "g": "c4beeef48c6dcf84",
-        "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
-        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI', 'LTREES'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI', 'RTREES'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1700,
-        "y": 300,
-        "wires": [
-            [
-                "c1f1b1372fb990e6"
-            ]
-        ]
-    },
-    {
         "id": "55d8f8946d586a92",
         "type": "function",
         "z": "c46bd56bf00dd36c",
@@ -13774,7 +13722,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 150,
-        "y": 720,
+        "y": 760,
         "wires": [
             [
                 "5cc92e9812d69911"
@@ -13786,14 +13734,14 @@
         "type": "function",
         "z": "c46bd56bf00dd36c",
         "name": "Make Hotspot (edit me)",
-        "func": "//edit this as needed for testing\n\nvar matchid = 1\nvar nodeid = \"RBI\"\nmsg.topic = \"UPDATE Buildings SET HOTSPOT = 1 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\n\nreturn msg;",
+        "func": "//edit this as needed for testing\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = \"RBI\"\nmsg.topic = \"UPDATE Buildings SET HOTSPOT = 1 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\nmsg.node_id = nodeid\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 720,
+        "y": 760,
         "wires": [
             [
                 "646666eba37fcc66"
@@ -13809,9 +13757,11 @@
         "sql": "",
         "name": "SQL",
         "x": 570,
-        "y": 720,
+        "y": 760,
         "wires": [
-            []
+            [
+                "33b0cdcb91b29429"
+            ]
         ]
     },
     {
@@ -13821,39 +13771,8 @@
         "name": "Make Hotspot for testing",
         "info": "",
         "x": 170,
-        "y": 680,
+        "y": 720,
         "wires": []
-    },
-    {
-        "id": "7d6da5e70ab066c4",
-        "type": "switch",
-        "z": "e1a756fd8363adc2",
-        "name": "Is Hotspot",
-        "property": "is_hotspot",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 660,
-        "y": 380,
-        "wires": [
-            [
-                "89c8eb874103c96c"
-            ],
-            []
-        ]
     },
     {
         "id": "89c8eb874103c96c",
@@ -13875,7 +13794,102 @@
         "wires": []
     },
     {
-        "id": "28fa28d003db402b",
+        "id": "83b6b82977f5c491",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "SQL - Initialize Match - TABLE Buildings ",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst ForestLeft = ['LFOREST']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst ForestRight = ['RFOREST']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft).concat(ForestLeft); //dom modified\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight).concat(ForestRight); //dom modified\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const forest of ForestLeft) { //dom added\n  BuildingSizeForLeftMap[forest] = 'forest'; //dom added\n} //dom added\n\n\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const forest of ForestRight) { //dom added\n  BuildingSizeForRightMap[forest] = 'forest'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = { //dom modified\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LFOREST': 'Switch',\n};\n\nconst BuildingSensorsForRightMap = { //dom modified\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RFOREST': 'Switch',\n};\n\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" \n      + leftNodeName + \"','\" \n      + COMMUNITYLEFT + \"','\" \n      + BuildingSizeForLeftMap[leftNodeName] \n      + \"','\" + BuildingSensorsForLeftMap[leftNodeName] \n      + \"',1,0, 0,0, 0, 0, 0, 0,\" \n      + timestamp + \");\\n \";\n  sql = sql + line;\n  \n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n    var line = \"INSERT INTO Buildings(MATCH_NUM, BUILDING_NAME, COMMUNITY,BUILDING_SIZE,SENSOR_TYPE, FIRE_ELIGIBLE, HOTSPOT, BURNING_STATUS, BLOCKED, FCS, DPS, NUM_BAGS, NUM_DROPS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\"\n      + rightNodeName + \"','\"\n      + COMMUNITYRIGHT + \"','\"\n      + BuildingSizeForRightMap[rightNodeName]\n      + \"','\" + BuildingSensorsForRightMap[rightNodeName]\n      + \"',1,0, 0,0,0, 0,0,0,\"\n      + timestamp + \"); \\n\";\n    sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1640,
+        "y": 100,
+        "wires": [
+            [
+                "12b7849527a8f3d3"
+            ]
+        ]
+    },
+    {
+        "id": "fd7048174b8a385b",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "SQL - Calculate and UPDATE TABLE Buildings ",
+        "func": "var d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nvar startside = global.get(\"startside\");\n\n\n//Declare all of the constants \n\n//Node Names\n\n\n//Declare all of the building sizes\nconst TallBuildingsLeft = ['LTO', 'LBO'];\nconst ShortBuildingsLeft = ['LTM', 'LTI', 'LBM', 'LBI'];\nconst ForestLeft = ['LFOREST']; //dom added\n\nconst TallBuildingsRight = ['RTO', 'RBO'];\nconst ShortBuildingsRight = ['RTM', 'RTI', 'RBM', 'RBI'];\nconst ForestRight = ['RFOREST']; //dom added\n\nconst NodesForLeft = TallBuildingsLeft.concat(ShortBuildingsLeft) //dom didn't add forests because they should not be randomly chosen later in code\nconst NodesForRight = TallBuildingsRight.concat(ShortBuildingsRight) //dom didn't add forests because they should not be randomly chosen later in code\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst NonBurningNodes = new Set(AllNodes);\nconst BurningNodes = new Set();\n\n\n// Adding to a map to make it easier to lookup when gen sql\nvar BuildingSizeForLeftMap =  new Map();\nfor (const tall of TallBuildingsLeft) {\n  BuildingSizeForLeftMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsLeft) {\n  BuildingSizeForLeftMap[short] = 'Short';\n}\nfor (const forest of ForestLeft) { //dom added\n  BuildingSizeForLeftMap[forest] = 'forest'; //dom added\n} //dom added\n\nvar BuildingSizeForRightMap = new Map();\nfor (const tall of TallBuildingsRight) {\n  BuildingSizeForRightMap[tall] = 'Tall';\n}\nfor (const short of ShortBuildingsRight) {\n  BuildingSizeForRightMap[short] = 'Short';\n}\nfor (const forest of ForestRight) { //dom added\n  BuildingSizeForRightMap[forest] = 'forest'; //dom added\n} //dom added\n\n\n//Constants - building sensors\n\nvar BuildingSensorsForLeftMap = {\n  'LTO': 'Ball',\n  'LTM': 'Laser',\n  'LTI': 'Ball',\n  'LBO': 'Laser',\n  'LBM': 'Laser',\n  'LBI': 'Ball',\n  'LFOREST': 'Switch', //dom added\n};\n\nvar BuildingSensorsForRightMap = {\n  'RTO': 'Laser',\n  'RTM': 'Laser',\n  'RTI': 'Ball',\n  'RBO': 'Ball',\n  'RBM': 'Laser',\n  'RBI': 'Ball',\n  'RFOREST': 'Switch', //dom added\n};\n\nconst BuildingBlockedForLeftMap = {\n  'LTO': 0,\n  'LTM': 0,\n  'LTI': 0,\n  'LBO': 0,\n  'LBM': 0,\n  'LBI': 0,\n  'LFOREST': 1, //dom added\n};\n\nconst BuildingBlockedForRightMap = {\n  'RTO': 0,\n  'RTM': 0,\n  'RTI': 0,\n  'RBO': 0,\n  'RBM': 0,\n  'RBI': 0,\n  'RFOREST': 1, //dom added\n};\n\nvar strdebug = \"\";\n//Start picking random things\n//First set all buildings to not burning\nvar BurningBuildings = {};\nfor (const node of AllNodes) {\n  BurningBuildings[node] = 0;\n}\n\n//set a tall building burning, set sensor type\nvar tallSensor = \"\";\nvar tallBuildingBurning = Math.floor(Math.random() * 2);\nvar shortBuildingBurning = Math.floor(Math.random() * 2);\nif (startside=='LEFT') {\n  BurningBuildings[TallBuildingsLeft[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsLeft[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsLeft[tallBuildingBurning]);\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForLeftMap[TallBuildingsLeft[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn\n  for (const node of ShortBuildingsLeft) {\n    strdebug += i + \":\" + BuildingSensorsForLeftMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForLeftMap[node] == tallSensor) {\n      continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      strdebug += \" -- \" + i;\n\n      BurningBuildings[ShortBuildingsLeft[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsLeft[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n} else {\n  BurningBuildings[TallBuildingsRight[tallBuildingBurning]] = 1;\n  //Remove burning node so we know what is left\n  NonBurningNodes.delete(TallBuildingsRight[tallBuildingBurning]);\n  BurningNodes.add(TallBuildingsRight[tallBuildingBurning]);\n\n  //what sensor is the burning building?\n  tallSensor = BuildingSensorsForRightMap[TallBuildingsRight[tallBuildingBurning]];\n  var i = 0;\n  //Find the short building to burn. -- this takes a scal\n  // shortBuildingBurning is the one out of the right sensored shorts\n  for (const node of ShortBuildingsRight) {\n    strdebug += i + \":\" + BuildingSensorsForRightMap[node] + \":\" + tallSensor + \"    | \";\n    if (BuildingSensorsForRightMap[node] == tallSensor) {\n     continue;\n    } else {\n      i++;\n    }\n    if (i == shortBuildingBurning + 1) {\n      \n      BurningBuildings[ShortBuildingsRight[node]] = 1;\n      NonBurningNodes.delete(ShortBuildingsRight[node]);\n      BurningNodes.add(node);\n      break;\n    }\n  }\n}\n\n//Of the 4 that are left -- choose a random node\nvar lastOneHotspot = Math.floor(Math.random() * 4);\nvar lastOneHospotName = NonBurningNodes[lastOneHotspot];\n//Start picking random things\n//First set all buildings to not burning\nvar Hotspots =  new Map();\nfor (const node of AllNodes) {\n  Hotspots[node] = 0;\n}\nHotspots[lastOneHospotName] = 1;\n\n// Of the 2 that are burning -- \n\n//first setr all to 0\nvar FCS = new Map();\nfor (const node of AllNodes) {\n  FCS[node] = 0;\n}\n\nvar DPS = new Map();\nfor (const node of AllNodes) {\n  DPS[node] = 0;\n}\n\nvar Burn = new Map();\nfor (const node of AllNodes) {\n  Burn[node] = 0;\n}\n\n//Set Burning node values\nfor (const node of BurningNodes) {\n    DPS[node] = 4;\n    FCS[node] = 4;\n    Burn[node] = 1;\n}\n\n//Set these for the Initialize Match - TABLE BuildingWindowStatus to pick the sequence windows\nvar it = BurningNodes.values();\nglobal.set(\"burning1\",it.next().value);\nglobal.set(\"burning2\", it.next().value);\nglobal.set(\"lancedebug\", strdebug);\n\n\n\n/*\nCREATE TABLE Buildings (\nMATCH_NUM INT NOT NULL,\nBUILDING_NAME VARCHAR[32],\nBUILDING_SIZE VARCHAR[12],\nSENSOR_TYPE VARCHAR[12],\nCOMMUNITY INT NOT NULL,\nFIRE_ELIGIBLE INT NOT NULL,\nHOTSPOT INT NOT NULL, \nBURNING_STATUS INT NOT NULL,\nBLOCKED INT NOT NULL, \nFCS INT NOT NULL, \nDPS INT NOT NULL, \nNUM_BAGS INT NOT NULL,\nNUM_DROPS INT NOT NULL, \nTIMEOFMATCH INT NOT NULL,\nPRIMARY KEY (MATCH_NUM, BUILDING_NAME));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\n\nfor (const leftNodeName of NodesForLeft) {\n    var line = \"UPDATE Buildings SET\" \n      + \" COMMUNITY = '\" + COMMUNITYLEFT + \"'\"     \n      + \", BUILDING_SIZE = '\" + BuildingSizeForLeftMap[leftNodeName] + \"'\"     \n      + \", SENSOR_TYPE = '\" + BuildingSensorsForLeftMap[leftNodeName] + \"'\"     \n      + \", FIRE_ELIGIBLE = 1\"   \n      + \", HOTSPOT = \" + Hotspots[leftNodeName] \n      + \", BURNING_STATUS = \" + Burn[leftNodeName]  \n      + \", BLOCKED = \" + BuildingBlockedForLeftMap[leftNodeName] \n      + \", FCS = \" + FCS[leftNodeName]\n      + \", DPS = \" + DPS[leftNodeName]\n      + \", NUM_BAGS = 0\"   \n      + \", NUM_DROPS = 0 \"   \n      + \", TIMEOFMATCH = \" + timestamp  \n      +\" WHERE BUILDING_NAME='\"+ leftNodeName +\"' AND MATCH_NUM=\" +matchnum\n      +\";\\n\";\n  sql = sql + line;\n  \n}\n\n//initialize \nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n\n  var line = \"UPDATE Buildings SET\"\n    + \" COMMUNITY = '\" + COMMUNITYRIGHT + \"'\"\n    + \", BUILDING_SIZE = '\" + BuildingSizeForRightMap[rightNodeName] + \"'\"\n    + \", SENSOR_TYPE = '\" + BuildingSensorsForRightMap[rightNodeName] + \"'\"\n    + \", FIRE_ELIGIBLE = 1\" \n    + \", HOTSPOT = \" + Hotspots[rightNodeName]\n    + \", BURNING_STATUS = \" + Burn[rightNodeName]  \n    + \", BLOCKED = \" + BuildingBlockedForRightMap[rightNodeName]\n    + \", FCS = \" + FCS[rightNodeName]\n    + \", DPS = \" + DPS[rightNodeName]\n    + \", NUM_BAGS = 0\"\n    + \", NUM_DROPS = 0 \"\n    + \", TIMEOFMATCH = \" + timestamp\n    + \" WHERE BUILDING_NAME='\" + rightNodeName + \"' AND MATCH_NUM=\" + matchnum\n    + \";\\n\";\n  sql = sql + line;\n\n}\n\nmsg.topic = sql;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 200,
+        "wires": [
+            [
+                "0aa61745968b6ee5",
+                "cd1bf88c1e97229e"
+            ]
+        ]
+    },
+    {
+        "id": "967a1bfc8a88de49",
+        "type": "function",
+        "z": "f74b301e4f22310f",
+        "g": "c4beeef48c6dcf84",
+        "name": "SQL -  - Initialize Match - TABLE BuildingWindowStatus",
+        "func": "  \nvar d = new Date();\nvar timestamp = d.getTime();\nvar matchnum = global.get(\"matchnum\");\nconst NodesForLeft = ['LTO', 'LTM', 'LTI', 'LBO', 'LBM', 'LBI', 'LFOREST'];\nconst NodesForRight = ['RTO', 'RTM', 'RTI', 'RBO', 'RBM', 'RBI', 'RFOREST'];\nconst AllNodes = NodesForLeft.concat(NodesForRight);\nconst numSides = 4;\n\nvar burningNode1 = global.get(\"burning1\");\nvar burningNode2 = global.get(\"burning2\");\n\n\n\n/*\nCREATE TABLE BuildingWindowStatus(\n  MATCH_NUM INT NOT NULL,\n  BUILDING_NAME VARCHAR[32],\n  COMMUNITY INT NOT NULL,\n  BUILDING_SIDE INT NOT NULL,\n  WINDOWS_ACTIVE INT,\n  NUM_HITS INT NOT NULL,\n  TIMEOFMATCH INT NOT NULL,\n  PRIMARY KEY(MATCH_NUM, BUILDING_NAME, BUILDING_SIDE));\n  */\n\nvar sql = \"\";\n\n//initialize left\nconst COMMUNITYLEFT = \"LEFT\";\nfor (const leftNodeName of NodesForLeft) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" + \n      \"VALUES(\" + matchnum + \", '\" + leftNodeName + \"','\" + COMMUNITYLEFT +\"', \"+i+\", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n//initialize left\nconst COMMUNITYRIGHT = \"RIGHT\";\nfor (const rightNodeName of NodesForRight) {\n  for (var i = 1; i <= 4; i++) {\n    var line = \"INSERT INTO BuildingWindowStatus(MATCH_NUM, BUILDING_NAME, COMMUNITY, BUILDING_SIDE, WINDOWS_ACTIVE, DAMAGE_PREVENTION_SCORE, NUM_HITS, TIMEOFMATCH) \" +\n      \"VALUES(\" + matchnum + \", '\" + rightNodeName + \"','\" + COMMUNITYRIGHT + \"', \" + i + \", 0, 2, 0, \" + timestamp + \"); \";\n    sql = sql + line;\n  }\n}\n\n\n\nmsg.topic = sql; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 300,
+        "wires": [
+            [
+                "c1f1b1372fb990e6",
+                "cd1bf88c1e97229e"
+            ]
+        ]
+    },
+    {
+        "id": "33b0cdcb91b29429",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Fill in Hotspot Data",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.node_id\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = 2, DAMAGE_PREVENTION_SCORE = 2 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=2))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 760,
+        "wires": [
+            [
+                "b36fe17bd1273c42"
+            ]
+        ]
+    },
+    {
+        "id": "b36fe17bd1273c42",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 910,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8645ae886095ec7f",
         "type": "switch",
         "z": "5b48d63e525889af",
         "name": "Is Hotspot",
@@ -13896,7 +13910,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1040,
+        "x": 1020,
         "y": 620,
         "wires": [
             [
@@ -13906,7 +13920,7 @@
         ]
     },
     {
-        "id": "4cad3e5e4fd26039",
+        "id": "9465ad063917243b",
         "type": "switch",
         "z": "5b48d63e525889af",
         "name": "Is Hotspot",
@@ -13937,7 +13951,7 @@
         ]
     },
     {
-        "id": "de84522b3b85352e",
+        "id": "ac66756e139a88d1",
         "type": "switch",
         "z": "5b48d63e525889af",
         "name": "Is Hotspot",
@@ -13968,7 +13982,7 @@
         ]
     },
     {
-        "id": "d8a1bac52593bbb4",
+        "id": "65c4dfdf7dc709ae",
         "type": "switch",
         "z": "5b48d63e525889af",
         "name": "Is Hotspot",
@@ -13999,7 +14013,7 @@
         ]
     },
     {
-        "id": "a9fbd03404b6b1ae",
+        "id": "ed099e54b9bbfa96",
         "type": "switch",
         "z": "5b48d63e525889af",
         "name": "Is Hotspot",
@@ -14030,7 +14044,7 @@
         ]
     },
     {
-        "id": "58df087ce7a70c25",
+        "id": "78901de08bf5d648",
         "type": "switch",
         "z": "5b48d63e525889af",
         "name": "Is Hotspot",
@@ -14061,7 +14075,7 @@
         ]
     },
     {
-        "id": "bb65f8fab55826f6",
+        "id": "5121869761f1780d",
         "type": "switch",
         "z": "5b48d63e525889af",
         "name": "Is Hotspot",
@@ -14088,6 +14102,643 @@
             [
                 "926978629096483a"
             ],
+            []
+        ]
+    },
+    {
+        "id": "4c6dd4846cc93c76",
+        "type": "switch",
+        "z": "e1a756fd8363adc2",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 680,
+        "y": 380,
+        "wires": [
+            [
+                "89c8eb874103c96c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c0e2f9272a072072",
+        "type": "switch",
+        "z": "5b48d63e525889af",
+        "name": "Is Hotspot",
+        "property": "is_hotspot",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "fa4c981d240556ce"
+            ],
+            [
+                "3861fe614fcadd57"
+            ]
+        ]
+    },
+    {
+        "id": "3861fe614fcadd57",
+        "type": "function",
+        "z": "5b48d63e525889af",
+        "name": "Force Sequence Side 1 = 2, side 3 = 3",
+        "func": "msg.seqoneside = 2;\nmsg.seqthreeside = 3;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 320,
+        "wires": [
+            [
+                "f5d0aa28e6f0422e"
+            ]
+        ]
+    },
+    {
+        "id": "db59a92dbf31bf13",
+        "type": "function",
+        "z": "66af4b80919b8266",
+        "name": "Set Hotspot = 0",
+        "func": "//edit this as needed for testing\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nmsg.topic = \"UPDATE Buildings SET HOTSPOT = 0 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\nmsg.node_id = nodeid\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 100,
+        "wires": [
+            [
+                "3378cea02ddd8c49"
+            ]
+        ]
+    },
+    {
+        "id": "3378cea02ddd8c49",
+        "type": "sqlite",
+        "z": "66af4b80919b8266",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1330,
+        "y": 100,
+        "wires": [
+            [
+                "1369da3b1e2cb608"
+            ]
+        ]
+    },
+    {
+        "id": "d71923a1c0b40a2a",
+        "type": "link out",
+        "z": "c46bd56bf00dd36c",
+        "g": "c9a02ca8caf3cfb8",
+        "name": "Forest Out",
+        "links": [
+            "12d0110177dc7e32"
+        ],
+        "x": 595,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7744974b22251026",
+        "type": "function",
+        "z": "c4f77bdc618b8d18",
+        "name": "SQL - Forest - Active Windows Total",
+        "func": "//Building is of type Laser\n//SQL statement to determine number of currently active windows\n//in this building, on this side\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"SELECT BuildingWindowStatus.WINDOWS_ACTIVE AS WindowsActiveThisSide FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "39191aa447cf1723"
+            ]
+        ]
+    },
+    {
+        "id": "39191aa447cf1723",
+        "type": "sqlite",
+        "z": "c4f77bdc618b8d18",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "15f4b4ed680beb6e"
+            ]
+        ]
+    },
+    {
+        "id": "15f4b4ed680beb6e",
+        "type": "function",
+        "z": "c4f77bdc618b8d18",
+        "name": "Forest - Retrieve Active Windows This Side",
+        "func": "//SQLite results; number of active windows in this building, on this side\n\nvar totalActiveWindowsThisSide = msg.payload[0].WindowsActiveThisSide;\n\nmsg.payload = totalActiveWindowsThisSide\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "03bc4df2188f5173"
+            ]
+        ]
+    },
+    {
+        "id": "03bc4df2188f5173",
+        "type": "switch",
+        "z": "c4f77bdc618b8d18",
+        "name": "Active Windows",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 360,
+        "y": 220,
+        "wires": [
+            [
+                "20be1cb8629c20f7"
+            ],
+            [
+                "a4c24a4b07a73e93"
+            ]
+        ]
+    },
+    {
+        "id": "20be1cb8629c20f7",
+        "type": "function",
+        "z": "c4f77bdc618b8d18",
+        "name": "SQL - Forest - update hits to zero",
+        "func": "//Number of active windows was already zero FOR THIS SIDE. Thus, for completeness,\n//we updated the number of hits to zero FOR THIS SIDE.\n//Since this is a laser building, we use the side that was hit as provided via MQTT\n//SQL statement to do the above\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = 0 WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\nmsg.debug = \"No active windows on side \" + sideid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 220,
+        "wires": [
+            [
+                "75ced73d51d4d813",
+                "5a21c5e4643ac459"
+            ]
+        ]
+    },
+    {
+        "id": "75ced73d51d4d813",
+        "type": "sqlite",
+        "z": "c4f77bdc618b8d18",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1370,
+        "y": 220,
+        "wires": [
+            [
+                "29a246e8f40b2075"
+            ]
+        ]
+    },
+    {
+        "id": "a4c24a4b07a73e93",
+        "type": "function",
+        "z": "c4f77bdc618b8d18",
+        "name": "SQL - Forest - activeWindows > 0",
+        "func": "//building has at least one active window, ON THIS SIDE\n//Time to keep track of the hits\n//This SQL will retrieve the current number of carryover hits ON THIS SIDE from the database\n//This value will be used with the additional incoming hit value\n//to determine a totaly number of hits for later evaluation\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nmsg.activewindowsthisside = msg.payload\n\nmsg.topic = \"SELECT Sum(BuildingWindowStatus.NUM_HITS) AS SumOfNUM_HITS FROM BuildingWindowStatus WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 260,
+        "wires": [
+            [
+                "a3ecc74d9ea27449"
+            ]
+        ]
+    },
+    {
+        "id": "a3ecc74d9ea27449",
+        "type": "sqlite",
+        "z": "c4f77bdc618b8d18",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 810,
+        "y": 260,
+        "wires": [
+            [
+                "11d7d7fbad62844f"
+            ]
+        ]
+    },
+    {
+        "id": "11d7d7fbad62844f",
+        "type": "function",
+        "z": "c4f77bdc618b8d18",
+        "name": "Forest - Retrieve updatedActiveWindows",
+        "func": "//Laser code\n//SQLite results; We now have the current number of hits on this side from the database\n//We take that value and add the additional incoming hits\n//This new total of hits is now used to determine how many windows\n//can be deactivated ON THIS SIDE\n//Since this is a Laser building, then two (2) hits will deactivate one\n//window ON THIS SIDE. Any leftover hits will be stored back into the database\n//for FOR THIS SIDE for later use if needed\n\nvar building_name = msg.building_name;\nvar SumOfWindowsActive = msg.activewindowsthisside; //from database. Current active windows this building FOR THIS SIDE\nvar carryover_hits = msg.payload[0].SumOfNUM_HITS; //from database. Hits ON THIS SIDE that were extra beyond two\nvar inc_hits = msg.inc_hits; //from mqtt. Hit total that just came in FOR THIS SIDE\nvar firescorefactor = 3;\n\nvar SumTheTwo = carryover_hits + inc_hits; // incoming hits added to carryover hits\nvar Divided = SumTheTwo/firescorefactor;\nvar WindowsToExtinguish = Math.floor(Divided) // rounding down to nearest whole integer. this is the window total to extinguish\nvar ActiveWindowsNow = SumOfWindowsActive - WindowsToExtinguish // subtract the windows to extinguish from the current active window count\nif (ActiveWindowsNow <= 0) {\n    ActiveWindowsNow = 0;\n}\n\nvar Multiplied = WindowsToExtinguish * firescorefactor\nvar UpdCarryoverHits = SumTheTwo - Multiplied\n\nmsg.debug = \"LASER PreviousActiveWindowsTHISSIDE:\" + SumOfWindowsActive + \"  WindowsActiveNowTHISSIDE:\" + ActiveWindowsNow + \" with leftover hits this side:\" + UpdCarryoverHits;\nmsg.active_windows_now = ActiveWindowsNow;\nmsg.updated_num_hits = UpdCarryoverHits;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "cfbf09d3d69b2486",
+                "b839d72150442a5e"
+            ]
+        ]
+    },
+    {
+        "id": "cfbf09d3d69b2486",
+        "type": "debug",
+        "z": "c4f77bdc618b8d18",
+        "name": "msg.debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5a21c5e4643ac459",
+        "type": "debug",
+        "z": "c4f77bdc618b8d18",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "debug",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1390,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b839d72150442a5e",
+        "type": "function",
+        "z": "c4f77bdc618b8d18",
+        "name": "SQL - Forest - update windows this side",
+        "func": "// update side 4\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar activewindowsnow = msg.active_windows_now;\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = \" + activewindowsnow + \" WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=\" + sideid +\"))\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "856d0d885a77635b"
+            ]
+        ]
+    },
+    {
+        "id": "856d0d885a77635b",
+        "type": "sqlite",
+        "z": "c4f77bdc618b8d18",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "039bc9136c6e91fe"
+            ]
+        ]
+    },
+    {
+        "id": "04ee7fbb8ab86114",
+        "type": "function",
+        "z": "c4f77bdc618b8d18",
+        "name": "SQL - Forest - update num hits",
+        "func": "//SQL to write updated carryover hits to database\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = msg.building_name;\nvar sideid = msg.side_id;\nvar updnumhits = msg.updated_num_hits\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET NUM_HITS = \" + updnumhits + \" WHERE (((BuildingWindowStatus.MATCH_NUM)=\" + matchid + \") AND ((BuildingWindowStatus.BUILDING_NAME)='\" + nodeid + \"') AND ((BuildingWindowStatus.BUILDING_SIDE)=\" + sideid + \"))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 460,
+        "wires": [
+            [
+                "9f19748e5802ba8c"
+            ]
+        ]
+    },
+    {
+        "id": "9f19748e5802ba8c",
+        "type": "sqlite",
+        "z": "c4f77bdc618b8d18",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1330,
+        "y": 460,
+        "wires": [
+            [
+                "3e697bf95b64118b"
+            ]
+        ]
+    },
+    {
+        "id": "df1b2e41039ba850",
+        "type": "comment",
+        "z": "c4f77bdc618b8d18",
+        "name": "remaining common flow starts here",
+        "info": "",
+        "x": 1540,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "3e697bf95b64118b",
+        "type": "link out",
+        "z": "c4f77bdc618b8d18",
+        "name": "Common Flow Out",
+        "links": [
+            "890ab98d5562fb14"
+        ],
+        "x": 1415,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "039bc9136c6e91fe",
+        "type": "switch",
+        "z": "c4f77bdc618b8d18",
+        "name": "Active Windows",
+        "property": "active_windows_now",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 840,
+        "y": 400,
+        "wires": [
+            [
+                "20be1cb8629c20f7"
+            ],
+            [
+                "04ee7fbb8ab86114"
+            ]
+        ]
+    },
+    {
+        "id": "29a246e8f40b2075",
+        "type": "link out",
+        "z": "c4f77bdc618b8d18",
+        "name": "Common Flow Out",
+        "links": [
+            "890ab98d5562fb14"
+        ],
+        "x": 1455,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "12d0110177dc7e32",
+        "type": "link in",
+        "z": "c4f77bdc618b8d18",
+        "name": "Forest In",
+        "links": [
+            "d71923a1c0b40a2a"
+        ],
+        "x": 235,
+        "y": 100,
+        "wires": [
+            [
+                "7744974b22251026"
+            ]
+        ]
+    },
+    {
+        "id": "39cabb987075b43f",
+        "type": "comment",
+        "z": "c46bd56bf00dd36c",
+        "name": "Make Forest for testing",
+        "info": "",
+        "x": 160,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "a64549c4213a0d52",
+        "type": "inject",
+        "z": "c46bd56bf00dd36c",
+        "name": "Start Forest Burn",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 860,
+        "wires": [
+            [
+                "7feb9e0e5ae901e9"
+            ]
+        ]
+    },
+    {
+        "id": "7feb9e0e5ae901e9",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Forest Burn (edit me)",
+        "func": "//edit this as needed for testing\n\nvar matchid = global.get(\"matchnum\");\nvar nodeid = \"RFOREST\"\nmsg.topic = \"UPDATE Buildings SET BURNING_STATUS = 1 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((Buildings.BUILDING_NAME)='\" + nodeid + \"'))\";\nmsg.node_id = nodeid\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 860,
+        "wires": [
+            [
+                "b741ac656ce9d62a"
+            ]
+        ]
+    },
+    {
+        "id": "b741ac656ce9d62a",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 570,
+        "y": 860,
+        "wires": [
+            [
+                "efe63f317b44ff03"
+            ]
+        ]
+    },
+    {
+        "id": "efe63f317b44ff03",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Set Forest Window Active = 2",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.node_id\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET WINDOWS_ACTIVE = 2 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"') AND ((BUILDING_SIDE)=1))\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 860,
+        "wires": [
+            [
+                "1ca455c3003006be"
+            ]
+        ]
+    },
+    {
+        "id": "1ca455c3003006be",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 970,
+        "y": 860,
+        "wires": [
+            [
+                "621b1d38284eadc3"
+            ]
+        ]
+    },
+    {
+        "id": "621b1d38284eadc3",
+        "type": "function",
+        "z": "c46bd56bf00dd36c",
+        "name": "Set Forest DPS = 0",
+        "func": "var matchid = global.get(\"matchnum\");\nvar nodeid = msg.node_id\n\nmsg.topic = \"UPDATE BuildingWindowStatus SET DAMAGE_PREVENTION_SCORE = 0 WHERE (((MATCH_NUM)=\" + matchid + \") AND ((BUILDING_NAME)='\" + nodeid + \"'))\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 860,
+        "wires": [
+            [
+                "6907ba5f65dd3821"
+            ]
+        ]
+    },
+    {
+        "id": "6907ba5f65dd3821",
+        "type": "sqlite",
+        "z": "c46bd56bf00dd36c",
+        "mydb": "6f6f2d0bf9d4b5e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQL",
+        "x": 1290,
+        "y": 860,
+        "wires": [
             []
         ]
     }
