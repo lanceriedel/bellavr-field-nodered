@@ -345,9 +345,7 @@
             "098489af083b1bf4"
         ],
         "x": 74,
-        "y": 59,
-        "w": 1702,
-        "h": 262
+        "y": 59
     },
     {
         "id": "c5248dc36aacb922",
@@ -415,9 +413,7 @@
             "8f1e1f96b41784f0"
         ],
         "x": 54,
-        "y": 919,
-        "w": 1612,
-        "h": 1542
+        "y": 919
     },
     {
         "id": "418e8e7e5f859cb1",
@@ -448,9 +444,7 @@
             "21b3888bb84ac7fb"
         ],
         "x": 1784,
-        "y": 459,
-        "w": 872,
-        "h": 362
+        "y": 459
     },
     {
         "id": "4bbf2c1d342827b1",
@@ -1353,9 +1347,7 @@
             "786dc31c8b26d179"
         ],
         "x": 54,
-        "y": 619,
-        "w": 592,
-        "h": 202
+        "y": 619
     },
     {
         "id": "b896a2547aafcc37",
@@ -1384,9 +1376,7 @@
             "5a9eac7aa8d6ccf3"
         ],
         "x": 54,
-        "y": 859,
-        "w": 1372,
-        "h": 282
+        "y": 859
     },
     {
         "id": "d07f6babdcefefa3",
@@ -1413,9 +1403,7 @@
             "f79ecab684ce047d"
         ],
         "x": 74,
-        "y": 219,
-        "w": 832,
-        "h": 262
+        "y": 219
     },
     {
         "id": "51ede297f3c78b54",
@@ -1460,9 +1448,7 @@
             "bc56178684d030be"
         ],
         "x": 54,
-        "y": 1179,
-        "w": 1552,
-        "h": 462
+        "y": 1179
     },
     {
         "id": "2be40bf2cea2fcc0",
@@ -1494,9 +1480,7 @@
             "f4a8e1577ab1f1dd"
         ],
         "x": 114,
-        "y": 1695,
-        "w": 1092,
-        "h": 446
+        "y": 1695
     },
     {
         "id": "206d71c6be221eb6",
@@ -1826,9 +1810,7 @@
             "2acb88dfe2dff74d"
         ],
         "x": 84,
-        "y": 379,
-        "w": 802,
-        "h": 222
+        "y": 379
     },
     {
         "id": "3d6c3f8c41062ab3",
@@ -1848,9 +1830,7 @@
             "200c589fa1d2bb3b"
         ],
         "x": 114,
-        "y": 639,
-        "w": 232,
-        "h": 82
+        "y": 639
     },
     {
         "id": "cc0e458f8d09ebf0",
@@ -12692,7 +12672,7 @@
         "z": "221fa9b81205c952",
         "g": "b761ec70a9ef3fae",
         "name": "Build MQTT Messages",
-        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0] (for side 1):\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n     DAMAGE_PREVENTION_SCORE: 0\n\n -- Convert these into MQTT messages \n topic: \"nodered/updatewindow/[node_id]\"\n message: { \n     \"side_id\": [side_id],\n     \"activeWindows\": [num_activeWindows]\n  }\n*/\n\n// --- Set up basic variables\nvar input = msg.allsides;\nvar theNode = input[0].BUILDING_NAME; \nvar output = []; //array of json strings\nvar msg0 = {};\nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\nvar msg4 = {};\nvar gutterSum = 0;\nif (theNode === undefined)\n    return msg;\n// --- Loop through the object (each side)\nfor (let i in input) {\n    var theSide = input[i][\"BUILDING_SIDE\"];\n    var theActiveWindows = input[i][\"WINDOWS_ACTIVE\"];\n    var theDamagedWindows = 0;\n    var theDPS = input[i][\"DAMAGE_PREVENTION_SCORE\"]\n\n    // shortcut hack done at midnight the night before\n    switch(theActiveWindows) {\n        case 0: \n// ============ WIP PAUSING HERE ============\n    }\n    var theDamagedWindows = 2 - input[i][\"DAMAGE_PREVENTION_SCORE\"];\n\n    // -- Build MQTT message for that side\n    // [[[[NEXT - DAMAGEEE??]]]]\n    output[i] = \"{ \" +\n        \"\\\"side_id\\\": \" + theSide + \", \" +\n        \"\\\"activeWindows\\\": \" + theActiveWindows +\n        \", \\\"damagedWindows\\\": \" + theDamagedWindows + \n        \"}\";\n\n    \n    \n    // -- Build up the gutter sum\n    gutterSum += theActiveWindows;\n    \n}\n\n// -- The gutter\noutput[4] = \"{ \" +\n    \"\\\"num_segments\\\": \" + gutterSum + \", \" +\n    \"\\\"color\\\": 'FF0000'\" + //red\n    \"}\";\n\n// --- Build output msgs\nmsg0.topic = \"nodered/updatewindow/\" + theNode;\nmsg0.payload = output[0];\nmsg1.topic = \"nodered/updatewindow/\" + theNode;\nmsg1.payload = output[1];\nmsg2.topic = \"nodered/updatewindow/\" + theNode;\nmsg2.payload = output[2];\nmsg3.topic = \"nodered/updatewindow/\" + theNode;\nmsg3.payload = output[3];\nmsg4.topic = \"nodered/updategutter/orderedsegments/\" + theNode;\nmsg4.payload = output[4];\n\n// node.warn(\"MQTT MESSAGES\");\n// node.warn(msg0);\n// node.warn(msg1);\n// node.warn(msg2);\n// node.warn(msg3);\n\n\n\n// --- Fin\nreturn [msg0, msg1, msg2, msg3, msg4];",
+        "func": "/*\n -- The payload coming in to this function is an object with the SQL\n    results of active windows for one building.  For example, at index[0] (for side 1):\n     BUILDING_NAME: \"LBI\"\n     BUILDING_SIDE: 1\n     WINDOWS_ACTIVE: 2\n     DAMAGE_PREVENTION_SCORE: 0\n\n -- Convert these into MQTT messages \n topic: \"nodered/updatewindow/[node_id]\"\n message: { \n     \"side_id\": [side_id],\n     \"activeWindows\": [num_activeWindows], \n     \"damagedWindows\": [num_activeWindows]\n  }\n*/\n\n// --- Set up basic variables\nvar input = msg.allsides;\nvar theNode = input[0].BUILDING_NAME; \nvar output = []; //array of json strings\nvar msg0 = {};\nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\nvar msg4 = {};\nvar gutterSumActive = 0;\nvar gutterSumDamaged = 0;\nif (theNode === undefined)\n    return msg;\n// --- Loop through the object (each side)\nfor (let i in input) {\n    var theSide = input[i][\"BUILDING_SIDE\"];\n    var theActiveWindows = input[i][\"WINDOWS_ACTIVE\"];\n    var theDamagedWindows = 0;\n    var theDPS = input[i][\"DAMAGE_PREVENTION_SCORE\"]\n\n    // shortcut hack done at midnight the night before\n    switch(theActiveWindows) {\n        case 0: \n            theDamagedWindows = 2 - theDPS;\n            break; \n        case 1:\n            theDamagedWindows = 1 - theDPS;\n            break;\n        case 2:\n            theDamagedWindows = 0;\n            break;\n    }\n    \n    // -- Build MQTT message for that side\n    output[i] = \"{ \" +\n        \"\\\"side_id\\\": \" + theSide + \", \" +\n        \"\\\"activeWindows\\\": \" + theActiveWindows +\n        \", \\\"damagedWindows\\\": \" + theDamagedWindows + \n        \"}\";\n    \n    // -- Build up the gutter sum\n    gutterSumActive += theActiveWindows;\n    gutterSumDamaged += theDamagedWindows;\n    \n}\n\n// -- The gutter\nfor(let i=0; i<gutterSumActive; i++) {\n    output[4] = \"{ \" +\n        \"\\\"segment_id\\\": \" + i + \", \" +\n        \"\\\"color\\\": 'FF0000'\" + //red\n        \"}\";\n}\nfor (let i=gutterSumActive; i < (gutterSumActive + gutterSumDamaged); i++) {\n    output[4] = \"{ \" +\n        \"\\\"segment_id\\\": \" + i + \", \" +\n        \"\\\"color\\\": 'FFFF00'\" + //yellow\n        \"}\";\n}\n\n// --- Build output msgs\nmsg0.topic = \"nodered/updatewindow/\" + theNode;\nmsg0.payload = output[0];\nmsg1.topic = \"nodered/updatewindow/\" + theNode;\nmsg1.payload = output[1];\nmsg2.topic = \"nodered/updatewindow/\" + theNode;\nmsg2.payload = output[2];\nmsg3.topic = \"nodered/updatewindow/\" + theNode;\nmsg3.payload = output[3];\nmsg4.topic = \"nodered/updategutter/bysegment/\" + theNode;\nmsg4.payload = output[4];\n\n// node.warn(\"MQTT MESSAGES\");\n// node.warn(msg0);\n// node.warn(msg1);\n// node.warn(msg2);\n// node.warn(msg3);\n\n\n\n// --- Fin\nreturn [msg0, msg1, msg2, msg3, msg4];",
         "outputs": 5,
         "noerr": 0,
         "initialize": "",
